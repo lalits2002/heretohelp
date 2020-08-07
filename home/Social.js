@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 
 const Card = props => {
   return (
     <View style={{ ...styles.card, ...props.style }}>{props.children}
+    <Text style={styles.txt} >
+      Socializing
+    </Text>
     <Image 
-    source={require('../h2h/Socializing.png')}
+    source={require('../h2h/s5.png')}
     style={styles.image}
     />
     </View>
@@ -21,15 +24,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.26,
     elevation: 8,
     backgroundColor: 'white',
-    padding: 20,
+    padding: 5,
     borderRadius: 10,
     height: 150,
   },
   image: {
-    marginLeft: 20,
-    width: '20%',
-    height: '15%'
+    position:'absolute',
+    left:'50%',
+    width: '48%',
+    height: '100%',
   },
+  txt: {
+    margin: '7%',
+  }
 });
 
 export default Card;
