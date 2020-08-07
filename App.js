@@ -1,16 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View,} from 'react-native';
+import Demo from './component/demo';
+import Card from './component/Card';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image 
-        source={require('./h2h/image1.png')}
-        style={styles.image}
-        resizeMode="cover"
-      />
-      <StatusBar style="auto" />
+      <Demo />
+      {/* <Card style={styles.social}  /> */}
     </View>
   );
 }
@@ -18,12 +16,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
-  image: {
-    width: '95%',
-    height: '95%'
-  }
+  
 });
