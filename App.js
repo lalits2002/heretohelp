@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Help2Help Under developing</Text>
+      <Image 
+        source={require('./h2h/image1.png')}
+        style={styles.image}
+        resizeMode="cover"
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -18,4 +22,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    width: '95%',
+    height: '95%'
+  }
 });
