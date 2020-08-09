@@ -22,11 +22,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2},
     shadowRadius: 6,
     shadowOpacity: 0.26,
-    elevation: 8,
+    elevation: 2,
     backgroundColor: 'white',
     padding: 0,
     borderRadius: 10,
-    height: 150,
   },
   image: {
     position:'absolute',
