@@ -1,18 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, } from 'react-native';
 
-
-import Volunteer from './component/home/Volunteer';
-
+import Screen from './navigation/Screen';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Volunteer/>
-      
-
-    </View>
-  );
+  return <Screen />
 }
 
 const styles = StyleSheet.create({

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 const Pet = props => {
   return (
-    <View style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity style={{ ...styles.card, ...props.style }}>{props.children}
     <Text style={styles.txt} >
       pet
     </Text>
@@ -11,7 +11,7 @@ const Pet = props => {
     source={require('../h2h/s6.png')}
     style={styles.image}
     />
-    </View>
+    </TouchableOpacity>
 
   );
 };

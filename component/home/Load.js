@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, Button } from 'react-native';
 
+
 const Loadscreen = props => {
 
   
@@ -15,8 +16,8 @@ const Loadscreen = props => {
          Here 2 Help connects volunteers with people who need help completing different tasks.
         </Text>
         <View style={styles.button}>
-          <Button title=" I'm Here to Volunteer " />
-          <Button title=" I need Help " />
+          <Button title=" I'm Here to Volunteer "  onPress={() => props.navigation.navigate('Details')} />
+          <Button title=" I need Help " onPress={() => props.navigation.navigate('Victim')} />
         </View>
 
         
