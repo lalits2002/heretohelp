@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-import Card from './Social';
+import Social from './Social';
 import Pet from './Pet';
 import Handy from './Handy';
 import Transport from './Transport';
@@ -13,7 +13,7 @@ const Volunteer = props => {
     <View style={{...styles.screen, ...props.style}}>{props.children}
       <View style={styles.container}>
       <Text style={styles.Heading}> What Can You Help With ? </Text>
-        <Card style={styles.social} />
+        <Social style={styles.social}  />
         <Pet style={styles.social} />
         <Handy style={styles.social} />
         <Transport style={styles.social} />

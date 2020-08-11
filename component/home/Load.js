@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, Button } from 'react-native';
+import Active_Button from '../../Items/Buttons/H2Hbuttons';
+import Button2 from '../../Items/Buttons/button2';
 
 
 const Loadscreen = props => {
@@ -15,12 +17,15 @@ const Loadscreen = props => {
         <Text style={styles.intro}>
          Here 2 Help connects volunteers with people who need help completing different tasks.
         </Text>
-        <View style={styles.button}>
-          <Button title=" I'm Here to Volunteer "  onPress={() => props.navigation.navigate('Details')} />
-          <Button title=" I need Help " onPress={() => props.navigation.navigate('Victim')} />
+        <View style={styles.Button}>
+          <Active_Button onPress={() => props.navigation.navigate('Details')} >
+            I'm Here to Volunteer 
+          </Active_Button>
+        <View style={styles.space} />
+          <Button2 onPress={() => props.navigation.navigate('Victim')} >
+            I need Help 
+          </Button2>
         </View>
-
-        
     </View>
   );
 };
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }, 
   image:{
-    bottom: '15%'
+    bottom: '13%'
   },
   intro: {
     textAlign: 'center',
@@ -40,8 +45,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     padding: '6%'
   },
-  button:{
-    width: '70%',
+  Button:{
+    top: '15%',
+  },
+  space:{
+    padding: 5
   }
   
 });

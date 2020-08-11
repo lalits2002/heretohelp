@@ -8,20 +8,20 @@ import Victim  from '../component/home/Help-need';
 import Handycraft from '../component/com/Handycraft';
 
 
-const Stack = createStackNavigator();
+const AnyConstant = createStackNavigator();
 
 function Screen() {
   return (
     <NavigationContainer>
-      <Stack.Navigator 
+      <AnyConstant.Navigator 
       screenOptions={{
       headerShown: false
       }}>
-        <Stack.Screen name="Home" component={Loadscreen} />
-        <Stack.Screen name="Details" component={Volunteer} />
-        <Stack.Screen name="Victim" component={Victim} />
-        <Stack.Screen name="Handycraft" component={Handycraft} />
-      </Stack.Navigator>
+        <AnyConstant.Screen name="Home" component={Loadscreen} />
+        <AnyConstant.Screen name="Details" component={Volunteer} />
+        <AnyConstant.Screen name="Victim" component={Victim} />
+        <AnyConstant.Screen name="Handycraft" component={Handycraft} />
+      </AnyConstant.Navigator>
     </NavigationContainer>
   );
 }

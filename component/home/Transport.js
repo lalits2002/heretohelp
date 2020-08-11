@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 const Transport = props => {
   return (
-    <TouchableOpacity style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity activeOpacity={0.8} style={{ ...styles.card, ...props.style }}>{props.children}
     <Text style={styles.txt} >
        Transport
     </Text>

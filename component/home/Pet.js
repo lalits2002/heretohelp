@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 const Pet = props => {
   return (
-    <TouchableOpacity style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity activeOpacity={0.6} style={{ ...styles.card, ...props.style }}>{props.children}
     <Text style={styles.txt} >
       pet
     </Text>
@@ -12,7 +12,6 @@ const Pet = props => {
     style={styles.image}
     />
     </TouchableOpacity>
-
   );
 };
 

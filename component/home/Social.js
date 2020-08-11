@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
-const Card = props => {
+const Social = props => {
   return (
-    <TouchableOpacity style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity activeOpacity={0.8} style={{ ...styles.Social, ...props.style }}>{props.children}
     <Text style={styles.txt} >
       Socializing
     </Text>
@@ -17,7 +17,7 @@ const Card = props => {
 };
 
 const styles = StyleSheet.create({
-  card: {
+  Social: {
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2},
     shadowRadius: 6,
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Card;
+export default Social;

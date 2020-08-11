@@ -3,15 +3,15 @@ import { View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 
 const Handy = props => {
   return (
-    <TouchableOpacity style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity activeOpacity={0.8} style={{ ...styles.card, ...props.style }}>{props.children}
     <Text style={styles.txt} >
       HandyWork
     </Text>
     <Image 
     source={require('../h2h/s7.png')}
     style={styles.image}
-    />
-    </TouchableOpacity>
+    /> 
+    </TouchableOpacity >
     
 
   );
