@@ -9,7 +9,7 @@ const Loadscreen = props => {
   
 
   return (
-    <View style={{ ...styles.load, ...props.style }}>{props.children}
+    <View style={styles.load}>
         <Image 
           source = {require('../h2h/load1.png')}
           style={styles.image}

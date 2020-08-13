@@ -10,7 +10,7 @@ import Transport from './Transport';
 
 const Volunteer = props => {
   return (
-    <View style={{...styles.screen, ...props.style}}>{props.children}
+    <View style={styles.screen}>{props.children}
       <View style={styles.container}>
       <Text style={styles.Heading}> What Can You Help With ? </Text>
         <Social style={styles.social}  />
@@ -28,19 +28,22 @@ const Volunteer = props => {
 const styles = StyleSheet.create({
   screen: {
     flex:1,
+    flexDirection: 'column',
+    flexWrap: 'wrap',
   },
   Heading: {
   padding: '3.5%',
   marginVertical: '6%',
   fontSize: 29,
-  fontWeight: '100'
+  fontWeight: '100',
+  fontFamily: 'open-sans-bold',
   },
   container: {
-    flex: 6,
+    flex: 7,
     justifyContent: 'flex-end',
-    height: '85%',
     paddingTop: '8%',
     backgroundColor: '#E5E5E5',
+    paddingBottom: '4%'
   },
   container2: {
     flex: 1,
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
   social:{
     marginHorizontal: '3%',
     marginVertical:'2.5%',
-    height: '18%',
+    height: '18.6%',
   },
  
 });

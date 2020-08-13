@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   image: {
     position:'absolute',
-    left:'50%',
-    width: '48%',
+    alignSelf: 'flex-end',
+    width:'50%',
     height: '100%',
   },
   txt: {
