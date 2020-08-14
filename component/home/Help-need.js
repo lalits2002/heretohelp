@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text} from 'react-native';
 
-import Card from './Social';
+import Social from './Social';
 import Pet from './Pet';
 import Handy from './Handy';
 import Transport from './Transport';
+import Tabscreen from '../TabScreen/TabScreen';
 
 
 
@@ -13,13 +14,13 @@ const Victim = props => {
     <View style={{...styles.screen, ...props.style}}>{props.children}
       <View style={styles.container}>
       <Text style={styles.Heading}> What Do You Need Help With ? </Text>
-        <Card style={styles.social} />
+        <Social style={styles.social} />
         <Pet style={styles.social} />
         <Handy style={styles.social} />
         <Transport style={styles.social} />
       </View>
       <View style={styles.container2}>
-        
+        <Tabscreen />
       </View>
     </View>
   );
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   },
   Heading: {
   padding: '3.5%',
-  fontFamily: 'open-sans-bold',
+  
   fontSize: 20
   },
   container: {

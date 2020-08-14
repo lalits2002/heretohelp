@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '500',
-    padding: '6%'
+    padding: '6%',
   },
   Button:{
     top: '15%',
