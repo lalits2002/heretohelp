@@ -10,11 +10,14 @@ import Tabscreen from '../TabScreen/TabScreen';
 
 
 const Victim = props => {
+ 
   return (
-    <View style={{...styles.screen, ...props.style}}>{props.children}
+    <View style={styles.screen}>{props.children}
       <View style={styles.container}>
-      <Text style={styles.Heading}> What Do You Need Help With ? </Text>
-        <Social style={styles.social} />
+        <View style={styles.head} >
+          <Text style={styles.Heading}> What Do You Need Help With ? </Text>
+        </View>
+        <Social style={styles.social}  />
         <Pet style={styles.social} />
         <Handy style={styles.social} />
         <Transport style={styles.social} />
@@ -29,30 +32,41 @@ const Victim = props => {
 const styles = StyleSheet.create({
   screen: {
     flex:1,
-  },
-  Heading: {
-  padding: '3.5%',
-  
-  fontSize: 20
+    flexDirection: 'column',
+   
   },
   container: {
-    flex: 6,
+    flex: 10,
     justifyContent: 'flex-end',
-    height: '85%',
-    paddingTop: '8%',
+    flexDirection: 'column',
+    // paddingTop: '8%',
     backgroundColor: '#E5E5E5',
+    paddingBottom: '4%'
   },
-  container2: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'white',
+  head: {
+    flex:1,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    padding: '2%',
   },
   social:{
     marginHorizontal: '3%',
-    marginVertical:'2.5%',
-    height: '18%',
+    marginVertical:'2.1%',
+    height: '18.6%',
+    
   },
- 
+  container2: {
+    flex: 1,
+    paddingTop: '7%',
+    backgroundColor: 'white',
+  },
+
+  Heading: {
+    fontSize: 22,
+    fontWeight: '100',
+    padding: '1%',
+    
+    },
 });
 
 export default Victim;
