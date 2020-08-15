@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity,Button } from 'react-native';
 
 const Pet = props => {
   return (

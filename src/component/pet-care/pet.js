@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, } from 'react-native';
 
 const PetScreen = props => {
-    <View style={styles.petscreen} >
+    <View style={styles.petscreen} >{props.children}
         <Text>PetScreen</Text>
     </View>
 }

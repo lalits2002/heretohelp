@@ -17,8 +17,9 @@ const Volunteer = props => {
         <View style={styles.head} >
           <Text style={styles.Heading}> What Can You Help With ? </Text>
         </View>
+        
         <TouchableOpacity style={styles.social}>
-          <Social  />
+          <Social />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.social}>

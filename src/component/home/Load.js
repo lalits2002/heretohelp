@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, Button } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import Active_Button from '../../Items/Buttons/H2Hbuttons';
 import Button2 from '../../Items/Buttons/button2';
 
@@ -18,7 +18,7 @@ const Loadscreen = props => {
          Here 2 Help connects volunteers with people who need help completing different tasks.
         </Text>
         <View style={styles.Button}>
-          <Active_Button onPress={() => props.navigation.navigate('volunteer')} >
+          <Active_Button onPress={() => props.navigation.navigate('vol')} >
             I'm Here to Volunteer 
           </Active_Button>
         <View style={styles.space} />
