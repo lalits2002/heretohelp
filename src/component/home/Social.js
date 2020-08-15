@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { TouchableOpacity, StyleSheet, Image, Text} from 'react-native';
 
 const Social = props => {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={{ ...styles.Social, ...props.style }}>{props.children}
+    <TouchableOpacity activeOpacity={0.6} style={styles.Social}>
     <Text style={styles.txt} >
       Socializing
     </Text>
@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 5,
     borderRadius: 10,
+    height: '100%',
+    
   },
   image: {
     position:'absolute',

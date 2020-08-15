@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: 'white',
     borderRadius: 10,
+    height: '100%',
   },
   image: {
     position:'absolute',

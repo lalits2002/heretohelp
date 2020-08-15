@@ -8,7 +8,7 @@ const TabScreen = props => {
      
       <TouchableOpacity style={styles.icon} >
         <Image 
-        source={require('../../Items/Icons/home.png')}
+        source={require('../Items/Icons/home.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -18,7 +18,7 @@ const TabScreen = props => {
       </TouchableOpacity>
       <TouchableOpacity style={styles.icon}>
         <Image 
-        source={require('../../Items/Icons/Map.png')}
+        source={require('../Items/Icons/Map.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -29,7 +29,7 @@ const TabScreen = props => {
       </TouchableOpacity>
       <TouchableOpacity style={styles.icon}>
         <Image 
-        source={require('../../Items/Icons/Frame.png')}
+        source={require('../Items/Icons/Frame.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -40,7 +40,7 @@ const TabScreen = props => {
       </TouchableOpacity>
       <TouchableOpacity style={styles.icon}>
         <Image 
-        source={require('../../Items/Icons/user1.png')}
+        source={require('../Items/Icons/user1.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',

@@ -18,7 +18,7 @@ const Loadscreen = props => {
          Here 2 Help connects volunteers with people who need help completing different tasks.
         </Text>
         <View style={styles.Button}>
-          <Active_Button onPress={() => props.navigation.navigate('Details')} >
+          <Active_Button onPress={() => props.navigation.navigate('volunteer')} >
             I'm Here to Volunteer 
           </Active_Button>
         <View style={styles.space} />

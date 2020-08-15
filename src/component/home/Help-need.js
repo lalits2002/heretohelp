@@ -1,26 +1,38 @@
 import React from 'react';
-import { StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import Social from './Social';
 import Pet from './Pet';
 import Handy from './Handy';
 import Transport from './Transport';
-import Tabscreen from '../TabScreen/TabScreen';
+import Tabscreen from '../../TabScreen/TabScreen';
 
 
 
-const Victim = props => {
- 
+const Volunteer = props => {
+
   return (
     <View style={styles.screen}>{props.children}
       <View style={styles.container}>
         <View style={styles.head} >
-          <Text style={styles.Heading}> What Do You Need Help With ? </Text>
+          <Text style={styles.Heading}> What Help You Need With ? </Text>
         </View>
-        <Social style={styles.social}  />
-        <Pet style={styles.social} />
-        <Handy style={styles.social} />
-        <Transport style={styles.social} />
+        <TouchableOpacity style={styles.social}>
+          <Social  />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.social}>
+          <Pet />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.social}>
+          <Handy  />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.social}>
+         <Transport />
+        </TouchableOpacity>
+
       </View>
       <View style={styles.container2}>
         <Tabscreen />
@@ -37,7 +49,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 10,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     flexDirection: 'column',
     // paddingTop: '8%',
     backgroundColor: '#E5E5E5',
@@ -50,8 +62,8 @@ const styles = StyleSheet.create({
     padding: '2%',
   },
   social:{
-    marginHorizontal: '3%',
-    marginVertical:'2.1%',
+    marginHorizontal: '4%',
+    marginVertical: '2.4%',
     height: '18.6%',
     
   },
@@ -69,5 +81,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Victim;
+export default Volunteer;
 

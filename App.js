@@ -3,7 +3,7 @@ import { StyleSheet, View, } from 'react-native';
 import { AppLoading } from 'expo';
 import { useFonts, Inter_900Black, } from '@expo-google-fonts/inter';
 
-import Screen from './src/navigation/Screen';
+import HomeScreen from './src/navigation/HomeScreen';
 
 
 
@@ -25,7 +25,7 @@ export default function App() {
 
 
 
-  return <Screen />
+  return <HomeScreen />
 }
 
 const styles = StyleSheet.create({
