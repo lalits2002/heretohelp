@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity,Button } from 'react-native';
 
 import Social from './Social';
 import Pet from './Pet';
@@ -9,7 +9,9 @@ import Tabscreen from '../../TabScreen/TabScreen';
 
 
 
+
 const Volunteer = props => {
+  
 
   return (
     <View style={{...styles.screen, ...props.style}}>{props.children}
@@ -19,7 +21,7 @@ const Volunteer = props => {
         </View>
         
         <TouchableOpacity style={styles.social}>
-          <Social />
+          <Social  />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.social}>
@@ -40,7 +42,7 @@ const Volunteer = props => {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   screen: {

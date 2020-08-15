@@ -2,25 +2,57 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+
+
 import Loadscreen from '../component/home/Load'; 
 import Volunteer  from '../component/home/Volunteer'; 
 import Victim  from '../component/home/Help-need';
-import Pet from '../component/home/Pet';
-import PetScreen from '../component/pet-care/pet';
-import Transport_screen from '../component/transportation/transportation';
 import Social_Screen from '../component/socialise/socialise-screen';
+import PetScreen from '../component/pet-care/pet';
+import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
+import Transport_screen from '../component/transportation/transportation';
+
 
 
 const HomeConstant = createStackNavigator();
-const VolunteerConstant = createStackNavigator();
 
-function Volunteer_Screen() {
-  return (
-    <VolunteerConstant.Navigator mode='modal' screenOptions={{headerShown: false}}>
-      <VolunteerConstant.Screen name='volunteer' component={Volunteer} />
-    </VolunteerConstant.Navigator>
+
+function SocialScreen() {
+  return(
+    <HomeConstant.Navigator >
+      <HomeConstant.Screen name="social_screen1" component={Social_Screen} />
+    </HomeConstant.Navigator>
   );
 };
+
+function Pet_screen() {
+  return(
+    <HomeConstant.Navigator >
+      <HomeConstant.Screen name="PetScreen1" component={PetScreen} />
+    </HomeConstant.Navigator>
+  );
+};
+
+function HandyWorkScreen() {
+  return(
+    <HomeConstant.Navigator >
+      <HomeConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
+    </HomeConstant.Navigator>
+  );
+};
+
+function TransportScreen() {
+  return(
+    <HomeConstant.Navigator >
+      <HomeConstant.Screen name="transport_screen1" component={Transport_screen} />
+    </HomeConstant.Navigator>
+  );
+};
+
+
+
+
+
 
 
 function HomeScreen() {
@@ -28,8 +60,12 @@ function HomeScreen() {
     <NavigationContainer>
       <HomeConstant.Navigator screenOptions={{headerShown: false}}>
         <HomeConstant.Screen name="Home" component={Loadscreen} />
-        <HomeConstant.Screen name="vol" component={Volunteer_Screen} />
+        <HomeConstant.Screen name="vol" component={Volunteer} />
         <HomeConstant.Screen name="Victim" component={Victim} />
+        <HomeConstant.Screen name="social_screen" component={SocialScreen} />
+        <HomeConstant.Screen name="pet_screen" component={Pet_screen} />
+        <HomeConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
+        <HomeConstant.Screen name="transport_screen" component={TransportScreen} />
       </HomeConstant.Navigator>
      
     </NavigationContainer>

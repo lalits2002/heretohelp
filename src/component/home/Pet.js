@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TouchableOpacity,Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Pet = props => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity activeOpacity={0.6} style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity onPress={() => {navigation.navigate('pet_screen')}} activeOpacity={0.6} style={{ ...styles.card, ...props.style }}>{props.children}
     <Text style={styles.txt} >
       pet
     </Text>

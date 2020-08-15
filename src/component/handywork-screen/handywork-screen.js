@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, } from 'react-native';
 
-const Social_Screen = props => {
+const HandyWork_Screen = props => {
     return(
     <View style={styles.screen} >
-        <Text>Social_Screen</Text>
+        <Text>HandyWork_Screen</Text>
     </View>
     );
 }
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Social_Screen;
+export default HandyWork_Screen;

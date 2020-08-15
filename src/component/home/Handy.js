@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Handy = props => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity activeOpacity={0.8} style={{ ...styles.card, ...props.style }}>{props.children}
+    <TouchableOpacity onPress={() => {navigation.navigate('handywork_screen')}} activeOpacity={0.8} style={{ ...styles.card, ...props.style }}>{props.children}
     <Text style={styles.txt} >
       HandyWork
     </Text>

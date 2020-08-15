@@ -1,9 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Image, Text} from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
+
+
+
 const Social = props => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity activeOpacity={0.6} style={styles.Social}>
+    <TouchableOpacity onPress={() => {navigation.navigate('social_screen')}}  activeOpacity={0.6} style={styles.Social}>{props.children}  
     <Text style={styles.txt} >
       Socializing
     </Text>

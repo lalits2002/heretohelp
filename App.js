@@ -8,6 +8,8 @@ import HomeScreen from './src/navigation/HomeScreen';
 
 
 
+
+
 export default function App() {
 
 
@@ -24,7 +26,7 @@ export default function App() {
 
 
 
-
+  // return <Socio/>
   return <HomeScreen />
 }
 
