@@ -3,9 +3,8 @@ import { StyleSheet, View, } from 'react-native';
 import { AppLoading } from 'expo';
 import { useFonts, Inter_900Black, } from '@expo-google-fonts/inter';
 
-import Screen from './navigation/Screen';
-import TabScreen from './component/TabScreen/TabScreen';
-import Volunteer  from './component/home/Volunteer'; 
+import Screen from './src/navigation/Screen';
+
 
 
 
@@ -24,8 +23,7 @@ export default function App() {
 
 
 
-  // return <Volunteer />
-  // return <TabScreen />
+
 
   return <Screen />
 }
