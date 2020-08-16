@@ -8,7 +8,7 @@ import Loadscreen from '../component/home/Load';
 import Volunteer  from '../component/home/Volunteer'; 
 import Victim  from '../component/home/Help-need';
 import Social_Screen from '../component/socialise/socialise-screen';
-import PetScreen from '../component/pet-care/pet';
+import Pet_Screen from '../component/pet-care/pet';
 import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
 import Transport_screen from '../component/transportation/transportation';
 
@@ -25,10 +25,10 @@ function SocialScreen() {
   );
 };
 
-function Pet_screen() {
+function Petscreen() {
   return(
     <HomeConstant.Navigator >
-      <HomeConstant.Screen name="PetScreen1" component={PetScreen} />
+      <HomeConstant.Screen name="PetScreen1" component={Pet_Screen} />
     </HomeConstant.Navigator>
   );
 };
@@ -51,10 +51,6 @@ function TransportScreen() {
 
 
 
-
-
-
-
 function HomeScreen() {
   return (
     <NavigationContainer>
@@ -63,7 +59,7 @@ function HomeScreen() {
         <HomeConstant.Screen name="vol" component={Volunteer} />
         <HomeConstant.Screen name="Victim" component={Victim} />
         <HomeConstant.Screen name="social_screen" component={SocialScreen} />
-        <HomeConstant.Screen name="pet_screen" component={Pet_screen} />
+        <HomeConstant.Screen name="pet_screen" component={Petscreen} />
         <HomeConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
         <HomeConstant.Screen name="transport_screen" component={TransportScreen} />
       </HomeConstant.Navigator>

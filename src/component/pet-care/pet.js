@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, } from 'react-native';
 
-const PetScreen = props => {
+const Pet_Screen = props => {
     return(
 
     <View style={styles.petscreen} >{props.children}
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default PetScreen;
+export default Pet_Screen;
