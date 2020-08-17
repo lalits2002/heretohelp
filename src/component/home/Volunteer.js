@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity,Button } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native';
+
 
 import Social from './Social';
 import Pet from './Pet';

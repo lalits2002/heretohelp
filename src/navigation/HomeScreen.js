@@ -12,7 +12,9 @@ import Pet_Screen from '../component/pet-care/pet';
 import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
 import Transport_screen from '../component/transportation/transportation';
 
-
+import Chat_Screen from '../servises/chat/chat';
+import Browsing_Screen from '../servises/browsing-requests/browsing-screen';
+import ProfileScreen from '../component/profile/profile';
 
 const ScreenConstant = createStackNavigator();
 
@@ -52,30 +54,6 @@ function TransportScreen() {
   );
 };
 
-function VolunteerScreen() {
-  return(
-      <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
-        <ScreenConstant.Screen name="volunteer" component={Volunteer} />
-        <ScreenConstant.Screen name="social_screen" component={SocialScreen} />
-        <ScreenConstant.Screen name="pet_screen" component={Petscreen} />
-        <ScreenConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
-        <ScreenConstant.Screen name="transport_screen" component={TransportScreen} />
-      </ScreenConstant.Navigator>
-  );
-};
-
-function VictimScreen() {
-  return (
-    <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
-        <ScreenConstant.Screen name="VictimScreen" component={Victim} />
-        <ScreenConstant.Screen name="social_screen" component={SocialScreen} />
-        <ScreenConstant.Screen name="pet_screen" component={Petscreen} />
-        <ScreenConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
-        <ScreenConstant.Screen name="transport_screen" component={TransportScreen} />
-    </ScreenConstant.Navigator>
-  );
-}
-
 
 
 function HomeScreen() {
@@ -83,8 +61,15 @@ function HomeScreen() {
     <NavigationContainer>
       <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
-        <ScreenConstant.Screen name="vol" component={VolunteerScreen} />
-        <ScreenConstant.Screen name="Victim" component={VictimScreen} />
+        <ScreenConstant.Screen name="vol" component={Volunteer} />
+        <ScreenConstant.Screen name="Victim" component={Victim} />
+        <ScreenConstant.Screen name="social_screen" component={SocialScreen} />
+        <ScreenConstant.Screen name="pet_screen" component={Petscreen} />
+        <ScreenConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
+        <ScreenConstant.Screen name="transport_screen" component={TransportScreen} />
+        <ScreenConstant.Screen name="chat" component={Chat_Screen} />
+        <ScreenConstant.Screen name="browse" component={Browsing_Screen} />
+        <ScreenConstant.Screen name="profile" component={ProfileScreen} />
         
       </ScreenConstant.Navigator>
      
