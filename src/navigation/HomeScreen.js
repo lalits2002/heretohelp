@@ -14,55 +14,79 @@ import Transport_screen from '../component/transportation/transportation';
 
 
 
-const HomeConstant = createStackNavigator();
+const ScreenConstant = createStackNavigator();
+
+
+
 
 
 function SocialScreen() {
   return(
-    <HomeConstant.Navigator >
-      <HomeConstant.Screen name="social_screen1" component={Social_Screen} />
-    </HomeConstant.Navigator>
+    <ScreenConstant.Navigator >
+      <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
+    </ScreenConstant.Navigator>
   );
 };
 
 function Petscreen() {
   return(
-    <HomeConstant.Navigator >
-      <HomeConstant.Screen name="PetScreen1" component={Pet_Screen} />
-    </HomeConstant.Navigator>
+    <ScreenConstant.Navigator >
+      <ScreenConstant.Screen name="PetScreen1" component={Pet_Screen} />
+    </ScreenConstant.Navigator>
   );
 };
 
 function HandyWorkScreen() {
   return(
-    <HomeConstant.Navigator >
-      <HomeConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
-    </HomeConstant.Navigator>
+    <ScreenConstant.Navigator >
+      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
+    </ScreenConstant.Navigator>
   );
 };
 
 function TransportScreen() {
   return(
-    <HomeConstant.Navigator >
-      <HomeConstant.Screen name="transport_screen1" component={Transport_screen} />
-    </HomeConstant.Navigator>
+    <ScreenConstant.Navigator >
+      <ScreenConstant.Screen name="transport_screen1" component={Transport_screen} />
+    </ScreenConstant.Navigator>
   );
 };
+
+function VolunteerScreen() {
+  return(
+      <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
+        <ScreenConstant.Screen name="volunteer" component={Volunteer} />
+        <ScreenConstant.Screen name="social_screen" component={SocialScreen} />
+        <ScreenConstant.Screen name="pet_screen" component={Petscreen} />
+        <ScreenConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
+        <ScreenConstant.Screen name="transport_screen" component={TransportScreen} />
+      </ScreenConstant.Navigator>
+  );
+};
+
+function VictimScreen() {
+  return (
+    <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
+        <ScreenConstant.Screen name="VictimScreen" component={Victim} />
+        <ScreenConstant.Screen name="social_screen" component={SocialScreen} />
+        <ScreenConstant.Screen name="pet_screen" component={Petscreen} />
+        <ScreenConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
+        <ScreenConstant.Screen name="transport_screen" component={TransportScreen} />
+    </ScreenConstant.Navigator>
+  );
+}
 
 
 
 function HomeScreen() {
   return (
     <NavigationContainer>
-      <HomeConstant.Navigator screenOptions={{headerShown: false}}>
-        <HomeConstant.Screen name="Home" component={Loadscreen} />
-        <HomeConstant.Screen name="vol" component={Volunteer} />
-        <HomeConstant.Screen name="Victim" component={Victim} />
-        <HomeConstant.Screen name="social_screen" component={SocialScreen} />
-        <HomeConstant.Screen name="pet_screen" component={Petscreen} />
-        <HomeConstant.Screen name="handywork_screen" component={HandyWorkScreen} />
-        <HomeConstant.Screen name="transport_screen" component={TransportScreen} />
-      </HomeConstant.Navigator>
+      <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
+        <ScreenConstant.Screen name="Home" component={Loadscreen} />
+        <ScreenConstant.Screen name="vol" component={VolunteerScreen} />
+        <ScreenConstant.Screen name="Victim" component={VictimScreen} />
+        
+      </ScreenConstant.Navigator>
      
     </NavigationContainer>
   );
