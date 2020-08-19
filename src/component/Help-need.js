@@ -1,41 +1,41 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
+<<<<<<< HEAD
+=======
 
-import Social from './Social';
-import Pet from './Pet';
-import Handy from './Handy';
-import Transport from './Transport';
-import Tabscreen from '../../TabScreen/TabScreen';
-
+>>>>>>> de706abf2a86294a0747e69772cdbb6fa65e9fc8
+import Social from './home/Social';
+import Pet from './home/Pet';
+import Handy from './home/Handy';
+import Transport from './home/Transport';
+import Tabscreen from './TabScreen/TabScreen';
 
 
 
 const Volunteer = props => {
-  
 
   return (
-    <View style={{...styles.screen, ...props.style}}>{props.children}
+    <View style={styles.screen}>{props.children}
       <View style={styles.container}>
         <View style={styles.head} >
-          <Text style={styles.Heading}> What Can You Help With ? </Text>
+          <Text style={styles.Heading}> What Help You Need With ? </Text>
         </View>
-        
-        <TouchableOpacity style={styles.social}>
+        <View  style={styles.social}>
           <Social  />
-        </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity style={styles.social}>
+        <View style={styles.social}>
           <Pet />
-        </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity style={styles.social}>
+        <View style={styles.social}>
           <Handy  />
-        </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity style={styles.social}>
+        <View style={styles.social}>
          <Transport />
-        </TouchableOpacity>
+        </View>
 
       </View>
       <View style={styles.container2}>
@@ -43,7 +43,7 @@ const Volunteer = props => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   screen: {

@@ -1,45 +1,58 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native';
 
-import Social from './Social';
-import Pet from './Pet';
-import Handy from './Handy';
-import Transport from './Transport';
-import Tabscreen from '../../TabScreen/TabScreen';
 
+import Social from './home/Social';
+import Pet from './home/Pet';
+import Handy from './home/Handy';
+import Transport from './home/Transport';
+import Tabscreen from './TabScreen/TabScreen';
+
+
+const Volunteer_Components = props => {
+  return(
+    <View style={styles.container}>
+      
+        <View style={styles.head} >
+          <Text style={styles.Heading}> What Can You Help With ? </Text>
+        </View>
+
+        <View style={styles.social}>
+          <Social />
+        </View>
+
+        <View style={styles.social}>
+          <Pet />
+        </View>
+
+        <View style={styles.social}>
+          <Handy  />
+        </View>
+
+        <View style={styles.social}>
+         <Transport />
+        </View>
+
+      </View>
+  );
+};
+
+
+// upper screen component
+const screen  = <Volunteer_Components />
 
 
 const Volunteer = props => {
 
   return (
-    <View style={styles.screen}>{props.children}
-      <View style={styles.container}>
-        <View style={styles.head} >
-          <Text style={styles.Heading}> What Help You Need With ? </Text>
-        </View>
-        <TouchableOpacity  style={styles.social}>
-          <Social  />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.social}>
-          <Pet />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.social}>
-          <Handy  />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.social}>
-         <Transport />
-        </TouchableOpacity>
-
-      </View>
+    <View style={{...styles.screen, ...props.style}}>{props.children}
+      {screen}
       <View style={styles.container2}>
         <Tabscreen />
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   screen: {
