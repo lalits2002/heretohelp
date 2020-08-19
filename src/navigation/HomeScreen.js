@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Loadscreen from '../component/home/Load'; 
-import Volunteer  from '../component/home/Volunteer'; 
-import Victim  from '../component/home/Help-need';
+import Volunteer  from '../component/Volunteer'; 
+import Victim  from '../component/Help-need';
 import Social_Screen from '../component/socialise/socialise-screen';
 import Pet_Screen from '../component/pet-care/pet';
 import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
