@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
+
 import Social from './home/Social';
 import Pet from './home/Pet';
 import Handy from './home/Handy';
