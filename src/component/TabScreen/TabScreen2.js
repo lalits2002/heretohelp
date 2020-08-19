@@ -1,19 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 
-const TabScreen = props => {
-
-  const navigation = useNavigation();
-
-
+const TabScreen2 = props => {
   return(
     <View style={{...styles.tabScreen, ...props.style}} >
      
-      <TouchableOpacity style={styles.icon}  >
+      <TouchableOpacity style={styles.icon} >
         <Image 
-        source={require('../Items/Icons/home.png')}
+        source={require('../Items/Icons/home1.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -21,9 +16,9 @@ const TabScreen = props => {
           }}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.icon} onPress={() => {navigation.navigate('browse')}} >
+      <TouchableOpacity style={styles.icon}>
         <Image 
-        source={require('../Items/Icons/Map.png')}
+        source={require('../Items/Icons/Map1.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -32,9 +27,9 @@ const TabScreen = props => {
         }}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.icon} onPress={() => {navigation.navigate('chat')}} >
+      <TouchableOpacity style={styles.icon}>
         <Image 
-        source={require('../Items/Icons/Frame.png')}
+        source={require('../Items/Icons/Frame1.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -43,9 +38,9 @@ const TabScreen = props => {
         }}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.icon} onPress={() => {navigation.navigate('profile')}} >
+      <TouchableOpacity style={styles.icon}>
         <Image 
-        source={require('../Items/Icons/user1.png')}
+        source={require('../Items/Icons/user2.png')}
         resizeMode='center'
         style={{
           maxWidth:'45%',
@@ -75,4 +70,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default TabScreen;
+export default TabScreen2;
