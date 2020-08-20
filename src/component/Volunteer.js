@@ -2,8 +2,10 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native';
 
 
-
-import Volunteer_Components from './home/volunteer-component';
+import Social from './home/Social';
+import Pet from './home/Pet';
+import Handy from './home/Handy';
+import Transport from './home/Transport';
 import Tabscreen from './TabScreen/TabScreen';
 
 
@@ -36,10 +38,8 @@ const Volunteer_Components = props => {
 };
 
 
-
-
-// Upper screen component for volunteer
-let screen  = <Volunteer_Components />
+// upper screen component
+const screen  = <Volunteer_Components />
 
 
 const Volunteer = props => {
