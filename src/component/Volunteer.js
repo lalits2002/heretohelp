@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   container2: {
     flex: 1,
-    paddingTop: '7%',
+    paddingTop: '12%',
     backgroundColor: 'white',
   },
 
