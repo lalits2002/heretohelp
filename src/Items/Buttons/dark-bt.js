@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 
-const Active_Button = props => {
+const Dark_Button = props => {
     return (
       <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>
         <View style={styles.button}>
@@ -29,6 +29,6 @@ const Active_Button = props => {
     }
   });
 
-export default Active_Button;
+export default Dark_Button;
 
   

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-import Active_Button from '../../Items/Buttons/H2Hbuttons';
-import Button2 from '../../Items/Buttons/button2';
+import Dark_Button from '../../Items/Buttons/dark-bt';
+import Button2 from '../../Items/Buttons/light-bt';
 
 
 const Loadscreen = props => {
@@ -18,13 +18,15 @@ const Loadscreen = props => {
          Here 2 Help connects volunteers with people who need help completing different tasks.
         </Text>
         <View style={styles.Button}>
-          <Active_Button onPress={() => props.navigation.navigate('vol')} >
+
+          <Dark_Button onPress={() => props.navigation.navigate('vol')} >
             I'm Here to Volunteer 
-          </Active_Button>
-        <View style={styles.space} />
+          </Dark_Button>
+                 <View style={styles.space} />
           <Button2 onPress={() => props.navigation.navigate('Victim')} >
             I need Help 
           </Button2>
+
         </View>
     </View>
   );
@@ -47,6 +49,7 @@ const styles = StyleSheet.create({
   },
   Button:{
     top: '15%',
+
   },
   space:{
     padding: 5
