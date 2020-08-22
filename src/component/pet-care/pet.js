@@ -1,71 +1,115 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, Button } from "react-native";
+import React from 'react';
+import { StyleSheet, View, Text, Image, } from 'react-native';
 
-import Dark_Button from "../../Items/Buttons/dark-bt";
-const Pet_Screen = (props) => {
-  return (
-    <View style={styles.petscreen}>
-      {props.children}
+import Dark_Button from '../../Items/Buttons/dark-bt';
+import Colors from '../../Items/Colors';
 
-      <View>
-        <Text style={styles.title}>Pet Care</Text>
-      </View>
 
-      <View style={styles.bodyContainer}>
-        <Image style={styles.image} source={require("../h2h/s6.png")} />
+const ProfileScreen = props => {
+    return(
 
-        <Text style={styles.description}>
-          All of our best friends require some extra TLC . That can mean
-          grooming, pet-sitting, pet walking.
-        </Text>
-
-        <Text style={styles.typeSelectText}>Select type of Pet Care</Text>
-        {/* Allocating the space for future implimentation of select */}
-        <View style={styles.typeSelect} />
-
-        <View style={styles.btn}>
-          <Dark_Button>Request for Pet Care</Dark_Button>
-        </View>
-      </View>
+    <View style={styles.screen} >
+    <View style={styles.container1}>
+        <Text style={styles.head}> Pet Care</Text>
     </View>
-  );
+    <View style={styles.container2}>
+      <Image 
+      source={require('../h2h/s6.png')}
+      resizeMode = 'cover'
+      style={{
+        width: '57%',
+        height: '100%',
+        alignSelf: 'center'
+      }}
+       />
+    </View>
+    <View style={styles.container3}>
+        <Text style={styles.head2}> All of our best friends require some extra</Text> 
+        <Text style={styles.head2}> TLC. That can mean grooming, pet-setting,</Text> 
+        <Text style={styles.head2}> pet walking.</Text> 
+      
+    </View>
+    <View style={styles.container4}>
+      <Text style={styles.head3}>Select type of Pet Care</Text> 
+    </View>
+    <View style={styles.container5}>
+     <Text style={{alignSelf: 'center'}}>Pet sitting</Text> 
+     <Text style={{alignSelf: 'center'}}>Dog walking</Text> 
+     <Text style={{alignSelf: 'center'}}>Other</Text> 
+    </View>
+    <View style={styles.container6}>
+       <Dark_Button>
+         <Text> HandyWork</Text>
+       </Dark_Button>
+    </View>
+    </View>
+    );  
 };
 
 const styles = StyleSheet.create({
-  petscreen: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: "4%",
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-  },
-  image: { width: "50%", height: 200 },
+    screen: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '1.8%'
+    },
+    container1:{
+      flex: 1,
+      width: '100%',
+      // backgroundColor: '#C6C438',
+    },
+    container2:{
+      flex:2.3,
+      width: '100%',
+      // backgroundColor: '#A596D3',
+      
+    },
+    container3:{
+      flex: 1.3,
+      flexDirection: 'column',
+      width: '100%',
+      paddingHorizontal: '2%',
+      paddingTop: '5%',
+    },
+    container4:{
+      flex:1.8,
+      width: '100%',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      // backgroundColor: '#267DA5',
+    },
+    container5:{
+      flex:4,
+      width: '100%',
+      flexDirection: 'column',
+      justifyContent:'center',
+      alignSelf: 'center'
+      // backgroundColor: '#86EC4F',
+    },
+    container6:{
+      flex:1.7,
+      width: '100%',
+      // backgroundColor: '#9811C9',
+      paddingHorizontal: '2%',
+      paddingTop: '5%'
+    },
+   head: {
+     fontSize: 26,
+     fontWeight: 'bold',
+     color: Colors.primary1
+   },
+   head2: {
+     alignSelf: 'flex-start',
+     fontSize: 18.5,
+     color: Colors.primary2
+   },
+   head3: {
+    fontSize: 17.5,
+    alignSelf: 'center',
+    fontWeight: 'bold',
+  }
 
-  bodyContainer: {
-    alignItems: "center",
-  },
-  description: {
-    fontSize: 18,
-    fontWeight: "800",
-  },
-  typeSelectText: {
-    fontWeight: "bold",
-    fontSize: 18,
-    marginVertical: 25,
-  },
-  typeSelect: {
-    width: "100%",
-    height: 100,
-    borderBottomColor: "#111",
-    borderWidth: 1,
-    backgroundColor: "rgb(250, 250, 250)",
-    opacity: 0.2,
-  },
-  btn: {
-    marginTop: 30,
-  },
 });
 
-export default Pet_Screen;
+export default ProfileScreen;
