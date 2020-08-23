@@ -4,9 +4,9 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen2 = (props) => {
+const Pet_screen2 = props => {
   return (
-    <View style={styles.screen}>
+    <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.container1}>
         <Text style={styles.head}> Pet Care </Text>
       </View>
@@ -30,7 +30,7 @@ const Pet_screen2 = (props) => {
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button>
+        <Dark_Button onPress={() => props.navigation.navigate('PetScreen2')} >
           <Text> Next</Text>
         </Dark_Button>
       </View>
