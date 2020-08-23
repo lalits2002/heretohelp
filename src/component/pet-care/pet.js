@@ -13,9 +13,9 @@ const ProfileScreen = (props) => {
       <View style={styles.container2}>
         <Image
           source={require("../h2h/s6.png")}
-          resizeMode="contain"
+          resizeMode='cover'
           style={{
-            width: "100%",
+            width: "65%",
             height: "100%",
             alignSelf: "center",
           }}
@@ -29,7 +29,7 @@ const ProfileScreen = (props) => {
           practical phones did
         */}
         <Text style={styles.head2}>
-          {" "}
+          {""}
           All of our best friends require some extra TLC. That can mean
           grooming, pet-setting, pet walking.
         </Text>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingTop: "5%",
   },
   container4: {
-    flex: 1.8,
+    flex: 1,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
