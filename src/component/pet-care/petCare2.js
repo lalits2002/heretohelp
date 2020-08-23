@@ -22,7 +22,8 @@ const Pet_screen2 = props => {
             width: "27%",
             alignSelf: "center",
           }}
-          source={require("../../../assets/Icons/calender.jpeg")}
+          // change the source of the image
+          source={require('../../Items/Icons/calender.jpeg')}
         />
       </View>
       <View style={styles.container4}>
