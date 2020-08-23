@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const ProfileScreen = (props) => {
+const Pet_screen2 = (props) => {
   return (
     <View style={styles.screen}>
       <View style={styles.container1}>
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default Pet_screen2;

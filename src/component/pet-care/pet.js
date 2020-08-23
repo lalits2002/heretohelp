@@ -1,12 +1,15 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 
+import { useNavigation } from '@react-navigation/native';
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const ProfileScreen = (props) => {
+const Pet_Screen = props => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.screen}>
+    <View style={styles.screen}>{props.onPress}
       <View style={styles.container1}>
         <Text style={styles.head}> Pet Care</Text>
       </View>
@@ -43,8 +46,8 @@ const ProfileScreen = (props) => {
         <Text style={{ alignSelf: "center" }}>Other</Text>
       </View>
       <View style={styles.container6}>
-        <Dark_Button>
-          <Text> HandyWork</Text>
+        <Dark_Button onPress={() => props.navigation.navigate('PetScreen2')} >
+          <Text > HandyWork</Text>
         </Dark_Button>
       </View>
     </View>
@@ -115,4 +118,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default Pet_Screen;
