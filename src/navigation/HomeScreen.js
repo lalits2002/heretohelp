@@ -9,7 +9,7 @@ import Volunteer  from '../component/Volunteer';
 import Victim  from '../component/Help-need';
 import Social_Screen from '../component/socialise/socialise-screen';
 import Pet_Screen from '../component/pet-care/pet';
-import Pet_screen2 from '../component/pet-care/petCare2';
+import Pet_screen2 from "../component/pet-care/petCare2";
 import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
 import Transport_screen from '../component/transportation/transportation';
 
@@ -80,3 +80,26 @@ function HomeScreen() {
 }
 
 export default HomeScreen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
