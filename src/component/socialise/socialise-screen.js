@@ -50,7 +50,7 @@ const Social_Screen = props => {
 
 const styles = StyleSheet.create({
     screen: {
-        // flex: 1,
+        flex: 1,
         height:'100%',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -69,14 +69,19 @@ const styles = StyleSheet.create({
     },
     container3:{
         flex: 1.2,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
         width: '100%',
+        paddingHorizontal: "2%",
         // backgroundColor: '#8af249',
     },
     container4:{
         flex: 0.5,
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         width: '100%',
+        paddingTop: '2%',
+        
         // backgroundColor: '#59e6f0',
     },
     container5:{
