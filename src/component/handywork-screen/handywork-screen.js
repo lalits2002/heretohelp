@@ -14,7 +14,6 @@ const HandyWork_Screen = props => {
         <Image 
           source={require('../h2h/s7.png')}
           resizeMode= 'contain'
-          // resizeMethod= 'auto'
           style={{
             width: '60%',
             height: '95%',
@@ -51,6 +50,7 @@ const HandyWork_Screen = props => {
 const styles = StyleSheet.create({
     screen: {
       flex: 1,
+      
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
@@ -58,33 +58,40 @@ const styles = StyleSheet.create({
       paddingBottom: '5%'
     },
     container1: {
-      flex: 1,
+      flex: 0.55,
       width: '100%',
       alignSelf: 'flex-start',
       paddingHorizontal: '4%',
+      //  backgroundColor: '#fcba03',
     },
    
     container2: {
-      flex: 2.3,
+      flex: 2,
+      flexDirection: 'column',
+      justifyContent:'center',
       width: '100%',
+      // backgroundColor: '#59e6f0'
       
     },
     container3: { 
-      flex: 1.3,
+      flex: 1.2,
       flexDirection: 'column',
+      justifyContent: 'center',
       width: '100%',
       paddingHorizontal: '2%',
-      paddingTop: '5%',
+      // backgroundColor: '#b5ad98',
     
      
      
     },
     container4: { 
-      flex: 1,
+      flex: 0.5,
       width: '100%',
       flexDirection: 'column',
-      justifyContent :'center',
-      paddingVertical: '1.8%',
+      justifyContent :'flex-end',
+      paddingTop: '2%',
+      // marginTop:'8%',
+      // backgroundColor: '#8af249',
     },
     container5: { 
       flex: 4,
@@ -94,9 +101,11 @@ const styles = StyleSheet.create({
       width: '100%',
     },
     container6: { 
-      flex: 1.4,
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      width: '100%',
       // backgroundColor: '#218291',
-      width: '100%'
     },
     head: {
         color: colors.primary1,
@@ -105,7 +114,7 @@ const styles = StyleSheet.create({
       },
     head2: {
       alignSelf: 'flex-start',
-      fontSize: 18,
+      fontSize: 20,
       color: colors.primary2,
   
     },
