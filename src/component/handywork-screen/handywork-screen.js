@@ -23,9 +23,10 @@ const HandyWork_Screen = props => {
          />
       </View>
       <View style={styles.container3} >
-        <Text style={styles.head2}> Lawn too tall? Garder Filled with weeds? </Text> 
-        <Text style={styles.head2}> Drain plugged? someone near by has a</Text> 
-        <Text style={styles.head2}> hand to offer.</Text> 
+        <Text style={styles.head2}>
+          {''}
+           Lawn too tall? Garder Filled with weeds?  Drain plugged? someone near by has a hand to offer.
+        </Text> 
       </View>
       <View style={styles.container4}>
        <Text style={styles.head3}>Select type of Handywork</Text> 
