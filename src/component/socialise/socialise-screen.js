@@ -16,7 +16,7 @@ const Social_Screen = props => {
             source={require('../h2h/s5.png')}
             resizeMode= 'contain'
             style={{
-                width: '60%',
+                width: '100%',
                 height: '100%',
                 alignSelf: 'center'
             }}

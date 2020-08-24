@@ -18,9 +18,10 @@ const Pet_Screen = props => {
           source={require("../h2h/s6.png")}
           resizeMode='cover'
           style={{
-            width: "65%",
-            height: "100%",
-            alignSelf: "center",
+            width: '65%',
+            height: '100%',
+            alignSelf: 'center'
+           
           }}
         />
       </View>
@@ -63,24 +64,27 @@ const styles = StyleSheet.create({
     margin: "1.8%",
   },
   container1: {
-    flex: 1,
+    flex: 0.5,
     width: "100%",
     // backgroundColor: '#C6C438',
+    
   },
   container2: {
-    flex: 2.3,
+    flex: 2.5,
+    flexDirection: 'column',
     width: "100%",
     // backgroundColor: '#A596D3',
   },
   container3: {
-    flex: 1.3,
+    flex: 1.1,
     flexDirection: "column",
+    justifyContent: 'center',
     width: "100%",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
+    // backgroundColor: '#b5ad98',
   },
   container4: {
-    flex: 1,
+    flex: 0.53,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
@@ -95,11 +99,14 @@ const styles = StyleSheet.create({
     // backgroundColor: '#86EC4F',
   },
   container6: {
-    flex: 1.7,
+    flex: 0.7,
+    flexDirection :'column',
+    justifyContent: 'flex-start',
     width: "100%",
-    // backgroundColor: '#9811C9',
     paddingHorizontal: "2%",
-    paddingTop: "5%",
+    paddingBottom: '5%',
+    // backgroundColor: '#9811C9',
+    
   },
   head: {
     fontSize: 26,
