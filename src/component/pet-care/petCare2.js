@@ -1,12 +1,13 @@
-import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, Image, Dimensions, Alert } from "react-native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
+import CalenderComponent from "./CalenderComponent";
 
-const Pet_screen2 = props => {
+const Pet_screen2 = (props) => {
   return (
-    <View style={{ ...styles.screen, ...props.style}}>
+    <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
         <Text style={styles.head}> Pet Care </Text>
       </View>
@@ -23,15 +24,18 @@ const Pet_screen2 = props => {
             alignSelf: "center",
           }}
           // change the source of the image
-          source={require('../../Items/Icons/calender.jpeg')}
+          source={require("../../Items/Icons/calender.jpeg")}
         />
       </View>
       <View style={styles.container4}>
         <Text style={styles.head2}> What is your requested date?</Text>
       </View>
-      <View style={styles.container5}></View>
+
+      <View style={styles.container5}>
+        <CalenderComponent></CalenderComponent>
+      </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('PetScreen2')} >
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen2")}>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -72,7 +76,7 @@ const styles = StyleSheet.create({
     //backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 5.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
@@ -80,14 +84,14 @@ const styles = StyleSheet.create({
     //backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.6,
+    flex: 0.8,
     width: "100%",
     //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
   },
   head: {
-    fontSize: 26,
+    fontSize: 22,
     fontWeight: "bold",
     color: Colors.primary1,
   },
