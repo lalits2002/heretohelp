@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 const Social_Screen = props => {
-    return(
+    const navigation = useNavigation();
+
+
+    return (
 
     <View style={styles.screen} >
         <View style={styles.container1}>
@@ -39,7 +42,7 @@ const Social_Screen = props => {
         <Text style={{alignSelf: 'center'}}>Date</Text>
         </View>
         <View style={styles.container6}>
-            <Dark_Button>
+            <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')}>
                 <Text>Request for Socialise</Text>
             </Dark_Button>
 

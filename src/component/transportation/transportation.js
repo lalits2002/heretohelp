@@ -1,25 +1,33 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 const Transport_screen = props => {
-    return(
+  const navigation = useNavigation();
+
+  
+    return (
 
     <View style={styles.screen} >
+
     <View style={styles.container1}>
-    <Text style={styles.head}>Transportation</Text>
+      <Text style={styles.head}>Transportation</Text>
     </View>
+
     <View style={styles.container2}>
+
     <Image
-            source={require('../h2h/s8.png')}
-            resizeMode= 'contain'
-            style={{
-                width: '100%',
-                height: '100%',
-                alignSelf: 'center'
-            }}
-         />
+      source={require('../h2h/s8.png')}
+      resizeMode= 'contain'
+      style={{
+            width: '100%',
+            height: '100%',
+            alignSelf: 'center'
+          }}
+       />
 
     </View>
     <View style={styles.container3}>
@@ -36,18 +44,19 @@ const Transport_screen = props => {
         <Text style={{alignSelf: 'center'}}>Shopping</Text>
 
     </View>
+
     <View style={styles.container6}>
-    <Dark_Button>
-             <Text>Request for Socialise</Text>
-            </Dark_Button>
+      <Dark_Button onPress={() => props.navigation.navigate('transport_screen2')}>
+        <Text>Request for Socialise</Text>
+      </Dark_Button>
 
     </View>
 
 
-        </View>
+  </View>
 
     );
-}
+};
 
 const styles = StyleSheet.create({
     screen: {
