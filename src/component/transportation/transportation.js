@@ -23,7 +23,7 @@ const Transport_screen = props => {
 
     </View>
     <View style={styles.container3}>
-<Text style={styles.head2}>Need a ride to a doctors appointment?Want to carpool to a local event and save emissions?</Text>
+        <Text style={styles.head2}>Need a ride to a doctors appointment?Want to carpool to a local event and save emissions?</Text>
     </View>
     <View style={styles.container4}>
      <Text style={styles.head3}>Select type of social activity</Text>
@@ -59,21 +59,24 @@ const styles = StyleSheet.create({
         margin: '1.5%',
     },
     container1:{
-        flex: 1,
+        flex: 0.5,
         width: "100%",
+        // backgroundColor: '#fcba03',
 
     },
     container2:{
-        flex: 2.1,
+        flex: 1.5,
         width: '100%',
+        // backgroundColor: '#8a53b8',
 
     },
     container3:{
-        flex: 1.5,
+        flex: 0.88,
         flexDirection: 'row',
         justifyContent: 'flex-start',
         width: '100%',
         paddingHorizontal: "2%",
+        // backgroundColor: '#8af249',
 
     },
     container4:{
@@ -81,25 +84,27 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         width: '100%',
-        paddingTop: '2%',
+        // backgroundColor: '#59e6f0',
 
     },
     container5:{
-        flex: 1.8,
+        flex: 2,
         flexDirection: 'column',
         justifyContent: 'center',
         width: '100%',
+        //  backgroundColor: '#b5ad98',
 
 
     },
     container6:{
-        flex: 1,
+        flex: 0.5,
         flexDirection: 'column',
         justifyContent: 'flex-end',
         width: '100%',
         paddingHorizontal: '2%',
         paddingBottom: '5%',
         width: '100%',
+        // backgroundColor: '#e83354',
 
     },
     head: {
