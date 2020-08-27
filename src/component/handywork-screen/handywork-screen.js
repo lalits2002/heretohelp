@@ -1,17 +1,17 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
-import colors from '../../Items/Colors';
+import Colors from '../../Items/Colors';
 
 const HandyWork_Screen = props => {
   const navigation = useNavigation();
     return(
-    <View style={styles.screen} >
+      <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.top} >
-        <TouchableWithoutFeedback  onPress={() => {navigation.goBack()}} >
+        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
           <Text style={styles.back}>Back</Text>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.container1}>
@@ -120,15 +120,20 @@ const styles = StyleSheet.create({
       width: '100%',
       // backgroundColor: '#218291',
     },
+    back:{
+      alignSelf: "flex-start",
+      fontSize: 16,
+      color: Colors.primary3,
+    },
     head: {
-        color: colors.primary1,
+        color: Colors.primary1,
         fontSize: 26,
         fontWeight: "bold"
       },
     head2: {
       alignSelf: 'flex-start',
       fontSize: 20,
-      color: colors.primary2,
+      color: Colors.primary2,
   
     },
     head3: {

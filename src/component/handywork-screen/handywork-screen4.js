@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
@@ -14,9 +14,9 @@ const HandyWork_Screen4 = props => {
       <View style={{ ...styles.screen, ...props.style}}>
 
       <View style={styles.top} >
-        <TouchableWithoutFeedback  onPress={() => {navigation.goBack()}} >
+        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
           <Text style={styles.back}>Back</Text>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.container1}>
@@ -45,7 +45,7 @@ const HandyWork_Screen4 = props => {
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('')} >
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5')} >
           <Text> Next</Text>
         </Dark_Button>
       </View>

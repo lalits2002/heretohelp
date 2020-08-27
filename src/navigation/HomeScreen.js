@@ -18,6 +18,7 @@ import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
 import HandyWork_Screen2 from '../component/handywork-screen/handywork-screen2';
 import HandyWork_Screen3 from '../component/handywork-screen/handywork-screen3';
 import HandyWork_Screen4 from '../component/handywork-screen/handywork-screen4';
+import HandyWork_Screen5 from '../component/handywork-screen/handywork-screen5';
 
 import Transport_screen from '../component/transportation/transportation';
 import Transport_screen2 from '../component/transportation/transportation2';
@@ -34,7 +35,7 @@ const ScreenConstant = createStackNavigator();
 
 function SocialScreen() {
   return(
-    <ScreenConstant.Navigator >
+    <ScreenConstant.Navigator screenOptions={{headerShown: false}} >
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
       <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
     </ScreenConstant.Navigator>
@@ -43,7 +44,7 @@ function SocialScreen() {
 
 function Petscreen() {
   return(
-    <ScreenConstant.Navigator >
+    <ScreenConstant.Navigator screenOptions={{headerShown: false}} >
       <ScreenConstant.Screen name="PetScreen1" component={Pet_Screen} />
       <ScreenConstant.Screen name="PetScreen2" component={Pet_screen2} />
     </ScreenConstant.Navigator>
@@ -57,13 +58,14 @@ function HandyWorkScreen() {
       <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2} />
       <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
       <ScreenConstant.Screen name="handyWorkScreen4" component={HandyWork_Screen4} />
+      <ScreenConstant.Screen name="handyWorkScreen5" component={HandyWork_Screen5} />
     </ScreenConstant.Navigator>
   );
 };
 
 function TransportScreen() {
   return(
-    <ScreenConstant.Navigator >
+    <ScreenConstant.Navigator screenOptions={{headerShown: false}}  >
       <ScreenConstant.Screen name="transport_screen1" component={Transport_screen} />
       <ScreenConstant.Screen name="transport_screen2" component={Transport_screen2} />
     </ScreenConstant.Navigator>
