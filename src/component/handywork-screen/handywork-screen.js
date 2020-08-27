@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
-
+import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import colors from '../../Items/Colors';
 
 const HandyWork_Screen = props => {
+  const navigation = useNavigation();
     return(
     <View style={styles.screen} >
+      <View style={styles.top} >
+        <TouchableWithoutFeedback  onPress={() => {navigation.goBack()}} >
+          <Text style={styles.back}>Back</Text>
+        </TouchableWithoutFeedback>
+      </View>
+
       <View style={styles.container1}>
         <Text style={styles.head}>HandyWork</Text>
       </View>
@@ -35,9 +42,9 @@ const HandyWork_Screen = props => {
       
       </View>
       <View style={styles.container6}>
-       <Dark_Button>
+       <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen2')} >
          <Text style={{fontWeight: 'bold'}}>
-         Request For HandyWork
+          Request For HandyWork
          </Text>
        </Dark_Button>
       </View>
@@ -48,20 +55,26 @@ const HandyWork_Screen = props => {
 }
 
 const styles = StyleSheet.create({
-    screen: {
+  screen: {
       flex: 1,
-      
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "1.8%",
+      marginTop: '7%'
+  },
+    top: {
+      flex:0.85,
+      width: '100%',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'center',
-      margin: '2%',
-      paddingBottom: '5%'
+      alignSelf: 'flex-start',
+      // backgroundColor: "#A596D3",
     },
     container1: {
       flex: 0.55,
       width: '100%',
       alignSelf: 'flex-start',
-      paddingHorizontal: '4%',
       //  backgroundColor: '#fcba03',
     },
    

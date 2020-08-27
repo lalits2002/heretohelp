@@ -15,6 +15,8 @@ import Pet_Screen from '../component/pet-care/pet';
 import Pet_screen2 from "../component/pet-care/petCare2";
 
 import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
+import HandyWork_Screen2 from '../component/handywork-screen/handywork-screen2';
+import HandyWork_Screen3 from '../component/handywork-screen/handywork-screen3';
 
 import Transport_screen from '../component/transportation/transportation';
 import Transport_screen2 from '../component/transportation/transportation2';
@@ -49,8 +51,10 @@ function Petscreen() {
 
 function HandyWorkScreen() {
   return(
-    <ScreenConstant.Navigator >
+    <ScreenConstant.Navigator screenOptions={{headerShown: false}} >
       <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
+      <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2} />
+      <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
     </ScreenConstant.Navigator>
   );
 };
@@ -69,7 +73,7 @@ function TransportScreen() {
 function HomeScreen() {
   return (
     <NavigationContainer>
-      <ScreenConstant.Navigator screenOptions={{headerShown: false}}>
+      <ScreenConstant.Navigator screenOptions={{headerShown: false}} >
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
         <ScreenConstant.Screen name="vol" component={Volunteer} />
         <ScreenConstant.Screen name="Victim" component={Victim} />
