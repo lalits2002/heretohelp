@@ -39,7 +39,10 @@ const HandyWork_Screen2 = props => {
         />
       </View>
       <View style={styles.container4}>
+        <Text style={styles.head2}></Text>
         <Text style={styles.head2}> What is your requested date?</Text>
+        <Text style={styles.head2}></Text>
+       
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    //backgroundColor: "#267DA5",
+    // backgroundColor: "#267DA5",
   },
   container5: {
     flex: 4.8,

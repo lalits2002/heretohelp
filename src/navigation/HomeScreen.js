@@ -17,6 +17,7 @@ import Pet_screen2 from "../component/pet-care/petCare2";
 import HandyWork_Screen from '../component/handywork-screen/handywork-screen';
 import HandyWork_Screen2 from '../component/handywork-screen/handywork-screen2';
 import HandyWork_Screen3 from '../component/handywork-screen/handywork-screen3';
+import HandyWork_Screen4 from '../component/handywork-screen/handywork-screen4';
 
 import Transport_screen from '../component/transportation/transportation';
 import Transport_screen2 from '../component/transportation/transportation2';
@@ -55,6 +56,7 @@ function HandyWorkScreen() {
       <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
       <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2} />
       <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
+      <ScreenConstant.Screen name="handyWorkScreen4" component={HandyWork_Screen4} />
     </ScreenConstant.Navigator>
   );
 };
