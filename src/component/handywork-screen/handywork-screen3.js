@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Dark_Button from '../../Items/Buttons/dark-bt';
+import Dark_Button from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
 
@@ -39,7 +39,7 @@ const HandyWork_Screen3 = props => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head3}> Friday, June 5 , 2020</Text>
+        <Text style={styles.head3}> {'Friday'}, {'June 5'} , {'2020'}</Text>
         <Text style={styles.head3}></Text>
         <Text style={styles.head3}> What time do you request?</Text>
       </View>
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    paddingLeft: '55%',
   },
   back:{
     alignSelf: "flex-start",

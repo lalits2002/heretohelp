@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Dark_Button from '../../Items/Buttons/dark-bt';
+import Dark_Button from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
 
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    paddingLeft: '55%',
   },
   back:{
     alignSelf: "flex-start",

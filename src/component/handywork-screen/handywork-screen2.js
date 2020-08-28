@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Dark_Button from '../../Items/Buttons/dark-bt';
+import Dark_Button2 from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
 
@@ -46,9 +46,9 @@ const HandyWork_Screen2 = props => {
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3')} >
+        <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen3')} >
           <Text> Next</Text>
-        </Dark_Button>
+        </Dark_Button2>
       </View>
     </View>
   );
@@ -106,9 +106,10 @@ const styles = StyleSheet.create({
   container6: {
     flex: 1.2,
     width: "100%",
-    // backgroundColor: "#9811C9",
+    paddingLeft: '55%',
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    // backgroundColor: "#9811C9",
   },
   back:{
     alignSelf: "flex-start",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Dark_Button from '../../Items/Buttons/dark-bt';
+import Dark_Button2 from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
 const HandyWork_Screen = props => {
@@ -10,7 +10,7 @@ const HandyWork_Screen = props => {
       <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.top} >
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}> {'<'} Back</Text>
         </TouchableOpacity>
       </View>
 
@@ -42,11 +42,11 @@ const HandyWork_Screen = props => {
       
       </View>
       <View style={styles.container6}>
-       <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen2')} >
+       <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen2')} >
          <Text style={{fontWeight: 'bold'}}>
           Request For HandyWork
          </Text>
-       </Dark_Button>
+       </Dark_Button2>
       </View>
      
         
