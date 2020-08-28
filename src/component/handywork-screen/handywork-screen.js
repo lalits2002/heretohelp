@@ -3,9 +3,11 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Dark_Button2 from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
+import Picker from './picker';
 
 const HandyWork_Screen = props => {
   const navigation = useNavigation();
+
     return(
       <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.top} >
@@ -37,10 +39,11 @@ const HandyWork_Screen = props => {
       <View style={styles.container4}>
        <Text style={styles.head3}>Select type of Handywork</Text> 
       </View>
+
       <View style={styles.container5}>
-       <Text style={{alignSelf: 'center'}}> development</Text>
-      
+        <Picker />
       </View>
+
       <View style={styles.container6}>
        <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen2')} >
          <Text style={{fontWeight: 'bold'}}>
@@ -102,8 +105,7 @@ const styles = StyleSheet.create({
       width: '100%',
       flexDirection: 'column',
       justifyContent :'flex-end',
-      paddingTop: '2%',
-      // marginTop:'8%',
+      // paddingTop: '2%',
       // backgroundColor: '#8af249',
     },
     container5: { 

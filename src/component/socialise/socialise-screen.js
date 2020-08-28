@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import Picker from './picker';
 import colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
@@ -36,10 +38,7 @@ const Social_Screen = props => {
 
         </View>
         <View style={styles.container5}>
-        <Text style={{alignSelf: 'center'}}>On dev</Text>
-        <Text style={{alignSelf: 'center'}}>Coffee</Text>
-        <Text style={{alignSelf: 'center'}}>Meet</Text>
-        <Text style={{alignSelf: 'center'}}>Date</Text>
+          <Picker />
         </View>
         <View style={styles.container6}>
             <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')}>
