@@ -11,24 +11,7 @@ const dataCity = [
   'Prague',
   'Rome',
   'Barcelone',
-  'Amsterdam',
-  'Dublin',
-  'Vienne',
-  'Madrid',
-  'Cracovie',
-  'Reykjavik',
-  'Istambul',
-  'Florence',
-  'Copenhague',
-  'Zagreb',
-  'Stockholm',
-  'Thessalonique',
-  'Marseille',
-  'Porto',
-  'Lugano',
-  'Bruxelles',
-  'Lyon',
-  
+
 ];
 
 const opacities = {
