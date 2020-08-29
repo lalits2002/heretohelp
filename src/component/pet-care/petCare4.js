@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { RadioButton, Text } from "react-native-paper";
+import { RadioButton } from "react-native-paper";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
