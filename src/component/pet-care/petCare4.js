@@ -8,7 +8,7 @@ import Colors from "../../Items/Colors";
 
 const Pet_screen4 = (props) => {
   const navigation = useNavigation();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState("Eaither is fine");
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
