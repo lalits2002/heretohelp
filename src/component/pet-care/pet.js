@@ -1,22 +1,25 @@
 import React from "react";
-import { StyleSheet, View, Text, Image,TouchableOpacity } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import Picker from './picker'
+import Picker from "./picker";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_Screen = props => {
+const Pet_Screen = (props) => {
   const navigation = useNavigation();
 
   return (
-    <View style={{ ...styles.screen, ...props.style}}>
-      <View style={styles.top} >
-        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
+    <View style={{ ...styles.screen, ...props.style }}>
+      <View style={styles.top}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Text style={styles.back}>Back</Text>
         </TouchableOpacity>
       </View>
-
 
       <View style={styles.container1}>
         <Text style={styles.head}>Pet Care</Text>
@@ -24,12 +27,11 @@ const Pet_Screen = props => {
       <View style={styles.container2}>
         <Image
           source={require("../h2h/s6.png")}
-          resizeMode='contain'
+          resizeMode="contain"
           style={{
-            width: '65%',
-            height: '100%',
-            alignSelf: 'center'
-           
+            width: "65%",
+            height: "100%",
+            alignSelf: "center",
           }}
         />
       </View>
@@ -51,11 +53,10 @@ const Pet_Screen = props => {
       </View>
       <View style={styles.container5}>
         <Picker />
-        
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('PetScreen2')} >
-          <Text > HandyWork</Text>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen2")}>
+          <Text> HandyWork</Text>
         </Dark_Button>
       </View>
     </View>
@@ -71,29 +72,28 @@ const styles = StyleSheet.create({
     margin: "1.8%",
   },
   top: {
-    flex:0.85,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignSelf: 'flex-start',
+    flex: 0.85,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "flex-start",
     // backgroundColor: "#A596D3",
   },
   container1: {
     flex: 0.5,
     width: "100%",
     // backgroundColor: '#C6C438',
-    
   },
   container2: {
     flex: 2.5,
-    flexDirection: 'column',
+    flexDirection: "column",
     width: "100%",
     // backgroundColor: '#A596D3',
   },
   container3: {
     flex: 1.1,
     flexDirection: "column",
-    justifyContent: 'center',
+    justifyContent: "center",
     width: "100%",
     paddingHorizontal: "2%",
     // backgroundColor: '#b5ad98',
@@ -115,15 +115,14 @@ const styles = StyleSheet.create({
   },
   container6: {
     flex: 0.7,
-    flexDirection :'column',
-    justifyContent: 'flex-start',
+    flexDirection: "column",
+    justifyContent: "center",
     width: "100%",
     paddingHorizontal: "2%",
-    paddingBottom: '5%',
+    paddingBottom: "5%",
     // backgroundColor: '#9811C9',
-    
   },
-  back:{
+  back: {
     alignSelf: "flex-start",
     fontSize: 16,
     color: Colors.primary3,
