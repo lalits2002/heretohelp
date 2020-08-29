@@ -1,12 +1,24 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen7 = (props) => {
+  const navigation = useNavigation();
+
   return (
     <View style={{ ...styles.screen, ...props.style }}>
+      <View style={styles.top}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
+          <Text style={styles.back}>Back</Text>
+        </TouchableOpacity>
+      </View>
       <View style={styles.container1}>
         <Text style={styles.head}> Pet Care </Text>
       </View>
@@ -100,6 +112,19 @@ const styles = StyleSheet.create({
     fontSize: 17.5,
     alignSelf: "center",
     fontWeight: "bold",
+  },
+  top: {
+    flex: 0.85,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "flex-start",
+    // backgroundColor: "#A596D3",
+  },
+  back: {
+    alignSelf: "flex-start",
+    fontSize: 16,
+    color: Colors.primary3,
   },
 });
 
