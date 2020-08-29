@@ -44,14 +44,18 @@ const Social_Screen2 = props => {
       </View>
 
       <View style={styles.container5}>
+      </View>
+
+
+      <View style={styles.container6}>
       <Dark_Button>
-              <Text>I am flexible with time and location</Text>
+              <Text style={styles.head4}>I am flexible with time and location</Text>
           </Dark_Button>
       </View>
 
-      <View style={styles.container6}>
+      <View style={styles.container7}>
         <Button2>
-          <Text>I have a specific time and location</Text>
+          <Text style={styles.head4}>I have a specific time and location</Text>
           </Button2>
 
 
@@ -107,16 +111,21 @@ container4:{
 
 },
 container5:{
+  flex: 4,
+  width: '100%',
+  // backgroundColor: 'red'
+},
+container6:{
   flex: 1,
   width: '100%',
   // backgroundColor: '#d1a9a5'
-  paddingBottom: '6%'
+  paddingBottom: '1%'
 
 },
-container6:{
-  flex: 4,
+container7:{
+  flex: 1,
   width: '100%',
-  paddingTop: '6%'
+  paddingTop: '1.2%'
   // backgroundColor: '#512ad1'
 
 
@@ -147,6 +156,14 @@ head3:{
   alignContent: 'flex-end',
   justifyContent: 'space-evenly',
   paddingBottom: '2%',
+
+},
+head4: {
+  fontSize: 10,
+  fontWeight: 'bold',
+  alignSelf: 'flex-start',
+  alignItems: 'flex-start'
+
 
 }
 });
