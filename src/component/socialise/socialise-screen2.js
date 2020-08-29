@@ -80,6 +80,7 @@ top: {
   flexDirection: 'column',
   justifyContent: 'center',
   alignSelf: 'flex-start',
+  paddingTop: '3%'
   // backgroundColor: "#A596D3",
 },
 container1:{
