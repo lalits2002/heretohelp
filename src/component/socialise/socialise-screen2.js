@@ -107,7 +107,7 @@ container4:{
   width: '100%',
   // backgroundColor: 'orange',
   flexDirection: 'column',
-  justifyContent: 'flex-start'
+  justifyContent: 'center'
 
 
 },
