@@ -1,7 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text, Image,TouchableOpacity } from "react-native";
-
 import { useNavigation } from '@react-navigation/native';
+
+import Picker from './picker'
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
@@ -49,9 +50,8 @@ const Pet_Screen = props => {
         <Text style={styles.head3}>Select type of Pet Care</Text>
       </View>
       <View style={styles.container5}>
-        <Text style={{ alignSelf: "center" }}>Pet sitting</Text>
-        <Text style={{ alignSelf: "center" }}>Dog walking</Text>
-        <Text style={{ alignSelf: "center" }}>Other</Text>
+        <Picker />
+        
       </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate('PetScreen2')} >
