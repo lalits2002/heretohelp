@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen2 = (props) => {
+const Pet_screen3 = (props) => {
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
@@ -27,11 +27,14 @@ const Pet_screen2 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What is your requested date?</Text>
+        <Text style={styles.head2}> Your chosen date</Text>
       </View>
-      <View style={styles.container5}></View>
-      <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
+      <View style={styles.container5}>
+        <Text style={styles.head2}> What time do you request?</Text>
+      </View>
+      <View style={styles.container6}></View>
+      <View style={styles.container7}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen4")}>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -71,15 +74,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     //backgroundColor: "#267DA5",
   },
+
   container5: {
-    flex: 4.8,
+    flex: 1,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    //backgroundColor: "#fff",
+  },
+
+  container6: {
+    flex: 3.8,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
     //backgroundColor: "#86EC4F",
   },
-  container6: {
+  container7: {
+    justifyContent: "center",
     flex: 1.6,
     width: "100%",
     //backgroundColor: "#9811C9",
@@ -103,4 +116,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen2;
+export default Pet_screen3;

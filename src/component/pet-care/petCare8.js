@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen2 = (props) => {
+const Pet_screen8 = (props) => {
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
@@ -27,11 +27,11 @@ const Pet_screen2 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What is your requested date?</Text>
+        <Text style={styles.head2}> 8What is your requested date?</Text>
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen2;
+export default Pet_screen8;
