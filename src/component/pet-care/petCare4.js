@@ -1,12 +1,14 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { RadioButton, Text } from "react-native-paper";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen2 = (props) => {
+const Pet_screen4 = (props) => {
   const navigation = useNavigation();
+  const [value, setValue] = React.useState(0);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -19,7 +21,6 @@ const Pet_screen2 = (props) => {
           <Text style={styles.back}>Back</Text>
         </TouchableOpacity>
       </View>
-
       <View style={styles.container1}>
         <Text style={styles.head}> Pet Care </Text>
       </View>
@@ -40,11 +41,53 @@ const Pet_screen2 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What is your requested date?</Text>
+        <Text style={styles.head2}>Location for pet Sitting?</Text>
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+        <RadioButton.Group
+          onValueChange={(value) => setValue(value)}
+          value={value}
+        >
+          <View
+            style={{
+              paddingLeft: "20%",
+              paddingVertical: "2%",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <RadioButton color="#2D375B" value="In my home" />
+            <Text style={styles.head4}>In my home</Text>
+          </View>
+          <View
+            style={{
+              paddingLeft: "20%",
+              paddingVertical: "2%",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <RadioButton color="#2D375B" value="Outside my home" />
+            <Text style={styles.head4}>Outside my home</Text>
+          </View>
+          <View
+            style={{
+              paddingLeft: "20%",
+              paddingVertical: "2%",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <RadioButton color="#2D375B" value="Eaither is fine" />
+            <Text style={styles.head4}>Eaither is fine</Text>
+          </View>
+        </RadioButton.Group>
+      </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen5")}>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -78,24 +121,23 @@ const styles = StyleSheet.create({
     //backgroundColor: "#C6C438",
   },
   container4: {
-    flex: 0.8,
+    flex: 1.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     //backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 4,
     width: "100%",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignSelf: "center",
     //backgroundColor: "#86EC4F",
   },
   container6: {
     flex: 1.6,
     width: "100%",
-    justifyContent: "center",
     //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
@@ -115,6 +157,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
   },
+
+  head4: {
+    alignSelf: "center",
+    fontSize: 19,
+    color: Colors.primary2,
+  },
   top: {
     flex: 0.85,
     width: "100%",
@@ -130,4 +178,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen2;
+export default Pet_screen4;

@@ -1,24 +1,28 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import colors from '../../Items/Colors';
+import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 const Transport_screen = props => {
   const navigation = useNavigation();
 
   
-    return (
+  return (
+    <View style={{ ...styles.screen, ...props.style}}>
+      <View style={styles.top} >
+        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
+          <Text style={styles.back}>Back</Text>
+        </TouchableOpacity>
+      </View>
 
-    <View style={styles.screen} >
 
-    <View style={styles.container1}>
-      <Text style={styles.head}>Transportation</Text>
-    </View>
+      <View style={styles.container1}>
+        <Text style={styles.head}>Transportation</Text>
+      </View>
 
     <View style={styles.container2}>
-
     <Image
       source={require('../h2h/s8.png')}
       resizeMode= 'contain'
@@ -67,9 +71,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: '1.5%',
     },
+    top: {
+      flex:0.85,
+      width: '100%',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignSelf: 'flex-start',
+      // backgroundColor: "#A596D3",
+    },
     container1:{
         flex: 0.5,
         width: "100%",
+
+        alignSelf: 'flex-start',
         // backgroundColor: '#fcba03',
 
     },
@@ -116,16 +130,20 @@ const styles = StyleSheet.create({
         // backgroundColor: '#e83354',
 
     },
+    back:{
+      alignSelf: "flex-start",
+      fontSize: 16,
+      color: Colors.primary3,
+    },
     head: {
          fontSize: 25,
          fontWeight: 'bold',
-         paddingLeft:'2%',
-         color: colors.primary1
+         color: Colors.primary1
     },
     head2: {
           alignSelf: 'center',
           fontSize: 18,
-          color: colors.primary2
+          color: Colors.primary2
       },
       head3: {
         fontSize: 18.5,

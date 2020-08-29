@@ -1,30 +1,29 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import Dark_Button2 from '../../Items/Buttons/dark-bt2';
+import Colors from '../../Items/Colors';
 
-import Dark_Button from "../../Items/Buttons/dark-bt";
-import Colors from "../../Items/Colors";
 
-const Pet_screen2 = (props) => {
+const HandyWork_Screen2 = props => {
+
   const navigation = useNavigation();
 
-  return (
-    <View style={{ ...styles.screen, ...props.style }}>
-      <View style={styles.top}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
+
+  return(
+    <View style={{ ...styles.screen, ...props.style}}>
+
+      <View style={styles.top} >
+        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
           <Text style={styles.back}>Back</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care </Text>
+        <Text style={styles.head}>Handywork</Text>
       </View>
       <View style={styles.container2}>
-        <Text style={styles.head2}> Sitting </Text>
+        <Text style={styles.head2}>Handyman Service</Text>
       </View>
 
       <View style={styles.container3}>
@@ -36,17 +35,20 @@ const Pet_screen2 = (props) => {
             alignSelf: "center",
           }}
           // change the source of the image
-          source={require("../../Items/Icons/calender.jpeg")}
+          source={require('../../Items/Icons/calender.jpeg')}
         />
       </View>
       <View style={styles.container4}>
+        <Text style={styles.head2}></Text>
         <Text style={styles.head2}> What is your requested date?</Text>
+        <Text style={styles.head2}></Text>
+       
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
+        <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen3')} >
           <Text> Next</Text>
-        </Dark_Button>
+        </Dark_Button2>
       </View>
     </View>
   );
@@ -59,16 +61,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: "1.8%",
+    marginTop: '7%'
+  },
+  top: {
+    flex:0.85,
+    width: '100%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    // backgroundColor: "#A596D3",
   },
   container1: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container2: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#A596D3",
+    // backgroundColor: "#A596D3",
   },
   container3: {
     flex: 1.8,
@@ -82,7 +93,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    //backgroundColor: "#267DA5",
+    // backgroundColor: "#267DA5",
   },
   container5: {
     flex: 4.8,
@@ -90,15 +101,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
-    //backgroundColor: "#86EC4F",
+    // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.6,
+    flex: 1.2,
     width: "100%",
-    justifyContent: "center",
-    //backgroundColor: "#9811C9",
+    paddingLeft: '55%',
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    // backgroundColor: "#9811C9",
+  },
+  back:{
+    alignSelf: "flex-start",
+    fontSize: 16,
+    color: Colors.primary2,
   },
   head: {
     fontSize: 26,
@@ -115,19 +131,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
   },
-  top: {
-    flex: 0.85,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
-  },
-  back: {
-    alignSelf: "flex-start",
-    fontSize: 16,
-    color: Colors.primary3,
-  },
 });
 
-export default Pet_screen2;
+export default HandyWork_Screen2

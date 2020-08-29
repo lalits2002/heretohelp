@@ -18,7 +18,7 @@ const Dark_Button = props => {
   const styles = StyleSheet.create({
     button: {
       backgroundColor: '#2D375B',
-      paddingVertical: 10,
+      paddingVertical: 15,
       paddingHorizontal: 100,
       borderRadius: 25,
       alignItems: 'center',

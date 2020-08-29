@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 
-const Button2 = props => {
+const Dark_Button2 = props => {
     return (
-      <TouchableOpacity activeOpacity={0.72} onPress={props.onPress}>
+      <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>{props.children}</Text>
         </View>
@@ -12,21 +12,22 @@ const Button2 = props => {
     );
   };
 
+
+
   
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
     button: {
-      borderWidth: 2.5,
-      borderColor: '#2D375B',
+      backgroundColor: '#2D375B',
       paddingVertical: 15,
-      paddingHorizontal: 100,
       borderRadius: 25,
       alignItems: 'center',
     },
     buttonText: {
-      color: '#2D375B',
-      fontSize: 15,
-      
+      color: 'white',
+      fontSize: 19
     }
   });
 
-  export default Button2;
+export default Dark_Button2;
+
+  

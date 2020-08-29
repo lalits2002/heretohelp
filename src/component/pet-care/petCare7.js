@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen2 = (props) => {
+const Pet_screen7 = (props) => {
   const navigation = useNavigation();
 
   return (
@@ -19,7 +19,6 @@ const Pet_screen2 = (props) => {
           <Text style={styles.back}>Back</Text>
         </TouchableOpacity>
       </View>
-
       <View style={styles.container1}>
         <Text style={styles.head}> Pet Care </Text>
       </View>
@@ -40,11 +39,11 @@ const Pet_screen2 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What is your requested date?</Text>
+        <Text style={styles.head2}> 7What is your requested date?</Text>
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -95,7 +94,6 @@ const styles = StyleSheet.create({
   container6: {
     flex: 1.6,
     width: "100%",
-    justifyContent: "center",
     //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
@@ -130,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen2;
+export default Pet_screen7;

@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import Picker from './picker';
 import colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
@@ -9,8 +11,14 @@ const Social_Screen = props => {
 
 
     return (
+        <View style={{ ...styles.screen, ...props.style}}>
+      <View style={styles.top} >
+        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
+          <Text style={styles.back}>Back</Text>
+        </TouchableOpacity>
+      </View>
 
-    <View style={styles.screen} >
+
         <View style={styles.container1}>
         <Text style={styles.head}>Socialise</Text>
         </View>
@@ -28,7 +36,7 @@ const Social_Screen = props => {
         </View>
         <View style={styles.container3}>
           <Text style={styles.head2}>Whether it be a phone call with a new friend, grabbing a coffee, or seeking a new hiking buddy.</Text>
-    
+
         </View>
 
         <View style={styles.container4}>
@@ -36,10 +44,7 @@ const Social_Screen = props => {
 
         </View>
         <View style={styles.container5}>
-        <Text style={{alignSelf: 'center'}}>On dev</Text>
-        <Text style={{alignSelf: 'center'}}>Coffee</Text>
-        <Text style={{alignSelf: 'center'}}>Meet</Text>
-        <Text style={{alignSelf: 'center'}}>Date</Text>
+          <Picker />
         </View>
         <View style={styles.container6}>
             <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')}>
@@ -59,6 +64,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         margin: '1.6%',
+    },
+    top: {
+        flex:0.85,
+        width: '100%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignSelf: 'flex-start',
+        paddingTop: '3%'
+        // backgroundColor: "#A596D3",
     },
     container1:{
         flex: 0.6,
@@ -84,7 +98,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         width: '100%',
         paddingTop: '2%',
-        
+
         // backgroundColor: '#59e6f0',
     },
     container5:{
