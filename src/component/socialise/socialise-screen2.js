@@ -51,15 +51,12 @@ const Social_Screen2 = props => {
       <Dark_Button>
               <Text style={styles.head4}>I am flexible with time and location</Text>
           </Dark_Button>
-      </View>
-
-      <View style={styles.container7}>
         <Button2>
           <Text style={styles.head4}>I have a specific time and location</Text>
-          </Button2>
-
-
+        </Button2>
       </View>
+
+     
       </SafeAreaView>
 
   )
@@ -99,7 +96,7 @@ container2:{
 container3:{
   flex: 3.2,
   width: '100%',
-  // backgroundColor: '#37eb0e'
+  backgroundColor: '#37eb0e'
 
 },
 container4:{
@@ -117,18 +114,12 @@ container5:{
   // backgroundColor: 'red'
 },
 container6:{
-  flex: 1,
+  flex: 1.7,
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
   width: '100%',
-  // backgroundColor: '#d1a9a5'
-  paddingBottom: '1%'
-
-},
-container7:{
-  flex: 1,
-  width: '100%',
-  paddingTop: '1.2%'
-  // backgroundColor: '#512ad1'
-
+  paddingBottom: '8%',
+  backgroundColor: '#d1a9a5'
 
 },
 back:{
@@ -137,14 +128,14 @@ back:{
   color: Colors.primary3,
 },
 head1: {
-  fontSize: 20,
+  fontSize: 25,
   fontWeight: 'bold',
   paddingLeft: '3%',
   paddingTop: '1%',
   color: Colors.primary1
 },
 head2:{
-  fontSize: 15,
+  fontSize: 18,
   paddingLeft: '3%',
   color: Colors.primary2
 
@@ -160,7 +151,7 @@ head3:{
 
 },
 head4: {
-  fontSize: 10,
+  fontSize: 12,
   fontWeight: 'bold',
   alignSelf: 'flex-start',
   alignItems: 'flex-start'
