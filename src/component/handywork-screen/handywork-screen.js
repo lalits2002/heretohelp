@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 import { Feather } from '@expo/vector-icons';
+
 import Dark_Button2 from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 import Picker from './picker';

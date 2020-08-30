@@ -7,7 +7,9 @@ import {
     TextInput
   } from 'react-native';
 
+import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+
 import Dark_Button from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
@@ -20,7 +22,7 @@ const HandyWork_Screen5 = props => {
       <View style={{ ...styles.screen, ...props.style}}>
         <View style={styles.top} >
           <TouchableOpacity  onPress={() => {navigation.goBack()}} >
-            <Text style={styles.back}> {'<'} Back</Text>
+            <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} /> Back</Text>
           </TouchableOpacity>
         </View>
 
