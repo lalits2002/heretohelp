@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
      head: {
          fontSize: 25,
          fontWeight: 'bold',
-         paddingLeft:'2%',
+         
          color: colors.primary1
      },
       head2: {
