@@ -1,13 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
-const Social_Screen3 = props => {
+const Social_Screen5 = props => {
     const navigation = useNavigation();
-
-
     return (
         <View style={{ ...styles.screen, ...props.style}}>
 
@@ -20,7 +18,7 @@ const Social_Screen3 = props => {
       <Text style={styles.head1}>Socialise</Text>
     </View>
     <View style={styles.container2}>
-      <Text style={styles.head2}>Coffee up</Text>
+      <Text style={styles.head2}>Coffee meetup</Text>
     </View>
 
     <View style={styles.container3}>
@@ -36,22 +34,26 @@ const Social_Screen3 = props => {
       />
     </View>
     <View style={styles.container4}>
+    {/* <View style={styles.box}> */}
       {/* <Text style={styles.head3}> {'Friday'}, {'June 5'} , {'2020'}</Text> */}
       {/* <Text style={styles.head3}></Text> */}
-      <Text style={styles.head3}> What is your requested date?</Text>
+      <Text style={styles.head3}> Additional details</Text>
+      {/* <TextInput style={styles.input} value={'Enter here'}/> */}
     </View>
-    <View style={styles.container5}></View>
+    {/* </View> */}
+    <View style={styles.container5}>
+    <View style={styles.box}>
+    <TextInput style={styles.input} value={'Enter here'}/>
+    </View>
+    </View>
     <View style={styles.container6}>
       <Dark_Button onPress={() => props.navigation.navigate('socialscreen5')}>
         <Text> Next</Text>
       </Dark_Button>
     </View>
     </View>
-
-
     );
 };
-
 const styles = StyleSheet.create({
     screen: {
       flex: 1,
@@ -72,12 +74,12 @@ const styles = StyleSheet.create({
     container1: {
         flex: 0.6,
         width: "100%",
-        // backgroundColor: "#C6C438",
+        // backgroundColor: "#67f0a0",
       },
       container2: {
         flex: 0.6,
         width: "100%",
-        // backgroundColor: "#A596D3",
+        // backgroundColor: "#a1278c",
       },
       container3: {
         flex: 1.8,
@@ -85,30 +87,34 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingHorizontal: "2%",
         paddingBottom: '1%',
-        // backgroundColor: "#C6C438",
+        // backgroundColor: "#7099db",
       },
       container4: {
-        flex: 1.1,
+        flex: 1.5,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
-        // backgroundColor: "#267DA5",
+        // backgroundColor: "#e4f70a",
       },
       container5: {
-        flex: 4.8,
+        flex: 3,
         width: "100%",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: 'flex-start',
         alignSelf: "center",
         // backgroundColor: "#86EC4F",
       },
       container6: {
         flex: 1.2,
         width: "100%",
-        // backgroundColor: "#9811C9",
+        // backgroundColor: "#2e02f0",
         paddingHorizontal: "2%",
         paddingTop: "5%",
         paddingLeft: '55%',
+      },
+      box: {
+        width: '100%',
+
       },
       back:{
         alignSelf: "flex-start",
@@ -130,6 +136,14 @@ const styles = StyleSheet.create({
         fontSize: 17.5,
         alignSelf: 'flex-start',
         fontWeight: "bold",
+        paddingBottom: '18%'
+      },
+      input: {
+        paddingTop: '0.1%',
+        fontSize: 20,
+        color: Colors.secondary3 ,
+        borderBottomColor: 'black',
+        borderBottomWidth: 1
       },
 });
-export default Social_Screen3;
+export default  Social_Screen5;
