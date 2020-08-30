@@ -59,6 +59,7 @@ const Social_Screen2 = props => {
 
      
 
+
       </SafeAreaView>
 
   )
@@ -123,6 +124,14 @@ container6:{
   // paddingBottom: '6%',
   backgroundColor: '#d1a9a5'
 
+},
+container7:{
+  flex: 1.7,
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
+  width: '100%',
+  paddingBottom: '7%',
+  // backgroundColor: '#eb8334'
 },
 back:{
   alignSelf: "flex-start",
