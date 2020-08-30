@@ -52,13 +52,12 @@ const Social_Screen2 = props => {
       <Dark_Button onPress={() => props.navigation.navigate('socialscreen3')}>
               <Text style={styles.head4}>I am flexible with time and location</Text>
           </Dark_Button>
-      </View>
-
-      <View style={styles.container7}>
         <Button2 onPress={() => props.navigation.navigate('socialscreen4')}>
           <Text style={styles.head4}>I have a specific time and location</Text>
         </Button2>
       </View>
+
+
 
 
       </SafeAreaView>
@@ -118,13 +117,21 @@ container5:{
   // backgroundColor: 'red'
 },
 container6:{
+  flex: 2,
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
+  width: '100%',
+  // paddingBottom: '6%',
+  // backgroundColor: '#d1a9a5'
+
+},
+container7:{
   flex: 1.7,
   flexDirection: 'column',
   justifyContent: 'space-evenly',
   width: '100%',
-  paddingBottom: '6%',
-  // backgroundColor: '#d1a9a5'
-
+  paddingBottom: '7%',
+  // backgroundColor: '#eb8334'
 },
 back:{
   alignSelf: "flex-start",
@@ -155,7 +162,7 @@ head3:{
 
 },
 head4: {
-  fontSize: 10,
+  fontSize: 14,
   fontWeight: 'bold',
   alignSelf: 'flex-start',
   alignItems: 'flex-start'

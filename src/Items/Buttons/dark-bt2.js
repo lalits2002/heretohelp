@@ -19,7 +19,7 @@ const Dark_Button2 = props => {
     button: {
       backgroundColor: '#2D375B',
       paddingVertical: 15,
-      borderRadius: 25,
+      borderRadius: 30,
       alignItems: 'center',
     },
     buttonText: {
