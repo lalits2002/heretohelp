@@ -20,8 +20,11 @@ const CalenderComponent = () => {
         onDayPress={(day) => {
           nextOne(day.dateString);
         }}
-
-       
+        style={{
+          
+          height: '100%',
+        }}
+        
         horizontal={true}
         // Max amount of months allowed to scroll to the past. Default = 50
         pastScrollRange={0}
