@@ -39,8 +39,8 @@ const CalenderComponent = () => {
           },
         }}
         theme={{
-          // backgroundColor: "black",
-          // calendarBackground: "white",
+          backgroundColor: 'black',
+          calendarBackground: '#ffffff',
           textMonthFontSize: 28,
         }}
       />

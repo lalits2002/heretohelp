@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import Dark_Button from '../../Items/Buttons/dark-bt2';
@@ -9,10 +9,10 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen4 = props => {
 
   const navigation = useNavigation();
-
+  const [value, onChangeText] = React.useState('Enter Here');
 
     return(
-      <View style={{ ...styles.screen, ...props.style}}>
+      <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
       <View style={styles.top} >
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
@@ -44,13 +44,19 @@ const HandyWork_Screen4 = props => {
         <Text style={styles.head3}> </Text>
         <Text style={styles.head3}> </Text>
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+      <TextInput
+      style={styles.input}
+      onChangeText={text => onChangeText(text)}
+      value={value}
+      />
+      </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5')} >
           <Text> Next</Text>
         </Dark_Button>
       </View>
-    </View>
+    </SafeAreaView>
 
 
   );  
@@ -89,21 +95,22 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: "2%",
     paddingBottom: '1%',
-    // backgroundColor: "#C6C438",
+    backgroundColor: "#C6C438",
   },
   container4: {
     flex: 1.1,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    // backgroundColor: "#267DA5",
+    backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 3.4,
     width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
     alignSelf: "center",
+    paddingTop: '20%',
     // backgroundColor: "#86EC4F",
   },
   container6: {
@@ -134,6 +141,13 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     fontWeight: "bold",
   },
+  input: {
+    paddingHorizontal: '5%',
+    fontSize: 20,
+    color: Colors.secondary3 ,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  }
 });
 
 export default HandyWork_Screen4;
