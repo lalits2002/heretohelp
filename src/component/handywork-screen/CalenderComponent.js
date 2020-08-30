@@ -36,7 +36,7 @@ const CalenderComponent = () => {
           [markedDate]: {
             selected: true,
             marked: true,
-            selectedColor: Colors.secondary3,
+            selectedColor: Colors.primary2,
           },
         }}
         theme={{
