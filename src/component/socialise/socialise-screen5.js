@@ -29,7 +29,7 @@ const Social_Screen5 = props => {
           width: "27%",
           alignSelf: "center",
         }}
-        // change the source of the image
+
         source={require('../../Items/Icons/calender.jpeg')}
       />
     </View>
