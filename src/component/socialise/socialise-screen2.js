@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+
 import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Button2 from '../../Items/Buttons/light-bt';
-import { color } from 'react-native-reanimated';
+// import { color } from 'react-native-reanimated';
 
 
 const Social_Screen2 = props => {
@@ -48,15 +49,18 @@ const Social_Screen2 = props => {
 
 
       <View style={styles.container6}>
-      <Dark_Button>
+      <Dark_Button onPress={() => props.navigation.navigate('socialscreen3')}>
               <Text style={styles.head4}>I am flexible with time and location</Text>
           </Dark_Button>
-        <Button2>
+      </View>
+
+      <View style={styles.container7}>
+        <Button2 onPress={() => props.navigation.navigate('socialscreen4')}>
           <Text style={styles.head4}>I have a specific time and location</Text>
         </Button2>
       </View>
 
-     
+
       </SafeAreaView>
 
   )
