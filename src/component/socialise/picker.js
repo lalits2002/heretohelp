@@ -24,13 +24,13 @@ const opacities = {
 const sizeText = {
   0: 22,
   1: 15,
-  2: 7,
+  2: 10,
 };
 
 const Item = React.memo(({opacity, selected, vertical, fontSize, name}) => {
   return (
     <View
-      style={[styles.OptionWrapper, { opacity, borderColor: selected ? '#64666D' : 'transparent', width: vertical ? 180 : 'auto'}]}
+      style={[styles.OptionWrapper, { opacity, borderColor: selected ? '#64666D' : 'transparent', width: vertical ? 220 : 'auto'}]}
     >
     <Text style={{fontSize}}>
       {name}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     // backgroundColor: '#F5FCFF',
   },
   wrapperVertical: {
-    flex: 0.9,
+    flex: 0.93,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -115,15 +115,13 @@ const styles = StyleSheet.create({
   OptionWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
-    height: 45,
-    borderWidth: 3,
-    borderRadius: 10,
+    marginTop: 6,
+    marginBottom: 6,
+    paddingVertical: 10,
+    height: 55,
+    borderWidth: 3.5,
+    borderRadius: 18,
+    // backgroundColor: 'green',
   },
 });
 

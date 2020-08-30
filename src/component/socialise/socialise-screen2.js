@@ -45,17 +45,17 @@ const Social_Screen2 = props => {
       </View>
 
       <View style={styles.container5}>
-      </View>
-
-
-      <View style={styles.container6}>
       <Dark_Button onPress={() => props.navigation.navigate('socialscreen3')}>
               <Text style={styles.head4}>I am flexible with time and location</Text>
-          </Dark_Button>
+      </Dark_Button>
+      <Text></Text>
         <Button2 onPress={() => props.navigation.navigate('socialscreen4')}>
           <Text style={styles.head4}>I have a specific time and location</Text>
         </Button2>
       </View>
+
+
+      
 
      
 
@@ -112,18 +112,12 @@ container4:{
 },
 container5:{
   flex: 4,
+  flexDirection: 'column',
+  justifyContent: 'center',
   width: '100%',
   // backgroundColor: 'red'
 },
-container6:{
-  flex: 2,
-  flexDirection: 'column',
-  justifyContent: 'space-evenly',
-  width: '100%',
-  // paddingBottom: '6%',
-  backgroundColor: '#d1a9a5'
 
-},
 back:{
   alignSelf: "flex-start",
   fontSize: 16,
