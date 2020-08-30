@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
+import CalenderComponent from './CalenderComponent';
 import Dark_Button2 from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
@@ -46,7 +47,9 @@ const HandyWork_Screen2 = props => {
         <Text style={styles.head2}></Text>
        
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+          <CalenderComponent />
+      </View>
       <View style={styles.container6}>
         <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen3')} >
           <Text> Next</Text>
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 5,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.2,
+    flex: 1,
     width: "100%",
     paddingLeft: '55%',
     paddingHorizontal: "2%",
