@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
 import CalenderComponent from './CalenderComponent';
-import Dark_Button2 from '../../Items/Buttons/dark-bt2';
+import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
 
@@ -51,9 +51,9 @@ const HandyWork_Screen2 = props => {
           <CalenderComponent />
       </View>
       <View style={styles.container6}>
-        <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen3')} >
-          <Text> Next</Text>
-        </Dark_Button2>
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3')} >
+          <Text style={{fontSize: 18}}> Next</Text>
+        </Dark_Button>
       </View>
     </SafeAreaView>
   );
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     width: "100%",
-    paddingLeft: '55%',
+    paddingLeft: '58%',
     paddingHorizontal: "2%",
     // backgroundColor: "#9811C9",
   },
