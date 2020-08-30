@@ -1,5 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
+import { 
+  StyleSheet,
+  View, 
+  Text, 
+  Image, 
+  TouchableOpacity, 
+  TextInput, 
+  SafeAreaView } 
+  from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import Dark_Button from '../../Items/Buttons/dark-bt2';
@@ -49,6 +57,7 @@ const HandyWork_Screen4 = props => {
       style={styles.input}
       onChangeText={text => onChangeText(text)}
       value={value}
+      
       />
       </View>
       <View style={styles.container6}>
@@ -95,14 +104,14 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: "2%",
     paddingBottom: '1%',
-    backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container4: {
     flex: 1.1,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "#267DA5",
+    // backgroundColor: "#267DA5",
   },
   container5: {
     flex: 3.4,

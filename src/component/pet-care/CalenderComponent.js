@@ -11,8 +11,8 @@ const CalenderComponent = () => {
 
   return (
     <View style={{
-      flex: 1,
-      marginTop: '25%'
+     
+      
     }}>
 
       <CalendarList
@@ -39,14 +39,14 @@ const CalenderComponent = () => {
           },
         }}
         theme={{
-          backgroundColor: "black",
-          calendarBackground: "white",
-          textSectionTitleColor: "#011131",
-          monthTextColor: 'blue',
-          textMonthFontSize: 28,
+          backgroundColor: 'black',
+          calendarBackground: '#ffffff',
+          textMonthFontWeight: 'bold',
+          textMonthFontSize: 22,
+          textDayFontSize: 15,
         }}
       />
-      <Text> {markedDate} </Text>
+     
     </View>
   );
 };

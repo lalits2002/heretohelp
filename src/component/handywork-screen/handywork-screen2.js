@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
@@ -14,7 +14,7 @@ const HandyWork_Screen2 = props => {
 
 
   return(
-    <View style={{ ...styles.screen, ...props.style}}>
+    <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
       <View style={styles.top} >
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
@@ -55,7 +55,7 @@ const HandyWork_Screen2 = props => {
           <Text> Next</Text>
         </Dark_Button2>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -65,8 +65,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
-    marginTop: '7%'
+    padding: '1.8%',
+    marginTop: '7%',
+    backgroundColor: '#ffffff'
   },
   top: {
     flex:0.85,
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#C6C438",
   },
   container2: {
-    flex: 0.6,
+    flex: 0.5,
     width: "100%",
     // backgroundColor: "#A596D3",
   },
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     width: "100%",
     paddingHorizontal: "2%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container4: {
     flex: 0.8,
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 5,
+    flex: 6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
@@ -109,11 +110,12 @@ const styles = StyleSheet.create({
     // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1,
+    flex: 1.1,
+    flexDirection: 'column',
+    justifyContent: 'center',
     width: "100%",
     paddingLeft: '55%',
     paddingHorizontal: "2%",
-    paddingTop: "5%",
     // backgroundColor: "#9811C9",
   },
   back:{

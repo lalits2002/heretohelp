@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { Calendar, CalendarList, Agenda } from "react-native-calendars";
+import Colors from "../../Items/Colors";
 
 const CalenderComponent = () => {
   const getMarkedDate = () => {
@@ -41,7 +42,10 @@ const CalenderComponent = () => {
         theme={{
           backgroundColor: 'black',
           calendarBackground: '#ffffff',
-          textMonthFontSize: 28,
+          textMonthFontWeight: 'bold',
+          monthTextColor: Colors.primary2,
+          textMonthFontSize: 22,
+          textDayFontSize: 15,
         }}
       />
      

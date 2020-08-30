@@ -96,7 +96,7 @@ container2:{
 container3:{
   flex: 3.2,
   width: '100%',
-  backgroundColor: '#37eb0e'
+  // backgroundColor: '#37eb0e'
 
 },
 container4:{
@@ -118,8 +118,8 @@ container6:{
   flexDirection: 'column',
   justifyContent: 'space-evenly',
   width: '100%',
-  paddingBottom: '8%',
-  backgroundColor: '#d1a9a5'
+  paddingBottom: '6%',
+  // backgroundColor: '#d1a9a5'
 
 },
 back:{
@@ -151,7 +151,7 @@ head3:{
 
 },
 head4: {
-  fontSize: 12,
+  fontSize: 10,
   fontWeight: 'bold',
   alignSelf: 'flex-start',
   alignItems: 'flex-start'
