@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
-const Social_Screen5 = props => {
+const Social_Screen6 = props => {
     const navigation = useNavigation();
     return (
         <View style={{ ...styles.screen, ...props.style}}>
@@ -26,7 +26,7 @@ const Social_Screen5 = props => {
         resizeMode="contain"
         style={{
           height: "100%",
-          width: "27%",
+          width: "31%",
           alignSelf: "center",
         }}
 
@@ -35,7 +35,7 @@ const Social_Screen5 = props => {
     </View>
     <View style={styles.container4}>
 
-      <Text style={styles.head3}> Additional details</Text>
+      <Text style={styles.head3}> Where would you like to meet</Text>
 
     </View>
     {/* </View> */}
@@ -45,7 +45,7 @@ const Social_Screen5 = props => {
     </View>
     </View>
     <View style={styles.container6}>
-      <Dark_Button onPress={() => props.navigation.navigate('socialscreen5')}>
+      <Dark_Button >
         <Text> Next</Text>
       </Dark_Button>
     </View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
       margin: "1.8%",
-      marginTop: '7%'
+      marginTop: '5%'
     },
     top: {
         flex:0.85,
@@ -72,11 +72,14 @@ const styles = StyleSheet.create({
     container1: {
         flex: 0.6,
         width: "100%",
+        flexDirection: 'column',
         // backgroundColor: "#67f0a0",
       },
       container2: {
         flex: 0.6,
         width: "100%",
+        flexDirection: 'column',
+
         // backgroundColor: "#a1278c",
       },
       container3: {
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         width: "100%",
         paddingHorizontal: "2%",
-        paddingBottom: '1%',
+        paddingBottom: '5%',
         // backgroundColor: "#7099db",
       },
       container4: {
@@ -122,19 +125,22 @@ const styles = StyleSheet.create({
       head1: {
         fontSize: 24,
         fontWeight: "bold",
+        justifyContent: 'center',
         color: Colors.primary1,
       },
       head2: {
         alignSelf: "flex-start",
-        fontSize: 16,
+        fontSize: 15.2,
         color: Colors.primary2,
-        paddingTop: '0.5%'
+        paddingTop: '0.5%',
+        justifyContent: 'center'
       },
       head3: {
         fontSize: 17.5,
         alignSelf: 'flex-start',
         fontWeight: "bold",
-        paddingBottom: '18%'
+        paddingBottom: '18%',
+        justifyContent: 'center'
       },
       input: {
         paddingTop: '0.1%',
@@ -144,4 +150,4 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
       },
 });
-export default  Social_Screen5;
+export default Social_Screen6;
