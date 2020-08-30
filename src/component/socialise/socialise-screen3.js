@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import CalenderComponent from './CalenderComponent';
 import Dark_Button from '../../Items/Buttons/dark-bt2';
 import Colors from '../../Items/Colors';
 
@@ -40,7 +42,9 @@ const Social_Screen3 = props => {
       {/* <Text style={styles.head3}></Text> */}
       <Text style={styles.head3}> What is your requested date?</Text>
     </View>
-    <View style={styles.container5}></View>
+    <View style={styles.container5}>
+        <CalenderComponent />
+    </View>
     <View style={styles.container6}>
       <Dark_Button onPress={() => props.navigation.navigate('socialscreen5')}>
         <Text> Next</Text>
@@ -58,26 +62,27 @@ const styles = StyleSheet.create({
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      margin: "1.8%",
-      marginTop: '7%'
+      padding: "1.8%",
+      paddingTop: '7%',
+      backgroundColor: '#ffffff'
     },
     top: {
-        flex:0.85,
+        flex:0.55,
         width: '100%',
         flexDirection: 'column',
         justifyContent: 'center',
         alignSelf: 'flex-start',
-        // backgroundColor: "#A596D3",
+        backgroundColor: "#A596D3",
       },
     container1: {
-        flex: 0.6,
+        flex: 0.5,
         width: "100%",
-        // backgroundColor: "#C6C438",
+        backgroundColor: "#C6C438",
       },
       container2: {
         flex: 0.6,
         width: "100%",
-        // backgroundColor: "#A596D3",
+        backgroundColor: "#A596D3",
       },
       container3: {
         flex: 1.8,
@@ -85,29 +90,28 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingHorizontal: "2%",
         paddingBottom: '1%',
-        // backgroundColor: "#C6C438",
+        backgroundColor: "#C6C438",
       },
       container4: {
-        flex: 1.1,
+        flex: 1,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
-        // backgroundColor: "#267DA5",
+        backgroundColor: "#267DA5",
       },
       container5: {
-        flex: 4.8,
+        flex: 5.2,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
         alignSelf: "center",
-        // backgroundColor: "#86EC4F",
+        backgroundColor: "#86EC4F",
       },
       container6: {
-        flex: 1.2,
+        flex: 1,
         width: "100%",
-        // backgroundColor: "#9811C9",
+        backgroundColor: "#9811C9",
         paddingHorizontal: "2%",
-        paddingTop: "5%",
         paddingLeft: '55%',
       },
       back:{
