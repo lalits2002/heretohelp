@@ -57,7 +57,7 @@ const Social_Screen2 = props => {
         </Button2>
       </View>
 
-     
+
 
 
       </SafeAreaView>
@@ -122,7 +122,7 @@ container6:{
   justifyContent: 'space-evenly',
   width: '100%',
   // paddingBottom: '6%',
-  backgroundColor: '#d1a9a5'
+  // backgroundColor: '#d1a9a5'
 
 },
 container7:{

@@ -69,20 +69,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignSelf: 'flex-start',
-    backgroundColor: "#05ffea",
+    // backgroundColor: "#05ffea",
   },
   container1: {
     flex: 0.6,
     width: "100%",
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container2: {
     flex: 0.6,
     width: "100%",
     flexDirection: 'column',
-    backgroundColor: "#ed0905",
+    // backgroundColor: "#ed0905",
   },
   container3: {
     flex: 1.8,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: "2%",
     paddingBottom: '1%',
-    backgroundColor: "#9a83eb",
+    // backgroundColor: "#9a83eb",
 
   },
   container4: {
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     paddingTop: '3%',
-    backgroundColor: "#c754c5",
+    // backgroundColor: "#c754c5",
   },
   container5: {
     flex: 4.8,
@@ -107,13 +107,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
-    backgroundColor: "#a8744c",
+    // backgroundColor: "#a8744c",
   },
   container6: {
     flex: 1.2,
     width: "100%",
     flexDirection: 'column',
-    backgroundColor: "#9811C9",
+    // backgroundColor: "#9811C9",
 
 
   },

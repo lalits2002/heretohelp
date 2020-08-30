@@ -45,7 +45,7 @@ const Social_Screen6 = props => {
     </View>
     </View>
     <View style={styles.container6}>
-      <Dark_Button onPress={() => props.navigation.navigate('socialscreen5')}>
+      <Dark_Button >
         <Text> Next</Text>
       </Dark_Button>
     </View>
