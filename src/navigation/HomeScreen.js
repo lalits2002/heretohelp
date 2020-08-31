@@ -1,6 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator, CardStyleInterpolators   } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators, TransitionPresets   } from "@react-navigation/stack";
 
 import Loadscreen from "../component/home/Load";
 import Volunteer from "../component/Volunteer";
@@ -73,12 +73,14 @@ function Petscreen() {
 
 function HandyWorkScreen() {
   return (
-    <ScreenConstant.Navigator screenOptions={{ 
+    <ScreenConstant.Navigator 
+    screenOptions={{
       headerShown: false,
       gestureEnabled: true,
-      gestureDirection: 'vertical',
-      }}
- >
+      gestureDirection: 'horizontal',
+      cardOverlayEnabled: true,
+      ...TransitionPresets.SlideFromRightIOS ,
+    }}>
       <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
       <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2} />
       <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />

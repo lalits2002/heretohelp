@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -15,7 +15,7 @@ import Colors from "../../Items/Colors";
 const Pet_screen6 = (props) => {
   const navigation = useNavigation();
   const placeholer = "Enter here";
-  const [value, onChangeText] = React.useState(placeholer);
+  const [value, onChangeText] = useState(placeholer);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -52,7 +52,7 @@ const Pet_screen6 = (props) => {
       </View>
       <View style={styles.container5}>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderBottomWidth: 1 }}
+          style={{ height: 40, borderColor: "gray", borderBottomWidth: 1, color: Colors.secondary2, fontSize: 18 }}
           onChangeText={(text) => onChangeText(text)}
           value={value}
           onFocus={() => {
