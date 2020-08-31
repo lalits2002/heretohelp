@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   StyleSheet,
   View, 
@@ -17,7 +17,8 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen4 = props => {
 
   const navigation = useNavigation();
-  const [value, onChangeText] = React.useState('Enter Here');
+  const placeholer = "Enter here";
+  const [value, onChangeText] = useState(placeholer);
 
     return(
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
@@ -55,9 +56,13 @@ const HandyWork_Screen4 = props => {
       <View style={styles.container5}>
       <TextInput
       style={styles.input}
-      onChangeText={text => onChangeText(text)}
+      onChangeText={(text) => onChangeText(text)}
       value={value}
-      
+          onFocus={() => {
+            if (value === "Enter here") {
+              onChangeText("");
+            }
+          }}
       />
       </View>
       <View style={styles.container6}>
@@ -120,6 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignSelf: "center",
     paddingTop: '20%',
+    paddingHorizontal: '1%',
     // backgroundColor: "#86EC4F",
   },
   container6: {
@@ -151,7 +157,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   input: {
-    paddingHorizontal: '5%',
     fontSize: 20,
     color: Colors.secondary3 ,
     borderBottomColor: 'black',
