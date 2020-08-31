@@ -8,6 +8,10 @@ import PetTypePicker from "./PetTypePicker";
 
 const Pet_screen5 = (props) => {
   const navigation = useNavigation();
+  const [PetType, SetType] = React.useState("");
+  const typeHandler = (item) => {
+    SetType(item);
+  };
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -43,13 +47,14 @@ const Pet_screen5 = (props) => {
         <Text style={styles.head2}>What type of pet is it?</Text>
       </View>
       <View style={styles.container5}>
-        <PetTypePicker></PetTypePicker>
+        <PetTypePicker petTypeGetter={typeHandler}></PetTypePicker>
       </View>
       <View style={styles.container6}>
         <Dark_Button
           onPress={() =>
             props.navigation.navigate("PetScreen6", {
               ...props.route.params,
+              PetType,
             })
           }
         >

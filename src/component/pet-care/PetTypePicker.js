@@ -91,7 +91,10 @@ const PetTypePicker = (props) => {
           showsVerticalScrollIndicator={true}
           data={dataCity}
           scrollAnimatio={false}
-          onSelected={({ item, index }) => handleChange(index)}
+          onSelected={({ item, index }) => {
+            handleChange(index);
+            props.petTypeGetter(item);
+          }}
           selectOnPress={true}
           renderItem={(option) => ItemToRender(option, selected, true)}
           magnet={true}

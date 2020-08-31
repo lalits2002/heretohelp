@@ -40,7 +40,7 @@ const Pet_screen3 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> Your chosen date</Text>
+        <Text style={styles.head2}> {props.route.params.date}</Text>
       </View>
       <View style={styles.container5}>
         <Text style={styles.head2}> What time do you request?</Text>

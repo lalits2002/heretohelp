@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Feather } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons";
 
 import Picker from "./picker";
 import Dark_Button from "../../Items/Buttons/dark-bt";
@@ -9,6 +9,10 @@ import Colors from "../../Items/Colors";
 
 const Pet_Screen = (props) => {
   const navigation = useNavigation();
+  const [CareType, SetCare] = React.useState("");
+  const typeHandler = (item) => {
+    SetCare(item);
+  };
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -16,8 +20,12 @@ const Pet_Screen = (props) => {
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
-          }}>
-          <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} />Back</Text>
+          }}
+        >
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -52,10 +60,17 @@ const Pet_Screen = (props) => {
         <Text style={styles.head3}>Select type of Pet Care</Text>
       </View>
       <View style={styles.container5}>
-        <Picker />
+        <Picker careTypeGetter={typeHandler} />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen2")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen2", {
+              ...props.route.params,
+              CareType,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -70,7 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: "1.8%",
-    paddingTop: '7%'
+    paddingTop: "7%",
   },
   top: {
     flex: 0.55,
