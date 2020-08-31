@@ -52,7 +52,13 @@ const Pet_screen6 = (props) => {
       </View>
       <View style={styles.container5}>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderBottomWidth: 1, color: Colors.secondary2, fontSize: 18 }}
+          style={{
+            height: 40,
+            borderColor: "gray",
+            borderBottomWidth: 1,
+            color: Colors.secondary2,
+            fontSize: 18,
+          }}
           onChangeText={(text) => onChangeText(text)}
           value={value}
           onFocus={() => {
