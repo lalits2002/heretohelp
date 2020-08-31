@@ -58,7 +58,13 @@ function SocialScreen() {
 
 function Petscreen() {
   return (
-    <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+    <ScreenConstant.Navigator screenOptions={{
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: 'horizontal',
+      cardOverlayEnabled: true,
+      ...TransitionPresets.SlideFromRightIOS ,
+    }}>
       <ScreenConstant.Screen name="PetScreen1" component={Pet_Screen} />
       <ScreenConstant.Screen name="PetScreen2" component={Pet_screen2} />
       <ScreenConstant.Screen name="PetScreen3" component={Pet_screen3} />
@@ -98,7 +104,13 @@ function HandyWorkScreen() {
 
 function TransportScreen() {
   return (
-    <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+    <ScreenConstant.Navigator screenOptions={{
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: 'horizontal',
+      cardOverlayEnabled: true,
+      ...TransitionPresets.SlideFromRightIOS ,
+    }}>
       <ScreenConstant.Screen
         name="transport_screen1"
         component={Transport_screen}
@@ -119,23 +131,21 @@ function HomeScreen() {
         <ScreenConstant.Screen name="vol" component={Volunteer} />
         <ScreenConstant.Screen name="Victim" component={Victim} />
 
-        <ScreenConstant.Screen name="social_screen"
-        options={{
-          cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
-        }}
-        component={SocialScreen} />
+        <ScreenConstant.Screen 
+          name="social_screen"
+          options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }}
+          component={SocialScreen} />
 
-        <ScreenConstant.Screen name="pet_screen" 
-        options={{
-          cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
-        }}
-        component={Petscreen}  />
-        <ScreenConstant.Screen name="handywork_screen"
-            options={{
-              
-              cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
-            }} 
+        <ScreenConstant.Screen
+          name="pet_screen" 
+          options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }}
+          component={Petscreen}  />
+
+        <ScreenConstant.Screen 
+          name="handywork_screen"
+          options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }} 
           component={HandyWorkScreen}/>
+          
         <ScreenConstant.Screen 
           name="transport_screen"
           options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }}
