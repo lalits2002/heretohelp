@@ -14,6 +14,8 @@ import Colors from "../../Items/Colors";
 
 const Pet_screen6 = (props) => {
   const navigation = useNavigation();
+  const placeholer = "Enter here";
+  const [value, onChangeText] = React.useState(placeholer);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -50,13 +52,15 @@ const Pet_screen6 = (props) => {
       </View>
       <View style={styles.container5}>
         <TextInput
-          defaultValue=""
-          placeholder="Enter here"
-          placeholderTextColor="rgba(0, 0, 0, 0.5)"
-          enablesReturnKeyAutomatically={true}
-          clearTextOnFocus={true}
           style={{ height: 40, borderColor: "gray", borderBottomWidth: 1 }}
-        ></TextInput>
+          onChangeText={(text) => onChangeText(text)}
+          value={value}
+          onFocus={() => {
+            if (value === "Enter here") {
+              onChangeText("");
+            }
+          }}
+        />
       </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate("PetScreen7")}>
