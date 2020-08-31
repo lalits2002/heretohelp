@@ -63,7 +63,14 @@ const Pet_screen6 = (props) => {
         />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen7")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen7", {
+              ...props.route.params,
+              petName: value,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -148,13 +155,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.primary3,
   },
-  input:{
-    paddingHorizontal: '5%',
+  input: {
+    paddingHorizontal: "5%",
     fontSize: 20,
-    color: Colors.secondary3 ,
-    borderBottomColor: 'black',
+    color: Colors.secondary3,
+    borderBottomColor: "black",
     borderBottomWidth: 1,
-  }
+  },
 });
 
 export default Pet_screen6;

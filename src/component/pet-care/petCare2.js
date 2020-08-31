@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
+import CalenderComponent from "./CalenderComponent";
 
 const Pet_screen2 = (props) => {
   const navigation = useNavigation();
@@ -42,7 +43,9 @@ const Pet_screen2 = (props) => {
       <View style={styles.container4}>
         <Text style={styles.head2}> What is your requested date?</Text>
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+        <CalenderComponent></CalenderComponent>
+      </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
           <Text> Next</Text>

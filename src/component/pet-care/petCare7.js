@@ -7,8 +7,11 @@ import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen7 = (props) => {
-  const [value, setValue] = React.useState("medium");
   const navigation = useNavigation();
+  const { petName } = props.route.params;
+
+  const [value, setValue] = React.useState("medium");
+  const alter = "your pet";
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -41,7 +44,10 @@ const Pet_screen7 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What size is petsname.title? </Text>
+        <Text style={styles.head2}>
+          {" "}
+          What size is {petName !== "" ? petName : alter}?{" "}
+        </Text>
       </View>
       <View style={styles.container5}>
         <RadioButton.Group
@@ -63,7 +69,14 @@ const Pet_screen7 = (props) => {
         </RadioButton.Group>
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen8", {
+              ...props.route.params,
+              size: value,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>

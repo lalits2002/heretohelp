@@ -46,7 +46,13 @@ const Pet_screen5 = (props) => {
         <PetTypePicker></PetTypePicker>
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen6")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen6", {
+              ...props.route.params,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>

@@ -12,11 +12,9 @@ import { useNavigation } from "@react-navigation/native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen8 = (props) => {
+const Pet_screen9 = (props) => {
+  console.log(props.route.params);
   const navigation = useNavigation();
-  const placeholer = "Enter here";
-  const [value, onChangeText] = useState(placeholer);
-
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.top}>
@@ -29,49 +27,12 @@ const Pet_screen8 = (props) => {
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care </Text>
-      </View>
-      <View style={styles.container2}>
-        <Text style={styles.head2}> Sitting </Text>
+        <Text style={styles.head}> Review your request </Text>
       </View>
 
-      <View style={styles.container3}>
-        <Image
-          resizeMode="contain"
-          style={{
-            height: "100%",
-            width: "27%",
-            alignSelf: "center",
-          }}
-          // change the source of the image
-          source={require("../../Items/Icons/calender.jpeg")}
-        />
-      </View>
-      <View style={styles.container4}>
-        <Text style={styles.head2}>Additional details</Text>
-      </View>
-      <View style={styles.container5}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => onChangeText(text)}
-          value={value}
-          onFocus={() => {
-            if (value === "Enter here") {
-              onChangeText("");
-            }
-          }}
-        />
-      </View>
       <View style={styles.container6}>
-        <Dark_Button
-          onPress={() =>
-            props.navigation.navigate("PetScreen9", {
-              ...props.route.params,
-              addtional: value,
-            })
-          }
-        >
-          <Text> Next</Text>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
+          <Text> Submit</Text>
         </Dark_Button>
       </View>
     </View>
@@ -164,4 +125,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen8;
+export default Pet_screen9;

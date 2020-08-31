@@ -11,17 +11,11 @@ const CalenderComponent = () => {
   const [markedDate, nextOne] = useState(getMarkedDate(null));
 
   return (
-    <View style={{
-     
-      
-    }}>
-
+    <View style={{}}>
       <CalendarList
         onDayPress={(day) => {
           nextOne(day.dateString);
         }}
-
-       
         horizontal={true}
         // Max amount of months allowed to scroll to the past. Default = 50
         pastScrollRange={0}
@@ -40,15 +34,14 @@ const CalenderComponent = () => {
           },
         }}
         theme={{
-          backgroundColor: 'black',
-          calendarBackground: '#ffffff',
-          textMonthFontWeight: 'bold',
+          backgroundColor: "black",
+          calendarBackground: "#ffffff",
+          textMonthFontWeight: "bold",
           monthTextColor: Colors.primary2,
           textMonthFontSize: 22,
           textDayFontSize: 15,
         }}
       />
-     
     </View>
   );
 };

@@ -8,7 +8,7 @@ import Colors from "../../Items/Colors";
 
 const Pet_screen4 = (props) => {
   const navigation = useNavigation();
-  const [value, setValue] = React.useState("Eaither is fine");
+  const [value, setValue] = React.useState("Either is fine");
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -81,13 +81,20 @@ const Pet_screen4 = (props) => {
               alignItems: "center",
             }}
           >
-            <RadioButton color="#2D375B" value="Eaither is fine" />
-            <Text style={styles.head4}>Eaither is fine</Text>
+            <RadioButton color="#2D375B" value="Either is fine" />
+            <Text style={styles.head4}>Either is fine</Text>
           </View>
         </RadioButton.Group>
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen5")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen5", {
+              ...props.route.params,
+              location: value,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
