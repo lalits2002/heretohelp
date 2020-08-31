@@ -1,13 +1,21 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { RadioButton } from "react-native-paper";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen8 = (props) => {
+const Pet_screen6 = (props) => {
   const navigation = useNavigation();
+  const placeholer = "Enter here";
+  const [value, onChangeText] = useState(placeholer);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -40,11 +48,22 @@ const Pet_screen8 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> 8What is your requested date?</Text>
+        <Text style={styles.head2}>Additional details</Text>
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => onChangeText(text)}
+          value={value}
+          onFocus={() => {
+            if (value === "Enter here") {
+              onChangeText("");
+            }
+          }}
+        />
+      </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen7")}>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -63,39 +82,40 @@ const styles = StyleSheet.create({
   container1: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container2: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#A596D3",
+    // backgroundColor: "#A596D3",
   },
   container3: {
     flex: 1.8,
     flexDirection: "column",
     width: "100%",
     paddingHorizontal: "2%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container4: {
-    flex: 0.8,
+    flex: 1.5,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    //backgroundColor: "#267DA5",
+    // backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 3,
     width: "100%",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignSelf: "center",
-    //backgroundColor: "#86EC4F",
+    // backgroundColor: "#86EC4F",
   },
   container6: {
     flex: 1.6,
     width: "100%",
-    //backgroundColor: "#9811C9",
+    // backgroundColor: "#9811C9",
+    justifyContent: "center",
     paddingHorizontal: "2%",
     paddingTop: "5%",
     paddingLeft: "60%",
@@ -128,6 +148,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.primary3,
   },
+  input: {
+    paddingHorizontal: "5%",
+    fontSize: 20,
+    color: Colors.secondary3,
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+  },
 });
 
-export default Pet_screen8;
+export default Pet_screen6;
