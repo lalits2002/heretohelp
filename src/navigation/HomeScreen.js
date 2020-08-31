@@ -86,6 +86,7 @@ function HandyWorkScreen() {
       gestureDirection: 'horizontal',
       cardOverlayEnabled: true,
       ...TransitionPresets.SlideFromRightIOS ,
+      
     }}>
       <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
       <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2} />
@@ -145,7 +146,7 @@ function HomeScreen() {
           name="handywork_screen"
           options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }} 
           component={HandyWorkScreen}/>
-          
+
         <ScreenConstant.Screen 
           name="transport_screen"
           options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }}

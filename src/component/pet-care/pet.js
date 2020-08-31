@@ -70,9 +70,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: "1.8%",
+    paddingTop: '7%'
   },
   top: {
-    flex: 0.85,
+    flex: 0.55,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
