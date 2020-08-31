@@ -10,7 +10,7 @@ import {
   from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-import Dark_Button from '../../Items/Buttons/dark-bt2';
+import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
 

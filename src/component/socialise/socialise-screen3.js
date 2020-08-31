@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import CalenderComponent from './CalenderComponent';
-import Dark_Button from '../../Items/Buttons/dark-bt2';
+import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
 const Social_Screen3 = props => {
