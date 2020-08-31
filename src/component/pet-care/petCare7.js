@@ -1,13 +1,11 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { RadioButton } from "react-native-paper";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen7 = (props) => {
-  const [value, setValue] = React.useState("medium");
   const navigation = useNavigation();
 
   return (
@@ -41,27 +39,9 @@ const Pet_screen7 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What size is petsname.title? </Text>
+        <Text style={styles.head2}> 7What is your requested date?</Text>
       </View>
-      <View style={styles.container5}>
-        <RadioButton.Group
-          onValueChange={(value) => setValue(value)}
-          value={value}
-        >
-          <View style={styles.radioBtnTxt}>
-            <RadioButton color="#2D375B" value="small" />
-            <Text style={styles.head4}>Small</Text>
-          </View>
-          <View style={styles.radioBtnTxt}>
-            <RadioButton color="#2D375B" value="medium" />
-            <Text style={styles.head4}>Medium</Text>
-          </View>
-          <View style={styles.radioBtnTxt}>
-            <RadioButton color="#2D375B" value="large" />
-            <Text style={styles.head4}>Large</Text>
-          </View>
-        </RadioButton.Group>
-      </View>
+      <View style={styles.container5}></View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
           <Text> Next</Text>
@@ -97,19 +77,19 @@ const styles = StyleSheet.create({
     //backgroundColor: "#C6C438",
   },
   container4: {
-    flex: 1.6,
+    flex: 0.8,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     //backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4,
+    flex: 4.8,
     width: "100%",
     flexDirection: "column",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignSelf: "center",
-    // backgroundColor: "#86EC4F",
+    //backgroundColor: "#86EC4F",
   },
   container6: {
     flex: 1.6,
@@ -133,19 +113,6 @@ const styles = StyleSheet.create({
     fontSize: 17.5,
     alignSelf: "center",
     fontWeight: "bold",
-  },
-
-  head4: {
-    alignSelf: "center",
-    fontSize: 19,
-    color: Colors.primary2,
-  },
-  radioBtnTxt: {
-    paddingLeft: "20%",
-    paddingVertical: "2%",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
   },
   top: {
     flex: 0.85,
