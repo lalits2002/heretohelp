@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     color: Colors.primary2,
   },
   head3: {
-    fontSize: 17.5,
+    fontSize: 17.4,
     alignSelf: "center",
     fontWeight: "bold",
   },
