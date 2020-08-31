@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Feather } from '@expo/vector-icons';
 
 import Picker from "./picker";
 import Dark_Button from "../../Items/Buttons/dark-bt";
@@ -15,9 +16,8 @@ const Pet_Screen = (props) => {
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
-          }}
-        >
-          <Text style={styles.back}>Back</Text>
+          }}>
+          <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} />Back</Text>
         </TouchableOpacity>
       </View>
 
@@ -78,12 +78,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
+    backgroundColor: "#A596D3",
   },
   container1: {
     flex: 0.5,
     width: "100%",
-    // backgroundColor: '#C6C438',
+    backgroundColor: '#C6C438',
   },
   container2: {
     flex: 2.5,
