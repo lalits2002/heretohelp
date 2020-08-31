@@ -1,6 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators   } from "@react-navigation/stack";
 
 import Loadscreen from "../component/home/Load";
 import Volunteer from "../component/Volunteer";
@@ -38,6 +38,7 @@ import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
 import ProfileScreen from "../component/profile/profile";
 
 
+
 const ScreenConstant = createStackNavigator();
 
 function SocialScreen() {
@@ -72,19 +73,15 @@ function Petscreen() {
 
 function HandyWorkScreen() {
   return (
-    <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-      <ScreenConstant.Screen
-        name="handyWorkScreen1"
-        component={HandyWork_Screen}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen2"
-        component={HandyWork_Screen2}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen3"
-        component={HandyWork_Screen3}
-      />
+    <ScreenConstant.Navigator screenOptions={{ 
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: 'vertical',
+      }}
+ >
+      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen} />
+      <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2} />
+      <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
       <ScreenConstant.Screen
         name="handyWorkScreen4"
         component={HandyWork_Screen4}
@@ -119,17 +116,35 @@ function HomeScreen() {
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
         <ScreenConstant.Screen name="vol" component={Volunteer} />
         <ScreenConstant.Screen name="Victim" component={Victim} />
-        <ScreenConstant.Screen name="social_screen" component={SocialScreen} />
-        <ScreenConstant.Screen name="pet_screen" component={Petscreen} />
-        <ScreenConstant.Screen
-          name="handywork_screen"
-          component={HandyWorkScreen}
-        />
-        <ScreenConstant.Screen
+
+        <ScreenConstant.Screen name="social_screen"
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
+        }}
+        component={SocialScreen} />
+
+        <ScreenConstant.Screen name="pet_screen" 
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
+        }}
+        component={Petscreen}  />
+        <ScreenConstant.Screen name="handywork_screen"
+            options={{
+              
+              cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
+            }} 
+          component={HandyWorkScreen}/>
+        <ScreenConstant.Screen 
           name="transport_screen"
-          component={TransportScreen}
-        />
-        <ScreenConstant.Screen name="chat" component={Chat_Screen} />
+          options={{ cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }}
+          component={TransportScreen}/>
+          
+
+        <ScreenConstant.Screen 
+            name="chat" 
+            options={{ cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS}}
+            component={Chat_Screen} />
+
         <ScreenConstant.Screen name="browse" component={Browsing_Screen} />
         <ScreenConstant.Screen name="profile" component={ProfileScreen} />
       </ScreenConstant.Navigator>
