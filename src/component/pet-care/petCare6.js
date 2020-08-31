@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
@@ -41,7 +48,16 @@ const Pet_screen6 = (props) => {
       <View style={styles.container4}>
         <Text style={styles.head2}>What is your pet's name?</Text>
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+        <TextInput
+          defaultValue=""
+          placeholder="Enter here"
+          placeholderTextColor="rgba(0, 0, 0, 0.5)"
+          enablesReturnKeyAutomatically={true}
+          clearTextOnFocus={true}
+          style={{ height: 40, borderColor: "gray", borderBottomWidth: 1 }}
+        ></TextInput>
+      </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate("PetScreen7")}>
           <Text> Next</Text>
@@ -62,39 +78,40 @@ const styles = StyleSheet.create({
   container1: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container2: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#A596D3",
+    // backgroundColor: "#A596D3",
   },
   container3: {
     flex: 1.8,
     flexDirection: "column",
     width: "100%",
     paddingHorizontal: "2%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container4: {
-    flex: 0.8,
+    flex: 1.5,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    //backgroundColor: "#267DA5",
+    // backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 3,
     width: "100%",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignSelf: "center",
-    //backgroundColor: "#86EC4F",
+    // backgroundColor: "#86EC4F",
   },
   container6: {
     flex: 1.6,
     width: "100%",
-    //backgroundColor: "#9811C9",
+    // backgroundColor: "#9811C9",
+    justifyContent: "center",
     paddingHorizontal: "2%",
     paddingTop: "5%",
     paddingLeft: "60%",
