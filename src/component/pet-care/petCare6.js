@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import Dark_Button2 from "../../Items/Buttons/dark-bt2";
+import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen6 = (props) => {
@@ -39,13 +39,13 @@ const Pet_screen6 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}>6 What is your requested date?</Text>
+        <Text style={styles.head2}>What is your pet's name?</Text>
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button2 onPress={() => props.navigation.navigate("PetScreen7")}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen7")}>
           <Text> Next</Text>
-        </Dark_Button2>
+        </Dark_Button>
       </View>
     </View>
   );
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    paddingLeft: "60%",
   },
   head: {
     fontSize: 26,
