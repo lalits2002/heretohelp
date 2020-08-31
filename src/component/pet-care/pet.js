@@ -78,12 +78,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "flex-start",
-    backgroundColor: "#A596D3",
+    // backgroundColor: "#A596D3",
   },
   container1: {
     flex: 0.5,
     width: "100%",
-    backgroundColor: '#C6C438',
+    // backgroundColor: '#C6C438',
   },
   container2: {
     flex: 2.5,
