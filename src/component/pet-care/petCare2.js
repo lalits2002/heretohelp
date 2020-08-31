@@ -8,6 +8,10 @@ import CalenderComponent from "./CalenderComponent";
 
 const Pet_screen2 = (props) => {
   const navigation = useNavigation();
+  const [selectedDate, setDate] = React.useState("");
+  const ClickHander = (day) => {
+    setDate(day);
+  };
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -44,10 +48,17 @@ const Pet_screen2 = (props) => {
         <Text style={styles.head2}> What is your requested date?</Text>
       </View>
       <View style={styles.container5}>
-        <CalenderComponent></CalenderComponent>
+        <CalenderComponent dateGetter={ClickHander}></CalenderComponent>
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen3")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen3", {
+              ...props.route.params,
+              date: selectedDate,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>

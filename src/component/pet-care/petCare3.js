@@ -7,6 +7,7 @@ import Colors from "../../Items/Colors";
 
 const Pet_screen3 = (props) => {
   const navigation = useNavigation();
+  console.log(props.route.params);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -46,7 +47,13 @@ const Pet_screen3 = (props) => {
       </View>
       <View style={styles.container6}></View>
       <View style={styles.container7}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen4")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen4", {
+              ...props.route.params,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
