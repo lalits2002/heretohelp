@@ -43,7 +43,14 @@ const ScreenConstant = createStackNavigator();
 
 function SocialScreen() {
   return (
-    <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+    <ScreenConstant.Navigator 
+    screenOptions={{
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: 'horizontal',
+      cardOverlayEnabled: true,
+      ...TransitionPresets.SlideFromRightIOS ,
+    }}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
       <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
       <ScreenConstant.Screen name="socialscreen3" component={Social_Screen3} />
@@ -58,7 +65,8 @@ function SocialScreen() {
 
 function Petscreen() {
   return (
-    <ScreenConstant.Navigator screenOptions={{
+    <ScreenConstant.Navigator 
+    screenOptions={{
       headerShown: false,
       gestureEnabled: true,
       gestureDirection: 'horizontal',
