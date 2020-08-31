@@ -52,7 +52,7 @@ const Pet_screen6 = (props) => {
       </View>
       <View style={styles.container5}>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderBottomWidth: 1, color: Colors.secondary2, fontSize: 18 }}
+          style={styles.input}
           onChangeText={(text) => onChangeText(text)}
           value={value}
           onFocus={() => {
@@ -148,6 +148,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.primary3,
   },
+  input:{
+    paddingHorizontal: '5%',
+    fontSize: 20,
+    color: Colors.secondary3 ,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  }
 });
 
 export default Pet_screen6;
