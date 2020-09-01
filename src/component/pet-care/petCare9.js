@@ -38,35 +38,63 @@ const Pet_screen9 = (props) => {
 
       <View style={styles.container2}>
         <Text>Type of Pet Care</Text>
-        <TextInput style={styles.input} value={data.CareType}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.CareType}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Date</Text>
-        <TextInput style={styles.input} value={data.date}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.date}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Time</Text>
-        <TextInput style={styles.input} value={""}></TextInput>
+        <TextInput style={styles.input} editable={false} value={""}></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Location for pet sitting</Text>
-        <TextInput style={styles.input} value={data.location}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.location}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Type of pet</Text>
-        <TextInput style={styles.input} value={data.PetType}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.PetType}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Pet's name</Text>
-        <TextInput style={styles.input} value={data.petName}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.petName}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Pet size</Text>
-        <TextInput style={styles.input} value={data.size}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.size}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text>Notes</Text>
-        <TextInput style={styles.input} value={data.addtional}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.addtional}
+        ></TextInput>
       </View>
 
       <View style={styles.container6}>
