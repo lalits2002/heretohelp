@@ -6,32 +6,14 @@ const dataCity = [
 
   // data need to change afterwards
 
-  'Paris',
-  'Berlin',
-  'Lisbonne',
-  'Budapest',
-  'Londres',
-  'Prague',
-  'Rome',
-  'Barcelone',
-  'Amsterdam',
-  'Dublin',
-  'Vienne',
-  'Madrid',
-  'Cracovie',
-  'Reykjavik',       
-  'Istambul',
-  'Florence',
-  'Copenhague',
-  'Zagreb',
-  'Stockholm',
-  'Thessalonique',
-  'Marseille',
-  'Porto',
-  'Lugano',
-  'Bruxelles',
-  'Lyon',
-  
+  'Home Cleaning',
+  'Furniture Assembly',
+  'handyman Service',
+  'Moving Help',
+  'TV Mounting',
+  'other',
+  'other',
+  'other',
 ];
 
 const opacities = {
@@ -115,7 +97,6 @@ const Picker = (props) => {
        
       </View>
 
-      <Text>{`${dataCity[selected]}`}</Text>
     </View>
   );
 };
