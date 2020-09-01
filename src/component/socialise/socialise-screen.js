@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-import Picker from './picker';
+// import Picker from './picker';
 import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
@@ -44,10 +44,10 @@ const Social_Screen = props => {
 
         </View>
         <View style={styles.container5}>
-          <Picker />
+          {/* <Picker /> */}
         </View>
         <View style={styles.container6}>
-            <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')}>
+            <Dark_Button >
                 <Text>Request for Socialise</Text>
             </Dark_Button>
 

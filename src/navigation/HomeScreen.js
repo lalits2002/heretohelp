@@ -11,13 +11,7 @@ import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 
 import Social_Screen from "../component/socialise/socialise-screen";
-import Social_Screen2 from "../component/socialise/socialise-screen2";
-import Social_Screen3 from "../component/socialise/socialise-screen3";
-import Social_Screen4 from "../component/socialise/socialise-screen4";
-import Social_Screen5 from "../component/socialise/socialise-screen5";
-import Social_Screen6 from "../component/socialise/socialise-screen6";
-import Social_Screen7 from "../component/socialise/socialise-screen7";
-import Social_Screen8 from "../component/socialise/socialise-screen8";
+
 
 import Pet_Screen from "../component/pet-care/pet";
 import Pet_screen2 from "../component/pet-care/petCare2";
@@ -48,21 +42,9 @@ function SocialScreen() {
   return (
     <ScreenConstant.Navigator
       screenOptions={{
-        headerShown: false,
-        gestureEnabled: true,
-        gestureDirection: "horizontal",
-        cardOverlayEnabled: true,
-        ...TransitionPresets.SlideFromRightIOS,
-      }}
-    >
+        headerShown: false,}}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
-      <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
-      <ScreenConstant.Screen name="socialscreen3" component={Social_Screen3} />
-      <ScreenConstant.Screen name="socialscreen4" component={Social_Screen4} />
-      <ScreenConstant.Screen name="socialscreen5" component={Social_Screen5} />
-      <ScreenConstant.Screen name="socialscreen6" component={Social_Screen6} />
-      <ScreenConstant.Screen name="socialscreen7" component={Social_Screen7} />
-      <ScreenConstant.Screen name="socialscreen8" component={Social_Screen8} />
+      
     </ScreenConstant.Navigator>
   );
 }
