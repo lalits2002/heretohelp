@@ -92,7 +92,8 @@ const Picker = (props) => {
   const [ selected, setSelected ] = useState(1);
   const refPicker = useRef(null);
   return (
-    <View style={{ ...styles.container, ...props.style}}>{props.selected}
+    
+    <View style={{ ...styles.container, ...props.style}}>
       
       <View style={styles.wrapperVertical}>
         <SmoothPicker
@@ -103,13 +104,18 @@ const Picker = (props) => {
           showsVerticalScrollIndicator={true}
           data={dataCity}
           scrollAnimatio={false}
-          onSelected={({ item, index }) => handleChange(index)}
+          onSelected={({ item, index }) => {
+            handleChange(index),
+            props.selectType(item)
+          }}
           selectOnPress={true}
           renderItem={option => ItemToRender(option, selected, true)}
           magnet={true}
         />
+       
       </View>
-      
+
+      <Text>{`${dataCity[selected]}`}</Text>
     </View>
   );
 };

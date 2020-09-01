@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
@@ -8,7 +8,15 @@ import Colors from '../../Items/Colors';
 import Picker from './picker';
 
 const HandyWork_Screen = props => {
+
   const navigation = useNavigation();
+
+  const [Select_type_of_handyWork, SetType] = useState("");
+
+  const selectHandler = (item) => {SetType(item)};
+
+  console.log(Select_type_of_handyWork);
+
 
     return(
       <View style={{ ...styles.screen, ...props.style}}>
@@ -48,11 +56,15 @@ const HandyWork_Screen = props => {
       </View>
 
       <View style={styles.container5}>
-        <Picker />
+        <Picker selectType={selectHandler}/>
       </View>
 
       <View style={styles.container6}>
-       <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen2')} >
+       <Dark_Button
+        onPress={ () => props.navigation.navigate('handyWorkScreen2',{
+              ...props.route.params,
+              Select_type_of_handyWork
+            })}>
          <Text style={{fontWeight: 'bold'}}>
           Request For HandyWork
          </Text>

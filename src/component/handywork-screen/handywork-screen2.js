@@ -11,7 +11,10 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen2 = props => {
 
   const navigation = useNavigation();
-
+  const [selectedDate, setDate] = React.useState("");
+  const setDate = (day) => {
+    selectedDate(day);
+  };
 
   return(
     <SafeAreaView style={{ ...styles.screen, ...props.style}}>
@@ -48,7 +51,7 @@ const HandyWork_Screen2 = props => {
        
       </View>
       <View style={styles.container5}>
-          <CalenderComponent />
+          <CalenderComponent getDate={setDate} />
       </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3')} >
