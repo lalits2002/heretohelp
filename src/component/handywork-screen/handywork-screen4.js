@@ -20,6 +20,8 @@ const HandyWork_Screen4 = props => {
   const placeholer = "Enter here";
   const [value, onChangeText] = useState(placeholer);
 
+  console.log(props);
+
     return(
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
@@ -66,8 +68,11 @@ const HandyWork_Screen4 = props => {
       />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5')} >
-          <Text> Next</Text>
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5', {
+           ...props.route.params,
+           note: value
+        })} >
+          <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>
       </View>
     </SafeAreaView>
@@ -131,10 +136,11 @@ const styles = StyleSheet.create({
   container6: {
     flex: 1.2,
     width: "100%",
-    // backgroundColor: "#9811C9",
+    flexDirection: 'column',
+    justifyContent: 'center',
     paddingHorizontal: "2%",
-    paddingTop: "5%",
     paddingLeft: '55%',
+    // backgroundColor: "#9811C9",
   },
   back:{
     alignSelf: "flex-start",

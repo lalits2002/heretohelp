@@ -47,8 +47,11 @@ const HandyWork_Screen3 = props => {
       </View>
       <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen4')} >
-          <Text> Next</Text>
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen4', {
+           ...props.route.params,
+           time: 'dev'
+        })} >
+          <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>
       </View>
     </View>
@@ -108,12 +111,13 @@ const styles = StyleSheet.create({
     // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.2,
+    flex: 1.3,
     width: "100%",
-    // backgroundColor: "#9811C9",
+    flexDirection: "column",
+    justifyContent: "center",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
     paddingLeft: '55%',
+    // backgroundColor: "#9811C9",
   },
   back:{
     alignSelf: "flex-start",

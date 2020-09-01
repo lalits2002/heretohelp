@@ -11,11 +11,11 @@ const HandyWork_Screen = props => {
 
   const navigation = useNavigation();
 
-  const [Select_type_of_handyWork, SetType] = useState("");
+  const [type, SetType] = useState("");
 
   const selectHandler = (item) => {SetType(item)};
 
-  console.log(Select_type_of_handyWork);
+  console.log(type);
 
 
     return(
@@ -63,7 +63,7 @@ const HandyWork_Screen = props => {
        <Dark_Button
         onPress={ () => props.navigation.navigate('handyWorkScreen2',{
               ...props.route.params,
-              Select_type_of_handyWork
+              type,
             })}>
          <Text style={{fontWeight: 'bold'}}>
           Request For HandyWork

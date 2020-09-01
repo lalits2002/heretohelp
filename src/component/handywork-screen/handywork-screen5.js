@@ -16,6 +16,7 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen5 = props => {
 
   const navigation = useNavigation();
+  const data = {...props.route.params};
   console.log(props);
 
     return (
@@ -34,26 +35,40 @@ const HandyWork_Screen5 = props => {
 
           <View style={styles.box}>
             <Text style={styles.head2}>Type of service</Text>
-            <TextInput style={styles.input}
-            value={'  Handyman Service'} />
-          </View>
+              <TextInput 
+                style={styles.input}
+                editable={false}
+                value={data.type} />
+           </View>
+
           <View style={styles.box} >
             <Text style={styles.head2}>Date</Text>
-            <TextInput style={styles.input} value={'  Friday, June 5, 2020'} />
-          </View>
+              <TextInput 
+                style={styles.input}
+                editable={false}
+                value={data.selectedDate} />
+           </View>
+
           <View style={styles.box} >
             <Text style={styles.head2}>Time</Text>
-            <TextInput style={styles.input} value={'  11:00 PM'} />
+              <TextInput
+                style={styles.input}
+                editable={false}
+                value={data.time} />
           </View>
+
           <View style={styles.box} >
             <Text style={styles.head2}>Notes</Text>
-            <TextInput style={styles.input} value={'  My bookself needs some repairs'} />
-          </View>
+              <TextInput 
+                style={styles.input} 
+                editable={false} 
+                value={data.note} />
+            </View>
         </View>
         
         <View style={styles.container3}>
           <Dark_Button >
-            <Text>Submit</Text>
+            <Text style={{fontSize: 18}}>Submit</Text>
           </Dark_Button>
         </View>
 
