@@ -16,7 +16,7 @@ const HandyWork_Screen = props => {
       
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
           <Text style={styles.back}>
-            {/* Icons */}
+            {/* Icon */}
             <Feather name="chevron-left" size={15} color= {Colors.primary3} />
                 Back
             </Text>
