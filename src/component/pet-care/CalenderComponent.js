@@ -9,6 +9,8 @@ const CalenderComponent = (props) => {
   };
 
   const [markedDate, nextOne] = useState(getMarkedDate(null));
+  // this is added if user doesn't happen to select any value
+  props.dateGetter(markedDate);
 
   return (
     <View style={{}}>

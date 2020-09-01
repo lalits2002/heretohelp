@@ -8,13 +8,16 @@ import {
   TextInput,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen9 = (props) => {
-  console.log(props.route.params);
   const navigation = useNavigation();
+  const data = { ...props.route.params };
+  console.log(data);
+
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.top}>
@@ -23,15 +26,51 @@ const Pet_screen9 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
         <Text style={styles.head}> Review your request </Text>
       </View>
 
+      <View style={styles.container2}>
+        <Text>Type of Pet Care</Text>
+        <TextInput style={styles.input} value={data.CareType}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Date</Text>
+        <TextInput style={styles.input} value={data.date}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Time</Text>
+        <TextInput style={styles.input} value={""}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Location for pet sitting</Text>
+        <TextInput style={styles.input} value={data.location}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Type of pet</Text>
+        <TextInput style={styles.input} value={data.PetType}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Pet's name</Text>
+        <TextInput style={styles.input} value={data.petName}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Pet size</Text>
+        <TextInput style={styles.input} value={data.size}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Notes</Text>
+        <TextInput style={styles.input} value={data.addtional}></TextInput>
+      </View>
+
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen9")}>
           <Text> Submit</Text>
         </Dark_Button>
       </View>
@@ -46,14 +85,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: "1.8%",
+    paddingTop: "7%",
   },
   container1: {
-    flex: 0.6,
+    flex: 1,
     width: "100%",
     // backgroundColor: "#C6C438",
   },
   container2: {
-    flex: 0.6,
+    flex: 1.5,
     width: "100%",
     // backgroundColor: "#A596D3",
   },
@@ -80,12 +120,12 @@ const styles = StyleSheet.create({
     // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.6,
+    flex: 1.5,
     width: "100%",
     // backgroundColor: "#9811C9",
     justifyContent: "center",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
+    // paddingTop: "5%",
     paddingLeft: "60%",
   },
   head: {
@@ -104,7 +144,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   top: {
-    flex: 0.85,
+    flex: 0.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
@@ -118,6 +158,13 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingHorizontal: "5%",
+    fontSize: 20,
+    color: Colors.secondary3,
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+  },
+  input: {
+    // paddingHorizontal: "5%",
     fontSize: 20,
     color: Colors.secondary3,
     borderBottomColor: "black",

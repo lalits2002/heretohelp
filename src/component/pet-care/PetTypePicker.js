@@ -78,6 +78,9 @@ const PetTypePicker = (props) => {
 
   const [selected, setSelected] = useState(0);
   const refPicker = useRef(null);
+  // this is added if user doesn't happen to select any value
+  props.petTypeGetter(dataCity[selected]);
+
   return (
     <View style={{ ...styles.container, ...props.style }}>
       {props.selected}

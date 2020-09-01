@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
@@ -9,6 +10,7 @@ import Colors from "../../Items/Colors";
 const Pet_screen7 = (props) => {
   const navigation = useNavigation();
   const { petName } = props.route.params;
+  const toTitleCase = (str) => str[0].toUpperCase() + str.slice(1);
 
   const [value, setValue] = React.useState("medium");
   const alter = "your pet";
@@ -21,7 +23,10 @@ const Pet_screen7 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
@@ -73,7 +78,7 @@ const Pet_screen7 = (props) => {
           onPress={() =>
             props.navigation.navigate("PetScreen8", {
               ...props.route.params,
-              size: value,
+              size: toTitleCase(value),
             })
           }
         >
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    paddingTop: "7%",
   },
   container1: {
     flex: 0.6,
@@ -161,7 +166,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   top: {
-    flex: 0.85,
+    flex: 0.7,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",

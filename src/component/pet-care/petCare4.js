@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
@@ -18,7 +19,10 @@ const Pet_screen4 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    paddingTop: "7%",
   },
   container1: {
     flex: 0.6,
@@ -173,7 +177,7 @@ const styles = StyleSheet.create({
     color: Colors.primary2,
   },
   top: {
-    flex: 0.85,
+    flex: 0.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",

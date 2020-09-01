@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Feather } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 import CalenderComponent from "./CalenderComponent";
@@ -19,8 +19,12 @@ const Pet_screen2 = (props) => {
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
-          }}>
-          <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} />Back</Text>
+          }}
+        >
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -71,9 +75,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: "1.8%",
-    paddingTop: '7%',
-    backgroundColor: '#ffffff',
+    paddingTop: "7%",
+    backgroundColor: "#ffffff",
   },
   top: {
     flex: 0.55,
@@ -142,7 +145,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
   },
- 
+
   back: {
     alignSelf: "flex-start",
     fontSize: 16,
