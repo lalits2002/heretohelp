@@ -12,9 +12,14 @@ const HandyWork_Screen2 = props => {
 
   const navigation = useNavigation();
   const [selectedDate, setDate] = React.useState("");
-  const setDate = (day) => {
-    selectedDate(day);
+  const changeDate = (day) => {
+    setDate(day);
   };
+
+
+  console.log(selectedDate);
+  console.log(props);
+
 
   return(
     <SafeAreaView style={{ ...styles.screen, ...props.style}}>
@@ -51,10 +56,13 @@ const HandyWork_Screen2 = props => {
        
       </View>
       <View style={styles.container5}>
-          <CalenderComponent getDate={setDate} />
+          <CalenderComponent getDate={changeDate} />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3')} >
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3', {
+           ...props.route.params,
+           selectedDate
+        })} >
           <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>
       </View>

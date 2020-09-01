@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { Calendar, CalendarList, Agenda } from "react-native-calendars";
 import Colors from "../../Items/Colors";
 
-const CalenderComponent = () => {
+const CalenderComponent = (props) => {
 
   const getMarkedDate = () => {
     return new Date().toISOString().substring(0, 10);
@@ -20,7 +20,7 @@ const CalenderComponent = () => {
       <CalendarList
         onDayPress={(day) => {
           nextOne(day.dateString),
-          props.dateGetter(day.dateString)
+          props.getDate(day.dateString);
         }}
         style={{
           

@@ -16,7 +16,7 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen5 = props => {
 
   const navigation = useNavigation();
-
+  console.log(props);
 
     return (
       <View style={{ ...styles.screen, ...props.style}}>
