@@ -65,13 +65,7 @@ const Social_Screen8 = props => {
     </View>
 
 
-    {/* <View style={styles.container7}>
-    <View style={styles.box}>
-    <TextInput style={styles.input} value={'Enter Your Location'}/>
-    </View>
-    </View> */}
-
-    <View style={styles.container8}>
+    <View style={styles.container7}>
       <Dark_Button onPress={() => props.navigation.navigate('socialscreen8')}>
         <Text> Submit</Text>
       </Dark_Button>
@@ -138,15 +132,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         // backgroundColor: "#e4f70a",
       },
-      // container7: {
-      //   flex: 0.3,
-      //   width: "100%",
-      //   flexDirection: "column",
-      //   justifyContent: 'flex-start',
-      //   alignSelf: "center",
-      //   // backgroundColor: "#86EC4F",
-      // },
-      container8: {
+
+
+      container7: {
         flex: 1.2,
         width: "100%",
         justifyContent: 'flex-end',
@@ -178,13 +166,7 @@ const styles = StyleSheet.create({
         paddingTop: '0.5%',
         justifyContent: 'center'
       },
-      // head3: {
-      //   fontSize: 17.5,
-      //   alignSelf: 'flex-start',
-      //   fontWeight: "bold",
-      //   paddingBottom: '18%',
-      //   justifyContent: 'center'
-      // },
+
       input: {
         paddingTop: '0.1%',
         fontSize: 15,
