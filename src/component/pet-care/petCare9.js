@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
     paddingTop: "7%",
+    padding: '1.8%',
   },
   container1: {
     flex: 1,
