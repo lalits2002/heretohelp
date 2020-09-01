@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { Feather } from '@expo/vector-icons';
 import Picker from './picker';
-import colors from '../../Items/Colors';
+import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 const Social_Screen = props => {
@@ -14,7 +14,7 @@ const Social_Screen = props => {
         <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.top} >
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} />Back</Text>
         </TouchableOpacity>
       </View>
 
@@ -121,12 +121,12 @@ const styles = StyleSheet.create({
          fontSize: 25,
          fontWeight: 'bold',
          
-         color: colors.primary1
+         color: Colors.primary1
      },
       head2: {
           alignSelf: 'center',
           fontSize: 20,
-          color: colors.primary2
+          color: Colors.primary2
       },
       head3: {
         fontSize: 18.5,
