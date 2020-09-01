@@ -41,11 +41,11 @@ const Social_Screen6 = props => {
     {/* </View> */}
     <View style={styles.container5}>
     <View style={styles.box}>
-    <TextInput style={styles.input} value={'Enter here'}/>
+    <TextInput style={styles.input} value={'Enter Your Location'}/>
     </View>
     </View>
     <View style={styles.container6}>
-      <Dark_Button >
+      <Dark_Button onPress={() => props.navigation.navigate('socialscreen8')}>
         <Text> Next</Text>
       </Dark_Button>
     </View>
