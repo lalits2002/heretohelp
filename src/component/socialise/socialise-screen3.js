@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       padding: "1.8%",
       paddingTop: '7%',
-      backgroundColor: '#ffffff'
+      // backgroundColor: '#ffffff'
     },
     top: {
         flex:0.55,
@@ -72,17 +72,19 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignSelf: 'flex-start',
-        backgroundColor: "#A596D3",
+        // backgroundColor: "#A596D3",
       },
     container1: {
         flex: 0.5,
         width: "100%",
-        backgroundColor: "#C6C438",
+        flexDirection: 'column',
+        // backgroundColor: "#C6C438",
       },
       container2: {
         flex: 0.6,
         width: "100%",
-        backgroundColor: "#A596D3",
+        flexDirection: 'column',
+        // backgroundColor: "#A596D3",
       },
       container3: {
         flex: 1.8,
@@ -90,29 +92,32 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingHorizontal: "2%",
         paddingBottom: '1%',
-        backgroundColor: "#C6C438",
+        // backgroundColor: "#C6C438",
       },
       container4: {
         flex: 1,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
-        backgroundColor: "#267DA5",
+        // backgroundColor: "#267DA5",
       },
       container5: {
-        flex: 5.2,
+        flex: 6,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
         alignSelf: "center",
-        backgroundColor: "#86EC4F",
+        // backgroundColor: "#86EC4F",
       },
       container6: {
-        flex: 1,
+        flex: 0.8,
         width: "100%",
-        backgroundColor: "#9811C9",
-        paddingHorizontal: "2%",
+        flexDirection: 'column',
+        // backgroundColor: "#9811C9",
+        // paddingHorizontal: "2%",
         paddingLeft: '55%',
+        paddingTop: '2%',
+        paddingBottom: '2%'
       },
       back:{
         alignSelf: "flex-start",

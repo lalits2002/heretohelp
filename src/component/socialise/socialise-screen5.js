@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
@@ -6,6 +6,8 @@ import Colors from '../../Items/Colors';
 
 const Social_Screen5 = props => {
     const navigation = useNavigation();
+    const placeholer = "Enter here";
+  const [value, onChangeText] = useState(placeholer);
     return (
         <View style={{ ...styles.screen, ...props.style}}>
 
@@ -41,11 +43,20 @@ const Social_Screen5 = props => {
     {/* </View> */}
     <View style={styles.container5}>
     <View style={styles.box}>
-    <TextInput style={styles.input} value={'Enter here'}/>
+    <TextInput
+      style={styles.input}
+      onChangeText={(text) => onChangeText(text)}
+      value={value}
+          onFocus={() => {
+            if (value === "Enter here") {
+              onChangeText("");
+            }
+          }}
+      />
     </View>
     </View>
     <View style={styles.container6}>
-      <Dark_Button onPress={() => props.navigation.navigate('socialscreen5')}>
+      <Dark_Button onPress={() => props.navigation.navigate('socialscreen7')}>
         <Text> Next</Text>
       </Dark_Button>
     </View>
@@ -72,17 +83,20 @@ const styles = StyleSheet.create({
     container1: {
         flex: 0.6,
         width: "100%",
+        flexDirection: 'column',
         // backgroundColor: "#67f0a0",
       },
       container2: {
         flex: 0.6,
         width: "100%",
+        flexDirection: 'column',
         // backgroundColor: "#a1278c",
       },
       container3: {
         flex: 1.8,
         flexDirection: "column",
         width: "100%",
+        justifyContent: 'center',
         paddingHorizontal: "2%",
         paddingBottom: '1%',
         // backgroundColor: "#7099db",
@@ -105,9 +119,10 @@ const styles = StyleSheet.create({
       container6: {
         flex: 1.2,
         width: "100%",
+        justifyContent: 'center',
         // backgroundColor: "#2e02f0",
         paddingHorizontal: "2%",
-        paddingTop: "5%",
+        // paddingTop: "15%",
         paddingLeft: '55%',
       },
       box: {
@@ -137,6 +152,13 @@ const styles = StyleSheet.create({
         paddingBottom: '18%'
       },
       input: {
+        // fontSize: 17.5,
+        // alignSelf: 'flex-start',
+        // // fontWeight: "bold",
+        // color: Colors.secondary3 ,
+        // // paddingBottom: '18%',
+        // borderBottomColor: 'black',
+        // borderBottomWidth: 1
         paddingTop: '0.1%',
         fontSize: 20,
         color: Colors.secondary3 ,
