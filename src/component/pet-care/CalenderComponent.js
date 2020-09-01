@@ -19,7 +19,7 @@ const CalenderComponent = (props) => {
         }}
         horizontal={true}
         // Max amount of months allowed to scroll to the past. Default = 50
-        pastScrollRange={0}
+        pastScrollRange={2}
         // Max amount of months allowed to scroll to the future. Default = 50
         futureScrollRange={12}
         // Enable or disable scrolling of calendar list
@@ -31,7 +31,7 @@ const CalenderComponent = (props) => {
           [markedDate]: {
             selected: true,
             marked: true,
-            selectedColor: Colors.secondary3,
+            selectedColor: Colors.primary2,
           },
         }}
         theme={{

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import { Feather } from '@expo/vector-icons';
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 import CalenderComponent from "./CalenderComponent";
@@ -19,17 +19,16 @@ const Pet_screen2 = (props) => {
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
-          }}
-        >
-          <Text style={styles.back}>Back</Text>
+          }}>
+          <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} />Back</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care </Text>
+        <Text style={styles.head}>Pet Care </Text>
       </View>
       <View style={styles.container2}>
-        <Text style={styles.head2}> Sitting </Text>
+        <Text style={styles.head2}>Sitting </Text>
       </View>
 
       <View style={styles.container3}>
@@ -72,31 +71,45 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    padding: "1.8%",
+    paddingTop: '7%',
+    backgroundColor: '#ffffff',
   },
-  container1: {
-    flex: 0.6,
-    width: "100%",
-    //backgroundColor: "#C6C438",
-  },
-  container2: {
-    flex: 0.6,
-    width: "100%",
-    //backgroundColor: "#A596D3",
-  },
-  container3: {
-    flex: 1.8,
-    flexDirection: "column",
-    width: "100%",
-    paddingHorizontal: "2%",
-    //backgroundColor: "#C6C438",
-  },
-  container4: {
-    flex: 0.8,
+  top: {
+    flex: 0.55,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    //backgroundColor: "#267DA5",
+    alignSelf: "flex-start",
+    // backgroundColor: "#A596D3",
+  },
+  container1: {
+    flex: 0.55,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    // backgroundColor: "#C6C438",
+  },
+  container2: {
+    flex: 0.45,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    // backgroundColor: "#A596D3",
+  },
+  container3: {
+    flex: 1.4,
+    flexDirection: "column",
+    width: "100%",
+    paddingHorizontal: "2%",
+    // backgroundColor: "#C6C438",
+  },
+  container4: {
+    flex: 0.6,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    // backgroundColor: "#267DA5",
   },
   container5: {
     flex: 4.8,
@@ -104,16 +117,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
-    //backgroundColor: "#86EC4F",
+    // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.6,
+    flex: 1,
     width: "100%",
     justifyContent: "center",
-    //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
     paddingLeft: "60%",
+    // backgroundColor: "#9811C9",
   },
   head: {
     fontSize: 26,
@@ -130,14 +142,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
   },
-  top: {
-    flex: 0.85,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
-  },
+ 
   back: {
     alignSelf: "flex-start",
     fontSize: 16,

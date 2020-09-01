@@ -52,8 +52,7 @@ const Pet_screen3 = (props) => {
             props.navigation.navigate("PetScreen4", {
               ...props.route.params,
             })
-          }
-        >
+          }>
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -111,14 +110,13 @@ const styles = StyleSheet.create({
     //backgroundColor: "#86EC4F",
   },
   container7: {
-    justifyContent: "center",
     flex: 1.6,
     width: "100%",
-    //backgroundColor: "#9811C9",
+    flexDirection: 'column',
+    justifyContent: "center",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
-
     paddingLeft: "60%",
+    // backgroundColor: "#9811C9",
   },
   head: {
     fontSize: 26,
