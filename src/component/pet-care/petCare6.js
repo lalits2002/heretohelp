@@ -15,8 +15,8 @@ import Colors from "../../Items/Colors";
 
 const Pet_screen6 = (props) => {
   const navigation = useNavigation();
-
-  const [value, onChangeText] = useState();
+  const placeholer = "Enter here";
+  const [value, onChangeText] = useState(placeholer);
   const toTitleCase = (str) => str[0].toUpperCase() + str.slice(1);
 
   return (
@@ -60,7 +60,11 @@ const Pet_screen6 = (props) => {
           style={styles.input}
           onChangeText={(text) => onChangeText(text)}
           value={value}
-          placeholder={'Enter Text'}
+          onFocus={() => {
+            if (value === "Enter here") {
+              onChangeText("");
+            }
+          }}
         />
       </View>
       <View style={styles.container6}>
@@ -68,7 +72,7 @@ const Pet_screen6 = (props) => {
           onPress={() =>
             props.navigation.navigate("PetScreen7", {
               ...props.route.params,
-              value: toTitleCase(value),
+              petName: toTitleCase(value),
             })
           }
         >
@@ -123,7 +127,7 @@ const styles = StyleSheet.create({
   container6: {
     flex: 1.6,
     width: "100%",
-    backgroundColor: "#9811C9",
+    // backgroundColor: "#9811C9",
     justifyContent: "center",
     paddingHorizontal: "2%",
     paddingTop: "5%",
@@ -158,6 +162,7 @@ const styles = StyleSheet.create({
     color: Colors.primary3,
   },
   input: {
+    paddingHorizontal: "5%",
     fontSize: 20,
     color: Colors.secondary3,
     borderBottomColor: "black",
