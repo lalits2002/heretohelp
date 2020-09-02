@@ -20,8 +20,8 @@ const Pet_Screen = (props) => {
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
-          }}
-        >
+          }}>
+            
           <Text style={styles.back}>
             <Feather name="chevron-left" size={15} color={Colors.primary3} />
             Back
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "7%",
-    padding: '1.8%'
+    padding: '1.8%',
   },
   top: {
     flex: 0.55,
