@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
-import CalenderComponent from "./CalenderComponent";
+import CalenderComponent from "../CalenderComponent";
 
 const Pet_screen2 = (props) => {
   const navigation = useNavigation();
@@ -51,7 +51,7 @@ const Pet_screen2 = (props) => {
         <Text style={styles.head2}> What is your requested date?</Text>
       </View>
       <View style={styles.container5}>
-        <CalenderComponent dateGetter={ClickHander}></CalenderComponent>
+        <CalenderComponent getDate={ClickHander} />
       </View>
       <View style={styles.container6}>
         <Dark_Button
@@ -60,8 +60,7 @@ const Pet_screen2 = (props) => {
               ...props.route.params,
               date: selectedDate,
             })
-          }
-        >
+          }>
           <Text> Next</Text>
         </Dark_Button>
       </View>

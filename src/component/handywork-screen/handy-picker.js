@@ -69,9 +69,11 @@ const Picker = (props) => {
   }
 
   const [ selected, setSelected ] = useState(1);
-
+  // this is added if user doesn't happen to select any value
+  props.selectType(dataCity[selected]);
 
   const refPicker = useRef(null);
+
   return (
     
     <View style={{ ...styles.container, ...props.style}}>

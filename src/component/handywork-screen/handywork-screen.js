@@ -10,12 +10,9 @@ import Picker from './handy-picker';
 const HandyWork_Screen = props => {
 
   const navigation = useNavigation();
-
   const [type, SetType] = useState();
 
   const selectHandler = (item) => {SetType(item)};
-
-  console.log(SetType);
 
 
     return(

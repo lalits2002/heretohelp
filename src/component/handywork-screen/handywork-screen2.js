@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-import CalenderComponent from './CalenderComponent';
+import CalenderComponent from '../CalenderComponent';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
@@ -11,13 +11,11 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen2 = props => {
 
   const navigation = useNavigation();
-  const [selectedDate, setDate] = React.useState("");
+  const [selectedDate, setDate] = useState("");
   const changeDate = (day) => {
     setDate(day);
   };
 
-
-  console.log(selectedDate);
   console.log(props);
 
 
@@ -48,6 +46,7 @@ const HandyWork_Screen2 = props => {
           // change the source of the image
           source={require('../../Items/Icons/calender.jpeg')}
         />
+
       </View>
       <View style={styles.container4}>
         <Text style={styles.head2}></Text>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { Calendar, CalendarList, Agenda } from "react-native-calendars";
-import Colors from "../../Items/Colors";
+import Colors from "../Items/Colors";
 
 const CalenderComponent = (props) => {
 
@@ -10,7 +10,8 @@ const CalenderComponent = (props) => {
   };
 
   const [markedDate, nextOne] = useState(getMarkedDate(null));
-
+   // this is added if user doesn't happen to select any value
+   props.getDate(markedDate);
   return (
     <View style={{
      
