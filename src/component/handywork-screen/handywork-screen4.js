@@ -17,8 +17,7 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen4 = props => {
 
   const navigation = useNavigation();
-  const placeholer = "Enter here";
-  const [value, onChangeText] = useState(placeholer);
+  const [value, onChangeText] = useState();
 
   console.log(props);
 
@@ -56,16 +55,14 @@ const HandyWork_Screen4 = props => {
         <Text style={styles.head3}> </Text>
       </View>
       <View style={styles.container5}>
+
       <TextInput
-      style={styles.input}
-      onChangeText={(text) => onChangeText(text)}
-      value={value}
-          onFocus={() => {
-            if (value === "Enter here") {
-              onChangeText("");
-            }
-          }}
-      />
+          style={styles.input}
+          onChangeText={(text) => onChangeText(text)}
+          value={value}
+          placeholder= {'Enter Text'}
+         
+        />
       </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5', {
