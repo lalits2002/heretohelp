@@ -33,7 +33,7 @@ const Pet_screen9 = (props) => {
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
-        <Text style={styles.head}> Review your request </Text>
+        <Text style={styles.head}>Review your request </Text>
       </View>
 
       <View style={styles.container2}>
@@ -125,36 +125,14 @@ const styles = StyleSheet.create({
     width: "100%",
     // backgroundColor: "#A596D3",
   },
-  container3: {
-    flex: 1.8,
-    flexDirection: "column",
-    width: "100%",
-    paddingHorizontal: "2%",
-    // backgroundColor: "#C6C438",
-  },
-  container4: {
-    flex: 1.5,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    // backgroundColor: "#267DA5",
-  },
-  container5: {
-    flex: 3,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignSelf: "center",
-    // backgroundColor: "#86EC4F",
-  },
   container6: {
     flex: 1.5,
     width: "100%",
-    // backgroundColor: "#9811C9",
     justifyContent: "center",
     paddingHorizontal: "2%",
     // paddingTop: "5%",
     paddingLeft: "60%",
+    // backgroundColor: "#9811C9",
   },
   head: {
     fontSize: 26,
