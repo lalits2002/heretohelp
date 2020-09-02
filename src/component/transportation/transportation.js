@@ -8,7 +8,7 @@ import Dark_Button from '../../Items/Buttons/dark-bt';
 const Transport_screen = props => {
   const navigation = useNavigation();
 
-  
+
   return (
     <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.top} >
