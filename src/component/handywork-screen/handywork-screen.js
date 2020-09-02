@@ -5,17 +5,17 @@ import { Feather } from '@expo/vector-icons';
 
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
-import Picker from './picker';
+import Picker from './handy-picker';
 
 const HandyWork_Screen = props => {
 
   const navigation = useNavigation();
 
-  const [type, SetType] = useState("");
+  const [type, SetType] = useState();
 
   const selectHandler = (item) => {SetType(item)};
 
-  console.log(type);
+  console.log(SetType);
 
 
     return(

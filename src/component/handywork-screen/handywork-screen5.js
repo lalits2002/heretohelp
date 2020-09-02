@@ -17,7 +17,6 @@ const HandyWork_Screen5 = props => {
 
   const navigation = useNavigation();
   const data = {...props.route.params};
-  console.log(props);
 
     return (
       <View style={{ ...styles.screen, ...props.style}}>

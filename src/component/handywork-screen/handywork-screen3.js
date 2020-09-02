@@ -8,9 +8,13 @@ import Colors from '../../Items/Colors';
 
 
 const HandyWork_Screen3 = props => {
-
-  const navigation = useNavigation();
   console.log(props);
+  
+  const navigation = useNavigation();
+  const data = {...props.route.params};
+  
+  const getDate = data.selectedDate;
+  console.log(getDate);
 
     return(
       <View style={{ ...styles.screen, ...props.style}}>

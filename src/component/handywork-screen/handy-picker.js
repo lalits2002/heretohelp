@@ -11,9 +11,6 @@ const dataCity = [
   'handyman Service',
   'Moving Help',
   'TV Mounting',
-  'other',
-  'other',
-  'other',
 ];
 
 const opacities = {
@@ -72,6 +69,8 @@ const Picker = (props) => {
   }
 
   const [ selected, setSelected ] = useState(1);
+
+
   const refPicker = useRef(null);
   return (
     
