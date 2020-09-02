@@ -12,7 +12,7 @@ const Pet_screen2 = (props) => {
   const ClickHander = (day) => {
     setDate(day);
   };
-
+  console.log(props);
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.top}>

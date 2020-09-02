@@ -32,7 +32,7 @@ const sizeText = {
 const Item = React.memo(({opacity, selected, vertical, fontSize, name}) => {
   return (
     <View
-      style={[styles.OptionWrapper, { opacity, borderColor: selected ? '#64666D' : 'transparent', width: vertical ? 220 : 'auto'}]}
+      style={[styles.OptionWrapper, { opacity, borderColor: selected ? '#011131' : 'transparent', width: vertical ? 220 : 'auto'}]}
     >
     <Text style={{fontSize}}>
       {name}
@@ -83,7 +83,7 @@ const Picker = (props) => {
           refFlatList={refPicker}
           onScrollToIndexFailed={() => {}}
           keyExtractor={(_, index) => index.toString()}
-          showsVerticalScrollIndicator={true}
+          showsVerticalScrollIndicator={false}
           data={dataCity}
           scrollAnimatio={false}
           onSelected={({ item, index }) => {
