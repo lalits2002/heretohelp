@@ -83,7 +83,7 @@ const Picker = (props) => {
           refFlatList={refPicker}
           onScrollToIndexFailed={() => {}}
           keyExtractor={(_, index) => index.toString()}
-          showsVerticalScrollIndicator={true}
+          showsVerticalScrollIndicator={false}
           data={dataCity}
           scrollAnimatio={false}
           onSelected={({ item, index }) => {
