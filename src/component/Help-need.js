@@ -68,8 +68,10 @@ const styles = StyleSheet.create({
     
   },
   container2: {
-    flex: 1,
-    paddingTop: '7%',
+    flex: 1.5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    // paddingTop: '7%',
     backgroundColor: 'white',
   },
 

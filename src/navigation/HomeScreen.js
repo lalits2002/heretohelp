@@ -6,7 +6,7 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
-import Loadscreen from "../component/home/Load";
+import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 
@@ -179,13 +179,29 @@ function HomeScreen() {
           name="chat"
           options={{
             cardStyleInterpolator:
-              CardStyleInterpolators.forModalPresentationIOS,
+              CardStyleInterpolators.forRevealFromBottomAndroid,
           }}
           component={Chat_Screen}
         />
 
-        <ScreenConstant.Screen name="browse" component={Browsing_Screen} />
-        <ScreenConstant.Screen name="profile" component={ProfileScreen} />
+        <ScreenConstant.Screen 
+          name="browse"
+          options={{
+            cardStyleInterpolator:
+              CardStyleInterpolators.forModalPresentationIOS,
+          }}
+          component={Browsing_Screen}
+         />
+
+        <ScreenConstant.Screen
+          name="profile"
+          options={{
+            cardStyleInterpolator:
+            CardStyleInterpolators.forModalPresentationIOS,
+          }}
+          component={ProfileScreen}
+        />
+
       </ScreenConstant.Navigator>
     </NavigationContainer>
   );

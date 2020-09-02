@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-import Dark_Button from '../../Items/Buttons/dark-bt';
-import Button2 from '../../Items/Buttons/light-bt';
+import Dark_Button from '../Items/Buttons/dark-bt';
+import Button2 from '../Items/Buttons/light-bt';
 
 
 const Loadscreen = props => {
@@ -11,7 +11,7 @@ const Loadscreen = props => {
   return (
     <View style={styles.load}>
         <Image 
-          source = {require('../h2h/load1.png')}
+          source = {require('./h2h/load1.png')}
           style={styles.image}
         />
         <Text style={styles.intro}>

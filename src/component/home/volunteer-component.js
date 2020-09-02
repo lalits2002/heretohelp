@@ -40,10 +40,9 @@ const Volunteer_Components = props => {
   const styles = StyleSheet.create({
     
     container: {
-      flex: 10,
+      flex: 1,
       justifyContent: 'center',
       flexDirection: 'column',
-      // paddingTop: '8%',
       backgroundColor: '#E5E5E5',
       paddingBottom: '4%'
     },

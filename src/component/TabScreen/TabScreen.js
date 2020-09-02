@@ -14,7 +14,7 @@ const TabScreen = props => {
       <TouchableOpacity style={styles.icon}  >
         <Image 
         source={require('../../Items/Icons/home.png')}
-        resizeMode='center'
+        resizeMode='contain'
         style={styles.img}
         />
       </TouchableOpacity>
@@ -47,19 +47,23 @@ const TabScreen = props => {
 const styles = StyleSheet.create({
   tabScreen: {
     flex: 1,
-    paddingHorizontal: '4%',
     justifyContent: 'center',
     flexDirection:'row',
-    flexWrap:'wrap',
+    // backgroundColor: 'blue'
+    // flexWrap:'wrap',
   },
   icon: {
     flex:1,
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
-    alignSelf:'center',
+    // backgroundColor: 'green'
+    // alignSelf:'center',
   },
   img: {
-    maxWidth:'50%',
-    maxHeight: '50%',
+    maxWidth:'35%',
+    maxHeight: '40%',
+    // backgroundColor: 'red',
     },
 });
 
