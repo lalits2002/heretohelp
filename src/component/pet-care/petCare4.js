@@ -157,10 +157,12 @@ const styles = StyleSheet.create({
   },
   container6: {
     flex: 1.6,
+    flexDirection: 'column',
+    justifyContent: 'center',
     width: "100%",
-    //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
+    // backgroundColor: "#9811C9",
+    
 
     paddingLeft: "60%",
   },
