@@ -98,6 +98,14 @@ const styles = StyleSheet.create({
     paddingTop: "7%",
     padding: '1.8%',
   },
+  top: {
+    flex: 0.7,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "flex-start",
+    // backgroundColor: "#A596D3",
+  },
   container1: {
     flex: 0.6,
     width: "100%",
@@ -133,10 +141,11 @@ const styles = StyleSheet.create({
   container6: {
     flex: 1.6,
     width: "100%",
-    //backgroundColor: "#9811C9",
+    flexDirection: 'column',
+    justifyContent: 'center',
     paddingHorizontal: "2%",
-    paddingTop: "5%",
     paddingLeft: "60%",
+    // backgroundColor: "#9811C9",
   },
   head: {
     fontSize: 26,
@@ -166,14 +175,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  top: {
-    flex: 0.7,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
-  },
+  
   back: {
     alignSelf: "flex-start",
     fontSize: 16,
