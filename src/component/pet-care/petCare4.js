@@ -115,6 +115,14 @@ const styles = StyleSheet.create({
     paddingTop: "7%",
     padding: '1.8%',
   },
+  top: {
+    flex: 0.6,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "flex-start",
+    // backgroundColor: "#A596D3",
+  },
   container1: {
     flex: 0.6,
     width: "100%",
@@ -177,14 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     color: Colors.primary2,
   },
-  top: {
-    flex: 0.6,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
-  },
+ 
   back: {
     alignSelf: "flex-start",
     fontSize: 16,
