@@ -47,7 +47,7 @@ const Social_Screen = props => {
           {/* <Picker /> */}
         </View>
         <View style={styles.container6}>
-            <Dark_Button >
+            <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')} >
                 <Text>Request for Socialise</Text>
             </Dark_Button>
 
