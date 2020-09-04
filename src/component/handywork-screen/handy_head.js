@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   back:{
     alignSelf: "flex-start",
     fontSize: 16,
-    color: Colors.primary2,
+    color: Colors.secondary2,
   },
   head: {
     fontSize: 26,

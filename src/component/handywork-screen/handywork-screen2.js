@@ -5,7 +5,7 @@ import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
 import Top_container from './handy_head';
 import CalenderComponent from '../CalenderComponent';
 import Dark_Button from '../../Items/Buttons/dark-bt';
-import Colors from '../../Items/Colors';
+
 
 
 const HandyWork_Screen2 = props => {
@@ -28,7 +28,7 @@ const HandyWork_Screen2 = props => {
         <Top_container
             title="Handy Work" 
             sub_head="Handyman Services"
-            detail_2=" "
+            detail_2="What is your requested date?"
          />
       </View>
       {/* mid */}
