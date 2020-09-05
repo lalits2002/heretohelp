@@ -9,7 +9,7 @@ import Tabscreen from './TabScreen/TabScreen';
 
 
 
-const Volunteer = props => {
+const Victim = props => {
 
   return (
     <View style={styles.screen}>{props.children}
@@ -83,5 +83,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Volunteer;
+export default Victim;
 

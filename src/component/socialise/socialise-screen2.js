@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-// import Picker from './picker';
 import Colors from '../../Items/Colors';
+import { useNavigation } from '@react-navigation/native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
+import Button2 from '../../Items/Buttons/light-bt';
 
-const Social_Screen = (props) => {
+const Social_Screen2 = (props) => {
   const navigation = useNavigation();
-
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.top}>
@@ -23,11 +22,13 @@ const Social_Screen = (props) => {
           </Text>
         </TouchableOpacity>
       </View>
-
       <View style={styles.container1}>
         <Text style={styles.head}>Socialise</Text>
       </View>
       <View style={styles.container2}>
+        <Text style={styles.head2}>Coffee meetup</Text>
+      </View>
+      <View style={styles.container3}>
         <Image
           source={require('../h2h/s5.png')}
           resizeMode='contain'
@@ -38,21 +39,19 @@ const Social_Screen = (props) => {
           }}
         />
       </View>
-      <View style={styles.container3}>
-        <Text style={styles.head2}>
-          Whether it be a phone call with a new friend, grabbing a coffee, or
-          seeking a new hiking buddy.
-        </Text>
-      </View>
-
       <View style={styles.container4}>
-        <Text style={styles.head3}>Select type of social activity</Text>
+        <Text style={styles.head3}>Select your preference</Text>
       </View>
-      <View style={styles.container5}>{/* <Picker /> */}</View>
-      <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')}>
-          <Text>Request for Socialise</Text>
+      <View style={styles.container5}>
+        <Text> </Text>
+        <Dark_Button>
+          <Text>I am flexible with time and location</Text>
         </Dark_Button>
+
+        <Text> </Text>
+        <Button2 style={{}}>
+          <Text>I have a specific time and location</Text>
+        </Button2>
       </View>
     </View>
   );
@@ -65,60 +64,57 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '1.6%',
+    padding: '1.6%',
+    paddingTop: '7%',
+    backgroundColor: '#ffffff',
   },
   top: {
-    flex: 0.85,
+    flex: 1,
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
     alignSelf: 'flex-start',
     paddingTop: '3%',
-    // backgroundColor: "#A596D3",
+    // backgroundColor: '#A596D3',
   },
   container1: {
-    flex: 0.6,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+
     width: '100%',
-    // backgroundColor: '#fcba03',
+    //backgroundColor: '#fcba03',
   },
   container2: {
-    flex: 2.7,
+    flex: 1,
     width: '100%',
-    // backgroundColor: '#8a53b8',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    //backgroundColor: '#A596D3',
   },
   container3: {
-    flex: 1.2,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    flex: 5,
     width: '100%',
-    paddingHorizontal: '2%',
-    // backgroundColor: '#8af249',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    //backgroundColor: "#fcba03",
   },
   container4: {
-    flex: 0.5,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    flex: 1.5,
     width: '100%',
-    paddingTop: '2%',
-
-    // backgroundColor: '#59e6f0',
+    //backgroundColor: '#A596D3',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   container5: {
-    flex: 5,
+    paddingTop: '1%',
+    flex: 6,
+    width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    width: '100%',
-    // backgroundColor: '#b5ad98',
+    //backgroundColor: '#fcba03',
   },
-  container6: {
-    flex: 0.8,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    width: '100%',
-    paddingHorizontal: '2%',
-    paddingBottom: '5%',
-    // backgroundColor: '#e83354',
-  },
+
   head: {
     fontSize: 25,
     fontWeight: 'bold',
@@ -126,15 +122,18 @@ const styles = StyleSheet.create({
     color: Colors.primary1,
   },
   head2: {
-    alignSelf: 'center',
     fontSize: 20,
+    fontWeight: 'bold',
     color: Colors.primary2,
   },
   head3: {
-    fontSize: 18.5,
-    alignSelf: 'center',
+    fontSize: 20,
     fontWeight: 'bold',
+    color: Colors.primary2,
+    alignSelf: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
 });
 
-export default Social_Screen;
+export default Social_Screen2;

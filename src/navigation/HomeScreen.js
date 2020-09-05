@@ -11,6 +11,7 @@ import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 
 import Social_Screen from "../component/socialise/socialise-screen";
+import Social_Screen2 from "../component/socialise/socialise-screen2";
 
 
 import Pet_Screen from "../component/pet-care/pet";
@@ -46,6 +47,7 @@ function SocialScreen() {
       screenOptions={{
         headerShown: false,}}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
+      <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
 
     </ScreenConstant.Navigator>
   );
