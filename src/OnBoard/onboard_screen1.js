@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 
 
-import Dark_Button from '../../Items/Buttons/dark-bt';
-import Colors from '../../Items/Colors';
+// import Dark_Button from '../../Items/Buttons/dark-bt';
+// import Colors from '../../Items/Colors';
 
 const Onboard_screen1 = props => {
  
