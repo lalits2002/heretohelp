@@ -16,9 +16,7 @@ const Onboard_screen1 = props => {
           <Image
             source={require('./img/vector1.png')}
             resizeMode={'contain'}
-            style={{
-              bottom: '10%'
-            }}
+            style={{bottom: '10%'}}
            />
         </View>
          <View style={styles.container2}>
