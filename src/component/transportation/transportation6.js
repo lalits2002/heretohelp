@@ -25,13 +25,14 @@ const Transport_screen6 = props => {
         </TouchableOpacity>
       </View>
 
-            <View style={styles.container1}>
+         <View style={styles.container1}>
             <Text style={styles.head1}>Review your request</Text>
-        </View>
+         </View>
 
 
 
         <View style={styles.container2}>
+            <View style={styles.box}>
             <Text style={styles.head2}> Type of transportation</Text>
             <TextInput
               style={styles.input}
@@ -44,7 +45,7 @@ const Transport_screen6 = props => {
 
         </View>
 
-        <View style={styles.container3}>
+        <View style={styles.box}>
             <Text style={styles.head2}> Date</Text>
             <TextInput
               style={styles.input}
@@ -54,7 +55,7 @@ const Transport_screen6 = props => {
               </TextInput>
         </View>
 
-        <View style={styles.container4}>
+        <View style={styles.box}>
             <Text style={styles.head2}> Time</Text>
             <TextInput
             style={styles.input}
@@ -65,7 +66,7 @@ const Transport_screen6 = props => {
             </TextInput>
         </View>
 
-        <View style={styles.container5}>
+        <View style={styles.box}>
             <Text style={styles.head2}> Notes </Text>
             <TextInput
               style={styles.input}
@@ -74,7 +75,9 @@ const Transport_screen6 = props => {
               placeholder={'I need a drive to Doctor appointment at the Hospital'}>
               </TextInput>
         </View>
-        <View style={styles.container6}>
+    </View>
+
+        <View style={styles.container3}>
         <Dark_Button onPress={() => props.navigation.navigate("Transport_screen6")}>
           <Text> Submit</Text>
         </Dark_Button>
@@ -93,58 +96,48 @@ const styles = StyleSheet.create({
         width: '100%',
         // backgroundColor: 'yellow',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: '1.8%',
+        marginTop: '7%'
 
 
     },
     top: {
-        flex: 0.47,
+        flex: 0.5,
         flexDirection: 'column',
         width: '100%',
         justifyContent: 'center',
+        alignSelf: 'center',
         // backgroundColor: 'lightblue'
       },
 
         container1: {
-        flex: 0.7,
+        flex: 0.6,
         width: '100%',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         // backgroundColor: '#f72f54'
       },
         container2: {
-        flex: 0.8,
+        flex: 2.8,
         width: '100%',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
+        paddingBottom: '40%',
+        paddingHorizontal: '2%'
         // backgroundColor: '#d5ff03'
       },
+
         container3: {
         flex: 1,
         width: '100%',
         flexDirection: 'column',
-        // backgroundColor: '#0bff03'
-      },
-        container4: {
-        flex: 1,
-        width: '100%',
-        flexDirection: 'column',
-        // backgroundColor: '#8f0be0'
-      },
-        container5: {
-        flex: 1,
-        width: '100%',
-        flexDirection: 'column',
+        paddingLeft: '60%',
+        paddingHorizontal: '3%'
         // backgroundColor: '#ff4800'
       },
-      container6: {
-          flex: 1,
-          width: '100%',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          paddingLeft: '60%',
-          paddingHorizontal: '2%',
-          paddingTop: '5%'
+      box: {
+          width: '100%'
 
       },
 
@@ -154,18 +147,23 @@ const styles = StyleSheet.create({
         color: Colors.primary2,
       },
       head1: {
-          fontSize: 23,
+          fontSize: 26,
           fontWeight: 'bold',
           color: Colors.primary1
       },
       head2: {
-          fontSize: 17,
-          alignItems: 'center'
+          fontSize: 15.6,
+          fontWeight:'bold',
+          alignSelf: 'flex-start',
+          color: Colors.secondary2,
+
       },
       input: {
           fontSize: 20,
           borderBottomWidth: 1,
-          borderBottomColor: 'black'
+          borderBottomColor: 'black',
+          color: Colors.secondary3,
+          paddingTop: '2.5%'
       }
 });
 export default Transport_screen6;
