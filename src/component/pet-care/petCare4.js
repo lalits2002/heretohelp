@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
-import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
+import Top_container from "./head";
 import Colors from "../../Items/Colors";
 
 const Pet_screen4 = (props) => {
@@ -13,84 +13,34 @@ const Pet_screen4 = (props) => {
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
-      <View style={styles.top}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <Text style={styles.back}>
-            <Feather name="chevron-left" size={15} color={Colors.primary3} />
-            Back
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care </Text>
-      </View>
-      <View style={styles.container2}>
-        <Text style={styles.head2}> Sitting </Text>
-      </View>
-
-      <View style={styles.container3}>
-        <Image
-          resizeMode="contain"
-          style={{
-            height: "100%",
-            width: "27%",
-            alignSelf: "center",
-          }}
-          // change the source of the image
-          source={require("../../Items/Icons/calender.jpeg")}
+      <View style={styles.topContainer}>
+        <Top_container
+          title="Pet Care"
+          sub_head="Sitting"
+          detail_2="Location for pet sitting?"
         />
       </View>
-      <View style={styles.container4}>
-        <Text style={styles.head2}>Location for pet Sitting?</Text>
-      </View>
-      <View style={styles.container5}>
+
+      <View style={styles.midContainer}>
         <RadioButton.Group
           onValueChange={(value) => setValue(value)}
           value={value}
         >
-          <View
-            style={{
-              paddingLeft: "20%",
-              paddingVertical: "2%",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.radioOption}>
             <RadioButton color="#2D375B" value="In my home" />
             <Text style={styles.head4}>In my home</Text>
           </View>
-          <View
-            style={{
-              paddingLeft: "20%",
-              paddingVertical: "2%",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.radioOption}>
             <RadioButton color="#2D375B" value="Outside my home" />
             <Text style={styles.head4}>Outside my home</Text>
           </View>
-          <View
-            style={{
-              paddingLeft: "20%",
-              paddingVertical: "2%",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.radioOption}>
             <RadioButton color="#2D375B" value="Either is fine" />
             <Text style={styles.head4}>Either is fine</Text>
           </View>
         </RadioButton.Group>
       </View>
-      <View style={styles.container6}>
+      <View style={styles.bottomContainer}>
         <Dark_Button
           onPress={() =>
             props.navigation.navigate("PetScreen5", {
@@ -113,41 +63,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "7%",
-    padding: '1.8%',
+    padding: "1.8%",
   },
-  top: {
-    flex: 0.6,
+  topContainer: {
+    flex: 5,
     width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
   },
-  container1: {
-    flex: 0.6,
-    width: "100%",
-    //backgroundColor: "#C6C438",
-  },
-  container2: {
-    flex: 0.6,
-    width: "100%",
-    //backgroundColor: "#A596D3",
-  },
-  container3: {
-    flex: 1.8,
-    flexDirection: "column",
-    width: "100%",
-    paddingHorizontal: "2%",
-    //backgroundColor: "#C6C438",
-  },
-  container4: {
-    flex: 1.6,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    //backgroundColor: "#267DA5",
-  },
-  container5: {
+  midContainer: {
     flex: 4,
     width: "100%",
     flexDirection: "column",
@@ -155,43 +77,27 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     //backgroundColor: "#86EC4F",
   },
-  container6: {
-    flex: 1.6,
-    flexDirection: 'column',
-    justifyContent: 'center',
+  bottomContainer: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
     width: "100%",
     paddingHorizontal: "2%",
     // backgroundColor: "#9811C9",
-    
 
     paddingLeft: "60%",
   },
-  head: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: Colors.primary1,
+  radioOption: {
+    paddingLeft: "20%",
+    paddingVertical: "2%",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
-  head2: {
-    alignSelf: "flex-start",
-    fontSize: 19,
-    color: Colors.primary2,
-  },
-  head3: {
-    fontSize: 17.5,
-    alignSelf: "center",
-    fontWeight: "bold",
-  },
-
   head4: {
     alignSelf: "center",
     fontSize: 19,
     color: Colors.primary2,
-  },
- 
-  back: {
-    alignSelf: "flex-start",
-    fontSize: 16,
-    color: Colors.primary3,
   },
 });
 
