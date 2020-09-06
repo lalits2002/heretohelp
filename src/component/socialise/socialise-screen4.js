@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import Top_container from '../handywork-screen/handy_head';
+import Top_container from './socialise-head';
 import { StyleSheet, Text,  } from 'react-native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
@@ -26,7 +26,7 @@ const Social_Screen4 = (props) => {
             <View style={styles.bottom_box}>
                 <Dark_Button onPress={() => props.navigation.navigate('socialscreen5', {
                     ...props.route.params,
-                    time: 'dev'
+                    time: 'time'
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>

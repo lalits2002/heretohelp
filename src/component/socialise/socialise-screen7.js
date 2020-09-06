@@ -7,7 +7,7 @@ import {
     SafeAreaView
 }
     from 'react-native';
-import Top_container from '../handywork-screen/handy_head';
+import Top_container from './socialise-head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
@@ -36,6 +36,7 @@ const Social_Screen7 = (props) => {
             <View style={styles.bottom_box}>
                 <Dark_Button onPress={() => props.navigation.navigate('socialscreen8', {
                     ...props.route.params,
+                    Info: value,
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>

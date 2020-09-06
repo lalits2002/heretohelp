@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-// import Picker from './picker';
+import Picker from './socialise-picker';
 import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 const Social_Screen = (props) => {
   const navigation = useNavigation();
+
+  const [Socialset, SetType] = useState();
+  const selectHandler = (item) => {SetType(item)};
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -48,9 +51,20 @@ const Social_Screen = (props) => {
       <View style={styles.container4}>
         <Text style={styles.head3}>Select type of social activity</Text>
       </View>
-      <View style={styles.container5}>{/* <Picker /> */}</View>
+
+
+      <View style={styles.container5}>
+        <Picker selectType={selectHandler}/>
+        </View>
+
+
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('socialscreen2')}>
+        <Dark_Button onPress={() => props.navigation.navigate('socialscreen2',
+        {
+          ...props.route.params,
+          Socialset,
+        }
+        )}>
           <Text>Request for Socialise</Text>
         </Dark_Button>
       </View>
