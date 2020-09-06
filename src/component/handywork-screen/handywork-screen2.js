@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, ScrollView } from 'react-native';
 
 
 import Top_container from './handy_head';
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     width: "100%",
-    paddingLeft: '58%',
+    paddingLeft: '60%',
     paddingHorizontal: "2%",
     // backgroundColor: "#9811C9",
   },
