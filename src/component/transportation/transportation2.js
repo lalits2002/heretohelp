@@ -40,7 +40,7 @@ const Transport_screen2 = props => {
        resizeMode= 'contain'
         style={{
                height: '100%',
-               width: '55%',
+               width: '27%',
                alignSelf: 'center'
                }
              } />
