@@ -11,8 +11,9 @@ const Onboard_screen1 = props => {
 
     return (
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
-
-        <Text> Onboard_screen1</Text>
+        <View>
+          <Text> Onboard_screen1</Text>
+        </View>
 
 
       </SafeAreaView>
