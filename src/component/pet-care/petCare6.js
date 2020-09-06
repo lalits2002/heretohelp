@@ -1,73 +1,38 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
+import Top_container from "./head";
 
 const Pet_screen6 = (props) => {
   const navigation = useNavigation();
-  const [value, onChangeText] = useState();
-
+  const [value, onChangeText] = useState("");
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
-      <View style={styles.top}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <Text style={styles.back}>
-            <Feather name="chevron-left" size={15} color={Colors.primary3} />
-            Back
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care </Text>
-      </View>
-      <View style={styles.container2}>
-        <Text style={styles.head2}> Sitting </Text>
-      </View>
-
-      <View style={styles.container3}>
-        <Image
-          resizeMode="contain"
-          style={{
-            height: "100%",
-            width: "27%",
-            alignSelf: "center",
-          }}
-          // change the source of the image
-          source={require("../../Items/Icons/calender.jpeg")}
+      <View style={styles.topContainer}>
+        <Top_container
+          title="Pet Care"
+          sub_head="Sitting"
+          detail_2="What is your pet's name?"
         />
       </View>
-      <View style={styles.container4}>
-        <Text style={styles.head2}>What is your pet's name?</Text>
-      </View>
-      <View style={styles.container5}>
+      <View style={styles.midContainer}>
         <TextInput
           style={styles.input}
           onChangeText={(text) => onChangeText(text)}
           value={value}
-          placeholder={'Enter Text'}
+          placeholder={"Enter Text"}
         />
       </View>
-      <View style={styles.container6}>
+      <View style={styles.bottomContainer}>
         <Dark_Button
           onPress={() =>
             props.navigation.navigate("PetScreen7", {
               ...props.route.params,
-              petName: value
+              petName: value,
             })
           }
         >
@@ -85,42 +50,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "7%",
-    padding: '1.8%',
+    padding: "1.8%",
   },
-  container1: {
-    flex: 0.6,
+  topContainer: {
+    flex: 5,
     width: "100%",
-    // backgroundColor: "#C6C438",
   },
-  container2: {
-    flex: 0.6,
-    width: "100%",
-    // backgroundColor: "#A596D3",
-  },
-  container3: {
-    flex: 1.8,
-    flexDirection: "column",
-    width: "100%",
-    paddingHorizontal: "2%",
-    // backgroundColor: "#C6C438",
-  },
-  container4: {
-    flex: 1.5,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    // backgroundColor: "#267DA5",
-  },
-  container5: {
-    flex: 3,
+
+  midContainer: {
+    flex: 4,
     width: "100%",
     flexDirection: "column",
     justifyContent: "flex-start",
     alignSelf: "center",
     // backgroundColor: "#86EC4F",
   },
-  container6: {
-    flex: 1.6,
+  bottomContainer: {
+    flex: 1,
     width: "100%",
     // backgroundColor: "#9811C9",
     justifyContent: "center",
@@ -128,34 +74,7 @@ const styles = StyleSheet.create({
     paddingTop: "5%",
     paddingLeft: "60%",
   },
-  head: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: Colors.primary1,
-  },
-  head2: {
-    alignSelf: "flex-start",
-    fontSize: 19,
-    color: Colors.primary2,
-  },
-  head3: {
-    fontSize: 17.5,
-    alignSelf: "center",
-    fontWeight: "bold",
-  },
-  top: {
-    flex: 0.6,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignSelf: "flex-start",
-    // backgroundColor: "#A596D3",
-  },
-  back: {
-    alignSelf: "flex-start",
-    fontSize: 16,
-    color: Colors.primary3,
-  },
+
   input: {
     fontSize: 20,
     color: Colors.secondary3,
