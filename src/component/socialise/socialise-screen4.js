@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import Top_container from '../handywork-screen/handy_head';
-import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text,  } from 'react-native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 const Social_Screen4 = (props) => {

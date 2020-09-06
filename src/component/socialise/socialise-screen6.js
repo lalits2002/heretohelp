@@ -3,8 +3,6 @@ import {
     StyleSheet,
     View,
     Text,
-    Image,
-    TouchableOpacity,
     TextInput,
     SafeAreaView
 }
@@ -31,6 +29,7 @@ const Social_Screen6 = (props) => {
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => onChangeText(text)}
+                    value={value}
                     placeholder={'Enter Text'}
                 />
             </View>

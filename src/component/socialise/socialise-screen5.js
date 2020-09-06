@@ -3,8 +3,6 @@ import {
     StyleSheet,
     View,
     Text,
-    Image,
-    TouchableOpacity,
     TextInput,
     SafeAreaView
 }

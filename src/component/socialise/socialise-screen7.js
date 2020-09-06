@@ -3,8 +3,6 @@ import {
     StyleSheet,
     View,
     Text,
-    Image,
-    TouchableOpacity,
     TextInput,
     SafeAreaView
 }
@@ -12,6 +10,8 @@ import {
 import Top_container from '../handywork-screen/handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
+
+
 const Social_Screen7 = (props) => {
     const [value, onChangeText] = useState();
 
