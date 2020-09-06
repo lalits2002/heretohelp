@@ -9,25 +9,25 @@ import Colors from '../../Items/Colors';
 
 const HandyWork_Screen3 = props => {
   console.log(props);
-  
-  
+
+
   const data = {...props.route.params};
-  
+
   const getDate = data.selectedDate;
   console.log(getDate);
 
     return(
       <View style={{ ...styles.screen, ...props.style}}>
-        
+
       <View style={styles.top_box} >
         <Top_container
-            title="Handy Work" 
+            title="Handy Work"
             sub_head="Handyman Services"
             detail_1="Friday, june 5, 2020"
             detail_3="What time do you request?"
          />
       </View>
-      
+
       <View style={styles.mid_box}></View>
       <View style={styles.bottom_box}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen4', {
@@ -40,7 +40,7 @@ const HandyWork_Screen3 = props => {
     </View>
 
 
-  );  
+  );
 };
 
 const styles = StyleSheet.create({
@@ -81,17 +81,17 @@ const styles = StyleSheet.create({
   back:{
     alignSelf: "flex-start",
     fontSize: 16,
-    color: Colors.primary2,
+    // color: Colors.primary2,
   },
   head: {
     fontSize: 26,
     fontWeight: "bold",
-    color: Colors.primary1,
+    // color: Colors.primary1,
   },
   head2: {
     alignSelf: "flex-start",
     fontSize: 19,
-    color: Colors.primary2,
+    // color: Colors.primary2,
   },
   head3: {
     fontSize: 17.5,
