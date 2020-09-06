@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
@@ -6,10 +6,15 @@ import { Feather } from '@expo/vector-icons';
 
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
+import CalenderComponent from '../CalenderComponent';
 
 const Transport_screen2 = props => {
     const navigation = useNavigation();
-
+    const [selectedDate, setDate] = React.useState("");
+    const ClickHander = (day) => {
+      setDate(day);
+    };
+    console.log(props);
     return(
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
@@ -42,22 +47,21 @@ const Transport_screen2 = props => {
 
         </View>
 
-<View style={styles.container4}>
+       <View style={styles.container4}>
+        <Text style={styles.head2}>What time do you requested date?</Text>
+       </View>
 
-<Text style={styles.head2}>What time do you requested date?</Text>
-</View>
+       <View style={styles.container5}>
+           <CalenderComponent getDate={ClickHander} />
+        </View>
 
-<View style={styles.container5}>
+          <View style={styles.container6}>
 
-</View>
-
-<View style={styles.container6}>
-
-<Dark_Button onPress={() => props.navigation.navigate('Transport_screen3')}>
-<Text>Next</Text>
-</Dark_Button>
-</View>
-</SafeAreaView>
+       <Dark_Button onPress={() => props.navigation.navigate('Transport_screen3')}>
+           <Text>Next</Text>
+             </Dark_Button>
+          </View>
+       </SafeAreaView>
 
     );
 };
