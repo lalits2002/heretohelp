@@ -40,10 +40,10 @@ const Transport_screen5 = props => {
             <View style={styles.box}>
             <Text style={styles.head2}> Type of transportation</Text>
             <TextInput
-              style={styles.input}
-              onChangeText={(text) => onChangeText(text)}
-              value={value}
-              placeholder={ 'Doctors appointment'}>
+               style={styles.input}
+               editable={false}
+               value={data.Transporttype}
+               >
 
               </TextInput>
 
@@ -74,9 +74,8 @@ const Transport_screen5 = props => {
             <Text style={styles.head2}> Notes </Text>
             <TextInput
               style={styles.input}
-              onChangeText={(text) => onChangeText(text)}
-              value={value}
-              placeholder={'I need a drive to Doctor appointment at the Hospital'}>
+              editable={false}
+              value={data.note}>
               </TextInput>
         </View>
     </View>

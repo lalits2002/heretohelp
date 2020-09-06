@@ -7,8 +7,9 @@ const dataCity = [
   // data need to change afterwards
 
   'Destination',
-  'Doctors appointment',
   'Event',
+  'Doctors appointment',
+  'Function',
   'Shopping',
   'Professional ride',
   'Emergency',

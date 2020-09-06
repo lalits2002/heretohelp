@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, Image, SafeAreaView } from 'react-native';
 
 
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Top_container from './Transport_head';
+import Colors from '../../Items/Colors';
 
 const Transport_screen3 = props => {
   console.log(props);
@@ -56,68 +57,43 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     padding: '1.8%'
   },
-  top: {
-    flex: 0.4,
+  top_box: {
+    flex: 4,
     flexDirection: 'column',
     width: '100%',
     justifyContent: 'center',
-    // backgroundColor: 'lightblue'
+    paddingTop: '2.8%',
+    // backgroundColor: '#c65df0'
+  },
+   mid_box: {
+    flex: 4.5,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "center",
+    // backgroundColor: "#6dc2ed",
+  },
+   bottom_box: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingHorizontal: "2%",
+    paddingLeft: '60%',
+    // backgroundColor: "#6ded8f",
   },
 
-    container1: {
-    flex: 0.3,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignSelf:'flex-start'
-    // backgroundColor: '#f72f54'
-  },
-    container2: {
-    flex: 0.4,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignSelf: 'flex-start'
-    // backgroundColor: '#e8a643'
-  },
-    container3: {
-    flex: 1,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    // backgroundColor: '#5cc4c1'
-  },
-    container4: {
-    flex: 0.45,
-    width: '100%',
-    flexDirection: 'column',
-    // backgroundColor: '#eef51b',
-    paddingTop: '5%',
-  },
-    container5: {
-    flex: 2,
-    width: '100%',
-    flexDirection: 'column',
-    // backgroundColor: '#ed64a4'
-  },
-    container6: {
-    flex: 0.6,
-    width: '100%',
-    flexDirection: 'column',
-    paddingLeft: '56%',
-    paddingBottom: '1.4%'
-    // backgroundColor: '#18f096'
-  },
-   back:{
+  back:{
     alignSelf: "flex-start",
     fontSize: 16,
     color: Colors.primary2,
   },
 
+
   head: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: Colors.primary1
+    // color: Colors.primary1
   },
   head1: {
     fontSize: 15.2,
@@ -133,7 +109,7 @@ const styles = StyleSheet.create({
    },
    head3: {
      fontSize: 18,
-    //  fontWeight: 'bold',
+     fontWeight: 'bold',
      color: Colors.primary2,
      justifyContent: 'center'
    }

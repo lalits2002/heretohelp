@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
       },
 
       mid_box: {
-        flex: 5,
+        flex: 5.5,
         width: '100%',
         flexDirection: 'column',
         justifyContent: "center",
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
        flexDirection: 'column',
        justifyContent: 'center',
        width: "100%",
-       paddingLeft: '58%',
+       paddingLeft: '60%',
        paddingHorizontal: "2%",
     // backgroundColor: "#9811C9",
   },
