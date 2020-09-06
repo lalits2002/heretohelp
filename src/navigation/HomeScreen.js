@@ -33,10 +33,14 @@ import HandyWork_Screen5 from "../component/handywork-screen/handywork-screen5";
 import Transport_screen from "../component/transportation/transportation";
 import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
+import Transport_screen4 from "../component/transportation/transportation4";
+import Transport_screen5 from "../component/transportation/transportation5";
+import Transport_screen6 from "../component/transportation/transportation6";
 
 import Chat_Screen from "../servises/chat/chat";
 import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
 import ProfileScreen from "../component/profile/profile";
+
 
 
 const ScreenConstant = createStackNavigator();
@@ -134,6 +138,18 @@ function TransportScreen() {
       <ScreenConstant.Screen
       name="Transport_screen3"
       component={Transport_screen3}
+      />
+      <ScreenConstant.Screen
+      name="Transport_screen4"
+      component={Transport_screen4}
+      />
+      <ScreenConstant.Screen
+      name="Transport_screen5"
+      component={Transport_screen5 }
+      />
+      <ScreenConstant.Screen
+      name="Transport_screen6"
+      component={Transport_screen6 }
       />
     </ScreenConstant.Navigator>
   );
