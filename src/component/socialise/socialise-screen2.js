@@ -44,12 +44,12 @@ const Social_Screen2 = (props) => {
       </View>
       <View style={styles.container5}>
         <Text> </Text>
-        <Dark_Button>
+        <Dark_Button onPress={() => props.navigation.navigate('socialscreen3')}>
           <Text>I am flexible with time and location</Text>
-        </Dark_Button>
+        </Dark_Button >
 
         <Text> </Text>
-        <Button2 style={{}}>
+        <Button2 onPress={() => props.navigation.navigate('socialscreen3')}>
           <Text>I have a specific time and location</Text>
         </Button2>
       </View>

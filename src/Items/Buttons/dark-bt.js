@@ -24,7 +24,7 @@ const Dark_Button = props => {
     },
     buttonText: {
       color: 'white',
-      
+      // fontSize: 20
     }
   });
 
