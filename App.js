@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, } from 'react-native';
 import { AppLoading } from 'expo';
 import { useFonts, Inter_900Black, } from '@expo-google-fonts/inter';
-// import CalenderComponent from './src/component/pet-care/CalenderComponent';
+// import Onboard_screen2 from './src/OnBoard/onboard_screen3';
 import HomeScreen from './src/navigation/HomeScreen';
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
     return <AppLoading />;
   }
   
-  // return <CalenderComponent />
+  // return <Onboard_screen2 />
   return <HomeScreen />
 }
 

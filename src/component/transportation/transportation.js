@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
+import Picker from './transport-picker';
 
 const Transport_screen = props => {
   const navigation = useNavigation();
+
+  const [type, SetType] = useState();
+  const selectHandler = (item) => {SetType(item)};
 
 
   return (
@@ -38,14 +42,12 @@ const Transport_screen = props => {
         <Text style={styles.head2}>Need a ride to a doctors appointment?Want to carpool to a local event and save emissions?</Text>
     </View>
     <View style={styles.container4}>
-     <Text style={styles.head3}>Select type of social activity</Text>
+     <Text style={styles.head3}>Select type of transport activity</Text>
 
     </View>
     <View style={styles.container5}>
-    <Text style={{alignSelf: 'center'}}>On dev</Text>
-        <Text style={{alignSelf: 'center'}}>Doctor's Appointment</Text>
-        <Text style={{alignSelf: 'center'}}>Event</Text>
-        <Text style={{alignSelf: 'center'}}>Shopping</Text>
+    <Picker selectType={selectHandler}/>
+
 
     </View>
 

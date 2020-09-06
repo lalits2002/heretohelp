@@ -54,7 +54,7 @@ const Transport_screen3 = props => {
 
       <View style={styles.container6}>
         <Text style={styles.head4}></Text>
-        <Dark_Button onPress={() => props.navigation.navigate('Transport_screen3')}>
+        <Dark_Button onPress={() => props.navigation.navigate('Transport_screen4')}>
         <Text>Next</Text>
         </Dark_Button>
       </View>
@@ -146,14 +146,14 @@ const styles = StyleSheet.create({
   },
    head2: {
      fontSize: 18,
-     fontWeight: 'bold',
+    //  fontWeight: 'bold',
      color: Colors.primary2,
      justifyContent: 'center',
      paddingBottom: '3%'
    },
    head3: {
      fontSize: 18,
-     fontWeight: 'bold',
+    //  fontWeight: 'bold',
      color: Colors.primary2,
      justifyContent: 'center'
    }

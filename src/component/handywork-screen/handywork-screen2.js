@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, ScrollView } from 'react-native';
 
 
 import Top_container from './handy_head';
@@ -23,7 +23,7 @@ const HandyWork_Screen2 = props => {
     <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
 
-      {/* Top */}
+      {/* Top Box */}
       <View style={styles.top_box} >
         <Top_container
             title="Handy Work" 
@@ -31,12 +31,13 @@ const HandyWork_Screen2 = props => {
             detail_2="What is your requested date?"
          />
       </View>
-      {/* mid */}
+
+      {/* MIX Box*/}
       <View style={styles.mid_box}>
           <CalenderComponent getDate={changeDate} />
       </View>
 
-    {/* bottom container */}
+    {/* bottom Box*/}
       <View style={styles.bottom_box}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3', {
            ...props.route.params,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     width: "100%",
-    paddingLeft: '58%',
+    paddingLeft: '60%',
     paddingHorizontal: "2%",
     // backgroundColor: "#9811C9",
   },
