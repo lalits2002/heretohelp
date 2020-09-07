@@ -3,13 +3,16 @@ import {
     StyleSheet,
     View,
     Text,
+    Image,
+    TouchableOpacity,
     TextInput,
     SafeAreaView
 }
     from 'react-native';
-import Top_container from './socialise-head';
+import Top_container from '../handywork-screen/handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
+<<<<<<< HEAD:src/component/socialise/socialise-screen7.js
 <<<<<<< HEAD:src/component/socialise/socialise-screen1A.js
 <<<<<<< HEAD:src/component/socialise/socialise-screen1A.js
 const Social_Screen1A = (props) => {
@@ -21,6 +24,9 @@ const Social_Screen7 = (props) => {
 =======
 const Social_Screen7 = (props) => {
 >>>>>>> parent of 33d7fbd... Socializing re-navigation:src/component/socialise/socialise-screen7.js
+=======
+const Social_Screen1A = (props) => {
+>>>>>>> parent of 302fe45... Socailizing re-navigation:src/component/socialise/socialise-screen1A.js
     const [value, onChangeText] = useState();
 
     console.log(props);
@@ -44,7 +50,6 @@ const Social_Screen7 = (props) => {
             <View style={styles.bottom_box}>
                 <Dark_Button onPress={() => props.navigation.navigate('socialscreen8', {
                     ...props.route.params,
-                    Info: value,
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>

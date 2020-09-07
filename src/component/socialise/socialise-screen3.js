@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, } from 'react-native';
-
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import Colors from '../../Items/Colors';
+import { Feather } from '@expo/vector-icons';
 import CalenderComponent from '../CalenderComponent';
-import Top_container from './socialise-head';
+import Top_container from '../handywork-screen/handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
 

@@ -3,11 +3,13 @@ import {
     StyleSheet,
     View,
     Text,
+    Image,
+    TouchableOpacity,
     TextInput,
     SafeAreaView
 }
     from 'react-native';
-import Top_container from './socialise-head';
+import Top_container from '../handywork-screen/handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
@@ -29,14 +31,12 @@ const Social_Screen6 = (props) => {
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => onChangeText(text)}
-                    value={value}
                     placeholder={'Enter Text'}
                 />
             </View>
             <View style={styles.bottom_box}>
                 <Dark_Button onPress={() => props.navigation.navigate('socialscreen7', {
                     ...props.route.params,
-                    Location: value,
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>

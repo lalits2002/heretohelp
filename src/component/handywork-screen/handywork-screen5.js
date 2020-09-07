@@ -1,5 +1,5 @@
 import React from 'react';
-import {
+import { 
     StyleSheet,
     View,
     Text,
@@ -28,13 +28,13 @@ const HandyWork_Screen5 = props => {
 
         <View style={styles.container1}>
           <Text style={styles.head}>Review your request</Text>
-
+          
         </View>
         <View style={styles.container2}>
 
           <View style={styles.box}>
             <Text style={styles.head2}>Type of service</Text>
-              <TextInput
+              <TextInput 
                 style={styles.input}
                 editable={false}
                 value={data.type} />
@@ -42,7 +42,7 @@ const HandyWork_Screen5 = props => {
 
           <View style={styles.box} >
             <Text style={styles.head2}>Date</Text>
-              <TextInput
+              <TextInput 
                 style={styles.input}
                 editable={false}
                 value={data.selectedDate} />
@@ -58,13 +58,13 @@ const HandyWork_Screen5 = props => {
 
           <View style={styles.box} >
             <Text style={styles.head2}>Notes</Text>
-              <TextInput
-                style={styles.input}
-                editable={false}
+              <TextInput 
+                style={styles.input} 
+                editable={false} 
                 value={data.note} />
             </View>
         </View>
-
+        
         <View style={styles.container3}>
           <Dark_Button >
             <Text style={{fontSize: 18}}>Submit</Text>
@@ -75,7 +75,7 @@ const HandyWork_Screen5 = props => {
 
 
       </View>
-
+      
     );
 };
 
