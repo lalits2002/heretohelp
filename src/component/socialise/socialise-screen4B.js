@@ -9,9 +9,9 @@ import {
     from 'react-native';
 import Top_container from './socialise-head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
-import Colors from '../../Items/Colors';
 
-const Social_Screen6 = (props) => {
+
+const Social_Screen4B = (props) => {
     const [value, onChangeText] = useState();
 
     console.log(props);
@@ -22,7 +22,7 @@ const Social_Screen6 = (props) => {
                 <Top_container
                     title="Socialise"
                     sub_head="Coffee meetup"
-                    detail_2="Where would you like to meet?"
+                    detail_3="Additional Details"
                 />
             </View>
             <View style={styles.mid_box}>
@@ -34,9 +34,9 @@ const Social_Screen6 = (props) => {
                 />
             </View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen7', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen5B', {
                     ...props.route.params,
-                    Location: value,
+                    note: value
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Social_Screen6;
+export default Social_Screen4B;

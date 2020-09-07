@@ -12,12 +12,13 @@ import Victim from "../component/Help-need";
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
-import Social_Screen3 from "../component/socialise/socialise-screen3";
-import Social_Screen4 from "../component/socialise/socialise-screen4";
-import Social_Screen5 from "../component/socialise/socialise-screen5";
-import Social_Screen6 from "../component/socialise/socialise-screen6";
-import Social_Screen7 from "../component/socialise/socialise-screen7";
-import Social_Screen8 from "../component/socialise/socialise-screen8";
+import Social_Screen1A from "../component/socialise/socialise-screen1A";
+import Social_Screen2A from "../component/socialise/socialise-screen2A";
+import Social_Screen1B from "../component/socialise/socialise-screen1B";
+import Social_Screen2B from "../component/socialise/socialise-screen2B";
+import Social_Screen3B from "../component/socialise/socialise-screen3B";
+import Social_Screen4B from "../component/socialise/socialise-screen4B";
+import Social_Screen5B from "../component/socialise/socialise-screen5B";
 
 
 import Pet_Screen from "../component/pet-care/pet";
@@ -59,12 +60,13 @@ function SocialScreen() {
       }}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
       <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
-      <ScreenConstant.Screen name="socialscreen3" component={Social_Screen3} />
-      <ScreenConstant.Screen name="socialscreen4" component={Social_Screen4} />
-      <ScreenConstant.Screen name="socialscreen5" component={Social_Screen5} />
-      <ScreenConstant.Screen name="socialscreen6" component={Social_Screen6} />
-      <ScreenConstant.Screen name="socialscreen7" component={Social_Screen7} />
-      <ScreenConstant.Screen name="socialscreen8" component={Social_Screen8} />
+      <ScreenConstant.Screen name="socialscreen1A" component={Social_Screen1A} />
+      <ScreenConstant.Screen name="socialscreen2A" component={Social_Screen2A} />
+      <ScreenConstant.Screen name="socialscreen1B" component={Social_Screen1B} />
+      <ScreenConstant.Screen name="socialscreen2B" component={Social_Screen2B} />
+      <ScreenConstant.Screen name="socialscreen3B" component={Social_Screen3B} />
+      <ScreenConstant.Screen name="socialscreen4B" component={Social_Screen4B} />
+      <ScreenConstant.Screen name="socialscreen5B" component={Social_Screen5B} />
 
     </ScreenConstant.Navigator>
   );
@@ -153,12 +155,12 @@ function TransportScreen() {
         component={Transport_screen3}
       />
       <ScreenConstant.Screen
-      name="Transport_screen4"
-      component={Transport_screen4}
+        name="Transport_screen4"
+        component={Transport_screen4}
       />
       <ScreenConstant.Screen
-      name="Transport_screen5"
-      component={Transport_screen5 }
+        name="Transport_screen5"
+        component={Transport_screen5}
       />
 
     </ScreenConstant.Navigator>
