@@ -4,7 +4,7 @@ import Top_container from '../handywork-screen/handy_head';
 import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
-const Social_Screen4 = (props) => {
+const Social_Screen2B = (props) => {
     console.log(props);
 
 
@@ -24,7 +24,7 @@ const Social_Screen4 = (props) => {
             </View>
             <View style={styles.mid_box}></View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen5', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen3B', {
                     ...props.route.params,
                     time: 'dev'
                 })} >
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Social_Screen4;
+export default Social_Screen2B;

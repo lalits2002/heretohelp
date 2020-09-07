@@ -9,7 +9,7 @@ import Dark_Button from '../../Items/Buttons/dark-bt';
 
 
 
-const Social_Screen3 = (props) => {
+const Social_Screen1B = (props) => {
 
 
     const [selectedDate, setDate] = useState("");
@@ -31,7 +31,7 @@ const Social_Screen3 = (props) => {
                 <CalenderComponent getDate={changeDate} />
             </View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen4', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen2B', {
                     ...props.route.params,
                     selectedDate
                 })} >
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Social_Screen3;
+export default Social_Screen1B;

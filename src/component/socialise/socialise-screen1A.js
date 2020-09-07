@@ -12,8 +12,7 @@ import {
 import Top_container from '../handywork-screen/handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
-
-const Social_Screen5 = (props) => {
+const Social_Screen1A = (props) => {
     const [value, onChangeText] = useState();
 
     console.log(props);
@@ -24,21 +23,19 @@ const Social_Screen5 = (props) => {
                 <Top_container
                     title="Socialise"
                     sub_head="Coffee meetup"
-                    detail_3="Additional Details"
+                    detail_2="Add a short note to your request"
                 />
             </View>
             <View style={styles.mid_box}>
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => onChangeText(text)}
-                    value={value}
                     placeholder={'Enter Text'}
                 />
             </View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen6', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen2A', {
                     ...props.route.params,
-                    note: value
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>
@@ -85,4 +82,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Social_Screen5;
+export default Social_Screen1A;

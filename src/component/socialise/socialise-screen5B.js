@@ -15,7 +15,7 @@ import Colors from '../../Items/Colors';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-const Social_Screen8 = (props) => {
+const Social_Screen5B = (props) => {
     const navigation = useNavigation();
     const data = { ...props.route.params };
 
@@ -141,4 +141,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Social_Screen8;
+export default Social_Screen5B;

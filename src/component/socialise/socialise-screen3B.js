@@ -13,7 +13,7 @@ import Top_container from '../handywork-screen/handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
-const Social_Screen6 = (props) => {
+const Social_Screen3B = (props) => {
     const [value, onChangeText] = useState();
 
     console.log(props);
@@ -35,7 +35,7 @@ const Social_Screen6 = (props) => {
                 />
             </View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen7', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen4B', {
                     ...props.route.params,
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Social_Screen6;
+export default Social_Screen3B;
