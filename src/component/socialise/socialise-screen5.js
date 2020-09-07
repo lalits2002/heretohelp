@@ -3,15 +3,13 @@ import {
     StyleSheet,
     View,
     Text,
-    Image,
-    TouchableOpacity,
     TextInput,
     SafeAreaView
 }
     from 'react-native';
-import Top_container from '../handywork-screen/handy_head';
+import Top_container from './socialise-head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
-import Colors from '../../Items/Colors';
+
 
 const Social_Screen5 = (props) => {
     const [value, onChangeText] = useState();

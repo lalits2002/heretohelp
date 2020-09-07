@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { 
+import {
   StyleSheet,
-  View, 
-  Text, 
-  Image, 
-  TouchableOpacity, 
-  TextInput, 
-  SafeAreaView } 
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  SafeAreaView }
   from 'react-native';
 
 import Top_container from './handy_head';
@@ -16,7 +16,7 @@ import Colors from '../../Items/Colors';
 
 const HandyWork_Screen4 = props => {
 
-  
+
   const [value, onChangeText] = useState();
 
   console.log(props);
@@ -25,20 +25,20 @@ const HandyWork_Screen4 = props => {
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
       <View style={styles.top_box}>
-        <Top_container 
-          title="Handy Work" 
+        <Top_container
+          title="Handy Work"
           sub_head="Handyman Services"
           detail_3="Additional Details"
         />
       </View>
-      
+
       <View style={styles.mid_box}>
         <TextInput
             style={styles.input}
             onChangeText={(text) => onChangeText(text)}
             value={value}
             placeholder= {'Enter Text'}
-          
+
           />
       </View>
       <View style={styles.bottom_box}>
@@ -52,7 +52,7 @@ const HandyWork_Screen4 = props => {
     </SafeAreaView>
 
 
-  );  
+  );
 };
 
 const styles = StyleSheet.create({
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'rgb(25,5,120)',
   },
- 
+
   mid_box: {
     flex: 3.4,
     width: "100%",
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     paddingLeft: '60%',
     // backgroundColor: "#9811C9",
   },
- 
+
   input: {
     fontSize: 20,
     color: Colors.secondary3 ,

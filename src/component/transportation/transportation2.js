@@ -1,67 +1,52 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Feather } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text,  SafeAreaView } from 'react-native';
 
 
+import Top_continer from './Transport_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
-import Colors from '../../Items/Colors';
 import CalenderComponent from '../CalenderComponent';
 
 const Transport_screen2 = props => {
-    const navigation = useNavigation();
-    const [selectedDate, setDate] = React.useState("");
+
+    const [selectedDate, setDate] = useState("");
     const ClickHander = (day) => {
       setDate(day);
     };
+
     console.log(props);
+
+
     return(
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
 
-      <View style={styles.top} >
-        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
-          <Text style={styles.back}>
-            <Feather name="chevron-left" size={15} color= {Colors.primary3} />
-           Back</Text>
-        </TouchableOpacity>
-      </View>
 
-      <View style={styles.container1}>
-      <Text style={styles.head}> Transportation</Text>
-      </View>
+        {/* Top Box */}
+      <View style={styles.top_box}>
+        <Top_continer
+           title ="Transportation"
+           sub_head ="Transport services"
+           detail_2 ="What is your requested date?"
+           />
+           </View>
 
-      <View style={styles.container2}>
-      <Text style={styles.head1}> Transport Service</Text>
-      </View>
-
-       <View style={styles.container3}>
-       <Image source={require('../../Items/Icons/calender.jpeg')}
-
-       resizeMode= 'contain'
-        style={{
-               height: '100%',
-               width: '27%',
-               alignSelf: 'center'
-               }
-             } />
-
+           <View style={styles.mid_box}>
+              <CalenderComponent getDate={ClickHander} />
         </View>
 
-       <View style={styles.container4}>
-        <Text style={styles.head2}>What time do you requested date?</Text>
-       </View>
+            <View style={styles.bottom_box}>
+              <Dark_Button onPress={() => props.navigation.navigate('Transport_screen3', {
+                ...props.route.params,
+                date: selectedDate
+              })
 
-       <View style={styles.container5}>
-           <CalenderComponent getDate={ClickHander} />
-        </View>
+               } >
+          <Text style={{fontSize: 18}}> Next</Text>
+        </Dark_Button>
+      </View>
 
-          <View style={styles.container6}>
+          </SafeAreaView>
 
-       <Dark_Button onPress={() => props.navigation.navigate('Transport_screen3')}>
-           <Text>Next</Text>
-             </Dark_Button>
-          </View>
-       </SafeAreaView>
+
 
     );
 };
@@ -71,14 +56,16 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         width: '100%',
-        // backgroundColor: 'yellow',
+        backgroundColor: "#ffffff",
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: '7%',
+        padding: '1.8%',
 
 
     },
-    top: {
-        flex: 0.5,
+    top_box: {
+        flex: 4,
         flexDirection: 'column',
         width: '100%',
         justifyContent: 'center',
@@ -86,71 +73,24 @@ const styles = StyleSheet.create({
         // backgroundColor: 'lightblue'
       },
 
-        container1: {
-        flex: 0.4,
+      mid_box: {
+        flex: 5.5,
         width: '100%',
         flexDirection: 'column',
-        justifyContent: 'center',
-        // backgroundColor: '#f72f54'
-      },
-        container2: {
-        flex: 0.32,
-        width: '100%',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        // backgroundColor: '#e8a643'
-      },
-        container3: {
-        flex: 1.2,
-        width: '100%',
-        flexDirection: 'column',
-        paddingTop: '2%'
-        // backgroundColor: '#5cc4c1'
-      },
-        container4: {
-        flex: 0.6,
-        width: '100%',
-        flexDirection: 'column',
-        // backgroundColor: '#eef51b',
-        justifyContent:'center',
-        paddingLeft: '1.5%'
+        justifyContent: "center",
+        alignSelf: "center",
+        // backgroundColor: "#86EC4F",
 
       },
-        container5: {
-        flex: 2.8,
-        width: '100%',
-        flexDirection: 'column',
-        // backgroundColor: '#ed64a4'
-      },
-        container6: {
-        flex: 0.75,
-        width: '100%',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        // backgroundColor: '#18f096',
-        paddingLeft: '55%',
-        // paddingTop: '2%',
-        paddingHorizontal: '1.6%',
-      },
-      back:{
-        alignSelf: "flex-start",
-        fontSize: 16,
-        color: Colors.primary2,
-      },
-      head: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: Colors.primary1
-      },
-      head1: {
-        fontSize: 17,
-        justifyContent: 'center',
-        color: Colors.primary2
-      },
-      head2: {
-        fontSize: 17,
-      }
-
+      bottom_box: {
+       flex: 1,
+       flexDirection: 'column',
+       justifyContent: 'center',
+       width: "100%",
+       paddingLeft: '60%',
+       paddingHorizontal: "2%",
+    // backgroundColor: "#9811C9",
+  },
 
 });
 export default Transport_screen2;
