@@ -1,39 +1,47 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View, Text, } from 'react-native';
+
+import CalenderComponent from '../CalenderComponent';
 import Top_container from './socialise-head';
-import { StyleSheet, Text,  } from 'react-native';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 
-const Social_Screen2B = (props) => {
+
+
+const Social_Screen3 = (props) => {
+
+
+    const [selectedDate, setDate] = useState("");
+    const changeDate = (day) => {
+        setDate(day);
+    };
+
     console.log(props);
-
-
-    const data = { ...props.route.params };
-
-    const getDate = data.selectedDate;
-    console.log(getDate);
     return (
         <View style={{ ...styles.screen, ...props.style }}>
             <View style={styles.top_box} >
                 <Top_container
                     title="Socialise"
-                    sub_head="Coffe meetup"
-                    detail_1="Friday, june 5, 2020"
-                    detail_3="What time do you request?"
+                    sub_head="Coffee meetup"
+                    detail_2="What is your requested date?"
                 />
             </View>
-            <View style={styles.mid_box}></View>
+            <View style={styles.mid_box}>
+                <CalenderComponent getDate={changeDate} />
+            </View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen3B', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen4', {
                     ...props.route.params,
-                    time: 'time'
+                    selectedDate
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>
             </View>
         </View>
     );
+
+
 }
+
 
 const styles = StyleSheet.create({
     screen: {
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'rgb(25,5,120)',
     },
     mid_box: {
-        flex: 4.5,
+        flex: 5,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
@@ -63,13 +71,15 @@ const styles = StyleSheet.create({
     },
     bottom_box: {
         flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
         width: "100%",
-        flexDirection: "column",
-        justifyContent: "center",
+        paddingLeft: '58%',
         paddingHorizontal: "2%",
-        paddingLeft: '55%',
         // backgroundColor: "#9811C9",
     },
+
+
 });
 
-export default Social_Screen2B;
+export default Social_Screen3;

@@ -10,8 +10,17 @@ import {
 import Top_container from './socialise-head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
+<<<<<<< HEAD:src/component/socialise/socialise-screen1A.js
+<<<<<<< HEAD:src/component/socialise/socialise-screen1A.js
+const Social_Screen1A = (props) => {
+=======
 
-const Social_Screen3B = (props) => {
+
+const Social_Screen7 = (props) => {
+>>>>>>> 3af23b8b48fae503a085f397ed36a612ef92608a:src/component/socialise/socialise-screen7.js
+=======
+const Social_Screen7 = (props) => {
+>>>>>>> parent of 33d7fbd... Socializing re-navigation:src/component/socialise/socialise-screen7.js
     const [value, onChangeText] = useState();
 
     console.log(props);
@@ -22,21 +31,20 @@ const Social_Screen3B = (props) => {
                 <Top_container
                     title="Socialise"
                     sub_head="Coffee meetup"
-                    detail_2="Where would you like to meet?"
+                    detail_2="Add a short note to your request"
                 />
             </View>
             <View style={styles.mid_box}>
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => onChangeText(text)}
-                    value={value}
                     placeholder={'Enter Text'}
                 />
             </View>
             <View style={styles.bottom_box}>
-                <Dark_Button onPress={() => props.navigation.navigate('socialscreen4B', {
+                <Dark_Button onPress={() => props.navigation.navigate('socialscreen8', {
                     ...props.route.params,
-                    Location: value,
+                    Info: value,
                 })} >
                     <Text style={{ fontSize: 18 }}> Next</Text>
                 </Dark_Button>
@@ -83,4 +91,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Social_Screen3B;
+export default Social_Screen7;
