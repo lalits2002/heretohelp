@@ -6,13 +6,13 @@ const dataCity = [
 
   // data need to change afterwards
 
-  'Destination',
+  'Coffee meet',
   'Event',
-  'Doctors appointment',
+  'Small gathering',
   'Function',
-  'Shopping',
-  'Professional ride',
-  'Emergency',
+  'Party',
+  'Professional meet',
+  'Emergency meet',
 ];
 
 const opacities = {

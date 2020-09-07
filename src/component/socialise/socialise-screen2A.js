@@ -9,7 +9,7 @@ import {
     SafeAreaView
 }
     from 'react-native';
-import Top_container from '../handywork-screen/handy_head';
+
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 import { useNavigation } from '@react-navigation/native';
@@ -35,7 +35,7 @@ const Social_Screen2A = (props) => {
                     <TextInput
                         style={styles.input}
                         editable={false}
-                        value={data.type} />
+                        value={data.Socialset} />
                 </View>
                 <View style={styles.box} >
                     <Text style={styles.head2}>Date</Text>
@@ -56,14 +56,14 @@ const Social_Screen2A = (props) => {
                     <TextInput
                         style={styles.input}
                         editable={false}
-                        value={data.time} />
+                        value={data.Location} />
                 </View>
                 <View style={styles.box} >
                     <Text style={styles.head2}>Notes</Text>
                     <TextInput
                         style={styles.input}
                         editable={false}
-                        value={data.note} />
+                        value={data.Info} />
                 </View>
             </View>
             <View style={styles.container3}>

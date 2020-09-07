@@ -42,7 +42,7 @@ import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
-import Transport_screen6 from "../component/transportation/transportation6";
+
 
 import Chat_Screen from "../servises/chat/chat";
 import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
@@ -162,10 +162,14 @@ function TransportScreen() {
         name="Transport_screen5"
         component={Transport_screen5}
       />
+<<<<<<< HEAD
       <ScreenConstant.Screen
         name="Transport_screen6"
         component={Transport_screen6}
       />
+=======
+
+>>>>>>> 3af23b8b48fae503a085f397ed36a612ef92608a
     </ScreenConstant.Navigator>
   );
 }

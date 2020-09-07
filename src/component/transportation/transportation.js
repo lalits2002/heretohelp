@@ -9,7 +9,7 @@ import Picker from './transport-picker';
 const Transport_screen = props => {
   const navigation = useNavigation();
 
-  const [type, SetType] = useState();
+  const [Transporttype, SetType] = useState();
   const selectHandler = (item) => {SetType(item)};
 
 
@@ -31,8 +31,8 @@ const Transport_screen = props => {
       source={require('../h2h/s8.png')}
       resizeMode= 'contain'
       style={{
-            width: '100%',
-            height: '100%',
+            width: '55%',
+            height: '95%',
             alignSelf: 'center'
           }}
        />
@@ -52,7 +52,12 @@ const Transport_screen = props => {
     </View>
 
     <View style={styles.container6}>
-      <Dark_Button onPress={() => props.navigation.navigate('transport_screen2')}>
+      <Dark_Button onPress={() => props.navigation.navigate('transport_screen2',
+      {
+        ...props.route.params,
+        Transporttype,
+      }
+        )}>
         <Text>Request for Socialise</Text>
       </Dark_Button>
 

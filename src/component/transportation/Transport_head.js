@@ -42,9 +42,9 @@ const Top_container = props => {
         <Text style={styles.head2}>{props.detail_1} </Text>
         <Text style={styles.head2}>{props.detail_2} </Text>
         <Text style={styles.head2}>{props.detail_3}</Text>
-       
+
       </View>
-    </View> 
+    </View>
   )
 }
 
