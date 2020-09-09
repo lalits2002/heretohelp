@@ -57,6 +57,10 @@ function SocialScreen() {
     <ScreenConstant.Navigator
       screenOptions={{
         headerShown: false,
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
+        cardOverlayEnabled: true,
+        ...TransitionPresets.SlideFromRightIOS,
       }}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
       <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
