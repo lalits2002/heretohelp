@@ -6,7 +6,6 @@ import {
   TextInput,
   Dimensions,
   StatusBar,
-  ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useKeyboard } from "react-native-keyboard-height";
