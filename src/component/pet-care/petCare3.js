@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Top_container from "./head";
+import TimePicker from "./timePicker";
 
 const Pet_screen3 = (props) => {
   const navigation = useNavigation();
-  console.log(props.route.params);
+
+  const [Hour, setHour] = useState(0);
+  const [Minute, setMinute] = useState(0);
+  const [Meridian, setMeridian] = useState(0);
+
+  const hourHandler = (Hour) => {
+    setHour(Hour);
+    // console.log(Hour);
+  };
+  const minHandler = (Min) => {
+    setMinute(Min);
+    // console.log(Min);
+  };
+  const AmPmHandler = (AmPm) => {
+    setMeridian(AmPm);
+    // console.log(AmPm);
+  };
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -20,13 +37,20 @@ const Pet_screen3 = (props) => {
         />
       </View>
 
-      <View style={styles.midContainer}></View>
+      <View style={styles.midContainer}>
+        <TimePicker
+          getMin={minHandler}
+          getHour={hourHandler}
+          getMeridian={AmPmHandler}
+        ></TimePicker>
+      </View>
 
       <View style={styles.bottomContainer}>
         <Dark_Button
           onPress={() =>
             props.navigation.navigate("PetScreen4", {
               ...props.route.params,
+              time: { Hour, Minute, Meridian },
             })
           }
         >

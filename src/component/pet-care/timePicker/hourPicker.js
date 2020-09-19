@@ -2,14 +2,27 @@ import React, { useRef, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import SmoothPicker from "react-native-smooth-picker";
 
-const dataCity = ["Pet sitting", "Dog Walking", "Other"];
+const dataCity = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+];
 
 const opacities = {
   0: 1,
   1: 1,
-  2: 0.6,
-  3: 0.3,
-  4: 0.1,
+  2: 0,
+  3: 0,
+  4: 0,
 };
 const sizeText = {
   0: 22,
@@ -58,7 +71,7 @@ const ItemToRender = ({ item, index }, indexSelected, vertical) => {
   );
 };
 
-const Picker = (props) => {
+const Hour = (props) => {
   function handleChange(index) {
     setSelected(index);
     refPicker.current.scrollToIndex({
@@ -71,7 +84,7 @@ const Picker = (props) => {
   const [selected, setSelected] = useState(0);
   const refPicker = useRef(null);
   // this is added if user doesn't happen to select any value
-  props.careTypeGetter(dataCity[selected]);
+  props.getHour(dataCity[selected]);
 
   return (
     <View style={{ ...styles.container, ...props.style }}>
@@ -88,7 +101,7 @@ const Picker = (props) => {
           scrollAnimatio={false}
           onSelected={({ item, index }) => {
             handleChange(index);
-            props.careTypeGetter(item);
+            props.getHour(item);
           }}
           selectOnPress={true}
           renderItem={(option) => ItemToRender(option, selected, true)}
@@ -119,16 +132,16 @@ const styles = StyleSheet.create({
   OptionWrapper: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
-    marginBottom: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
+    marginTop: 3,
+    marginBottom: 3,
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingLeft: 10,
+    paddingRight: 10,
     height: 55,
     borderWidth: 3,
     borderRadius: 10,
   },
 });
 
-export default Picker;
+export default Hour;

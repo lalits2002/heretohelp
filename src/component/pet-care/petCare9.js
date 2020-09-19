@@ -16,6 +16,8 @@ import Colors from "../../Items/Colors";
 const Pet_screen9 = (props) => {
   const navigation = useNavigation();
   const data = { ...props.route.params };
+  const timestring =
+    data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
   console.log(data);
 
   return (
@@ -54,7 +56,11 @@ const Pet_screen9 = (props) => {
       </View>
       <View style={styles.container2}>
         <Text style={styles.head2}>Time</Text>
-        <TextInput style={styles.input} editable={false} value={""}></TextInput>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={timestring}
+        ></TextInput>
       </View>
       <View style={styles.container2}>
         <Text style={styles.head2}>Location for pet sitting</Text>
