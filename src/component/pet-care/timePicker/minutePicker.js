@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { StyleSheet, View, Text, ColorPropType } from "react-native";
-import { color } from "react-native-reanimated";
 import SmoothPicker from "react-native-smooth-picker";
 import Colors from  '../../../Items/Colors';
 
