@@ -72,10 +72,6 @@ const HandyWork_Screen5 = props => {
             <Text style={{fontSize: 18}}>Submit</Text>
           </Dark_Button>
         </View>
-
-
-
-
       </View>
 
     );

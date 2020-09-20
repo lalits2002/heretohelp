@@ -15,6 +15,7 @@ const Transport_screen5 = props => {
 
   console.log(data);
 
+  const timestring = data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
 
 
 
@@ -63,8 +64,8 @@ const Transport_screen5 = props => {
             <Text style={styles.head2}> Time</Text>
             <TextInput
             style={styles.input}
-            onChangeText={(text) => onChangeText(text)}
-            value={value}
+            editable={false}
+            value={timestring}
             placeholder={'11:00 Pm '}>
 
             </TextInput>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View, Text, Image, SafeAreaView } from 'react-native';
 
-
+import TimePicker from '../timePicker/timePicker';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Top_container from './Transport_head';
 import Colors from '../../Items/Colors';
@@ -10,11 +10,22 @@ const Transport_screen3 = props => {
   console.log(props);
 
 
-  const data = {...props.route.params};
+  const [Hour, setHour] = useState(0);
+  const [Minute, setMinute] = useState(0);
+  const [Meridian, setMeridian] = useState(0);
 
-  const getDate = data.selectedDate;
-  console.log(getDate);
-
+  const hourHandler = (Hour) => {
+    setHour(Hour);
+    console.log(Hour);
+  };
+  const minHandler = (Min) => {
+    setMinute(Min);
+    console.log(Min);
+  };
+  const AmPmHandler = (AmPm) => {
+    setMeridian(AmPm);
+    console.log(AmPm);
+  };
 
 
     return (
@@ -30,11 +41,17 @@ const Transport_screen3 = props => {
          />
       </View>
 
-      <View style={styles.mid_box}></View>
+      <View style={styles.mid_box}>
+          <TimePicker
+            getMin={minHandler}
+            getHour={hourHandler}
+            getMeridian={AmPmHandler}
+          />
+      </View>
       <View style={styles.bottom_box}>
         <Dark_Button onPress={() => props.navigation.navigate('Transport_screen4', {
            ...props.route.params,
-           time: 'anu'
+           time: { Hour, Minute, Meridian }
         })} >
           <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>

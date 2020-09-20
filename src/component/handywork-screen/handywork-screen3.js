@@ -11,8 +11,6 @@ const HandyWork_Screen3 = props => {
   console.log(props);
 
 
-  const data = {...props.route.params};
-
   const [Hour, setHour] = useState(0);
   const [Minute, setMinute] = useState(0);
   const [Meridian, setMeridian] = useState(0);
@@ -43,11 +41,11 @@ const HandyWork_Screen3 = props => {
       </View>
 
       <View style={styles.mid_box}>
-      <TimePicker
-          getMin={minHandler}
-          getHour={hourHandler}
-          getMeridian={AmPmHandler}
-        />
+        <TimePicker
+            getMin={minHandler}
+            getHour={hourHandler}
+            getMeridian={AmPmHandler}
+          />
       </View>
       <View style={styles.bottom_box}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen4', {
