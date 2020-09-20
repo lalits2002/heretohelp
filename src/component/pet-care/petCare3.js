@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Top_container from "./head";
-import TimePicker from "./timePicker";
+import TimePicker from "../timePicker/timePicker";
 
 const Pet_screen3 = (props) => {
   const navigation = useNavigation();
@@ -42,7 +42,7 @@ const Pet_screen3 = (props) => {
           getMin={minHandler}
           getHour={hourHandler}
           getMeridian={AmPmHandler}
-        ></TimePicker>
+        />
       </View>
 
       <View style={styles.bottomContainer}>

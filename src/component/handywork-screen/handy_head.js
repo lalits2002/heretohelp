@@ -8,7 +8,7 @@ import Colors from '../../Items/Colors';
 const Top_container = props => {
   const navigation = useNavigation();
 
-  console.log(props)
+  // console.log(props)
 
   return(
     <View style={styles.screen}>

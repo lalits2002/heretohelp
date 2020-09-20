@@ -18,6 +18,8 @@ import Colors from "../../Items/Colors";
 const screenHeight = Dimensions.get("window").height;
 
 const HandyWork_Screen4 = (props) => {
+
+  console.log(props);
   const [value, onChangeText] = useState();
 
   // for dynamic flex
@@ -29,7 +31,7 @@ const HandyWork_Screen4 = (props) => {
   const [kbHeight, setKbHeight] = useState(screenHeight);
 
   const didShow = (height) => {
-    console.log("Keyboard show. Height is " + height);
+    // console.log("Keyboard show. Height is " + height);
     // setViewHeight(screenHeight - height);
     // height divide by height of container
     setKbHeight(
@@ -37,7 +39,7 @@ const HandyWork_Screen4 = (props) => {
     );
     //keyboard height ratio to the main height stored in const as not refreshed imm
     const kbhFactor = kbHeight;
-    console.log(kbhFactor);
+    // console.log(kbhFactor);
 
     setBottomFlex(bottomFlex - (kbhFactor * bottomFlex) / 5);
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-
+import TimePicker from '../timePicker/timePicker';
 import Top_container from './handy_head';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
@@ -13,8 +13,22 @@ const HandyWork_Screen3 = props => {
 
   const data = {...props.route.params};
 
-  const getDate = data.selectedDate;
-  console.log(getDate);
+  const [Hour, setHour] = useState(0);
+  const [Minute, setMinute] = useState(0);
+  const [Meridian, setMeridian] = useState(0);
+
+  const hourHandler = (Hour) => {
+    setHour(Hour);
+    console.log(Hour);
+  };
+  const minHandler = (Min) => {
+    setMinute(Min);
+    console.log(Min);
+  };
+  const AmPmHandler = (AmPm) => {
+    setMeridian(AmPm);
+    console.log(AmPm);
+  };
 
     return(
       <View style={{ ...styles.screen, ...props.style}}>
@@ -28,11 +42,17 @@ const HandyWork_Screen3 = props => {
          />
       </View>
 
-      <View style={styles.mid_box}></View>
+      <View style={styles.mid_box}>
+      <TimePicker
+          getMin={minHandler}
+          getHour={hourHandler}
+          getMeridian={AmPmHandler}
+        />
+      </View>
       <View style={styles.bottom_box}>
         <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen4', {
            ...props.route.params,
-           time: 'dev'
+           time: { Hour, Minute, Meridian },
         })} >
           <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>

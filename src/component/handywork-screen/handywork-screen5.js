@@ -18,6 +18,8 @@ const HandyWork_Screen5 = props => {
   const navigation = useNavigation();
   const data = {...props.route.params};
 
+  const timestring = data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
+
     return (
       <View style={{ ...styles.screen, ...props.style}}>
         <View style={styles.top} >
@@ -53,7 +55,7 @@ const HandyWork_Screen5 = props => {
               <TextInput
                 style={styles.input}
                 editable={false}
-                value={data.time} />
+                value={timestring} />
           </View>
 
           <View style={styles.box} >

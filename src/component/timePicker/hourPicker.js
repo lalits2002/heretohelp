@@ -1,21 +1,34 @@
 import React, { useRef, useState } from "react";
-import { StyleSheet, View, Text, ColorPropType } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import SmoothPicker from "react-native-smooth-picker";
-import Colors from  '../../../Items/Colors';
+import Colors from  '../../Items/Colors';
 
-const dataCity = ["00", "10", "20", "30", "40", "50"];
+const dataCity = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+];
 
 const opacities = {
   0: 1,
   1: 1,
-  2: 0,
-  3: 0,
+  2: 0.7,
+  3: 0.3,
   4: 0,
 };
 const sizeText = {
-  0: 22,
-  1: 15,
-  2: 7,
+  0: 25,
+  1: 17,
+  2: 12,
 };
 
 const Item = React.memo(({ opacity, selected, vertical, fontSize, name }) => {
@@ -25,7 +38,7 @@ const Item = React.memo(({ opacity, selected, vertical, fontSize, name }) => {
         styles.OptionWrapper,
         {
           opacity,
-          borderColor: selected ? Colors.primary1  : "transparent",
+          borderColor: selected ? Colors.primary1 : "transparent",
           width: vertical ? 90 : "auto",
         },
       ]}
@@ -59,7 +72,7 @@ const ItemToRender = ({ item, index }, indexSelected, vertical) => {
   );
 };
 
-const Minute = (props) => {
+const Hour = (props) => {
   function handleChange(index) {
     setSelected(index);
     refPicker.current.scrollToIndex({
@@ -72,7 +85,7 @@ const Minute = (props) => {
   const [selected, setSelected] = useState(0);
   const refPicker = useRef(null);
   // this is added if user doesn't happen to select any value
-  props.getMin(dataCity[selected]);
+  props.getHour(dataCity[selected]);
 
   return (
     <View style={{ ...styles.container, ...props.style }}>
@@ -89,7 +102,7 @@ const Minute = (props) => {
           scrollAnimatio={false}
           onSelected={({ item, index }) => {
             handleChange(index);
-            props.getMin(item);
+            props.getHour(item);
           }}
           selectOnPress={true}
           renderItem={(option) => ItemToRender(option, selected, true)}
@@ -124,12 +137,12 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     paddingTop: 3,
     paddingBottom: 3,
-    paddingLeft: 3,
+    paddingLeft: 10,
     paddingRight: 10,
     height: 40,
-    borderWidth: 3,
+    borderWidth: 3.5,
     borderRadius: 10,
   },
 });
 
-export default Minute;
+export default Hour;
