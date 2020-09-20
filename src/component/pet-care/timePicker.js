@@ -6,37 +6,40 @@ import Meridian from "./timePicker/meridianPicker";
 import Minute from "./timePicker/minutePicker";
 
 const TimePicker = (props) => {
-  console.log("Hi");
+  // console.log(props);
   return (
     <View style={styles.container}>
       <View
         style={{
           flex: 1,
-          //   backgroundColor: "red",
+            // backgroundColor: "red",
           //   width: "100%",
           height: 250,
         }}
       >
+        <Text style={{alignSelf: "center"}}>Hour</Text>
         <Hour getHour={props.getHour} />
       </View>
       <View
         style={{
           flex: 1,
-          //   backgroundColor: "blue",
+            // backgroundColor: "blue",
           //   width: "100%",
           height: 250,
         }}
       >
+        <Text style={{alignSelf: "center"}}>Minutes</Text>
         <Minute getMin={props.getMin} />
       </View>
       <View
         style={{
           flex: 1,
-          //   backgroundColor: "green",
-          //   width: "100%",
+            // backgroundColor: "green",
+            // width: "100%",
           height: 250,
         }}
       >
+        <Text style={{alignSelf: "center"}}>Meridian</Text>
         <Meridian getMeridian={props.getMeridian} />
       </View>
     </View>

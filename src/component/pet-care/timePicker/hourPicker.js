@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import SmoothPicker from "react-native-smooth-picker";
+import Colors from  '../../../Items/Colors';
 
 const dataCity = [
   "1",
@@ -37,8 +38,8 @@ const Item = React.memo(({ opacity, selected, vertical, fontSize, name }) => {
         styles.OptionWrapper,
         {
           opacity,
-          borderColor: selected ? "#64666D" : "transparent",
-          width: vertical ? 200 : "auto",
+          borderColor: selected ? Colors.primary1 : "transparent",
+          width: vertical ? 90 : "auto",
         },
       ]}
     >
