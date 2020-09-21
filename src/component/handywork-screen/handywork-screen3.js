@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'rgb(25,5,120)',
   },
   mid_box: {
-    flex: 4.5,
+    flex: 5,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
