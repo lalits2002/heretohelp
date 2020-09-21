@@ -84,7 +84,7 @@ const Social_Screen7 = (props) => {
           onPress={() =>
             props.navigation.navigate("socialscreen2A", {
               ...props.route.params,
-              Info: value,
+              note: value,
             })
           }
         >

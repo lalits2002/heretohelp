@@ -35,7 +35,7 @@ const Social_Screen5B = (props) => {
                     <TextInput
                         style={styles.input}
                         editable={false}
-                        value={data.Socialset} />
+                        value={data.SocialSet} />
                 </View>
                 <View style={styles.box} >
                     <Text style={styles.head2}>Date</Text>
@@ -63,7 +63,7 @@ const Social_Screen5B = (props) => {
                     <TextInput
                         style={styles.input}
                         editable={false}
-                        value={data.Info} />
+                        value={data.note} />
                 </View>
             </View>
             <View style={styles.container3}>
