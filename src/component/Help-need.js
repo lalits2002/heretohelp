@@ -5,7 +5,7 @@ import Social from './home/Social';
 import Pet from './home/Pet';
 import Handy from './home/Handy';
 import Transport from './home/Transport';
-import Tabscreen from './TabScreen/TabScreen';
+
 
 
 
@@ -34,9 +34,7 @@ const Victim = props => {
         </View>
 
       </View>
-      <View style={styles.container2}>
-        <Tabscreen />
-      </View>
+      
     </View>
   );
 }
@@ -48,7 +46,7 @@ const styles = StyleSheet.create({
    
   },
   container: {
-    flex: 10,
+    flex: 1,
     justifyContent: 'center',
     flexDirection: 'column',
     // paddingTop: '8%',
@@ -67,13 +65,7 @@ const styles = StyleSheet.create({
     height: '18.6%',
     
   },
-  container2: {
-    flex: 1.5,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    // paddingTop: '7%',
-    backgroundColor: 'white',
-  },
+ 
 
   Heading: {
     fontSize: 22,
