@@ -5,6 +5,8 @@ import {
   CardStyleInterpolators,
   TransitionPresets,
 } from "@react-navigation/stack";
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
@@ -49,8 +51,10 @@ import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
 import ProfileScreen from "../component/profile/profile";
 
 
-
+const Tab = createMaterialBottomTabNavigator();
 const ScreenConstant = createStackNavigator();
+
+
 
 function SocialScreen() {
   return (
@@ -111,9 +115,7 @@ function HandyWorkScreen() {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <ScreenConstant.Screen
-        name="handyWorkScreen1"
-        component={HandyWork_Screen}
+      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen}
       />
       <ScreenConstant.Screen
         name="handyWorkScreen2"
@@ -171,13 +173,33 @@ function TransportScreen() {
   );
 }
 
+
+function MyTabs() {
+  return (
+    <Tab.Navigator 
+      initialRouteName="Home"
+      activeColor="#2D375B"
+      inactiveColor="#BDBDBD"
+      barStyle = {{ paddingVertical : '4%', backgroundColor: '#E5E5E5' }}>
+      <Tab.Screen options={{tabBarIcon: 'home'}} name="Home" component={Volunteer} />
+      <Tab.Screen options={{tabBarIcon: 'map'}}  name="browse" component={Browsing_Screen} />
+      <Tab.Screen options={{tabBarIcon: 'chat'}} name="Settings" component={Chat_Screen} />
+      <Tab.Screen options={{tabBarIcon: 'account'}} name="profile" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
+};
+
+
+
+
+
 function HomeScreen() {
   return (
     <NavigationContainer>
       <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
-        <ScreenConstant.Screen name="vol" component={Volunteer} />
-        <ScreenConstant.Screen name="Victim" component={Victim} />
+        <ScreenConstant.Screen name="vol" component={MyTabs} />
+        <ScreenConstant.Screen name="Victim" component={MyTabs} />
 
         <ScreenConstant.Screen
           name="social_screen"
@@ -215,32 +237,7 @@ function HomeScreen() {
           component={TransportScreen}
         />
 
-        <ScreenConstant.Screen
-          name="chat"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forRevealFromBottomAndroid,
-          }}
-          component={Chat_Screen}
-        />
-
-        <ScreenConstant.Screen
-          name="browse"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forModalPresentationIOS,
-          }}
-          component={Browsing_Screen}
-        />
-
-        <ScreenConstant.Screen
-          name="profile"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forModalPresentationIOS,
-          }}
-          component={ProfileScreen}
-        />
+       
 
       </ScreenConstant.Navigator>
     </NavigationContainer>

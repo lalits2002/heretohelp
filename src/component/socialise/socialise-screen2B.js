@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     top_box: {
-        flex: 4,
+        flex: 5,
         width: "100%",
         flexDirection: 'column',
         justifyContent: 'center',
         // backgroundColor: 'rgb(25,5,120)',
     },
     mid_box: {
-        flex: 4.5,
+        flex: 4,
         width: "100%",
         flexDirection: "column",
         justifyContent: "center",
