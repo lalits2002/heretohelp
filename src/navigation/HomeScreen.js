@@ -115,9 +115,7 @@ function HandyWorkScreen() {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <ScreenConstant.Screen
-        name="handyWorkScreen1"
-        component={HandyWork_Screen}
+      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen}
       />
       <ScreenConstant.Screen
         name="handyWorkScreen2"
@@ -179,7 +177,10 @@ function TransportScreen() {
 function MyTabs() {
   return (
     <Tab.Navigator 
-      barStyle = {{ paddingVertical : '4%', backgroundColor: '#2D375B' }}>
+      initialRouteName="Home"
+      activeColor="#2D375B"
+      inactiveColor="#BDBDBD"
+      barStyle = {{ paddingVertical : '4%', backgroundColor: '#E5E5E5' }}>
       <Tab.Screen options={{tabBarIcon: 'home'}} name="Home" component={Volunteer} />
       <Tab.Screen options={{tabBarIcon: 'map'}}  name="browse" component={Browsing_Screen} />
       <Tab.Screen options={{tabBarIcon: 'chat'}} name="Settings" component={Chat_Screen} />
@@ -198,7 +199,7 @@ function HomeScreen() {
       <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
         <ScreenConstant.Screen name="vol" component={MyTabs} />
-        <ScreenConstant.Screen name="Victim" component={Victim} />
+        <ScreenConstant.Screen name="Victim" component={MyTabs} />
 
         <ScreenConstant.Screen
           name="social_screen"

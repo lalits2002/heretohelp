@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     // paddingTop: '8%',
-    backgroundColor: '#E5E5E5',
+    backgroundColor: '#ffffff',
     paddingBottom: '4%'
   },
   head: {
