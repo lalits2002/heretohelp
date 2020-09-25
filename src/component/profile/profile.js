@@ -1,24 +1,18 @@
-import React, { useState} from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, SafeAreaView, ScrollView  } from 'react-native';
-import { Input } from 'react-native-elements'
-import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, SafeAreaView,  } from 'react-native';
+
 import { Feather } from '@expo/vector-icons'
 import Colors from '../../Items/Colors';
 // import { useState } from 'react';
 
 
 const ProfileScreen = props => {
-    const navigation = useNavigation();
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [phone, setPhone] = useState('');
+
 
     return(
 
-    <SafeAreaView style={styles.screen} >
-        <ScrollView contentContainerStyle={styles.scroll}>
+    <View style={styles.screen} >
+
 
          {/* tophead of the screen   */}
         <View style={styles.tophead}>
@@ -40,76 +34,23 @@ const ProfileScreen = props => {
 
          </View>
 
-            <View style={styles.box2}>
 
-            <View style={styles.block1}>
-             <Input style={styles.input}
-             placeholder='John '
-             label="Firstname"
-             value={firstname}
-             onChangeText={setFirstname}
-             autoCorrect={false}
-             />
-             </View>
+             <View style={styles.box2}>
+                 <View style={styles.block1}>
+                     <View style={styles.block1A}>
+                         <Text style={{alignSelf: "center", fontSize: 15, color= Colors.secondary2}}>FirstName</Text>
+                     </View>
+                     <View style={styles.block1B}>
+                         <Text style={{alignSelf: "center", fontSize: 15, color= Colors.secondary2}}>Janel</Text>
+                     </View>
 
-             <View style={styles.block1}>
-             <Input style={styles.input}
-             placeholder='Doe'
-             label="Lastname"
-             value={lastname}
-             onChangeText={setLastname}
-             autoCorrect={false}
-             />
-             </View>
-
-             <View style={styles.block1}>
-             <Input style={styles.input}
-             placeholder='hello@here2helpapp.com'
-             label="email"
-             value={email}
-             onChangeText={setEmail}
-             autoCorrect={false}
-             />
-             </View>
-
-             <View style={styles.block1}>
-             <Input style={styles.input}
-             placeholder='Address'
-             label="1499 Bilabong st.54/A"
-             value={address}
-             onChangeText={setAddress}
-             autoCorrect={false}
-             />
-             </View>
-
-             <View style={styles.block1}>
-             <Input style={styles.input}
-             placeholder='Phone'
-             label="604 555-5555"
-             value={phone}
-             onChangeText={setPhone}
-             autoCorrect={false}
-             />
+                 </View>
              </View>
 
 
-             <View style={styles.block1}>
-                 <Text><Feather name="chevron-right" size={15} rightIcon color= {Colors.primary3} /></Text>
-                 <TextInput
-                 style={styles.input}
-                 editable={true}
-                //  placeholder={"john doe"}
-                 value={""} />
-             </View>
 
 
-         </View>
-
-
-
-         </ScrollView>
-
-    </SafeAreaView>
+    </View>
     );
 };
 
@@ -122,19 +63,16 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         // backgroundColor: "grey"
     },
-    scroll: {
-        flexGrow: 1,
-        justifyContent: "center"
-    },
+
 
     tophead: {
-        flex: 0.2,
+        flex: 1,
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "flex-start",
         // alignSelf: "flex-start",
-        // backgroundColor: "#ffffff"
+        backgroundColor: "#ffffff"
     },
     box1: {
         flex: 1.5,
@@ -144,7 +82,7 @@ const styles = StyleSheet.create({
 
     },
     box2: {
-        flex: 4,
+        flex: 3,
         flexDirection: "column",
         width: "100%",
 
@@ -171,21 +109,18 @@ const styles = StyleSheet.create({
         color: Colors.primary3,
         paddingTop: "0.2%"
     },
-    name: {
-        fontSize: 16,
-        fontWeight: "bold",
-        color: Colors.primary1,
-        alignSelf: "center"
+    block1: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "flex-start"
     },
-    input: {
-        paddingTop: '2.5%',
-        paddingLeft: "60%",
-        paddingBottom: "2%",
-        fontSize: 20,
-        color: Colors.secondary3 ,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 1,
-      },
+    block1A: {
+        justifyContent: "flex-start",
+        alignItems: "center"
+
+    },
+
+
 
 });
 
