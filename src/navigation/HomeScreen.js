@@ -5,12 +5,12 @@ import {
   CardStyleInterpolators,
   TransitionPresets,
 } from "@react-navigation/stack";
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
+import MyTabs from './bottom-navigator';
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
@@ -46,15 +46,7 @@ import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
 
 
-import Chat_Screen from "../servises/chat/chat";
-import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
-import ProfileScreen from "../component/profile/profile";
-
-
-const Tab = createMaterialBottomTabNavigator();
 const ScreenConstant = createStackNavigator();
-
-
 
 function SocialScreen() {
   return (
@@ -115,24 +107,11 @@ function HandyWorkScreen() {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen2"
-        component={HandyWork_Screen2}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen3"
-        component={HandyWork_Screen3}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen4"
-        component={HandyWork_Screen4}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen5"
-        component={HandyWork_Screen5}
-      />
+      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen}/>
+        <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2}/>
+        <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
+        <ScreenConstant.Screen name="handyWorkScreen4" component={HandyWork_Screen4} />
+        <ScreenConstant.Screen name="handyWorkScreen5" component={HandyWork_Screen5} />
     </ScreenConstant.Navigator>
   );
 }
@@ -172,25 +151,6 @@ function TransportScreen() {
     </ScreenConstant.Navigator>
   );
 }
-
-
-function MyTabs() {
-  return (
-    <Tab.Navigator 
-      initialRouteName="Home"
-      activeColor="#2D375B"
-      inactiveColor="#BDBDBD"
-      barStyle = {{ paddingVertical : '4%', backgroundColor: '#E5E5E5' }}>
-      <Tab.Screen options={{tabBarIcon: 'home'}} name="Home" component={Volunteer} />
-      <Tab.Screen options={{tabBarIcon: 'map'}}  name="browse" component={Browsing_Screen} />
-      <Tab.Screen options={{tabBarIcon: 'chat'}} name="Settings" component={Chat_Screen} />
-      <Tab.Screen options={{tabBarIcon: 'account'}} name="profile" component={ProfileScreen} />
-    </Tab.Navigator>
-  );
-};
-
-
-
 
 
 function HomeScreen() {
