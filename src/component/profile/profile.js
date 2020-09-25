@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, SafeAreaView,  } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons'
 import Colors from '../../Items/Colors';
 // import { useState } from 'react';
@@ -38,10 +38,10 @@ const ProfileScreen = props => {
              <View style={styles.box2}>
                  <View style={styles.block1}>
                      <View style={styles.block1A}>
-                         <Text style={{alignSelf: "center", fontSize: 15, color= Colors.secondary2}}>FirstName</Text>
+                         <Text style={{alignSelf: "center", fontSize: 15, color: Colors.secondary2}}>FirstName</Text>
                      </View>
                      <View style={styles.block1B}>
-                         <Text style={{alignSelf: "center", fontSize: 15, color= Colors.secondary2}}>Janel</Text>
+                         <Text style={{alignSelf: "center", fontSize: 15, color: Colors.secondary2}}>Janel</Text>
                      </View>
 
                  </View>
