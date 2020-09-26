@@ -37,10 +37,16 @@ const ProfileScreen = props => {
     <View style={styles.screen} >
 
       <ScrollView style={{ width: '100%'}} >
+        <View style={styles.containerTop}>
+        <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary2} /> Back </Text>
+        <Text style={styles.top2}>Profile </Text>
+            <Text style={styles.top3}>Edit   </Text>
+        </View>
+
          <View style={styles.profile}>
 
          <Avatar
-            
+
             size={140}
             rounded
             source={{
@@ -67,23 +73,24 @@ const ProfileScreen = props => {
       <Box lable1='Address' lable2='1499 BIlabong St. 54/A'/>
       <Box lable1='Phone' lable2='604-555-5555'/>
       <Box lable1='Criminal record check'/>
-      <View style={styles.spacing}></View> 
+      <View style={styles.spacing}></View>
       <Box lable1='Settings' lable2={<Feather name="chevron-right" size={22} color= {Colors.secondary3} />}  />
-      <View style={styles.spacing}></View> 
-      <Box lable1='Times volunteered' lable2='7'/>                                                                          
-      <Box lable1='' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-      <Box lable1='Tasks ' lable2='4' />                                                                          
-                                                      
+      <View style={styles.spacing}></View>
+      <Box lable1='Times volunteered' lable2='7'/>
+      <Box lable1='Tasks Requested' lable2='4' />
+      <View style={styles.spacing}></View>
+      <Box lable1='Help'  />
+      <Box lable1='Terms of Service ' />
+      <Box lable1='Privacy Policy'  />
+      <Box lable1='Subit Feedback '  />
+      <Box lable1='Delete Account' />
+      <Box lable1='Log out from Account'  />
 
 
 
-           
+
+
+
 
 
 
@@ -112,44 +119,57 @@ const styles = StyleSheet.create({
         borderBottomColor: Colors.secondary3,
 
     },
+    containerTop: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      backgroundColor: Colors.primary3,
+
+
+
+    },
+
     spacing: {
       width: '100%',
       paddingVertical: 20,
-      backgroundColor: Colors.primary3, 
+      backgroundColor: Colors.primary3,
     },
-    profile: {   
+    profile: {
       width: "100%",
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      alignItems: "center"
+      alignItems: "center",
+      borderBottomWidth: 0.5,
+      borderBottomColor: Colors.secondary3,
+      paddingBottom: "2.5%",
     },
-    box2: {
-        // flex: 3,
-        flexDirection: "column",
-        width: "100%",
+    // // box2: {
+    // //     // flex: 3,
+    // //     flexDirection: "column",
+    // //     width: "100%",
 
 
-    },
+    // },
 
     top1: {
         alignSelf: "flex-start",
         fontSize: 15,
-        color: Colors.primary3,
+        color: Colors.primary2,
 
     },
     top2: {
 
         alignSelf: "flex-start",
         fontSize: 15,
-        color: Colors.primary3,
+        color: Colors.primary2,
         paddingBottom: "1%",
     },
     top3: {
 
         alignSelf: "flex-start",
         fontSize: 15,
-        color: Colors.primary3,
+        color: Colors.primary2,
         paddingTop: "0.2%",
     },
     block1: {
@@ -174,7 +194,7 @@ const styles = StyleSheet.create({
          paddingRight: "2%",
     },
 
-  
+
 
 
 });
