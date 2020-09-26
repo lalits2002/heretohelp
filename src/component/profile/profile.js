@@ -112,13 +112,17 @@ const styles = StyleSheet.create({
     block1: {
         flex: 1,
         flexDirection: "row",
-        justifyContent: "flex-start"
+        justifyContent: "space-between"
     },
     block1A: {
-        justifyContent: "flex-start",
-        alignItems: "center"
+
+        alignItems: "center",
+        paddingLeft: "2%"
 
     },
+    block1B: {
+         paddingRight: "2%"
+    }
 
 
 
