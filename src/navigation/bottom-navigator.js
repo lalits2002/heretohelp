@@ -1,5 +1,10 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+  TransitionPresets,
+} from "@react-navigation/stack";
 
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
@@ -10,8 +15,26 @@ import ProfileScreen from "../component/profile/profile";
 
 
 
-
+const ScreenConstant = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
+
+function Proile_component() {
+  <ScreenConstant.Navigator
+  screenOptions={{
+    headerShown: false,
+    gestureEnabled: true,
+    gestureDirection: "horizontal",
+    cardOverlayEnabled: true,
+    ...TransitionPresets.SlideFromRightIOS,
+  }}> 
+      <ScreenConstant.Screen name="" component={} />
+      <ScreenConstant.Screen name="" component={} />
+      <ScreenConstant.Screen name="" component={} />
+      <ScreenConstant.Screen name="" component={} />
+      <ScreenConstant.Screen name="" component={} />
+  </ScreenConstant.Navigator>
+}
+
 
 export default function MyTabs() {
   return (
