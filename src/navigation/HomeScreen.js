@@ -6,9 +6,11 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
+
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
+import MyTabs from './bottom-navigator';
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
@@ -42,12 +44,6 @@ import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
-
-
-import Chat_Screen from "../servises/chat/chat";
-import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
-import ProfileScreen from "../component/profile/profile";
-
 
 
 const ScreenConstant = createStackNavigator();
@@ -111,26 +107,11 @@ function HandyWorkScreen() {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <ScreenConstant.Screen
-        name="handyWorkScreen1"
-        component={HandyWork_Screen}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen2"
-        component={HandyWork_Screen2}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen3"
-        component={HandyWork_Screen3}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen4"
-        component={HandyWork_Screen4}
-      />
-      <ScreenConstant.Screen
-        name="handyWorkScreen5"
-        component={HandyWork_Screen5}
-      />
+      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen}/>
+        <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2}/>
+        <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
+        <ScreenConstant.Screen name="handyWorkScreen4" component={HandyWork_Screen4} />
+        <ScreenConstant.Screen name="handyWorkScreen5" component={HandyWork_Screen5} />
     </ScreenConstant.Navigator>
   );
 }
@@ -171,13 +152,14 @@ function TransportScreen() {
   );
 }
 
+
 function HomeScreen() {
   return (
     <NavigationContainer>
       <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
-        <ScreenConstant.Screen name="vol" component={Volunteer} />
-        <ScreenConstant.Screen name="Victim" component={Victim} />
+        <ScreenConstant.Screen name="vol" component={MyTabs} />
+        <ScreenConstant.Screen name="Victim" component={MyTabs} />
 
         <ScreenConstant.Screen
           name="social_screen"
@@ -215,32 +197,7 @@ function HomeScreen() {
           component={TransportScreen}
         />
 
-        <ScreenConstant.Screen
-          name="chat"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forRevealFromBottomAndroid,
-          }}
-          component={Chat_Screen}
-        />
-
-        <ScreenConstant.Screen
-          name="browse"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forModalPresentationIOS,
-          }}
-          component={Browsing_Screen}
-        />
-
-        <ScreenConstant.Screen
-          name="profile"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forModalPresentationIOS,
-          }}
-          component={ProfileScreen}
-        />
+       
 
       </ScreenConstant.Navigator>
     </NavigationContainer>
