@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     head1: {
         fontSize: 15,
         fontWeight: "bold",
-        color= Colors.primary1,
+        color: Colors.primary1,
         alignSelf: "center"
 
     },
