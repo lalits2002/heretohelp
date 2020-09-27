@@ -37,10 +37,11 @@ const ProfileScreen = props => {
     <View style={styles.screen} >
 
       <ScrollView style={{ width: '100%'}} >
+
         <View style={styles.containerTop}>
-        <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary2} /> Back </Text>
-        <Text style={styles.top2}>Profile </Text>
-            <Text style={styles.top3}>Edit   </Text>
+          <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary2} /> Back </Text>
+          <Text style={styles.top2}>Profile </Text>
+          <Text style={styles.top3}>Edit </Text>
         </View>
 
          <View style={styles.profile}>
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "flex-start",
-      backgroundColor: Colors.primary3,
+      backgroundColor: Colors.primary4,
 
 
 
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     spacing: {
       width: '100%',
       paddingVertical: 20,
-      backgroundColor: Colors.primary3,
+      backgroundColor: Colors.primary4 ,
     },
     profile: {
       width: "100%",
