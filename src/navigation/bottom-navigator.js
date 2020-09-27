@@ -15,25 +15,25 @@ import ProfileScreen from "../component/profile/profile";
 
 
 
-const ScreenConstant = createStackNavigator();
+// const ScreenConstant = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-function Proile_component() {
-  <ScreenConstant.Navigator
-  screenOptions={{
-    headerShown: false,
-    gestureEnabled: true,
-    gestureDirection: "horizontal",
-    cardOverlayEnabled: true,
-    ...TransitionPresets.SlideFromRightIOS,
-  }}> 
-      <ScreenConstant.Screen name="" component={} />
-      <ScreenConstant.Screen name="" component={} />
-      <ScreenConstant.Screen name="" component={} />
-      <ScreenConstant.Screen name="" component={} />
-      <ScreenConstant.Screen name="" component={} />
-  </ScreenConstant.Navigator>
-}
+// function Proile_component() {
+//   <ScreenConstant.Navigator
+//   screenOptions={{
+//     headerShown: false,
+//     gestureEnabled: true,
+//     gestureDirection: "horizontal",
+//     cardOverlayEnabled: true,
+//     ...TransitionPresets.SlideFromRightIOS,
+//   }}> 
+//       <ScreenConstant.Screen name="" component={} />
+//       <ScreenConstant.Screen name="" component={} />
+//       <ScreenConstant.Screen name="" component={} />
+//       <ScreenConstant.Screen name="" component={} />
+//       <ScreenConstant.Screen name="" component={} />
+//   </ScreenConstant.Navigator>
+// }
 
 
 export default function MyTabs() {
