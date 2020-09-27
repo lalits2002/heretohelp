@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, } from 'react-native';
 
-const SettingScreen = props => {
+const Terms_component = props => {
     return(
     <View style={styles.screen} >
-        <Text>SettingScreen</Text>
+        <Text>Terms_component</Text>
     </View>
     );
 }
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SettingScreen;
+export default Terms_component;

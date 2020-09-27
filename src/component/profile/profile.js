@@ -70,14 +70,19 @@ const ProfileScreen = props => {
       <Box lable1='Phone' lable2='604-555-5555'/>
       <Box lable1='Criminal record check'/>
       <View style={styles.spacing}></View>
-      <Box lable1='Settings' lable2={<Feather name="chevron-right" size={22} color= {Colors.secondary3} />}  />
-      <View style={styles.spacing}></View>
+        <Box  
+              lable1='Settings' 
+              lable2={<Feather name="chevron-right" size={22} 
+              color= {Colors.secondary3} />} 
+              onPress={() => {navigation.navigate('submit')}}
+        />
+      <View style={styles.spacing}></View> 
       <Box lable1='Times volunteered' lable2='7'/>
       <Box lable1='Tasks Requested' lable2='4' />
       <View style={styles.spacing}></View>
       <Box lable1='Help'  />
-      <Box lable1='Terms of Service ' />
-      <Box lable1='Privacy Policy'  />
+      <Box lable1='Terms of Service ' onPress={() => {navigation.navigate('terms')}} />
+      <Box lable1='Privacy Policy' onPress={() => {navigation.navigate('privacy')}} />
       <Box lable1='Submit Feedback '  onPress={() => {navigation.navigate('feedback')}} />
       <Box lable1='Delete Account' />
       <Box lable1='Log out from Account'  />
