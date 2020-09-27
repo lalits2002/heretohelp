@@ -12,28 +12,23 @@ const Box = props => {
   return(
     <View style={styles.container}>
 
-      <View style={styles.block1A}>
+      <TouchableOpacity style={styles.block1A} onPress={props.onPress}>
         <Text style={{alignSelf: "center", fontSize: 15, color: Colors.secondary3}}>{props.lable1} </Text>
-      </View>
-      <View style={styles.block1B}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.block1B} onPress={props.onPress}>
         <Text style={{alignSelf: "center", fontSize: 15, color: Colors.secondary3}}>{props.lable2} </Text>
-     </View>
+     </TouchableOpacity>
 
     </View>
   )
 };
 
 
-
-
-
-
-
 const ProfileScreen = props => {
 
+  const navigation = useNavigation();
 
-    return(
-
+  return(
     <View style={styles.screen} >
 
       <ScrollView style={{ width: '100%'}} >
@@ -83,17 +78,10 @@ const ProfileScreen = props => {
       <Box lable1='Help'  />
       <Box lable1='Terms of Service ' />
       <Box lable1='Privacy Policy'  />
-      <Box lable1='Subit Feedback '  />
+      <Box lable1='Submit Feedback '  onPress={() => {navigation.navigate('feedback')}} />
       <Box lable1='Delete Account' />
       <Box lable1='Log out from Account'  />
-
-
-
-
-
-
-
-
+     
 
       </ScrollView>
     </View>

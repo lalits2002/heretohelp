@@ -8,8 +8,8 @@ const FeedbackScreen = props => {
     const navigation = useNavigation();
 
     return(
-        <View style={Styles.screen}>
-            <View style={Styles.tophead}>
+        <View style={styles.screen}>
+            <View style={styles.tophead}>
             <TouchableOpacity onPress={() => {navigation.goback()}}>
                 <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary3} /> Back </Text>
             </TouchableOpacity>
@@ -64,10 +64,10 @@ const FeedbackScreen = props => {
             </View>
             </View>
 
-            <View style={styles.bottom}>
-        <Dark_Button>
-          <Text style={{fontSize: 18}}> Submit</Text>
-        </Dark_Button>
+        <View style={styles.bottom}>
+            <Dark_Button>
+              <Text style={{fontSize: 18}}> Submit</Text>
+            </Dark_Button>
       </View>
 
         </View>
