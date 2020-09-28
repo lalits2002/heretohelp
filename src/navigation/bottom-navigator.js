@@ -18,7 +18,7 @@ import FeedbackScreen from "../component/profile/submit";
 import SubmitScreen from "../component/profile/settings";
 import Terms_component from "../component/profile/terms";
 import PrivacyScreen from "../component/profile/privacy";
-import Home2 from "../component/icons-components/home2";
+import Home from "../component/icons-components/home";
 
 
 
