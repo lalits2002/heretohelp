@@ -3,14 +3,14 @@ import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 
 
 
-const Home1 = (props) => {
+const Chat1 = props => {
 
   return(
     <View style={{...styles.tabScreen, ...props.style}} >
      
       <TouchableOpacity style={styles.icon}  >
         <Image 
-        source={require('../../Items/Icons/home.png')}
+        source={require('../../Items/Icons/Frame.png')}
         resizeMode='contain'
         style={styles.img}
         />
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Home1;
+export default Chat1;

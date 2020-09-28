@@ -18,7 +18,11 @@ import FeedbackScreen from "../component/profile/submit";
 import SubmitScreen from "../component/profile/settings";
 import Terms_component from "../component/profile/terms";
 import PrivacyScreen from "../component/profile/privacy";
-import Home from "../component/icons-components/home";
+
+import Home1 from "../component/icons-components/home";
+import Chat1 from "../component/icons-components/chat";
+import Map1 from "../component/icons-components/map";
+import User1 from "../component/icons-components/user";
 
 
 
@@ -54,10 +58,10 @@ export default function MyTabs() {
       inactiveColor="#BDBDBD"
       barStyle = {{ paddingVertical : '4%', backgroundColor: '#E5E5E5' 
       }}>
-      <Tab.Screen options={{tabBarIcon: () => {return <Home />} }} name="Home" component={Volunteer} />
-      <Tab.Screen options={{tabBarIcon: 'map'}}  name="browse" component={Browsing_Screen} />
-      <Tab.Screen options={{tabBarIcon: 'chat', tabBarBadge:'2'}} name="Settings" component={Chat_Screen} />
-      <Tab.Screen options={{tabBarIcon: 'account'}} name="profile" component={Profile_component} />
+      <Tab.Screen options={{tabBarIcon: () => {return <Home1/>} }} name="Home" component={Volunteer} />
+      <Tab.Screen options={{tabBarIcon:  () => {return <Map1/>} }}  name="browse" component={Browsing_Screen} />
+      <Tab.Screen options={{tabBarIcon:  () => {return <Chat1/>}, tabBarBadge:'2'}} name="Settings" component={Chat_Screen} />
+      <Tab.Screen options={{tabBarIcon:  () => {return <User1/>} }} name="profile" component={Profile_component} />
     </Tab.Navigator>
   );
 };
