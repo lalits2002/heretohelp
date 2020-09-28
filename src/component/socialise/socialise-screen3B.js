@@ -27,7 +27,7 @@ const Social_Screen3B = (props) => {
   const [kbHeight, setKbHeight] = useState(screenHeight);
 
   const didShow = (height) => {
-    console.log("Keyboard show. Height is " + height);
+    // console.log("Keyboard show. Height is " + height);
     // setViewHeight(screenHeight - height);
     // height divide by height of container
     setKbHeight(
@@ -35,7 +35,7 @@ const Social_Screen3B = (props) => {
     );
     //keyboard height ratio to the main height stored in const as not refreshed imm
     const kbhFactor = kbHeight;
-    console.log(kbhFactor);
+    // console.log(kbhFactor);
 
     setBottomFlex(bottomFlex - (kbhFactor * bottomFlex) / 5);
 
@@ -43,7 +43,7 @@ const Social_Screen3B = (props) => {
   };
 
   const didHide = () => {
-    console.log("Keyboard hide");
+    // console.log("Keyboard hide");
     //giving default flex back
     setBottomFlex(1);
     setTopFlex(5);
