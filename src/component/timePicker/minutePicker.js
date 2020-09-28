@@ -13,7 +13,7 @@ const fillDatacity = () => {
         arr.push(String(i));
       }
     }
-    console.log(arr);
+    // console.log(arr);
   }
   printNUm();
   return arr;

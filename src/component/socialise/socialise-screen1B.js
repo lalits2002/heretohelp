@@ -18,13 +18,13 @@ const Social_Screen1B = (props) => {
     console.log(props);
     return (
         <View style={{ ...styles.screen, ...props.style }}>
-            <View style={styles.top_box} >
-                <Top_container
-                    title="Socialise"
-                    sub_head="Coffee meetup"
-                    detail_2="What is your requested date?"
-                />
-            </View>
+          <View style={styles.top_box} >
+            <Top_container
+                title="Socialise"
+                sub_head="Coffee meetup"
+                detail_2="What is your requested date?"
+            />
+          </View>
             <View style={styles.mid_box}>
                 <CalenderComponent getDate={changeDate} />
             </View>

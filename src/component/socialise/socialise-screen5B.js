@@ -18,7 +18,7 @@ import { Feather } from '@expo/vector-icons';
 const Social_Screen5B = (props) => {
     const navigation = useNavigation();
     const data = { ...props.route.params };
-
+    console.log(data);
     return (
         <View style={{ ...styles.screen, ...props.style }}>
             <View style={styles.top} >
@@ -63,7 +63,8 @@ const Social_Screen5B = (props) => {
                     <TextInput
                         style={styles.input}
                         editable={false}
-                        value={data.note} />
+                        value={data.note} 
+                    />
                 </View>
             </View>
             <View style={styles.container3}>
