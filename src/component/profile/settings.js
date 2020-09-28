@@ -13,8 +13,18 @@ import { Feather } from '@expo/vector-icons';
 //     )
 // };
 
+
+
+
 const SettingScreen = props => {
-    const [isSwitchEnabled, setSwitch] =useState(false)
+
+    const {Unit, changeUnit} = useState('miles');
+    const [SwitchNight, setSwitchNight] =useState(false)
+    const [SwitchLogged, setSwitchLogged] =useState(false)
+    const [SwitchPush, setSwitchPush] =useState(false)
+    const [SwitchEmail, setSwitchEmail] =useState(false)
+    const [SwitchCalender, setSwitchCalender] =useState(false)
+    
     return(
     <View style={styles.screen} >
         <View style={styles.containerhead}>
@@ -26,46 +36,46 @@ const SettingScreen = props => {
             <View style={styles.block1}>
                 <Text style={styles.head1}>Night mode</Text>
                 <Switch
-                value={isSwitchEnabled}
-                onValueChange={(value)=> setSwitch(value)}
+                value={SwitchNight}
+                onValueChange={(value)=> setSwitchNight(value)}
                 trackColor={{true: 'green'}}
                 />
             </View>
             <View style={styles.block2}>
                 <Text style={styles.head1}>Stay logged in</Text>
                 <Switch
-                value={isSwitchEnabled}
-                onValueChange={(value)=> setSwitch(value)}
+                value={SwitchLogged}
+                onValueChange={(value)=> setSwitchLogged(value)}
                 trackColor={{true: 'green'}}
                 />
             </View>
             <View style={styles.block3}>
                 <Text style={styles.head1}>Allow push notifications</Text>
                 <Switch
-                value={isSwitchEnabled}
-                onValueChange={(value)=> setSwitch(value)}
+                value={SwitchPush}
+                onValueChange={(value)=> setSwitchPush(value)}
                 trackColor={{true: 'green'}}
                 />
             </View>
             <View style={styles.block4}>
                 <Text style={styles.head1}>allow email</Text>
                 <Switch
-                value={isSwitchEnabled}
-                onValueChange={(value)=> setSwitch(value)}
+                value={SwitchEmail}
+                onValueChange={(value)=> setSwitchEmail(value)}
                 trackColor={{true: 'green'}}
                 />
             </View>
             <View style={styles.block5}>
                 <Text style={styles.head1}>save events to calender</Text>
                 <Switch
-                value={isSwitchEnabled}
-                onValueChange={(value)=> setSwitch(value)}
+                value={SwitchCalender}
+                onValueChange={(value)=> setSwitchCalender(value)}
                 trackColor={{true: 'green'}}
                 />
             </View>
             <View style={styles.block6}>
                 <Text style={styles.head1}>units of measurements</Text>
-                <Text style={styles.head1}>Kilometers</Text>
+                <Text style={styles.head1}>{props.Unit} </Text>
 
             </View>
         </View>
