@@ -31,7 +31,7 @@ const FeedbackScreen = props => {
 
            <View style={styles.midbox}>
           <View style={styles.mid2}>
-            <Text style={styles.head3}>Name</Text>
+            <Text style={styles.head3}>  Name</Text>
               <TextInput
                 style={styles.input}
                 editable={false}
@@ -40,7 +40,7 @@ const FeedbackScreen = props => {
            </View>
 
           <View style={styles.mid2} >
-            <Text style={styles.head3}>Email</Text>
+            <Text style={styles.head3}>  Email</Text>
               <TextInput
                 style={styles.input}
                 editable={false}
@@ -49,7 +49,7 @@ const FeedbackScreen = props => {
            </View>
 
           <View style={styles.mid2} >
-            <Text style={styles.head3}>Phone</Text>
+            <Text style={styles.head3}>  Phone</Text>
               <TextInput
                 style={styles.input}
                 editable={false}
@@ -58,18 +58,20 @@ const FeedbackScreen = props => {
           </View>
 
           <View style={styles.mid2} >
-            <Text style={styles.head3}>Message</Text>
+            <Text style={styles.head3}>  Message</Text>
+            <ScrollView style={ {width: "100%" }} >
               <TextInput
                 style={styles.input}
                 editable={false}
                 placeholder={"Message"} />
                 {/* // value={value} /> */}
+                </ScrollView>
             </View>
             </View>
 
         <View style={styles.bottom}>
             <Dark_Button>
-              <Text style={{fontSize: 18}}> Submit</Text>
+              <Text style={{fontSize: 20}}> Submit</Text>
             </Dark_Button>
       </View>
 
@@ -86,11 +88,11 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: 'center',
         alignItems: "center",
-        padding: "2%",
+        // padding: "2%",
         paddingTop: "7%",
     },
     tophead: {
-        flex: 1,
+        flex: 0.8,
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
 
     },
     mid1: {
-        flex: 1,
+        flex: 1.2,
         width: "100%",
         flexDirection: "column",
         width: "100%",
@@ -123,8 +125,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
         paddingHorizontal: "2%",
-        paddingLeft: "25%",
-        paddingRight: "25%",
+        paddingLeft: "28%",
+        paddingRight: "28%",
 
 
     },
@@ -150,6 +152,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: Colors.primary3,
         alignSelf: "center",
+        paddingLeft: "2%",
         // paddingTop: "0.2%"
     },
     mid2:{
@@ -177,7 +180,7 @@ const styles = StyleSheet.create({
 
     },
     input: {
-        paddingTop: '1%',
+        paddingTop: '1.5%',
         fontSize: 16,
         color: Colors.secondary3 ,
         borderBottomColor: 'black',
