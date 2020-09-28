@@ -45,18 +45,7 @@ const Social_Screen2A = (props) => {
             value={data.SocialSet}
           />
         </View>
-        <View style={styles.box}>
-          <Text style={styles.head2}>Date</Text>
-          <TextInput
-            style={styles.input}
-            editable={false}
-            value={data.selectedDate}
-          />
-        </View>
-        <View style={styles.box}>
-          <Text style={styles.head2}>Time</Text>
-          <TextInput style={styles.input} editable={false} value={data.time} />
-        </View>
+
         <View style={styles.box}>
           <Text style={styles.head2}>Location</Text>
           <TextInput style={styles.input} editable={false} value={data.time} />
