@@ -3,17 +3,14 @@ import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 
 
 
-const TabScreen = props => {
-
-
-
+const Home2 = props => {
 
   return(
     <View style={{...styles.tabScreen, ...props.style}} >
      
       <TouchableOpacity style={styles.icon}  >
         <Image 
-        source={require('../../Items/Icons/home.png')}
+        source={require('../../Items/Icons/home1.png')}
         resizeMode='contain'
         style={styles.img}
         />
@@ -23,6 +20,7 @@ const TabScreen = props => {
     </View>
   )
 };
+
 
 const styles = StyleSheet.create({
   tabScreen: {
@@ -41,10 +39,10 @@ const styles = StyleSheet.create({
     // alignSelf:'center',
   },
   img: {
-    maxWidth:'35%',
-    maxHeight: '40%',
+    width: '100%',
+    maxHeight: '100%',
     // backgroundColor: 'red',
     },
 });
 
-export default TabScreen;
+export default Home2;
