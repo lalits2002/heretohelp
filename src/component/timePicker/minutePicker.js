@@ -1,9 +1,24 @@
 import React, { useRef, useState } from "react";
 import { StyleSheet, View, Text, ColorPropType } from "react-native";
 import SmoothPicker from "react-native-smooth-picker";
-import Colors from  '../../Items/Colors';
+import Colors from "../../Items/Colors";
 
-const dataCity = ["00", "10", "20", "30", "40", "50"];
+const fillDatacity = () => {
+  var arr = [];
+  function printNUm() {
+    for (let i = 1; i < 60; i++) {
+      if (i <= 9) {
+        arr.push(String("0" + i));
+      } else {
+        arr.push(String(i));
+      }
+    }
+    console.log(arr);
+  }
+  printNUm();
+  return arr;
+};
+const dataCity = fillDatacity();
 
 const opacities = {
   0: 1,
@@ -25,7 +40,7 @@ const Item = React.memo(({ opacity, selected, vertical, fontSize, name }) => {
         styles.OptionWrapper,
         {
           opacity,
-          borderColor: selected ? Colors.primary1  : "transparent",
+          borderColor: selected ? Colors.primary1 : "transparent",
           width: vertical ? 90 : "auto",
         },
       ]}
