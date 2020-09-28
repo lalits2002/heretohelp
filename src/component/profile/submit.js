@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons'
@@ -6,8 +6,22 @@ import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import { color } from 'react-native-reanimated';
 
+const UseTextinput = (props) => {
+    return(
+        <TextInput
+        {...props}
+        editable
+        maxLength={150} />
+    );
+
+}
+
 const FeedbackScreen = props => {
     const navigation = useNavigation();
+    const [name, onChangeName] = useState()
+    const [email, onChangeEmail] = useState()
+    const [phone, onChangePhone] = useState()
+    const [message, onChangeMessage] = useState()
 
     return(
         <View style={styles.screen}>
@@ -23,7 +37,9 @@ const FeedbackScreen = props => {
             <View style={styles.mid1}>
                 <Text style={styles.head1}>Submit feedback</Text>
                 <Text></Text>
+                </View>
                 {/* <Text></Text> */}
+                <View style={styles.midmain}>
                 <Text style={styles.head2}>We would love to hear from you.If you have any comments, suggestions, or
                 feedback send us a message and we will be in touch shortly</Text>
             </View>
@@ -31,41 +47,47 @@ const FeedbackScreen = props => {
 
            <View style={styles.midbox}>
           <View style={styles.mid2}>
-            <Text style={styles.head3}>  Name</Text>
+            <Text style={styles.head3}>Name</Text>
               <TextInput
                 style={styles.input}
                 editable={false}
-                placeholder={"Enter Here"} />
-                {/* // value={value} /> */}
+                onChangeText={text => onChangeName(text) }
+                placeholder={"   Enter Here"} 
+                 value={name} />
            </View>
 
           <View style={styles.mid2} >
-            <Text style={styles.head3}>  Email</Text>
+            <Text style={styles.head3}>Email</Text>
               <TextInput
                 style={styles.input}
-                editable={false}
-                placeholder={"email@email.com"} />
-                {/* value={value} /> */}
+                editable={true}
+                onChangeText={text => onChangeEmail(text)}
+                placeholder={"   email@email.com"} 
+                value={email} />
            </View>
 
           <View style={styles.mid2} >
-            <Text style={styles.head3}>  Phone</Text>
+            <Text style={styles.head3}>Phone</Text>
               <TextInput
                 style={styles.input}
                 editable={false}
-                placeholder={"(555) 555- 555"} />
-                {/* value={value} /> */}
+                onChangeText={text => onChangePhone(text)}
+                placeholder={"   (555) 555- 555"} 
+                value={phone} />
           </View>
 
           <View style={styles.mid2} >
-            <Text style={styles.head3}>  Message</Text>
-            <ScrollView style={ {width: "100%" }} >
-              <TextInput
+            <Text style={styles.head3}>Message</Text>
+            {/* <ScrollView style={ {width: "100%" }} > */}
+              <UseTextinput
                 style={styles.input}
                 editable={false}
-                placeholder={"Message"} />
-                {/* // value={value} /> */}
-                </ScrollView>
+                multiline
+                numberOfLines={10}
+                onChangeText={text => onChangeMessage(text)}
+                placeholder={"   Message"} 
+                value={message} />
+                {/* </ScrollView> */}
             </View>
             </View>
 
@@ -92,11 +114,12 @@ const styles = StyleSheet.create({
         paddingTop: "7%",
     },
     tophead: {
-        flex: 0.8,
+        flex : 1,
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        
         backgroundColor: Colors.primary4,
 
     },
@@ -105,7 +128,18 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "column",
         width: "100%",
+        padding: "2%",
+        paddingTop: '10%',
         justifyContent: "flex-start",
+
+    },
+    midmain: {
+        flex: 1,
+        width: "100%",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "2%",
+
 
     },
     midbox:{
@@ -113,6 +147,7 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "column",
         width: "100%",
+        padding: "2%",
         justifyContent: "center",
         paddingTop: "20%",
 
@@ -124,9 +159,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignSelf: "center",
-        paddingHorizontal: "2%",
-        paddingLeft: "28%",
-        paddingRight: "28%",
+        paddingHorizontal: "30%",
+        
 
 
     },
@@ -161,21 +195,23 @@ const styles = StyleSheet.create({
         flex: 4,
     },
     head1: {
-        fontSize: 15,
+        fontSize: 28,
         fontWeight: "bold",
         color: Colors.primary1,
         alignSelf: "center"
 
     },
     head2: {
+        fontSize: 15,
         alignSelf: "center",
-        paddingLeft: "2%"
+        paddingLeft: "2%",
+        color: Colors.secondary1,
 
     },
     head3: {
         fontSize: 15,
         fontWeight: "bold",
-        color:Colors.secondary2,
+        color: Colors.secondary2,
         alignSelf: "flex-start"
 
     },
@@ -186,6 +222,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'black',
         borderBottomWidth: 1,
         paddingBottom: "0%",
+        
       },
 
 
