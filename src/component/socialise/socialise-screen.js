@@ -9,8 +9,8 @@ import Dark_Button from '../../Items/Buttons/dark-bt';
 const Social_Screen = (props) => {
   const navigation = useNavigation();
 
-  const [Socialset, SetType] = useState();
-  const selectHandler = (item) => {SetType(item)};
+  const [SocialSet, SetType] = useState();
+  const typeHandler = (item) => {SetType(item)};
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -54,7 +54,7 @@ const Social_Screen = (props) => {
 
 
       <View style={styles.container5}>
-        <Picker selectType={selectHandler}/>
+        <Picker selectType={typeHandler}/>
         </View>
 
 
@@ -62,7 +62,7 @@ const Social_Screen = (props) => {
         <Dark_Button onPress={() => props.navigation.navigate('socialscreen2',
         {
           ...props.route.params,
-          Socialset,
+          SocialSet,
         }
         )}>
           <Text>Request for Socialise</Text>
