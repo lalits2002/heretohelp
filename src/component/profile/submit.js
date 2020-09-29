@@ -30,7 +30,7 @@ const FeedbackScreen = (props) => {
         <View style={styles.tophead}>
           <TouchableOpacity
             onPress={() => {
-              navigation.goback();
+              navigation.goBack();
             }}
           >
             <Text style={styles.top1}>
@@ -208,6 +208,7 @@ const styles = StyleSheet.create({
   head3: {
     fontSize: 15,
     fontWeight: "bold",
+    paddingTop: "2%",
     color: Colors.secondary2,
     alignSelf: "flex-start",
   },
