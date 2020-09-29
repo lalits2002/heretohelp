@@ -1,18 +1,8 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, Switch } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+// import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Feather } from '@expo/vector-icons';
-
-// const Main = props => {
-//     const [isSwitchEnabled, setSwitch] =React.useState(false)
-//         return(
-//         <View style={styles.container}>
-//             <Text style={styles.head1}> {props.label1}</Text>
-//             <Text style={styles.head1}> {props.label2}</Text>
-//         </View>
-//     )
-// };
-
+import Colors from '../../Items/Colors'
 
 
 
@@ -24,12 +14,14 @@ const SettingScreen = props => {
     const [SwitchPush, setSwitchPush] =useState(false)
     const [SwitchEmail, setSwitchEmail] =useState(false)
     const [SwitchCalender, setSwitchCalender] =useState(false)
-    
+
     return(
     <View style={styles.screen} >
         <View style={styles.containerhead}>
-            <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary2} />Back</Text>
-            <Text style={styles.top2}>Settings</Text>
+            <View style={{flex: 1, flexDirection: "row", alignItems: "flex-start", paddingLeft: "2%" }}>
+            <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary2} />Back</Text></View>
+            <View style={{ flex: 1, flexDirection: "row", alignItems: "flex-start", paddingRight: "6%" }}>
+            <Text style={styles.top2}>Settings</Text></View>
         </View>
 
         <View style={styles.container}>
@@ -38,7 +30,8 @@ const SettingScreen = props => {
                 <Switch
                 value={SwitchNight}
                 onValueChange={(value)=> setSwitchNight(value)}
-                trackColor={{true: 'green'}}
+                trackColor={{false: "#767577", true: '#27ed11'}}
+                thumbColor={SwitchNight? "#f4f3f4" : "#f4f3f4"}
                 />
             </View>
             <View style={styles.block2}>
@@ -46,7 +39,8 @@ const SettingScreen = props => {
                 <Switch
                 value={SwitchLogged}
                 onValueChange={(value)=> setSwitchLogged(value)}
-                trackColor={{true: 'green'}}
+                trackColor={{false: "#767577", true: '#27ed11'}}
+                thumbColor={SwitchLogged? "#f4f3f4" : "#f4f3f4"}
                 />
             </View>
             <View style={styles.block3}>
@@ -54,23 +48,26 @@ const SettingScreen = props => {
                 <Switch
                 value={SwitchPush}
                 onValueChange={(value)=> setSwitchPush(value)}
-                trackColor={{true: 'green'}}
+                trackColor={{false: "#767577", true: '#27ed11'}}
+                thumbColor={SwitchPush? "#f4f3f4" : "#f4f3f4"}
                 />
             </View>
             <View style={styles.block4}>
-                <Text style={styles.head1}>allow email</Text>
+                <Text style={styles.head1}>Allow email</Text>
                 <Switch
                 value={SwitchEmail}
                 onValueChange={(value)=> setSwitchEmail(value)}
-                trackColor={{true: 'green'}}
+                trackColor={{false: "#767577", true: '#27ed11'}}
+                thumbColor={SwitchCalender? "#f4f3f4" : "#f4f3f4"}
                 />
             </View>
             <View style={styles.block5}>
-                <Text style={styles.head1}>save events to calender</Text>
+                <Text style={styles.head1}>Save events to Calender</Text>
                 <Switch
                 value={SwitchCalender}
                 onValueChange={(value)=> setSwitchCalender(value)}
-                trackColor={{true: 'green'}}
+                trackColor={{false: "#767577", true: '#27ed11'}}
+                thumbColor={SwitchCalender? "#f4f3f4" : "#f4f3f4"}
                 />
             </View>
             <View style={styles.block6}>
@@ -79,13 +76,9 @@ const SettingScreen = props => {
 
             </View>
         </View>
-{/*
-        <Main label1='Night mode ' label2={<Switch value={isSwitchEnabled} onValueChange={(value) => setSwitch(value)} trackColor= {{true: 'green'}}} /> />
-        <Main label1='Stay logged in ' label2={<Switch value={isSwitchEnabled} onValueChange={(value) => setSwitch(value)} trackColor={{true: 'green'}}}></Main> />
-        <Main label1='Allow push notifiations ' />
-        <Main label1='Allow email updates ' />
-        <Main label1='Save events to calender ' />
-        <Main label1='Units of measurement '  label2='Kilometers' /> */}
+
+
+        <View style={styles.bottomspace}></View>
 
     </View>
     );
@@ -99,22 +92,36 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         alignItems: "center",
-        backgroundColor: "#ffffff",
-        marginTop: "7%",
+        backgroundColor: Colors.primary4,
+        marginTop: "5%",
+
+        // padding: "2%",
     },
     containerhead: {
-        flex: 1,
+        flex: 0.8,
         width: "100%",
         flexDirection: "row",
-        justifyContent: "space-evenly",
-        backgroundColor: Colors.primary4
+        justifyContent: "flex-start",
+        alignSelf: "center",
+        alignItems: "center",
+        // backgroundColor: Colors.primary4
 
     },
     container: {
-        flex: 5,
+        flex: 2.8,
         width: "100%",
         flexDirection: "column",
         justifyContent: "flex-start",
+        backgroundColor: "#ffffff"
+
+
+
+    },
+    bottomspace: {
+        width: "100%",
+        flexDirection: "column",
+        flex: 2.85
+
 
     },
     block1: {
@@ -123,7 +130,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         borderBottomColor: "grey",
         borderBottomWidth: 0.5,
-        height: 45
+        height: 50
 
     },
     block2: {
@@ -175,6 +182,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         alignSelf: "center",
         color: Colors.primary2,
+        paddingLeft: "2%"
     }
 });
 

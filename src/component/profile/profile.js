@@ -34,7 +34,7 @@ const ProfileScreen = props => {
       <ScrollView style={{ width: '100%'}} >
 
         <View style={styles.containerTop}>
-          <Text style={styles.top1}><Feather name="chevron-left" size={15} color= {Colors.primary2} /> Back </Text>
+          <Text style={styles.top1}><Feather name="chevron-left"  size={15} color= {Colors.primary2} /> Back </Text>
           <Text style={styles.top2}>Profile </Text>
           <Text style={styles.top3}>Edit </Text>
         </View>
@@ -52,9 +52,9 @@ const ProfileScreen = props => {
               <Accessory />
             </Avatar>
 
-            <Text style={styles.name}>Janel Dunsworth</Text>
+            <Text style={{fontSize: 18, fontWeight: "bold", color: Colors.primary2 }}>Janel Dunsworth</Text>
              <Text></Text>
-            <Text style={{alignSelf: "center", paddingLeft: "2.5%"}}>
+            <Text style={{ fontSize: 15,  alignSelf: "center", paddingLeft: "3%"}}>
                  Enter short bio here. lorem ispum dolor amet,
                  constructoradipiscing elit. Accuan, urna,viverra,
                  faucibus auctor in  euismod  id nullam.
@@ -70,13 +70,13 @@ const ProfileScreen = props => {
       <Box lable1='Phone' lable2='604-555-5555'/>
       <Box lable1='Criminal record check'/>
       <View style={styles.spacing}></View>
-        <Box  
-              lable1='Settings' 
-              lable2={<Feather name="chevron-right" size={22} 
-              color= {Colors.secondary3} />} 
+        <Box
+              lable1='Settings'
+              lable2={<Feather name="chevron-right" size={22}
+              color= {Colors.secondary3} />}
               onPress={() => {navigation.navigate('submit')}}
         />
-      <View style={styles.spacing}></View> 
+      <View style={styles.spacing}></View>
       <Box lable1='Times volunteered' lable2='7'/>
       <Box lable1='Tasks Requested' lable2='4' />
       <View style={styles.spacing}></View>
@@ -86,7 +86,8 @@ const ProfileScreen = props => {
       <Box lable1='Submit Feedback '  onPress={() => {navigation.navigate('feedback')}} />
       <Box lable1='Delete Account' />
       <Box lable1='Log out from Account'  />
-     
+      <View style={styles.spacing}></View>
+
 
       </ScrollView>
     </View>
@@ -101,23 +102,25 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: "center",
         backgroundColor: "#ffffff",
-        marginTop: "7%",
+        marginTop: "5%",
     },
     container: {
         width: "100%",
         height: 45,
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: 'center',
+        alignItems: "center",
         borderBottomWidth: 0.5,
         borderBottomColor: Colors.secondary3,
 
     },
     containerTop: {
+      height: 50,
       flexDirection: "row",
       justifyContent: "space-between",
-      alignItems: "flex-start",
+      alignItems: "center",
       backgroundColor: Colors.primary4,
+      // paddingBottom: "3%"
 
 
 
@@ -136,7 +139,8 @@ const styles = StyleSheet.create({
       alignItems: "center",
       borderBottomWidth: 0.5,
       borderBottomColor: Colors.secondary3,
-      paddingBottom: "2.5%",
+      paddingBottom: "7%",
+      paddingTop: "4%"
     },
     // // box2: {
     // //     // flex: 3,
@@ -147,24 +151,25 @@ const styles = StyleSheet.create({
     // },
 
     top1: {
-        alignSelf: "flex-start",
+        alignSelf: "center",
         fontSize: 15,
         color: Colors.primary2,
 
     },
     top2: {
 
-        alignSelf: "flex-start",
+        alignSelf: "center",
         fontSize: 15,
         color: Colors.primary2,
-        paddingBottom: "1%",
+        // paddingBottom: "1%",
     },
     top3: {
 
-        alignSelf: "flex-start",
+        alignSelf: "center",
         fontSize: 15,
         color: Colors.primary2,
-        paddingTop: "0.2%",
+        paddingRight: "1%"
+        // paddingTop: "0.2%",
     },
     block1: {
         // flex: 1,

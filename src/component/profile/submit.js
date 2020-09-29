@@ -52,7 +52,7 @@ const FeedbackScreen = props => {
                 style={styles.input}
                 editable={false}
                 onChangeText={text => onChangeName(text) }
-                placeholder={"   Enter Here"} 
+                placeholder={"   Enter Here"}
                  value={name} />
            </View>
 
@@ -62,7 +62,7 @@ const FeedbackScreen = props => {
                 style={styles.input}
                 editable={true}
                 onChangeText={text => onChangeEmail(text)}
-                placeholder={"   email@email.com"} 
+                placeholder={"   email@email.com"}
                 value={email} />
            </View>
 
@@ -72,7 +72,7 @@ const FeedbackScreen = props => {
                 style={styles.input}
                 editable={false}
                 onChangeText={text => onChangePhone(text)}
-                placeholder={"   (555) 555- 555"} 
+                placeholder={"   (555) 555- 555"}
                 value={phone} />
           </View>
 
@@ -85,7 +85,7 @@ const FeedbackScreen = props => {
                 multiline
                 numberOfLines={10}
                 onChangeText={text => onChangeMessage(text)}
-                placeholder={"   Message"} 
+                placeholder={"   Message"}
                 value={message} />
                 {/* </ScrollView> */}
             </View>
@@ -111,20 +111,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
         // padding: "2%",
-        paddingTop: "7%",
+        paddingTop: "5%",
     },
     tophead: {
-        flex : 1,
+        flex : 1.5,
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        
+
         backgroundColor: Colors.primary4,
 
     },
     mid1: {
-        flex: 1.2,
+        flex: 1,
         width: "100%",
         flexDirection: "column",
         width: "100%",
@@ -160,21 +160,21 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
         paddingHorizontal: "30%",
-        
+
 
 
     },
 
 
     top1: {
-        alignSelf: "flex-start",
+        alignSelf: "center",
         fontSize: 15,
         color: Colors.primary3,
 
     },
     top2: {
 
-        alignSelf: "flex-start",
+        // alignSelf: "flex-start",
         fontSize: 15,
         alignSelf: "center",
         color: Colors.primary3,
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     },
     top3: {
 
-        alignSelf: "flex-start",
+        // alignSelf: "flex-start",
         fontSize: 15,
         color: Colors.primary3,
         alignSelf: "center",
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     mid2:{
         width: "100%",
         flexDirection: "column",
-        flex: 4,
+        flex: 3,
     },
     head1: {
         fontSize: 28,
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'black',
         borderBottomWidth: 1,
         paddingBottom: "0%",
-        
+
       },
 
 
