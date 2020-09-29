@@ -1,13 +1,16 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import Colors from '../../Items/Colors';
-import { useNavigation } from '@react-navigation/native';
-import Dark_Button from '../../Items/Buttons/dark-bt';
-import Button2 from '../../Items/Buttons/light-bt';
+import React, { useState } from "react";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import Colors from "../../Items/Colors";
+import { useNavigation } from "@react-navigation/native";
+import Dark_Button from "../../Items/Buttons/dark-bt";
+import Button2 from "../../Items/Buttons/light-bt";
 
 const Social_Screen2 = (props) => {
   const navigation = useNavigation();
+
+  const [choice, setChoice] = useState("");
+
   return (
     <View style={{ ...styles.screen, ...props.style }}>
       <View style={styles.top}>
@@ -17,7 +20,7 @@ const Social_Screen2 = (props) => {
           }}
         >
           <Text style={styles.back}>
-            <Feather name='chevron-left' size={15} color={Colors.primary3} />
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
             Back
           </Text>
         </TouchableOpacity>
@@ -30,12 +33,12 @@ const Social_Screen2 = (props) => {
       </View>
       <View style={styles.container3}>
         <Image
-          source={require('../h2h/s5.png')}
-          resizeMode='contain'
+          source={require("../h2h/s5.png")}
+          resizeMode="contain"
           style={{
-            width: '100%',
-            height: '100%',
-            alignSelf: 'center',
+            width: "100%",
+            height: "100%",
+            alignSelf: "center",
           }}
         />
       </View>
@@ -44,12 +47,28 @@ const Social_Screen2 = (props) => {
       </View>
       <View style={styles.container5}>
         <Text> </Text>
-        <Dark_Button onPress={() => props.navigation.navigate('socialscreen1A')}>
+        <Dark_Button
+          onPress={() => {
+            setChoice("flexible with time and location");
+            props.navigation.navigate("socialscreen1A", {
+              ...props.route.params,
+              choice,
+            });
+          }}
+        >
           <Text>I am flexible with time and location</Text>
-        </Dark_Button >
+        </Dark_Button>
 
         <Text> </Text>
-        <Button2 onPress={() => props.navigation.navigate('socialscreen1B')}>
+        <Button2
+          onPress={() => {
+            setChoice("specific time and location");
+            props.navigation.navigate("socialscreen1B", {
+              ...props.route.params,
+              choice,
+            });
+          }}
+        >
           <Text>I have a specific time and location</Text>
         </Button2>
       </View>
@@ -60,79 +79,79 @@ const Social_Screen2 = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    height: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '1.6%',
-    paddingTop: '7%',
-    backgroundColor: '#ffffff',
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "1.6%",
+    paddingTop: "7%",
+    backgroundColor: "#ffffff",
   },
   top: {
     flex: 1,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignSelf: 'flex-start',
-    paddingTop: '3%',
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "flex-start",
+    paddingTop: "3%",
     // backgroundColor: '#A596D3',
   },
   container1: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
 
-    width: '100%',
+    width: "100%",
     //backgroundColor: '#fcba03',
   },
   container2: {
     flex: 1,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
     //backgroundColor: '#A596D3',
   },
   container3: {
     flex: 5,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
     //backgroundColor: "#fcba03",
   },
   container4: {
     flex: 1.5,
-    width: '100%',
+    width: "100%",
     //backgroundColor: '#A596D3',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
   },
   container5: {
-    paddingTop: '1%',
+    paddingTop: "1%",
     flex: 6,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
     //backgroundColor: '#fcba03',
   },
 
   head: {
     fontSize: 25,
-    fontWeight: 'bold',
+    fontWeight: "bold",
 
     color: Colors.primary1,
   },
   head2: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: Colors.primary2,
   },
   head3: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: Colors.primary2,
-    alignSelf: 'center',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    alignSelf: "center",
+    flexDirection: "column",
+    justifyContent: "center",
   },
 });
 
