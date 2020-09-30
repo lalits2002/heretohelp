@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View, } from 'react-native';
 import { AppLoading } from 'expo';
 import { useFonts, Inter_900Black, } from '@expo-google-fonts/inter';
-// import Onboard_screen2 from './src/OnBoard/onboard_screen3';
-import HomeScreen from './src/navigation/HomeScreen';
-// import FeedbackScreen from './src/component/profile/submit';
+import Onboard_screen2 from './src/OnBoard/onboard_screen1';
+// import HomeScreen from './src/navigation/HomeScreen';
+
 
 export default function App() {
 
@@ -17,9 +17,8 @@ export default function App() {
     return <AppLoading />;
   }
 
-  // return <Onboard_screen2 />
-  // return <FeedbackScreen />
-  return <HomeScreen />
+  return <Onboard_screen2 />
+  // return <HomeScreen />
 }
 
 const styles = StyleSheet.create({
