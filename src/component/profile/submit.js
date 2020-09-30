@@ -14,7 +14,7 @@ import Dark_Button from "../../Items/Buttons/dark-bt";
 import { color } from "react-native-reanimated";
 
 const UseTextinput = (props) => {
-  return <TextInput {...props} editable maxLength={150} />;
+  return <TextInput {...props} editable maxLength={250} />;
 };
 
 const FeedbackScreen = (props) => {
@@ -28,7 +28,9 @@ const FeedbackScreen = (props) => {
     <View style={styles.screen}>
       <ScrollView style={{ width: "100%" }}>
         <View style={styles.tophead}>
+
           <TouchableOpacity
+           style={{flex: 1, flexDirection: "row", justifyContent: "flex-start", alignItems: "center", paddingLeft: "2%"}}
             onPress={() => {
               navigation.goBack();
             }}
@@ -38,8 +40,14 @@ const FeedbackScreen = (props) => {
               Back{" "}
             </Text>
           </TouchableOpacity>
+
+          <View style={{flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
           <Text style={styles.top2}>Feedback </Text>
-          <Text style={styles.top3}>Edit </Text>
+          </View>
+
+          <View
+          style={{flex: 1, flexDirection: "row", justifyContent: "flex-end", alignItems: "center", paddingRight: "2%"}}>
+          <Text style={styles.top3}>Edit </Text></View>
         </View>
 
         <View style={styles.mid1}>
@@ -60,7 +68,7 @@ const FeedbackScreen = (props) => {
             <Text style={styles.head3}>Name</Text>
             <TextInput
               style={styles.input}
-              editable={false}
+              editable={true}
               onChangeText={(text) => onChangeName(text)}
               placeholder={"   Enter Here"}
               value={name}
@@ -82,7 +90,8 @@ const FeedbackScreen = (props) => {
             <Text style={styles.head3}>Phone</Text>
             <TextInput
               style={styles.input}
-              editable={false}
+              editable={true}
+              keyboardType={'numeric'}
               onChangeText={(text) => onChangePhone(text)}
               placeholder={"   (555) 555- 555"}
               value={phone}
@@ -94,7 +103,7 @@ const FeedbackScreen = (props) => {
             {/* <ScrollView style={ {width: "100%" }} > */}
             <UseTextinput
               style={styles.input}
-              editable={false}
+              editable={true}
               multiline={true}
               numberOfLines={10}
               onChangeText={(text) => onChangeMessage(text)}
@@ -131,7 +140,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: "4%",
+    paddingVertical: "5%",
     backgroundColor: Colors.primary4,
   },
   mid1: {
@@ -169,14 +178,14 @@ const styles = StyleSheet.create({
   },
 
   top1: {
-    alignSelf: "center",
+    // alignSelf: "center",
     fontSize: 15,
     color: Colors.primary3,
   },
   top2: {
     // alignSelf: "flex-start",
     fontSize: 15,
-    alignSelf: "center",
+    // alignSelf: "center",
     color: Colors.primary3,
     // paddingBottom: "1%"
   },
@@ -184,8 +193,8 @@ const styles = StyleSheet.create({
     // alignSelf: "flex-start",
     fontSize: 15,
     color: Colors.primary3,
-    alignSelf: "center",
-    paddingLeft: "2%",
+    // alignSelf: "center",
+    // paddingLeft: "2%",
     // paddingTop: "0.2%"
   },
   mid2: {

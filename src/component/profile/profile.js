@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
       justifyContent: "space-between",
       alignItems: "center",
       backgroundColor: Colors.primary4,
+      paddingVertical: "8%"
       // paddingBottom: "3%"
 
 

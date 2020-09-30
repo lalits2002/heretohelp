@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     padding: '1.8%'
   },
   top_box: {
-    flex: 5,
+    flex: 4,
     flexDirection: 'column',
     width: '100%',
     justifyContent: 'center',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     // backgroundColor: '#c65df0'
   },
    mid_box: {
-    flex: 4,
+    flex: 5,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",

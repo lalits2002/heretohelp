@@ -44,11 +44,17 @@ const SettingScreen = (props) => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
-            paddingRight: "6%",
+            // paddingRight: "6%",
           }}
         >
           <Text style={styles.top2}>Settings</Text>
         </View>
+        <View style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "flex-start"
+        }}></View>
       </View>
 
       <View style={styles.container}>
