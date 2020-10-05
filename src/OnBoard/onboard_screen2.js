@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useReducer } from "react";
 import {
   StyleSheet,
   View,
@@ -12,6 +12,20 @@ import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 
 const Onboard_screen1 = (props) => {
+  const [email, setEmail] = useState();
+  const [password, setPass] = useState();
+  const [fromState, dispatchFormState] = useReducer({
+    inputValues: {
+      email: "",
+      password: "",
+    },
+    inputValidity: {
+      email: false,
+      password: false,
+    },
+    formIsValid: false,
+  });
+
   return (
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
@@ -28,6 +42,12 @@ const Onboard_screen1 = (props) => {
       <View style={styles.container3}>
         <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
           <Text style={styles.head2}> Enter your email</Text>
+          <TextInput style={styles.input} placeholder={"  Enter Here"} />
+        </View>
+      </View>
+      <View style={styles.container3}>
+        <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
+          <Text style={styles.head2}> Enter your Password</Text>
           <TextInput style={styles.input} placeholder={"  Enter Here"} />
         </View>
       </View>
