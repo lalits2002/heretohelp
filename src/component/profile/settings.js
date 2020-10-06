@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Switch } from "react-native";
+import { StyleSheet, View, Text, Switch, TouchableOpacity } from "react-native";
 // import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Feather } from "@expo/vector-icons";
 import Colors from "../../Items/Colors";
+import { useNavigation } from '@react-navigation/native'
 
 const SettingScreen = (props) => {
+  const navigation = useNavigation();
   const [unitIndex, ToggleUnit] = useState(0);
   const [SwitchNight, setSwitchNight] = useState(false);
   const [SwitchLogged, setSwitchLogged] = useState(false);
@@ -25,19 +27,22 @@ const SettingScreen = (props) => {
   return (
     <View style={styles.screen}>
       <View style={styles.containerhead}>
-        <View
+        <TouchableOpacity
           style={{
             flex: 1,
             flexDirection: "row",
             alignItems: "flex-start",
             paddingLeft: "2%",
           }}
+          onPress={() => {
+            navigation.goBack();
+          }}
         >
           <Text style={styles.top1}>
             <Feather name="chevron-left" size={15} color={Colors.primary2} />
             Back
           </Text>
-        </View>
+        </TouchableOpacity>
         <View
           style={{
             flex: 1,
@@ -130,7 +135,7 @@ const styles = StyleSheet.create({
     // padding: "2%",
   },
   containerhead: {
-    flex: 0.8,
+    flex: 1,
     width: "100%",
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -139,7 +144,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "pink",
   },
   container: {
-    flex: 2.8,
+    flex: 3.,
     width: "100%",
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -148,7 +153,7 @@ const styles = StyleSheet.create({
   bottomspace: {
     width: "100%",
     flexDirection: "column",
-    flex: 2.85,
+    flex: 4,
   },
   block1: {
     width: "100%",
