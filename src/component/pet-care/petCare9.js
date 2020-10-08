@@ -12,6 +12,7 @@ import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
+import formatDate from "../formatDate";
 
 const Pet_screen9 = (props) => {
   const navigation = useNavigation();
@@ -51,7 +52,7 @@ const Pet_screen9 = (props) => {
         <TextInput
           style={styles.input}
           editable={false}
-          value={data.date}
+          value={formatDate(data.date)}
         ></TextInput>
       </View>
       <View style={styles.container2}>
