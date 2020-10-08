@@ -5,6 +5,7 @@ import { StyleSheet, Text } from "react-native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 
 import TimePicker from "../timePicker/timePicker";
+import formatDate from "../formatDate";
 
 const Social_Screen2B = (props) => {
   const [Hour, setHour] = useState(0);
@@ -33,7 +34,7 @@ const Social_Screen2B = (props) => {
         <Top_container
           title="Socialise"
           sub_head="Coffe meetup"
-          detail_1="Friday, june 5, 2020"
+          detail_1={formatDate(props.route.params.selectedDate)}
           detail_2="What time do you request?"
         />
       </View>

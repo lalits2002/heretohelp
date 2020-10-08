@@ -1,15 +1,14 @@
-import React , { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, View, Text } from "react-native";
 
-import TimePicker from '../timePicker/timePicker';
-import Top_container from './handy_head';
-import Dark_Button from '../../Items/Buttons/dark-bt';
-import Colors from '../../Items/Colors';
+import TimePicker from "../timePicker/timePicker";
+import Top_container from "./handy_head";
+import Dark_Button from "../../Items/Buttons/dark-bt";
+import Colors from "../../Items/Colors";
+import formatDate from "../formatDate";
 
-
-const HandyWork_Screen3 = props => {
-  console.log(props);
-
+const HandyWork_Screen3 = (props) => {
+  // console.log(props);
 
   const [Hour, setHour] = useState(0);
   const [Minute, setMinute] = useState(0);
@@ -28,36 +27,37 @@ const HandyWork_Screen3 = props => {
     console.log(AmPm);
   };
 
-    return(
-      <View style={{ ...styles.screen, ...props.style}}>
-
-      <View style={styles.top_box} >
+  return (
+    <View style={{ ...styles.screen, ...props.style }}>
+      <View style={styles.top_box}>
         <Top_container
-            title="Handy Work"
-            sub_head="Handyman Services"
-            detail_1="Friday, june 5, 2020"
-            detail_3="What time do you request?"
-         />
+          title="Handy Work"
+          sub_head="Handyman Services"
+          detail_1={formatDate(props.route.params.selectedDate)}
+          detail_3="What time do you request?"
+        />
       </View>
 
       <View style={styles.mid_box}>
         <TimePicker
-            getMin={minHandler}
-            getHour={hourHandler}
-            getMeridian={AmPmHandler}
-          />
+          getMin={minHandler}
+          getHour={hourHandler}
+          getMeridian={AmPmHandler}
+        />
       </View>
       <View style={styles.bottom_box}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen4', {
-           ...props.route.params,
-           time: { Hour, Minute, Meridian },
-        })} >
-          <Text style={{fontSize: 18}}> Next</Text>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("handyWorkScreen4", {
+              ...props.route.params,
+              time: { Hour, Minute, Meridian },
+            })
+          }
+        >
+          <Text style={{ fontSize: 18 }}> Next</Text>
         </Dark_Button>
       </View>
     </View>
-
-
   );
 };
 
@@ -69,14 +69,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#ffffff",
     padding: "1.8%",
-    paddingTop: '7%'
-
+    paddingTop: "7%",
   },
-  top_box:{
+  top_box: {
     flex: 4,
     width: "100%",
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
     // backgroundColor: 'rgb(25,5,120)',
   },
   mid_box: {
@@ -93,10 +92,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     paddingHorizontal: "2%",
-    paddingLeft: '60%',
+    paddingLeft: "60%",
     // backgroundColor: "#9811C9",
   },
-  back:{
+  back: {
     alignSelf: "flex-start",
     fontSize: 16,
     // color: Colors.primary2,
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   },
   head3: {
     fontSize: 17.5,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
     fontWeight: "bold",
   },
 });
