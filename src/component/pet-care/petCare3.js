@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Top_container from "./head";
 import TimePicker from "../timePicker/timePicker";
+import formatDate from "../formatDate";
 
 const Pet_screen3 = (props) => {
   const navigation = useNavigation();
@@ -12,6 +13,8 @@ const Pet_screen3 = (props) => {
   const [Hour, setHour] = useState(0);
   const [Minute, setMinute] = useState(0);
   const [Meridian, setMeridian] = useState(0);
+
+  const formattedDate = formatDate(props.route.params.date);
 
   const hourHandler = (Hour) => {
     setHour(Hour);
@@ -32,7 +35,7 @@ const Pet_screen3 = (props) => {
         <Top_container
           title="Pet Care"
           sub_head="Sitting"
-          detail_1={props.route.params.date}
+          detail_1={formattedDate}
           detail_3="What time do you request?"
         />
       </View>

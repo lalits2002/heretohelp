@@ -13,6 +13,7 @@ import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
+import formatDate from "../formatDate";
 
 const Social_Screen5B = (props) => {
   const navigation = useNavigation();
@@ -51,7 +52,7 @@ const Social_Screen5B = (props) => {
           <TextInput
             style={styles.input}
             editable={false}
-            value={data.selectedDate}
+            value={formatDate(data.selectedDate)}
           />
         </View>
         <View style={styles.box}>
