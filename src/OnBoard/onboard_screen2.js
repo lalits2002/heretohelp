@@ -8,29 +8,26 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import firebase from "firebase";
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 import { Value } from "react-native-reanimated";
 
 const Onboard_screen2 = (props) => {
-  useEffect(() => {
-    checkIfLoggedIn();
-  });
-
-  const [btnText, setBtn] = useState("Next");
-  const checkIfLoggedIn = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setMess("(logged in)");
-        setBtn("Sign Out");
-      } else {
-        setMess("");
-        setBtn("Next");
-      }
-    });
-  };
-
+  // const [btnText, setBtn] = useState("Next");
+  // const checkIfLoggedIn = () => {
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setMess("(logged in)");
+  //       setBtn("Sign Out");
+  //     } else {
+  //       setMess("");
+  //       setBtn("Next");
+  //     }
+  //   });
+  // };
+  // useEffect(() => {
+  //   checkIfLoggedIn();
+  // });
   const [message, setMess] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -47,35 +44,28 @@ const Onboard_screen2 = (props) => {
   });
 
   const submitHandler = () => {
-    if (btnText === "Sign Out") {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          console.log("logged out");
-        });
-    } else {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log("User account created & signed in!");
-          setEmail("");
-          setPass("");
-        })
-        .catch((error) => {
-          if (error.code === "auth/email-already-in-use") {
-            console.log("That email address is already in use!");
-          }
+    props.navigation.navigate("OB3", { ...props.route.params, email });
+    //   {
+    //   firebase
+    //     .auth()
+    //     .createUserWithEmailAndPassword(email, password)
+    //     .then(() => {
+    //       console.log("User account created & signed in!");
+    //       setEmail("");
+    //       setPass("");
+    //     })
+    //     .catch((error) => {
+    //       if (error.code === "auth/email-already-in-use") {
+    //         console.log("That email address is already in use!");
+    //       }
 
-          if (error.code === "auth/invalid-email") {
-            console.log("That email address is invalid!");
-          }
+    //       if (error.code === "auth/invalid-email") {
+    //         console.log("That email address is invalid!");
+    //       }
 
-          console.error("you got ", error);
-        });
-    }
-    //
+    //       console.error("you got ", error);
+    //     });
+    // }
   };
 
   return (
@@ -106,8 +96,8 @@ const Onboard_screen2 = (props) => {
           />
         </View>
       </View>
-      <View style={styles.container3}>
-        <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
+      {/* <View style={styles.container3}> */}
+      {/* <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
           <Text style={styles.head2}> Enter your Password</Text>
           <TextInput
             secureTextEntry={true}
@@ -120,12 +110,16 @@ const Onboard_screen2 = (props) => {
             }}
           />
         </View>
-      </View>
+      </View> */}
 
       <View style={styles.container4}>
-        <Dark_Button onPress={submitHandler}>
-          <Text style={{ fontWeight: "bold" }}>{btnText}</Text>
-        </Dark_Button>
+        <Dark_Button onPress={submitHandler}>Next</Dark_Button>
+      </View>
+
+      <View style={styles.container5}>
+        <View style={styles.line2}></View>
+        <View style={styles.line}></View>
+        <View style={styles.line2}></View>
       </View>
     </SafeAreaView>
   );

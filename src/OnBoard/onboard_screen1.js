@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -6,12 +6,15 @@ import {
   Image,
   TextInput,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 
 const Onboard_screen1 = (props) => {
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
   return (
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
@@ -28,18 +31,41 @@ const Onboard_screen1 = (props) => {
       <View style={styles.container3}>
         <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
           <Text style={styles.head2}> First Name </Text>
-          <TextInput style={styles.input} placeholder={"  Your name Here"} />
+          <TextInput
+            style={styles.input}
+            value={fName}
+            onChangeText={(txt) => {
+              setFName(txt);
+            }}
+            placeholder={"  Your name Here"}
+          />
         </View>
 
         <View style={{ paddingVertical: "3%" }}>
           <Text style={styles.head2}> Last Name </Text>
-          <TextInput style={styles.input} placeholder={"  Your surname Here"} />
+          <TextInput
+            style={styles.input}
+            value={lName}
+            onChangeText={(txt) => {
+              setLName(txt);
+              console.log(txt);
+            }}
+            placeholder={"  Your surname Here"}
+          />
         </View>
       </View>
 
-      <View style={styles.container4}>
-        <Dark_Button>
-          <Text style={{ fontWeight: "bold" }}>Next</Text>
+      <View
+        style={styles.container4}
+        onPress={() => {
+          console.log("hi");
+          // props.navigation.navigate("OB2");
+        }}
+      >
+        <Dark_Button
+          onPress={() => props.navigation.navigate("OB2", { fName, lName })}
+        >
+          Next
         </Dark_Button>
       </View>
       <View style={styles.container5}>

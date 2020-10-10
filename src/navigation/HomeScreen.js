@@ -6,11 +6,15 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
-
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
-import MyTabs from './bottom-navigator';
+import MyTabs from "./bottom-navigator";
+
+import Onboard_screen from "../OnBoard/onboard_screen";
+import Onboard_screen1 from "../OnBoard/onboard_screen1";
+import Onboard_screen2 from "../OnBoard/onboard_screen2";
+import Onboard_screen3 from "../OnBoard/onboard_screen3";
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
@@ -21,7 +25,6 @@ import Social_Screen2B from "../component/socialise/socialise-screen2B";
 import Social_Screen3B from "../component/socialise/socialise-screen3B";
 import Social_Screen4B from "../component/socialise/socialise-screen4B";
 import Social_Screen5B from "../component/socialise/socialise-screen5B";
-
 
 import Pet_Screen from "../component/pet-care/pet";
 import Pet_screen2 from "../component/pet-care/petCare2";
@@ -45,7 +48,6 @@ import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
 
-
 const ScreenConstant = createStackNavigator();
 
 function SocialScreen() {
@@ -57,17 +59,38 @@ function SocialScreen() {
         gestureDirection: "horizontal",
         cardOverlayEnabled: true,
         ...TransitionPresets.SlideFromRightIOS,
-      }}>
+      }}
+    >
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
       <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
-      <ScreenConstant.Screen name="socialscreen1A" component={Social_Screen1A} />
-      <ScreenConstant.Screen name="socialscreen2A" component={Social_Screen2A} />
-      <ScreenConstant.Screen name="socialscreen1B" component={Social_Screen1B} />
-      <ScreenConstant.Screen name="socialscreen2B" component={Social_Screen2B} />
-      <ScreenConstant.Screen name="socialscreen3B" component={Social_Screen3B} />
-      <ScreenConstant.Screen name="socialscreen4B" component={Social_Screen4B} />
-      <ScreenConstant.Screen name="socialscreen5B" component={Social_Screen5B} />
-
+      <ScreenConstant.Screen
+        name="socialscreen1A"
+        component={Social_Screen1A}
+      />
+      <ScreenConstant.Screen
+        name="socialscreen2A"
+        component={Social_Screen2A}
+      />
+      <ScreenConstant.Screen
+        name="socialscreen1B"
+        component={Social_Screen1B}
+      />
+      <ScreenConstant.Screen
+        name="socialscreen2B"
+        component={Social_Screen2B}
+      />
+      <ScreenConstant.Screen
+        name="socialscreen3B"
+        component={Social_Screen3B}
+      />
+      <ScreenConstant.Screen
+        name="socialscreen4B"
+        component={Social_Screen4B}
+      />
+      <ScreenConstant.Screen
+        name="socialscreen5B"
+        component={Social_Screen5B}
+      />
     </ScreenConstant.Navigator>
   );
 }
@@ -107,11 +130,26 @@ function HandyWorkScreen() {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <ScreenConstant.Screen name="handyWorkScreen1" component={HandyWork_Screen}/>
-        <ScreenConstant.Screen name="handyWorkScreen2" component={HandyWork_Screen2}/>
-        <ScreenConstant.Screen name="handyWorkScreen3" component={HandyWork_Screen3} />
-        <ScreenConstant.Screen name="handyWorkScreen4" component={HandyWork_Screen4} />
-        <ScreenConstant.Screen name="handyWorkScreen5" component={HandyWork_Screen5} />
+      <ScreenConstant.Screen
+        name="handyWorkScreen1"
+        component={HandyWork_Screen}
+      />
+      <ScreenConstant.Screen
+        name="handyWorkScreen2"
+        component={HandyWork_Screen2}
+      />
+      <ScreenConstant.Screen
+        name="handyWorkScreen3"
+        component={HandyWork_Screen3}
+      />
+      <ScreenConstant.Screen
+        name="handyWorkScreen4"
+        component={HandyWork_Screen4}
+      />
+      <ScreenConstant.Screen
+        name="handyWorkScreen5"
+        component={HandyWork_Screen5}
+      />
     </ScreenConstant.Navigator>
   );
 }
@@ -147,17 +185,19 @@ function TransportScreen() {
         name="Transport_screen5"
         component={Transport_screen5}
       />
-
     </ScreenConstant.Navigator>
   );
 }
-
 
 function HomeScreen() {
   return (
     <NavigationContainer>
       <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+        {/* <ScreenConstant.Screen name="OB" component={Onboard_screen} /> */}
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
+        <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
+        <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
+        <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
         <ScreenConstant.Screen name="vol" component={MyTabs} />
         <ScreenConstant.Screen name="Victim" component={MyTabs} />
 
@@ -196,9 +236,6 @@ function HomeScreen() {
           }}
           component={TransportScreen}
         />
-
-       
-
       </ScreenConstant.Navigator>
     </NavigationContainer>
   );
