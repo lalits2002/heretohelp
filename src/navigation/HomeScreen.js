@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
+import store from "../asyncStorage/store"
+
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createStackNavigator,
@@ -190,14 +194,35 @@ function TransportScreen() {
 }
 
 function HomeScreen() {
-  return (
+
+  const [refresh, refresher] = useState(0)
+  store.subscribe(() => {
+    refresher(refresh+1);
+  })
+
+  const currentState = store.getState();
+
+  if(currentState.isSignout) {
+     return (
+
+    <NavigationContainer>
+      <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+        <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
+        <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
+        <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
+      </ScreenConstant.Navigator>
+    </NavigationContainer>
+  )
+  }
+
+  // if signed in
+  else {
+    return (
+
     <NavigationContainer>
       <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
         {/* <ScreenConstant.Screen name="OB" component={Onboard_screen} /> */}
         <ScreenConstant.Screen name="Home" component={Loadscreen} />
-        <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
-        <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
-        <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
         <ScreenConstant.Screen name="vol" component={MyTabs} />
         <ScreenConstant.Screen name="Victim" component={MyTabs} />
 
@@ -239,6 +264,10 @@ function HomeScreen() {
       </ScreenConstant.Navigator>
     </NavigationContainer>
   );
+  }
+
+  
+  
 }
 
 export default HomeScreen;

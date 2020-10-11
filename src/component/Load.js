@@ -16,7 +16,7 @@ const Loadscreen = (props) => {
           I'm Here to Volunteer
         </Dark_Button>
         <View style={styles.space} />
-        <Button2 onPress={() => props.navigation.navigate("OB1")}>
+        <Button2 onPress={() => props.navigation.navigate("Victim")}>
           I need Help
         </Button2>
       </View>

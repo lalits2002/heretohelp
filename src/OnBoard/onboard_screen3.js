@@ -8,6 +8,9 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN } from "../asyncStorage/actionsList";
+import store from "../asyncStorage/store"
+
 import firebase from "firebase";
 
 import Dark_Button from "../Items/Buttons/dark-bt";
@@ -19,7 +22,6 @@ const Onboard_screen3 = (props) => {
   const email = props.route.params.email;
 
   const fullName = props.route.params.fName + " " + props.route.params.lName;
-  console.log(fullName);
 
   //logic for passwords to be same in both fields
   const checkSame = () => (password === vPassword ? true : false);
@@ -32,7 +34,6 @@ const Onboard_screen3 = (props) => {
 
   // authentication
   const submitHandler = () => {
-    console.log("hi");
     if (!checkSame()) {
       return;
     }
@@ -53,7 +54,10 @@ const Onboard_screen3 = (props) => {
             })
             .then(function () {
               console.log(firebase.auth().currentUser);
-              props.navigation.navigate("Victim");
+              // updating the redux store now
+              store.dispatch((dispatch) => {
+                dispatch({type:SIGN_IN,token:user})
+              })
             })
             .catch(function (error) {
               console.log("inside updation ", error);

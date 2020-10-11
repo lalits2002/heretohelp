@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Accessory } from "react-native-elements";
 import {
   StyleSheet,
@@ -9,6 +9,10 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
+
+import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN } from "../../asyncStorage/actionsList";
+import store from "../../asyncStorage/store"
+
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 
@@ -53,9 +57,10 @@ const ProfileScreen = (props) => {
   const [lName, setlName] = useState("");
   const [email, setEmail] = useState("");
 
-  // getting data from user token
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user != null) {
+  // getting data from user token stored in store
+  useEffect(() => {
+    const user = store.getState().userToken;
+     if (user != null) {
       let n = user.displayName;
       setName(n);
       setEmail(user.email);
@@ -63,7 +68,8 @@ const ProfileScreen = (props) => {
       setfName(nameSplit[0]);
       setlName(nameSplit[1]);
     }
-  });
+  })
+  
 
   const signout = () => {
     firebase
@@ -71,7 +77,14 @@ const ProfileScreen = (props) => {
       .signOut()
       .then(() => {
         console.log("logged out");
-        props.navigation.navigate("OB1");
+        store.dispatch((dispatch, getState) => {
+                    
+
+          dispatch({
+            type:SIGN_OUT
+          })
+          console.log(getState());
+        })
       })
       .catch((error) => {
         console.log("signout error ", error);
@@ -85,7 +98,12 @@ const ProfileScreen = (props) => {
       .delete()
       .then(function () {
         console.log("account deleted");
-        props.navigation.navigate("OB1");
+        store.dispatch(dispatch=>{
+          dispatch({
+            type:SIGN_OUT,
+
+          })
+        })
       })
       .catch(function (error) {
         console.log("account delete error ", error);

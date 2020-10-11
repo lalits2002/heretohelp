@@ -48,7 +48,6 @@ const Onboard_screen1 = (props) => {
             value={lName}
             onChangeText={(txt) => {
               setLName(txt);
-              console.log(txt);
             }}
             placeholder={"  Your surname Here"}
           />
@@ -58,7 +57,6 @@ const Onboard_screen1 = (props) => {
       <View
         style={styles.container4}
         onPress={() => {
-          console.log("hi");
           // props.navigation.navigate("OB2");
         }}
       >
