@@ -8,7 +8,7 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN } from "../asyncStorage/actionsList";
+import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN, EMAIL_PASSWORD_AUTH } from "../asyncStorage/actionsList";
 import store from "../asyncStorage/store"
 
 import firebase from "firebase";
@@ -37,7 +37,12 @@ const Onboard_screen3 = (props) => {
     if (!checkSame()) {
       return;
     }
-    {
+    
+      store.dispatch((dispatch) => {
+                dispatch({type:'showload'})
+      })
+    
+                
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
@@ -56,7 +61,7 @@ const Onboard_screen3 = (props) => {
               console.log(firebase.auth().currentUser);
               // updating the redux store now
               store.dispatch((dispatch) => {
-                dispatch({type:SIGN_IN,token:user})
+                dispatch({type:SIGN_IN,token:user, authType : EMAIL_PASSWORD_AUTH})
               })
             })
             .catch(function (error) {
@@ -74,7 +79,10 @@ const Onboard_screen3 = (props) => {
 
           console.error("you got ", error);
         });
-    }
+              
+            
+
+    
   };
 
   return (

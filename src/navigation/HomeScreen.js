@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AppLoading } from "expo";
 
 import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
 import store from "../asyncStorage/store"
@@ -194,17 +195,25 @@ function TransportScreen() {
 }
 
 function HomeScreen() {
-
+ 
   const [refresh, refresher] = useState(0)
+
+  
+  const currentState = store.getState();
+
   store.subscribe(() => {
+    console.log(currentState);
     refresher(refresh+1);
   })
 
-  const currentState = store.getState();
+
+  if (currentState.isLoading) {
+    
+    return <AppLoading />;
+  }
 
   if(currentState.isSignout) {
      return (
-
     <NavigationContainer>
       <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
         <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />

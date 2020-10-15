@@ -11,18 +11,27 @@ export default function Reducer(state = {}, action) {
         return {
             ...state,
             isSignout: false,
+            isLoading: false,
             userToken: action.token,
+            authType: action.authType,
           };}
     else if(action.type ===SIGN_OUT ){
         return {
             ...state,
             isSignout: true,
             userToken: null,
+            isLoading: false,
+    };
+    }
+    else if(action.type ==='showload' ){
+        return {
+            ...state,
+            isLoading: true,
     };
     }
    
         return {
-      isLoading: true,
+      isLoading: false,
       isSignout: true,
       userToken: null,
     }

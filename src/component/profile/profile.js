@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN } from "../../asyncStorage/actionsList";
+import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN,GOOGLE_AUTH,EMAIL_PASSWORD_AUTH } from "../../asyncStorage/actionsList";
 import store from "../../asyncStorage/store"
 
 import { useNavigation } from "@react-navigation/native";
@@ -51,15 +51,33 @@ const Box = (props) => {
 
 const ProfileScreen = (props) => {
   const navigation = useNavigation();
+  const AvatarPlaceholder = "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"
 
   const [fullName, setName] = useState("");
   const [fName, setfName] = useState("");
   const [lName, setlName] = useState("");
   const [email, setEmail] = useState("");
+  const [imgLink, setImgLink] = useState(AvatarPlaceholder);
+
 
   // getting data from user token stored in store
   useEffect(() => {
-    const user = store.getState().userToken;
+    const state = store.getState();
+    const authType = state.authType;
+
+    if (authType === GOOGLE_AUTH) {
+      const user = state.userToken;
+     if (user != null) {
+      
+      setName(user.user.name);
+      setEmail(user.user.email);
+       setImgLink(user.user.photoUrl);
+      setfName(user.user.givenName);
+      setlName(user.user.familyName);
+    }
+    }
+    else if (authType === EMAIL_PASSWORD_AUTH)
+    {const user = state.userToken;
      if (user != null) {
       let n = user.displayName;
       setName(n);
@@ -67,11 +85,15 @@ const ProfileScreen = (props) => {
       var nameSplit = n.split(" ");
       setfName(nameSplit[0]);
       setlName(nameSplit[1]);
-    }
+    }}
   })
   
 
   const signout = () => {
+    
+      store.dispatch((dispatch) => {
+                dispatch({type:'showload'})
+      })
     firebase
       .auth()
       .signOut()
@@ -94,6 +116,9 @@ const ProfileScreen = (props) => {
   const deleteAccount = () => {
     var user = firebase.auth().currentUser;
 
+      store.dispatch((dispatch) => {
+                dispatch({type:'showload'})
+      })
     user
       .delete()
       .then(function () {
@@ -127,8 +152,8 @@ const ProfileScreen = (props) => {
             size={140}
             rounded
             source={{
-              uri:
-                "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg",
+              uri:imgLink
+                
             }}
           >
             <Accessory />
