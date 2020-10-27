@@ -287,13 +287,13 @@ const styles = StyleSheet.create({
     color: Colors.secondary4,
     fontWeight: "bold",
     alignSelf: "center",
-    paddingBottom: "5%"
+    paddingBottom: "7%"
   },
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
     paddingLeft: 15,
-    paddingBottom: 10,
+    paddingBottom: "15%",
   },
 });
 export default Transport_screen5;
