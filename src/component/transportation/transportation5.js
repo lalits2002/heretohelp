@@ -3,21 +3,27 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
   TouchableOpacity,
   TextInput,
+  Modal,
+  Dimensions,
   SafeAreaView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import formatDate from "../formatDate";
 
+
 import Colors from "../../Items/Colors";
 import Dark_Button from "../../Items/Buttons/dark-bt";
+import { State } from "react-native-gesture-handler";
 
 const Transport_screen5 = (props) => {
   const navigation = useNavigation();
   const [value, onChangeText] = useState();
   const data = { ...props.route.params };
+  const  [showModal, setShowModal] = useState(false);
 
   console.log(data);
 
@@ -84,12 +90,66 @@ const Transport_screen5 = (props) => {
 
       <View style={styles.container3}>
         <Dark_Button
-          onPress={() => props.navigation.navigate("Transport_screen5")}
+          onPress={() => { setShowModal(true);}}
         >
           <Text style={{ fontSize: 18 }}> Submit</Text>
         </Dark_Button>
       </View>
+
+      <Modal
+         transparent={true}
+         visible={showModal}
+         animationType="slide"
+         onRequestClose={() => { setShowModal(false)}}
+        >
+            <View style={styles.modalcontainer}>
+                {/* the above view is the container which contains modal */}
+
+                {/* The basiccontainer is used for space */}
+                <View style={styles.basiccontainer}>
+                  </View>
+                <View style={styles.cardsection}>
+                <View style={{ flex: 0.5, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
+                  <TouchableOpacity
+                  onPress={() => { setShowModal(false);}}>
+                  <Feather name="x-circle" size={25} color={Colors.primary3}   />
+                  </TouchableOpacity>
+                  </View>
+                  <View style={{flex: 1, flexDirection: "column", }}>
+                <Image
+                  source={require('../h2h/Vector85.png')}
+                  resizeMode= 'contain'
+                   style={{
+                    width: '20%',
+                    height: '20%',
+                    alignSelf: "center",
+
+
+                   }}
+                   /></View>
+                   <Text style={styles.modaltextcontainer1}>Your request is posted!</Text>
+
+
+                   <Text style={styles.modaltextcontainer2}>We will share your transportation request,
+                    so local peple can reach out to you!</Text>
+
+                {/* the above view contaisn text */}
+                <View style={styles.modalbottomcontainer}>
+                  <View style={styles.bottomblock1}>
+                    <Text style={{fontSize: 15}} onPress={() => { setShowModal(false);}}>Cancel</Text></View>
+                    <View style={styles.bottomblock2}>
+                    <Text style={{fontSize: 15}}>Got it!</Text></View>
+                </View>
+                </View>
+                <View style={{flex: 1, flexDirection: "column", width: "100%", backgroundColor: "#d3eb23"}}></View>
+
+
+            </View>
+        </Modal>
+
     </SafeAreaView>
+
+
   );
 };
 
@@ -164,6 +224,76 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     color: Colors.secondary3,
     paddingTop: "2.5%",
+  },
+
+  modalcontainer:{
+    flex: 1,
+    flexDirection: "column",
+    width: "100%",
+    backgroundColor: '#ffffff',
+    justifyContent: "center",
+    alignSelf: "flex-start",
+    alignItems: "center"
+
+  },
+  basiccontainer: {
+    flex: 1.5,
+    flexDirection: "column",
+    width: "100%",
+    backgroundColor: "#d3eb23"
+
+  },
+  cardsection: {
+    flex: 2,
+    flexDirection: "column",
+    width: "100%",
+    backgroundColor: '#ffffff',
+    justifyContent: "flex-end",
+    borderRadius: 20,
+    width: Dimensions.get('window').width * 0.9 ,
+    height: Dimensions.get('window').height * 0.3,
+    borderWidth: 3
+  },
+  modalbottomcontainer: {
+    flex: 0.4,
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+    backgroundColor: '#d3eb23',
+
+  },
+  bottomblock1: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+    width: "100%",
+    borderRightWidth: 2,
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopWidth: 2
+  },
+  bottomblock2: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopWidth: 2
+  },
+  modaltextcontainer1: {
+    fontSize: 24,
+    color: Colors.secondary4,
+    fontWeight: "bold",
+    alignSelf: "center",
+    paddingBottom: "5%"
+  },
+  modaltextcontainer2: {
+    alignSelf: "center",
+    fontSize: 15,
+    paddingLeft: 15,
+    paddingBottom: 10,
   },
 });
 export default Transport_screen5;
