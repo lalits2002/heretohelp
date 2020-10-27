@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
 
   },
   cardsection: {
-    flex: 2,
+    flex: 1.5,
     flexDirection: "column",
     width: "100%",
     backgroundColor: '#ffffff',
@@ -292,8 +292,8 @@ const styles = StyleSheet.create({
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
-    paddingLeft: 15,
-    paddingBottom: "15%",
+    paddingLeft: 38,
+    paddingBottom: "10%",
   },
 });
 export default Transport_screen5;
