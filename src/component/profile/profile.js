@@ -65,19 +65,25 @@ const ProfileScreen = (props) => {
     const state = store.getState();
     const authType = state.authType;
 
-    if (authType === GOOGLE_AUTH) {
-      const user = state.userToken;
-     if (user != null) {
+    // if (authType === GOOGLE_AUTH) {
+    //   const user = state.userToken;
+    //  if (user != null) {
       
-      setName(user.user.name);
-      setEmail(user.user.email);
-       setImgLink(user.user.photoUrl);
-      setfName(user.user.givenName);
-      setlName(user.user.familyName);
+    //   setName(user.user.name);
+    //   setEmail(user.user.email);
+    //    setImgLink(user.user.photoUrl);
+    //   setfName(user.user.givenName);
+    //   setlName(user.user.familyName);
+    // }
+    // }
+    // else if (authType === EMAIL_PASSWORD_AUTH)
+    var user = state.userToken;
+    // in case of google sign in , the user data is in user.user nested object
+    if (authType === GOOGLE_AUTH) {
+      user = user.user ;
+      setImgLink(user.photoURL);
+      console.log(imgLink);
     }
-    }
-    else if (authType === EMAIL_PASSWORD_AUTH)
-    {const user = state.userToken;
      if (user != null) {
       let n = user.displayName;
       setName(n);
@@ -85,7 +91,7 @@ const ProfileScreen = (props) => {
       var nameSplit = n.split(" ");
       setfName(nameSplit[0]);
       setlName(nameSplit[1]);
-    }}
+    }
   })
   
 
