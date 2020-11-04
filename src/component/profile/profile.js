@@ -61,22 +61,24 @@ const ProfileScreen = (props) => {
   }
   const uid = user.uid;
 
-  var docRef = db
-    .collection("queries")
-    .doc(uid)
-    .collection('service-requests')
-    .get()
-    .then(function (querySnapshot) {
-      var count = 0
-      querySnapshot.forEach(function (doc) {
-        // doc.data() is never undefined for query doc snapshots
-        //console.log(doc.id, " => ", doc.data());
-        count++;
+  useEffect(() => {
+    var docRef = db
+      .collection("queries")
+      .doc(uid)
+      .collection('service-requests')
+      .get()
+      .then(function (querySnapshot) {
+        var count = 0
+        querySnapshot.forEach(function (doc) {
+          // doc.data() is never undefined for query doc snapshots
+          //console.log(doc.id, " => ", doc.data());
+          count++;
+        });
+        setNoTasks(count)
+      }).catch(function (error) {
+        console.log("Error getting document:", error);
       });
-      setNoTasks(count)
-    }).catch(function (error) {
-      console.log("Error getting document:", error);
-    });
+  })
 
 
 
@@ -95,18 +97,6 @@ const ProfileScreen = (props) => {
     const state = store_redux_thunk.getState();
     const authType = state.authType;
 
-    // if (authType === GOOGLE_AUTH) {
-    //   const user = state.userToken;
-    //  if (user != null) {
-
-    //   setName(user.user.name);
-    //   setEmail(user.user.email);
-    //    setImgLink(user.user.photoUrl);
-    //   setfName(user.user.givenName);
-    //   setlName(user.user.familyName);
-    // }
-    // }
-    // else if (authType === EMAIL_PASSWORD_AUTH)
     var user = state.userToken;
     // in case of google sign in , the user data is in user.user nested object
     if (authType === GOOGLE_AUTH) {
