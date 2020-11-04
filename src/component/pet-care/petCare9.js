@@ -3,23 +3,66 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   TouchableOpacity,
   TextInput,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
+import firebase from "firebase"
+
+import store from "../Redux/Store";
+import { NEW_REQUEST } from "../Redux/ActionTypeList";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 import formatDate from "../formatDate";
+
+const db = firebase.firestore();
 
 const Pet_screen9 = (props) => {
   const navigation = useNavigation();
   const data = { ...props.route.params };
   const timestring =
     data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
-  console.log(data);
+  
+   const checkDuplicacy = query => {
+    let checkType = query.serviceType === 'PetCare';
+    let checkDate = query.data.date === data.date;
+    let checkTime = query.data.time === data.time;
+    let checkName = query.data.petName === data.petName;
+    return checkType && checkDate && checkTime && checkName;
+  }
+
+  const submitHandler = () => {
+    const currentState = store.getState();
+    const Query = currentState.filter(checkDuplicacy)
+    if (Query.length > 0) {
+      console.log("DUPLICATE QUERY");
+      console.log('Query',Query);
+    }
+    else {
+      store.dispatch({
+      type: NEW_REQUEST,
+      payload: {
+        data: { ...data },
+        serviceType: "PetCare",
+      },
+    });
+      console.log("submittion Handled", store.getState());
+      db.collection('queries').doc('admin').set({
+        timeStamp: "NOV 4, 2020",
+        request: store.getState()[0]
+      }).then(function() {
+    console.log("Document successfully written!")
+}).catch(function(error) {
+    console.error("Error adding document: ", error);
+});
+
+    }
+
+
+    props.navigation.navigate("PetScreen9");
+  };
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -105,9 +148,9 @@ const Pet_screen9 = (props) => {
       </View>
 
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen9")}>
-          <Text> Submit</Text>
-        </Dark_Button>
+        <Dark_Button onPress={submitHandler}>
+          <Text>Submit</Text>
+          </Dark_Button>
       </View>
     </View>
   );
