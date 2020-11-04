@@ -98,7 +98,7 @@ const isUserEqual = (googleUser, firebaseUser) =>{
   const signIn = async () => {
     try {
       const result = await Google.logInAsync({
-        androidClientId: "614477296361-jg54s05qt189ke8q820041us7a9dgvr3.apps.googleusercontent.com",
+        androidClientId: '73279523429-85lh1pk97napmo4nq6bgefi4uhr2uf5j.apps.googleusercontent.com',
         //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
         scopes: ["profile", "email"]
       })

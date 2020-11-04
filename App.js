@@ -5,8 +5,12 @@ import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 
 import HomeScreen from "./src/navigation/HomeScreen";
 import { firebaseConfig } from "./src/component/authentication/credencials";
+
 import firebase from "firebase";
-firebase.initializeApp(firebaseConfig);
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig)
+}
 
 export default function App() {
   let [fontsLoaded] = useFonts({
