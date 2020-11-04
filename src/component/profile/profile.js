@@ -19,6 +19,7 @@ import { Feather } from "@expo/vector-icons";
 import Colors from "../../Items/Colors";
 import firebase from "firebase";
 // import { useState } from 'react';
+const db = firebase.firestore();
 
 const Box = (props) => {
   return (
@@ -50,6 +51,35 @@ const Box = (props) => {
 };
 
 const ProfileScreen = (props) => {
+
+  const [tasksRequested, setNoTasks] = useState(0);
+  // make user uid as key
+  var user = store_redux_thunk.getState().userToken;
+  // if a google user then target changes
+  if (store_redux_thunk.getState().authType === GOOGLE_AUTH) {
+    user = user.user;
+  }
+  const uid = user.uid;
+
+  var docRef = db
+    .collection("queries")
+    .doc(uid)
+    .collection('service-requests')
+    .get()
+    .then(function (querySnapshot) {
+      var count = 0
+      querySnapshot.forEach(function (doc) {
+        // doc.data() is never undefined for query doc snapshots
+        //console.log(doc.id, " => ", doc.data());
+        count++;
+      });
+      setNoTasks(count)
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
+    });
+
+
+
   const navigation = useNavigation();
   const AvatarPlaceholder = "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"
 
@@ -202,8 +232,8 @@ const ProfileScreen = (props) => {
           }}
         />
         <View style={styles.spacing}></View>
-        <Box lable1="Times volunteered" lable2="7" />
-        <Box lable1="Tasks Requested" lable2="4" />
+        <Box lable1="Times volunteered" lable2="None done now" />
+        <Box lable1="Tasks Requested" lable2={tasksRequested} />
         <View style={styles.spacing}></View>
         <Box lable1="Help" />
         <Box
