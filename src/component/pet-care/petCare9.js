@@ -6,12 +6,15 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
+
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import firebase from "firebase"
 
 import store from "../Redux/Store";
 import { NEW_REQUEST } from "../Redux/ActionTypeList";
+import store_redux_thunk from '../../asyncStorage/store'
+import { SIGN_IN, SIGN_OUT, GOOGLE_AUTH, EMAIL_PASSWORD_AUTH, RESTORE_TOKEN } from "../../asyncStorage/actionsList";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
@@ -24,8 +27,8 @@ const Pet_screen9 = (props) => {
   const data = { ...props.route.params };
   const timestring =
     data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
-  
-   const checkDuplicacy = query => {
+
+  const checkDuplicacy = query => {
     let checkType = query.serviceType === 'PetCare';
     let checkDate = query.data.date === data.date;
     let checkTime = query.data.time === data.time;
@@ -33,30 +36,71 @@ const Pet_screen9 = (props) => {
     return checkType && checkDate && checkTime && checkName;
   }
 
+
   const submitHandler = () => {
+    // check duplicacy
     const currentState = store.getState();
     const Query = currentState.filter(checkDuplicacy)
     if (Query.length > 0) {
       console.log("DUPLICATE QUERY");
-      console.log('Query',Query);
+      console.log('Query', Query);
     }
+
+    // if not duplicate request then add to redux 
     else {
       store.dispatch({
-      type: NEW_REQUEST,
-      payload: {
-        data: { ...data },
-        serviceType: "PetCare",
-      },
-    });
+        type: NEW_REQUEST,
+        payload: {
+          data: { ...data },
+          serviceType: "PetCare",
+          id: String(data.date + " " + timestring)
+        },
+      });
+
+      // notify and show the state
       console.log("submittion Handled", store.getState());
-      db.collection('queries').doc('admin').set({
-        timeStamp: "NOV 4, 2020",
-        request: store.getState()[0]
-      }).then(function() {
-    console.log("Document successfully written!")
-}).catch(function(error) {
-    console.error("Error adding document: ", error);
-});
+
+      // make user uid as key
+      var user = store_redux_thunk.getState().userToken;
+      // if a google user then target changes
+      if (store_redux_thunk.getState().authType === GOOGLE_AUTH) {
+        user = user.user;
+      }
+      const uid = user.uid;
+
+      // get the latest data from redux sync
+      const queryData = store.getState()
+      const latestData = queryData[queryData.length - 1]
+
+      // sending user info
+      db
+        .collection('queries')
+        .doc(uid)
+        .set({
+          userData: { ...user.providerData[0] }
+        }, { merge: true })
+        .then(function () {
+          console.log("Document successfully written!")
+          // sending data
+          db
+            .collection('queries')
+            .doc(uid)
+            .collection('service-requests')
+            .doc('for ' + latestData.id)
+            .set({
+              request: latestData
+            }, { merge: true })
+            .then(function () {
+              console.log("Document successfully written!")
+            })
+            .catch(function (error) {
+              console.error("Error adding document: ", error);
+            });
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+
 
     }
 
@@ -150,7 +194,7 @@ const Pet_screen9 = (props) => {
       <View style={styles.container6}>
         <Dark_Button onPress={submitHandler}>
           <Text>Submit</Text>
-          </Dark_Button>
+        </Dark_Button>
       </View>
     </View>
   );

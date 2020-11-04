@@ -1,17 +1,12 @@
+
+
+
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { AppLoading } from "expo";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
-
 import HomeScreen from "./src/navigation/HomeScreen";
-import { firebaseConfig } from "./src/component/authentication/credencials";
-
-import firebase from "firebase";
-
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig)
-}
-
+import Onboard_screen1 from "./src/OnBoard/onboard_screen1";
 export default function App() {
   let [fontsLoaded] = useFonts({
     Inter_900Black,
@@ -21,7 +16,7 @@ export default function App() {
     return <AppLoading />;
   }
 
-  
+
   return <HomeScreen />;
 }
 

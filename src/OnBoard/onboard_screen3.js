@@ -8,8 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN, EMAIL_PASSWORD_AUTH } from "../asyncStorage/actionsList";
-import store from "../asyncStorage/store"
+import { RESTORE_TOKEN, SIGN_OUT, SIGN_IN, EMAIL_PASSWORD_AUTH } from "../asyncStorage/actionsList";
+import store_redux_thunk from "../asyncStorage/store"
 
 import firebase from "firebase";
 
@@ -37,52 +37,52 @@ const Onboard_screen3 = (props) => {
     if (!checkSame()) {
       return;
     }
-    
-      store.dispatch((dispatch) => {
-                dispatch({type:'showload'})
+
+    store_redux_thunk.dispatch((dispatch) => {
+      dispatch({ type: 'showload' })
+    })
+
+
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log("User account created & signed in!");
+        setPass("");
+        setvPass("");
+
+        var user = firebase.auth().currentUser;
+
+        user
+          .updateProfile({
+            displayName: fullName,
+          })
+          .then(function () {
+            console.log(firebase.auth().currentUser);
+            // updating the redux store_redux_thunk now
+            store_redux_thunk.dispatch((dispatch) => {
+              dispatch({ type: SIGN_IN, token: user, authType: EMAIL_PASSWORD_AUTH })
+            })
+          })
+          .catch(function (error) {
+            console.log("inside updation ", error);
+          });
       })
-    
-                
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log("User account created & signed in!");
-          setPass("");
-          setvPass("");
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          console.log("That email address is already in use!");
+        }
 
-          var user = firebase.auth().currentUser;
+        if (error.code === "auth/invalid-email") {
+          console.log("That email address is invalid!");
+        }
 
-          user
-            .updateProfile({
-              displayName: fullName,
-            })
-            .then(function () {
-              console.log(firebase.auth().currentUser);
-              // updating the redux store now
-              store.dispatch((dispatch) => {
-                dispatch({type:SIGN_IN,token:user, authType : EMAIL_PASSWORD_AUTH})
-              })
-            })
-            .catch(function (error) {
-              console.log("inside updation ", error);
-            });
-        })
-        .catch((error) => {
-          if (error.code === "auth/email-already-in-use") {
-            console.log("That email address is already in use!");
-          }
+        console.error("you got ", error);
+      });
 
-          if (error.code === "auth/invalid-email") {
-            console.log("That email address is invalid!");
-          }
 
-          console.error("you got ", error);
-        });
-              
-            
 
-    
+
   };
 
   return (

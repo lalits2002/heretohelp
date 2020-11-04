@@ -10,8 +10,8 @@ import {
   ScrollView,
 } from "react-native";
 
-import { RESTORE_TOKEN,SIGN_OUT,SIGN_IN,GOOGLE_AUTH,EMAIL_PASSWORD_AUTH } from "../../asyncStorage/actionsList";
-import store from "../../asyncStorage/store"
+import { RESTORE_TOKEN, SIGN_OUT, SIGN_IN, GOOGLE_AUTH, EMAIL_PASSWORD_AUTH } from "../../asyncStorage/actionsList";
+import store_redux_thunk from "../../asyncStorage/store"
 
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
@@ -60,15 +60,15 @@ const ProfileScreen = (props) => {
   const [imgLink, setImgLink] = useState(AvatarPlaceholder);
 
 
-  // getting data from user token stored in store
+  // getting data from user token stored in store_redux_thunk
   useEffect(() => {
-    const state = store.getState();
+    const state = store_redux_thunk.getState();
     const authType = state.authType;
 
     // if (authType === GOOGLE_AUTH) {
     //   const user = state.userToken;
     //  if (user != null) {
-      
+
     //   setName(user.user.name);
     //   setEmail(user.user.email);
     //    setImgLink(user.user.photoUrl);
@@ -80,11 +80,11 @@ const ProfileScreen = (props) => {
     var user = state.userToken;
     // in case of google sign in , the user data is in user.user nested object
     if (authType === GOOGLE_AUTH) {
-      user = user.user ;
+      user = user.user;
       setImgLink(user.photoURL);
       console.log(imgLink);
     }
-     if (user != null) {
+    if (user != null) {
       let n = user.displayName;
       setName(n);
       setEmail(user.email);
@@ -93,23 +93,23 @@ const ProfileScreen = (props) => {
       setlName(nameSplit[1]);
     }
   })
-  
+
 
   const signout = () => {
-    
-      store.dispatch((dispatch) => {
-                dispatch({type:'showload'})
-      })
+
+    store_redux_thunk.dispatch((dispatch) => {
+      dispatch({ type: 'showload' })
+    })
     firebase
       .auth()
       .signOut()
       .then(() => {
         console.log("logged out");
-        store.dispatch((dispatch, getState) => {
-                    
+        store_redux_thunk.dispatch((dispatch, getState) => {
+
 
           dispatch({
-            type:SIGN_OUT
+            type: SIGN_OUT
           })
           console.log(getState());
         })
@@ -122,16 +122,16 @@ const ProfileScreen = (props) => {
   const deleteAccount = () => {
     var user = firebase.auth().currentUser;
 
-      store.dispatch((dispatch) => {
-                dispatch({type:'showload'})
-      })
+    store_redux_thunk.dispatch((dispatch) => {
+      dispatch({ type: 'showload' })
+    })
     user
       .delete()
       .then(function () {
         console.log("account deleted");
-        store.dispatch(dispatch=>{
+        store_redux_thunk.dispatch(dispatch => {
           dispatch({
-            type:SIGN_OUT,
+            type: SIGN_OUT,
 
           })
         })
@@ -158,8 +158,8 @@ const ProfileScreen = (props) => {
             size={140}
             rounded
             source={{
-              uri:imgLink
-                
+              uri: imgLink
+
             }}
           >
             <Accessory />

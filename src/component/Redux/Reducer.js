@@ -9,7 +9,7 @@ export default function Reducer(state = [], action) {
         data: action.payload.data,
         serviceType: action.payload.serviceType,
         resolved: false,
-        id: ++ID,
+        id: action.payload.id,
       },
     ];
   }

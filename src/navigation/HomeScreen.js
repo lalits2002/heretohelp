@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AppLoading } from "expo";
 
+
+
 import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
 import store from "../asyncStorage/store"
 
@@ -11,15 +13,16 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
+import Onboard_screen from "../OnBoard/onboard_screen";
+import Onboard_screen1 from "../OnBoard/onboard_screen1";
+import Onboard_screen2 from "../OnBoard/onboard_screen2";
+import Onboard_screen3 from "../OnBoard/onboard_screen3";
+
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 import MyTabs from "./bottom-navigator";
 
-import Onboard_screen from "../OnBoard/onboard_screen";
-import Onboard_screen1 from "../OnBoard/onboard_screen1";
-import Onboard_screen2 from "../OnBoard/onboard_screen2";
-import Onboard_screen3 from "../OnBoard/onboard_screen3";
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
@@ -195,88 +198,88 @@ function TransportScreen() {
 }
 
 function HomeScreen() {
- 
+
   const [refresh, refresher] = useState(0)
 
-  
+
   const currentState = store.getState();
 
   store.subscribe(() => {
     console.log(currentState);
-    refresher(refresh+1);
+    refresher(refresh + 1);
   })
 
 
   if (currentState.isLoading) {
-    
+
     return <AppLoading />;
   }
 
-  if(currentState.isSignout) {
-     return (
-    <NavigationContainer>
-      <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-        <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
-        <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
-        <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
-      </ScreenConstant.Navigator>
-    </NavigationContainer>
-  )
+  if (currentState.isSignout) {
+    return (
+      <NavigationContainer>
+        <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+          <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
+          <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
+          <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
+        </ScreenConstant.Navigator>
+      </NavigationContainer>
+    )
   }
 
   // if signed in
   else {
     return (
 
-    <NavigationContainer>
-      <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-        {/* <ScreenConstant.Screen name="OB" component={Onboard_screen} /> */}
-        <ScreenConstant.Screen name="Home" component={Loadscreen} />
-        <ScreenConstant.Screen name="vol" component={MyTabs} />
-        <ScreenConstant.Screen name="Victim" component={MyTabs} />
+      <NavigationContainer>
+        <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+          {/* <ScreenConstant.Screen name="OB" component={Onboard_screen} /> */}
+          <ScreenConstant.Screen name="Home" component={Loadscreen} />
+          <ScreenConstant.Screen name="vol" component={MyTabs} />
+          <ScreenConstant.Screen name="Victim" component={MyTabs} />
 
-        <ScreenConstant.Screen
-          name="social_screen"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forScaleFromCenterAndroid,
-          }}
-          component={SocialScreen}
-        />
+          <ScreenConstant.Screen
+            name="social_screen"
+            options={{
+              cardStyleInterpolator:
+                CardStyleInterpolators.forScaleFromCenterAndroid,
+            }}
+            component={SocialScreen}
+          />
 
-        <ScreenConstant.Screen
-          name="pet_screen"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forScaleFromCenterAndroid,
-          }}
-          component={Petscreen}
-        />
+          <ScreenConstant.Screen
+            name="pet_screen"
+            options={{
+              cardStyleInterpolator:
+                CardStyleInterpolators.forScaleFromCenterAndroid,
+            }}
+            component={Petscreen}
+          />
 
-        <ScreenConstant.Screen
-          name="handywork_screen"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forScaleFromCenterAndroid,
-          }}
-          component={HandyWorkScreen}
-        />
+          <ScreenConstant.Screen
+            name="handywork_screen"
+            options={{
+              cardStyleInterpolator:
+                CardStyleInterpolators.forScaleFromCenterAndroid,
+            }}
+            component={HandyWorkScreen}
+          />
 
-        <ScreenConstant.Screen
-          name="transport_screen"
-          options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forScaleFromCenterAndroid,
-          }}
-          component={TransportScreen}
-        />
-      </ScreenConstant.Navigator>
-    </NavigationContainer>
-  );
+          <ScreenConstant.Screen
+            name="transport_screen"
+            options={{
+              cardStyleInterpolator:
+                CardStyleInterpolators.forScaleFromCenterAndroid,
+            }}
+            component={TransportScreen}
+          />
+        </ScreenConstant.Navigator>
+      </NavigationContainer>
+    );
   }
 
-  
-  
+
+
 }
 
 export default HomeScreen;

@@ -3,6 +3,6 @@ import thunk from 'redux-thunk';
 import Reducer from './reducer';
 
 // Note: this API requires redux@>=3.1.0
-const store = createStore(Reducer, applyMiddleware(thunk));
+const store_redux_thunk = createStore(Reducer, applyMiddleware(thunk));
 
-export default store;
+export default store_redux_thunk;
