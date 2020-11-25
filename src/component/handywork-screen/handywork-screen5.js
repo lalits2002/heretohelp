@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Alert,
   TouchableOpacity,
   TextInput,
 } from "react-native";
@@ -20,6 +21,24 @@ const HandyWork_Screen5 = (props) => {
 
   const timestring =
     data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
+    const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Your request is posted!",
+      "We will share your transportation request, so local peple can reach out to you!",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+
+
+
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -66,7 +85,8 @@ const HandyWork_Screen5 = (props) => {
       </View>
 
       <View style={styles.container3}>
-        <Dark_Button>
+        <Dark_Button
+        onPress={createTwoButtonAlert}>
           <Text style={{ fontSize: 18 }}>Submit</Text>
         </Dark_Button>
       </View>

@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  TouchableHighlight,
   TextInput,
   Modal,
   Dimensions,
@@ -24,6 +25,7 @@ const Transport_screen5 = (props) => {
   const [value, onChangeText] = useState();
   const data = { ...props.route.params };
   const  [showModal, setShowModal] = useState(false);
+
 
   console.log(data);
 
@@ -89,7 +91,9 @@ const Transport_screen5 = (props) => {
       </View>
 
       <View style={styles.container3}>
+      {/* <TouchableHighlight onPress={() => activeOpacity={0.6} underlayColor="#DDDDDD">  </TouchableHighlight> */}
         <Dark_Button
+        // <TouchableHighlight  activeOpacity={0.6} underlayColor="#DDDDDD">  </TouchableHighlight>
           onPress={() => { setShowModal(true);}}
         >
           <Text style={{ fontSize: 18 }}> Submit</Text>
