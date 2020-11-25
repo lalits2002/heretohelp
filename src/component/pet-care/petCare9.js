@@ -3,6 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
+  Modal,
+  Dimensions,
   Image,
   TouchableOpacity,
   TextInput,
@@ -17,6 +19,7 @@ import formatDate from "../formatDate";
 const Pet_screen9 = (props) => {
   const navigation = useNavigation();
   const data = { ...props.route.params };
+  const  [showModal, setShowModal] = useState(false);
   const timestring =
     data.time.Hour + ":" + data.time.Minute + " " + data.time.Meridian;
   console.log(data);
@@ -105,10 +108,57 @@ const Pet_screen9 = (props) => {
       </View>
 
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen9")}>
+        <Dark_Button onPress={() => { setShowModal(true);}}>
           <Text> Submit</Text>
         </Dark_Button>
       </View>
+      <Modal
+         transparent={true}
+         visible={showModal}
+         animationType="slide"
+         onRequestClose={() => { setShowModal(false)}}
+        >
+
+
+                <View style={styles.cardsection}>
+                <View style={{ flex: 0.5, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
+                  <TouchableOpacity
+                  onPress={() => { setShowModal(false);}}>
+                  <Feather name="x-circle" size={25} color={Colors.primary3}   />
+                  </TouchableOpacity>
+                  </View>
+                  <View style={{flex: 1, flexDirection: "column", }}>
+                <Image
+                  source={require('../h2h/Vector85.png')}
+                  resizeMode= 'contain'
+                   style={{
+                    width: '20%',
+                    height: '20%',
+                    alignSelf: "center",
+
+
+                   }}
+                   /></View>
+                   <Text style={styles.modaltextcontainer1}>Your request is posted!</Text>
+
+
+                   <Text style={styles.modaltextcontainer2}>We will share your transportation request,
+                    so local peple can reach out to you!</Text>
+
+                {/* the above view contaisn text */}
+                <View style={styles.modalbottomcontainer}>
+                  <View style={styles.bottomblock1}>
+                    <Text style={{fontSize: 15}} onPress={() => { setShowModal(false);}}>Cancel</Text></View>
+                    <View style={styles.bottomblock2}>
+                    <Text style={{fontSize: 15}}>Got it!</Text></View>
+                </View>
+                </View>
+                <View style={{flex: 1, flexDirection: "column", width: "100%" }}></View>
+
+
+
+        </Modal>
+
     </View>
   );
 };
@@ -184,6 +234,63 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomWidth: 1,
   },
+  cardsection: {
+    flex: 1.2,
+    marginVertical: "30%",
+    marginRight: 25,
+    marginLeft: 20,
+    flexDirection: "column",
+    width: "100%",
+    backgroundColor: '#ffffff',
+    justifyContent: "flex-end",
+    borderRadius: 20,
+    width: Dimensions.get('window').width * 0.9 ,
+    height: Dimensions.get('window').height * 0.2,
+    borderWidth: 3,
+    // paddingTop: "10%"
+  },
+  modalbottomcontainer: {
+    flex: 0.9,
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+    backgroundColor: '#d3eb23',
+
+  },
+  bottomblock1: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+    width: "100%",
+    borderRightWidth: 2,
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopWidth: 2
+  },
+  bottomblock2: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopWidth: 2
+  },
+  modaltextcontainer1: {
+    fontSize: 24,
+    color: Colors.secondary4,
+    fontWeight: "bold",
+    alignSelf: "center",
+    paddingBottom: "7%"
+  },
+  modaltextcontainer2: {
+    alignSelf: "center",
+    fontSize: 15,
+    paddingLeft: 25,
+    paddingBottom: "10%",
+  },
+
 });
 
 export default Pet_screen9;

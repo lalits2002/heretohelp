@@ -230,16 +230,16 @@ const styles = StyleSheet.create({
     paddingTop: "2.5%",
   },
 
-  modalcontainer:{
-    flex: 1,
-    flexDirection: "column",
-    width: "100%",
-    backgroundColor: '#ffffff',
-    justifyContent: "center",
-    alignSelf: "center",
-    alignItems: "center"
+  // modalcontainer:{
+  //   flex: 1,
+  //   flexDirection: "column",
+  //   width: "100%",
+  //   backgroundColor: '#ffffff',
+  //   justifyContent: "center",
+  //   alignSelf: "center",
+  //   alignItems: "center"
 
-  },
+  // },
   // basiccontainer: {
   //   flex: 1.5,
   //   flexDirection: "column",
