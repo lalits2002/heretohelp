@@ -102,12 +102,12 @@ const Transport_screen5 = (props) => {
          animationType="slide"
          onRequestClose={() => { setShowModal(false)}}
         >
-            <View style={styles.modalcontainer}>
-                {/* the above view is the container which contains modal */}
+            {/* <View style={styles.modalcontainer}> */}
+                {/* /* the above view is the container which contains modal */}
 
                 {/* The basiccontainer is used for space */}
-                <View style={styles.basiccontainer}>
-                  </View>
+                {/* <View style={styles.basiccontainer}>
+                  </View> */}
                 <View style={styles.cardsection}>
                 <View style={{ flex: 0.5, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
                   <TouchableOpacity
@@ -141,10 +141,10 @@ const Transport_screen5 = (props) => {
                     <Text style={{fontSize: 15}}>Got it!</Text></View>
                 </View>
                 </View>
-                <View style={{flex: 1, flexDirection: "column", width: "100%", backgroundColor: "#d3eb23"}}></View>
+                <View style={{flex: 1, flexDirection: "column", width: "100%" }}></View>
 
 
-            </View>
+            {/* </View> */}
         </Modal>
 
     </SafeAreaView>
@@ -232,30 +232,34 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: '#ffffff',
     justifyContent: "center",
-    alignSelf: "flex-start",
+    alignSelf: "center",
     alignItems: "center"
 
   },
-  basiccontainer: {
-    flex: 1.5,
-    flexDirection: "column",
-    width: "100%",
-    backgroundColor: "#d3eb23"
+  // basiccontainer: {
+  //   flex: 1.5,
+  //   flexDirection: "column",
+  //   width: "100%",
+  //   // backgroundColor: "#d3eb23"
 
-  },
+  // },
   cardsection: {
-    flex: 1.5,
+    flex: 1.2,
+    marginVertical: "30%",
+    marginRight: 25,
+    marginLeft: 20,
     flexDirection: "column",
     width: "100%",
     backgroundColor: '#ffffff',
     justifyContent: "flex-end",
     borderRadius: 20,
     width: Dimensions.get('window').width * 0.9 ,
-    height: Dimensions.get('window').height * 0.3,
-    borderWidth: 3
+    height: Dimensions.get('window').height * 0.2,
+    borderWidth: 3,
+    // paddingTop: "10%"
   },
   modalbottomcontainer: {
-    flex: 0.4,
+    flex: 0.9,
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
@@ -292,7 +296,7 @@ const styles = StyleSheet.create({
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
-    paddingLeft: 38,
+    paddingLeft: 25,
     paddingBottom: "10%",
   },
 });
