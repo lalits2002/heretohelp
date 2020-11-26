@@ -5,15 +5,14 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  TouchableHighlight,
   TextInput,
-  Modal,
   Dimensions,
   SafeAreaView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import formatDate from "../formatDate";
+import Modal from "react-native-modal";
 
 
 import Colors from "../../Items/Colors";
@@ -24,7 +23,7 @@ const Transport_screen5 = (props) => {
   const navigation = useNavigation();
   const [value, onChangeText] = useState();
   const data = { ...props.route.params };
-  const  [showModal, setShowModal] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
 
 
   console.log(data);
@@ -91,41 +90,36 @@ const Transport_screen5 = (props) => {
       </View>
 
       <View style={styles.container3}>
-      {/* <TouchableHighlight onPress={() => activeOpacity={0.6} underlayColor="#DDDDDD">  </TouchableHighlight> */}
         <Dark_Button
-        // <TouchableHighlight  activeOpacity={0.6} underlayColor="#DDDDDD">  </TouchableHighlight>
-          onPress={() => { setShowModal(true);}}
+
+        onPress={() => {setModalVisible(true);}}
         >
           <Text style={{ fontSize: 18 }}> Submit</Text>
         </Dark_Button>
       </View>
 
       <Modal
-         transparent={true}
-         visible={showModal}
-         animationType="slide"
-         onRequestClose={() => { setShowModal(false)}}
-        >
-            {/* <View style={styles.modalcontainer}> */}
-                {/* /* the above view is the container which contains modal */}
+      isVisible={isModalVisible}
+      animationIn="slideInUp"
+      backdropColor='#2D375B'
+      backdropOpacity={0.7}
+      onBackButtonPress={() => {setModalVisible(false)}}
+      >
 
-                {/* The basiccontainer is used for space */}
-                {/* <View style={styles.basiccontainer}>
-                  </View> */}
-                <View style={styles.cardsection}>
-                <View style={{ flex: 0.5, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
+        <View style={styles.cardsection}>
+                <View style={{ flex: 1, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
                   <TouchableOpacity
-                  onPress={() => { setShowModal(false);}}>
+                  onPress={() => { setModalVisible(false);}}>
                   <Feather name="x-circle" size={25} color={Colors.primary3}   />
                   </TouchableOpacity>
                   </View>
-                  <View style={{flex: 1, flexDirection: "column", }}>
+                  <View style={{flex: 1.2, flexDirection: "column", }}>
                 <Image
                   source={require('../h2h/Vector85.png')}
                   resizeMode= 'contain'
                    style={{
-                    width: '20%',
-                    height: '20%',
+                    width: '25%',
+                    height: '25%',
                     alignSelf: "center",
 
 
@@ -140,16 +134,14 @@ const Transport_screen5 = (props) => {
                 {/* the above view contaisn text */}
                 <View style={styles.modalbottomcontainer}>
                   <View style={styles.bottomblock1}>
-                    <Text style={{fontSize: 15}} onPress={() => { setShowModal(false);}}>Cancel</Text></View>
+                    <Text style={{fontSize: 15}} onPress={() => { setModalVisible(false);}}>Cancel</Text></View>
                     <View style={styles.bottomblock2}>
                     <Text style={{fontSize: 15}}>Got it!</Text></View>
                 </View>
                 </View>
                 <View style={{flex: 1, flexDirection: "column", width: "100%" }}></View>
 
-
-            {/* </View> */}
-        </Modal>
+      </Modal>
 
     </SafeAreaView>
 
@@ -230,40 +222,23 @@ const styles = StyleSheet.create({
     paddingTop: "2.5%",
   },
 
-  // modalcontainer:{
-  //   flex: 1,
-  //   flexDirection: "column",
-  //   width: "100%",
-  //   backgroundColor: '#ffffff',
-  //   justifyContent: "center",
-  //   alignSelf: "center",
-  //   alignItems: "center"
-
-  // },
-  // basiccontainer: {
-  //   flex: 1.5,
-  //   flexDirection: "column",
-  //   width: "100%",
-  //   // backgroundColor: "#d3eb23"
-
-  // },
   cardsection: {
-    flex: 1.2,
+    flex: 1.5,
     marginVertical: "30%",
-    marginRight: 25,
-    marginLeft: 20,
+    marginRight: 20,
+    marginLeft: 12,
     flexDirection: "column",
     width: "100%",
     backgroundColor: '#ffffff',
     justifyContent: "flex-end",
     borderRadius: 20,
-    width: Dimensions.get('window').width * 0.9 ,
-    height: Dimensions.get('window').height * 0.2,
+    width: Dimensions.get('window').width * 0.85 ,
+    height: Dimensions.get('window').height * 0.25,
     borderWidth: 3,
     // paddingTop: "10%"
   },
   modalbottomcontainer: {
-    flex: 0.9,
+    flex: 1.5,
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
@@ -295,13 +270,14 @@ const styles = StyleSheet.create({
     color: Colors.secondary4,
     fontWeight: "bold",
     alignSelf: "center",
-    paddingBottom: "7%"
+    paddingBottom: "5%"
   },
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
     paddingLeft: 25,
-    paddingBottom: "10%",
+    paddingRight: 25,
+    paddingBottom: "6.5%",
   },
 });
 export default Transport_screen5;
