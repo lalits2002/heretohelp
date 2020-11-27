@@ -5,7 +5,7 @@ import {
   Text,
   Image,
   Dimensions,
-  Alert,
+  TouchableHighlight,
   TouchableOpacity,
   TextInput,
 } from "react-native";
@@ -87,16 +87,17 @@ const HandyWork_Screen5 = (props) => {
       backdropColor='#2D375B'
       backdropOpacity={0.7}
       onBackButtonPress={() => {setModalVisible(false)}}
+      style={styles.cardsection}
       >
 
-        <View style={styles.cardsection}>
-                <View style={{ flex: 1, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
+
+                <View style={{ flex: 0.7, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
                   <TouchableOpacity
                   onPress={() => { setModalVisible(false);}}>
-                  <Feather name="x-circle" size={25} color={Colors.primary3}   />
+                  <Feather name="x" size={25} color={Colors.primary3}   />
                   </TouchableOpacity>
                   </View>
-                  <View style={{flex: 1.2, flexDirection: "column", }}>
+                  <View style={{flex: 0.5, flexDirection: "column", }}>
                 <Image
                   source={require('../h2h/Vector85.png')}
                   resizeMode= 'contain'
@@ -108,26 +109,47 @@ const HandyWork_Screen5 = (props) => {
 
                    }}
                    /></View>
+                   <View style={{flex: 0.7, flexDirection: "column",}}>
                    <Text style={styles.modaltextcontainer1}>Your request is posted!</Text>
 
 
                    <Text style={styles.modaltextcontainer2}>We will share your transportation request,
-                    so local peple can reach out to you!</Text>
+                    so local peple can reach out to you!</Text></View>
 
                 {/* the above view contaisn text */}
-                <View style={styles.modalbottomcontainer}>
-                  <View style={styles.bottomblock1}>
-                    <Text style={{fontSize: 15}} onPress={() => { setModalVisible(false);}}>Cancel</Text></View>
+                <View style={{ flex: 0.4, flexDirection: "row", width: Dimensions.get('window').width * 0.84 , backgroundColor: '#d3eb23', borderRadius: 20,}}>
+
+                    <TouchableHighlight
+                    onPress={() => setModalVisible(false)}
+                    activeOpacity={0.6}
+                    underlayColor="#2D375B">
+                      <View style={styles.bottomblock1}>
+                    <Text style={{fontSize: 15}} >Cancel</Text></View>
+                    </TouchableHighlight>
+
+
+
+                    <TouchableHighlight
+                    onPress={() => setModalVisible(false)}
+                    activeOpacity={0.6}
+                    underlayColor="#2D375B">
                     <View style={styles.bottomblock2}>
                     <Text style={{fontSize: 15}}>Got it!</Text></View>
+                    </TouchableHighlight>
+
                 </View>
-                </View>
-                <View style={{flex: 1, flexDirection: "column", width: "100%" }}></View>
+
+
 
       </Modal>
-    </View>
+      </View>
+
+
+
+
   );
 };
+
 
 const styles = StyleSheet.create({
   screen: {
@@ -198,48 +220,60 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   cardsection: {
-    flex: 1.5,
+    flex: 1,
     marginVertical: "30%",
-    marginRight: 20,
-    marginLeft: 12,
+    // marginRight: "30%",
+    // marginRight: 30,
+    // marginLeft: 15,
     flexDirection: "column",
-    width: "100%",
+    // width: "100%",
     backgroundColor: '#ffffff',
-    justifyContent: "flex-end",
     borderRadius: 20,
-    width: Dimensions.get('window').width * 0.85 ,
-    height: Dimensions.get('window').height * 0.25,
-    borderWidth: 3,
-    // paddingTop: "10%"
+    width: Dimensions.get('window').width * 0.84 ,
+    // height: Dimensions.get('window').height * 1,
   },
-  modalbottomcontainer: {
-    flex: 1.5,
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    backgroundColor: '#d3eb23',
 
-  },
+  // modalbottomcontainer: {
+  //   flex: 0.5,
+  //   flexDirection: "row",
+  //   width: "100%",
+  //   // alignItems: "flex-end",
+  //   backgroundColor: '#d3eb23',
+  //   borderRadius: 20,
+  //   // marginRight: 20,
+  //   // paddingRight: 50,
+
+  // },
   bottomblock1: {
     flex: 1,
     backgroundColor: "#ffffff",
     width: "100%",
+    // width: Dimensions.get('window').width * 0.84 ,
+    flexDirection: "row",
     borderRightWidth: 2,
+    borderRightColor: "#e0e0e0",
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    borderTopWidth: 2
+    borderTopWidth: 2,
+    borderTopColor: "#e0e0e0",
   },
+
   bottomblock2: {
     flex: 1,
+    flexDirection: "row",
     backgroundColor: "#ffffff",
     width: "100%",
+    // width: Dimensions.get('window').width * 0.84 ,
     height: "100%",
+    // paddingRight: 20,
+    // borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    borderTopWidth: 2
+    borderTopWidth: 2,
+    borderTopColor: "#e0e0e0",
   },
+
   modaltextcontainer1: {
     fontSize: 24,
     color: Colors.secondary4,
@@ -247,14 +281,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingBottom: "5%"
   },
+
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
-    paddingLeft: 25,
-    paddingRight: 25,
+    // paddingLeft: 25,
+    // paddingRight: 30,
     paddingBottom: "6.5%",
   },
-
 });
 
 export default HandyWork_Screen5;
