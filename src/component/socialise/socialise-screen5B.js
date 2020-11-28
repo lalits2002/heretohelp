@@ -124,19 +124,19 @@ const Social_Screen5B = (props) => {
                     onPress={() => setModalVisible(false)}
                     activeOpacity={0.6}
                     underlayColor="#2D375B"
-                    >
-                    <View style={styles.bottomblock1}>
-                    <Text style={{fontSize: 15}}>Cancel</Text></View>
+
+                    style={styles.bottomblock1}>
+                    <Text style={{fontSize: 15}}>Cancel</Text>
                     </TouchableOpacity>
 
-                    <TouchableHighlight
+                    <TouchableOpacity
                     onPress={() => setModalVisible(false)}
                     activeOpacity={0.2}
                     underlayColor="#D5DBF5"
-                    >
-                    <View style={styles.bottomblock2}>
-                    <Text style={{fontSize: 15}}>Got it!</Text></View>
-                    </TouchableHighlight>
+
+                     style={styles.bottomblock2}>
+                    <Text style={{fontSize: 15}}>Got it!</Text>
+                    </TouchableOpacity>
 
                 </View>
                 </View>
@@ -222,6 +222,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: Dimensions.get('window').width * 0.85 ,
     height: Dimensions.get('window').height * 0.25,
+    // marginBottom: "5%"
 
 
     // paddingTop: "10%"
@@ -230,14 +231,22 @@ const styles = StyleSheet.create({
     flex: 0.4,
     flexDirection: "row",
     width: "100%",
+    justifyContent: "center",
+    borderRadius: 20,
+    borderColor: "#bf0d0d",
 
 
     backgroundColor: '#ffffff',
     // paddingBottom: 20,
+    // marginEnd: "5%",
+
+    // marginBottom: "4.8%",
+    // marginLeft: "4%",
+    // marginRight: "15%"
 
   },
   bottomblock1: {
-    flex: 1,
+    flex: 0.8,
     backgroundColor: "#ffffff",
     flexDirection: "row",
     width: "100%",
@@ -246,19 +255,27 @@ const styles = StyleSheet.create({
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    borderTopWidth: 2,
-    borderTopColor: "#e0e0e0"
+    // borderTopWidth: 2,
+    borderTopColor: "#e0e0e0",
+    // marginLeft: "2%"
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: "#e0e0e0"
   },
   bottomblock2: {
-    flex: 1,
+    flex: 0.8,
     flexDirection: "row",
     backgroundColor: "#ffffff",
     width: "100%",
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    borderTopWidth: 2,
-    borderTopColor: "#e0e0e0"
+    // borderTopWidth: 2,
+    // borderTopColor: "#e0e0e0",
+    borderRadius: 20,
+    borderWidth: 2,
+    // borderBottomColor: "#e0e0e0",
+    borderColor: "#e0e0e0"
   },
   modaltextcontainer1: {
     fontSize: 24,

@@ -86,18 +86,20 @@ const HandyWork_Screen5 = (props) => {
       animationIn="slideInUp"
       backdropColor='#2D375B'
       backdropOpacity={0.7}
+      avoidKeyboard= {false}
+      onBackdropPress={() => setModalVisible(false)}
       onBackButtonPress={() => {setModalVisible(false)}}
-      style={styles.cardsection}
+
       >
 
-
-                <View style={{ flex: 0.7, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
+        <View style={styles.cardsection}>
+                <View style={{ flex: 0.5, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
                   <TouchableOpacity
                   onPress={() => { setModalVisible(false);}}>
-                  <Feather name="x" size={25} color={Colors.primary3}   />
+                  <Feather name="x-circle" size={25} color={Colors.primary3}   />
                   </TouchableOpacity>
                   </View>
-                  <View style={{flex: 0.5, flexDirection: "column", }}>
+                  <View style={{flex: 0.4, flexDirection: "column", }}>
                 <Image
                   source={require('../h2h/Vector85.png')}
                   resizeMode= 'contain'
@@ -109,7 +111,7 @@ const HandyWork_Screen5 = (props) => {
 
                    }}
                    /></View>
-                   <View style={{flex: 0.7, flexDirection: "column",}}>
+                   <View style={{flex: 1.2, flexDirection: "column"}}>
                    <Text style={styles.modaltextcontainer1}>Your request is posted!</Text>
 
 
@@ -117,31 +119,31 @@ const HandyWork_Screen5 = (props) => {
                     so local peple can reach out to you!</Text></View>
 
                 {/* the above view contaisn text */}
-                <View style={{ flex: 0.4, flexDirection: "row", width: Dimensions.get('window').width * 0.84 , backgroundColor: '#d3eb23', borderRadius: 20,}}>
-
-                    <TouchableHighlight
+                <View style={styles.modalbottomcontainer}>
+                <TouchableOpacity
                     onPress={() => setModalVisible(false)}
-                    activeOpacity={0.6}
-                    underlayColor="#2D375B">
-                      <View style={styles.bottomblock1}>
-                    <Text style={{fontSize: 15}} >Cancel</Text></View>
-                    </TouchableHighlight>
+                    activeOpacity={0.2}
+                    underlayColor="#596188"
 
+                    style={styles.bottomblock1}>
+                    <Text style={{fontSize: 15}}>Cancel</Text>
+                    </TouchableOpacity>
 
-
-                    <TouchableHighlight
+                    <TouchableOpacity
                     onPress={() => setModalVisible(false)}
-                    activeOpacity={0.6}
-                    underlayColor="#2D375B">
-                    <View style={styles.bottomblock2}>
-                    <Text style={{fontSize: 15}}>Got it!</Text></View>
-                    </TouchableHighlight>
+                    activeOpacity={0.2}
+                    underlayColor="#596188"
 
+                     style={styles.bottomblock2}>
+                    <Text style={{fontSize: 15}}>Got it!</Text>
+                    </TouchableOpacity>
+
+                </View>
                 </View>
 
 
-
       </Modal>
+
       </View>
 
 
@@ -220,58 +222,50 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   cardsection: {
-    flex: 1,
-    marginVertical: "30%",
-    // marginRight: "30%",
-    // marginRight: 30,
-    // marginLeft: 15,
+    flex: 0.65,
+    marginVertical: "36%",
+    marginRight: "2%",
+    marginLeft: "2%",
     flexDirection: "column",
-    // width: "100%",
     backgroundColor: '#ffffff',
+    justifyContent: "flex-end",
     borderRadius: 20,
-    width: Dimensions.get('window').width * 0.84 ,
-    // height: Dimensions.get('window').height * 1,
+    // width: Dimensions.get('window').width * 0.85 ,
+    // height: Dimensions.get('window').height * 0.25,
   },
 
-  // modalbottomcontainer: {
-  //   flex: 0.5,
-  //   flexDirection: "row",
-  //   width: "100%",
-  //   // alignItems: "flex-end",
-  //   backgroundColor: '#d3eb23',
-  //   borderRadius: 20,
-  //   // marginRight: 20,
-  //   // paddingRight: 50,
+  modalbottomcontainer: {
+    flex: 0.4,
+    flexDirection: "row",
+    justifyContent: "center",
+    borderRadius: 20,
+    backgroundColor: '#ffffff',
+  },
 
-  // },
   bottomblock1: {
-    flex: 1,
+    flex: 0.8,
     backgroundColor: "#ffffff",
-    width: "100%",
-    // width: Dimensions.get('window').width * 0.84 ,
     flexDirection: "row",
     borderRightWidth: 2,
     borderRightColor: "#e0e0e0",
-    height: "100%",
     alignItems: "center",
     justifyContent: "center",
     borderTopWidth: 2,
     borderTopColor: "#e0e0e0",
+    borderBottomLeftRadius: 20
   },
 
   bottomblock2: {
-    flex: 1,
+    flex: 0.8,
     flexDirection: "row",
     backgroundColor: "#ffffff",
-    width: "100%",
-    // width: Dimensions.get('window').width * 0.84 ,
-    height: "100%",
-    // paddingRight: 20,
-    // borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
     borderTopWidth: 2,
     borderTopColor: "#e0e0e0",
+    borderLeftWidth: 2,
+    borderLeftColor: "#e0e0e0",
+    borderBottomEndRadius: 20
   },
 
   modaltextcontainer1: {
@@ -285,9 +279,9 @@ const styles = StyleSheet.create({
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
-    // paddingLeft: 25,
-    // paddingRight: 30,
-    paddingBottom: "6.5%",
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: "6%",
   },
 });
 
