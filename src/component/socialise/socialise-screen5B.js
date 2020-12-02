@@ -88,6 +88,8 @@ const Social_Screen5B = (props) => {
       animationIn="slideInUp"
       backdropColor='#2D375B'
       backdropOpacity={0.7}
+      avoidKeyboard= {false}
+      onBackdropPress={() => setModalVisible(false)}
       onBackButtonPress={() => {setModalVisible(false)}}
 
       >
@@ -99,7 +101,7 @@ const Social_Screen5B = (props) => {
                   <Feather name="x-circle" size={25} color={Colors.primary3}   />
                   </TouchableOpacity>
                   </View>
-                  <View style={{flex: 0.5, flexDirection: "column", }}>
+                  <View style={{flex: 0.4, flexDirection: "column", }}>
                 <Image
                   source={require('../h2h/Vector85.png')}
                   resizeMode= 'contain'
@@ -122,8 +124,8 @@ const Social_Screen5B = (props) => {
                 <View style={styles.modalbottomcontainer}>
                 <TouchableOpacity
                     onPress={() => setModalVisible(false)}
-                    activeOpacity={0.6}
-                    underlayColor="#2D375B"
+                    activeOpacity={0.2}
+                    underlayColor="#596188"
 
                     style={styles.bottomblock1}>
                     <Text style={{fontSize: 15}}>Cancel</Text>
@@ -132,7 +134,7 @@ const Social_Screen5B = (props) => {
                     <TouchableOpacity
                     onPress={() => setModalVisible(false)}
                     activeOpacity={0.2}
-                    underlayColor="#D5DBF5"
+                    underlayColor="#596188"
 
                      style={styles.bottomblock2}>
                     <Text style={{fontSize: 15}}>Got it!</Text>
@@ -212,71 +214,51 @@ const styles = StyleSheet.create({
   },
   cardsection: {
     flex: 0.65,
-    marginVertical: "30%",
-    marginRight: 20,
-    marginLeft: 12,
+    marginVertical: "36%",
+    marginRight: "2%",
+    marginLeft: "2%",
     flexDirection: "column",
-    width: "100%",
     backgroundColor: '#ffffff',
     justifyContent: "flex-end",
     borderRadius: 20,
-    width: Dimensions.get('window').width * 0.85 ,
-    height: Dimensions.get('window').height * 0.25,
-    // marginBottom: "5%"
-
-
-    // paddingTop: "10%"
+    // width: Dimensions.get('window').width * 0.85 ,
+    // height: Dimensions.get('window').height * 0.25,
   },
+
   modalbottomcontainer: {
     flex: 0.4,
     flexDirection: "row",
-    width: "100%",
     justifyContent: "center",
     borderRadius: 20,
-    borderColor: "#bf0d0d",
-
-
     backgroundColor: '#ffffff',
-    // paddingBottom: 20,
-    // marginEnd: "5%",
-
-    // marginBottom: "4.8%",
-    // marginLeft: "4%",
-    // marginRight: "15%"
-
   },
+
   bottomblock1: {
     flex: 0.8,
     backgroundColor: "#ffffff",
     flexDirection: "row",
-    width: "100%",
     borderRightWidth: 2,
     borderRightColor: "#e0e0e0",
-    height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    // borderTopWidth: 2,
+    borderTopWidth: 2,
     borderTopColor: "#e0e0e0",
-    // marginLeft: "2%"
-    borderRadius: 20,
-    borderWidth: 2,
-    borderColor: "#e0e0e0"
+    borderBottomLeftRadius: 20
   },
+
   bottomblock2: {
     flex: 0.8,
     flexDirection: "row",
     backgroundColor: "#ffffff",
-    width: "100%",
-    height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    // borderTopWidth: 2,
-    // borderTopColor: "#e0e0e0",
-    borderRadius: 20,
-    borderWidth: 2,
-    // borderBottomColor: "#e0e0e0",
-    borderColor: "#e0e0e0"
+    borderTopWidth: 2,
+    borderTopColor: "#e0e0e0",
+    borderLeftWidth: 2,
+    borderLeftColor: "#e0e0e0",
+    borderBottomEndRadius: 20
   },
+
   modaltextcontainer1: {
     fontSize: 24,
     color: Colors.secondary4,
@@ -284,12 +266,13 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingBottom: "5%"
   },
+
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
     paddingLeft: 25,
     paddingRight: 25,
-    paddingBottom: "6.5%",
+    paddingBottom: "6%",
   },
 });
 

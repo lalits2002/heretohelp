@@ -70,17 +70,20 @@ const Social_Screen2A = (props) => {
       animationIn="slideInUp"
       backdropColor='#2D375B'
       backdropOpacity={0.7}
+      avoidKeyboard= {false}
+      onBackdropPress={() => setModalVisible(false)}
       onBackButtonPress={() => {setModalVisible(false)}}
+
       >
 
         <View style={styles.cardsection}>
-                <View style={{ flex: 1, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
+                <View style={{ flex: 0.5, flexDirection: "column", alignSelf: "flex-end", paddingRight: "2%"}}>
                   <TouchableOpacity
                   onPress={() => { setModalVisible(false);}}>
                   <Feather name="x-circle" size={25} color={Colors.primary3}   />
                   </TouchableOpacity>
                   </View>
-                  <View style={{flex: 1.2, flexDirection: "column", }}>
+                  <View style={{flex: 0.4, flexDirection: "column", }}>
                 <Image
                   source={require('../h2h/Vector85.png')}
                   resizeMode= 'contain'
@@ -92,21 +95,36 @@ const Social_Screen2A = (props) => {
 
                    }}
                    /></View>
+                   <View style={{flex: 1.2, flexDirection: "column"}}>
                    <Text style={styles.modaltextcontainer1}>Your request is posted!</Text>
 
 
                    <Text style={styles.modaltextcontainer2}>We will share your transportation request,
-                    so local peple can reach out to you!</Text>
+                    so local peple can reach out to you!</Text></View>
 
                 {/* the above view contaisn text */}
                 <View style={styles.modalbottomcontainer}>
-                  <View style={styles.bottomblock1}>
-                    <Text style={{fontSize: 15}} onPress={() => { setModalVisible(false);}}>Cancel</Text></View>
-                    <View style={styles.bottomblock2}>
-                    <Text style={{fontSize: 15}}>Got it!</Text></View>
+                <TouchableOpacity
+                    onPress={() => setModalVisible(false)}
+                    activeOpacity={0.2}
+                    underlayColor="#596188"
+
+                    style={styles.bottomblock1}>
+                    <Text style={{fontSize: 15}}>Cancel</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                    onPress={() => setModalVisible(false)}
+                    activeOpacity={0.2}
+                    underlayColor="#596188"
+
+                     style={styles.bottomblock2}>
+                    <Text style={{fontSize: 15}}>Got it!</Text>
+                    </TouchableOpacity>
+
                 </View>
                 </View>
-                <View style={{flex: 1, flexDirection: "column", width: "100%" }}></View>
+
 
       </Modal>
     </View>
@@ -177,48 +195,52 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   cardsection: {
-    flex: 1.5,
-    marginVertical: "30%",
-    marginRight: 20,
-    marginLeft: 12,
+    flex: 0.65,
+    marginVertical: "36%",
+    marginRight: "2%",
+    marginLeft: "2%",
     flexDirection: "column",
-    width: "100%",
     backgroundColor: '#ffffff',
     justifyContent: "flex-end",
     borderRadius: 20,
-    width: Dimensions.get('window').width * 0.85 ,
-    height: Dimensions.get('window').height * 0.25,
-    borderWidth: 3,
-    // paddingTop: "10%"
+    // width: Dimensions.get('window').width * 0.85 ,
+    // height: Dimensions.get('window').height * 0.25,
   },
-  modalbottomcontainer: {
-    flex: 1.5,
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    backgroundColor: '#d3eb23',
 
+  modalbottomcontainer: {
+    flex: 0.4,
+    flexDirection: "row",
+    justifyContent: "center",
+    borderRadius: 20,
+    backgroundColor: '#ffffff',
   },
+
   bottomblock1: {
-    flex: 1,
+    flex: 0.8,
     backgroundColor: "#ffffff",
-    width: "100%",
+    flexDirection: "row",
     borderRightWidth: 2,
-    height: "100%",
+    borderRightColor: "#e0e0e0",
     alignItems: "center",
     justifyContent: "center",
-    borderTopWidth: 2
+    borderTopWidth: 2,
+    borderTopColor: "#e0e0e0",
+    borderBottomLeftRadius: 20
   },
+
   bottomblock2: {
-    flex: 1,
+    flex: 0.8,
+    flexDirection: "row",
     backgroundColor: "#ffffff",
-    width: "100%",
-    height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    borderTopWidth: 2
+    borderTopWidth: 2,
+    borderTopColor: "#e0e0e0",
+    borderLeftWidth: 2,
+    borderLeftColor: "#e0e0e0",
+    borderBottomEndRadius: 20
   },
+
   modaltextcontainer1: {
     fontSize: 24,
     color: Colors.secondary4,
@@ -226,12 +248,13 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingBottom: "5%"
   },
+
   modaltextcontainer2: {
     alignSelf: "center",
     fontSize: 15,
     paddingLeft: 25,
     paddingRight: 25,
-    paddingBottom: "6.5%",
+    paddingBottom: "6%",
   },
 });
 
