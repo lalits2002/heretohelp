@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -8,19 +8,35 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
+
 import { firebaseConfig } from "../component/authentication/credencials";
 
 import firebase from "firebase";
-firebase.initializeApp(firebaseConfig)
 
-if (firebase.app.length === 0) {
-
+try {
+  firebase.initializeApp(firebaseConfig)
+} catch (err) {
+  // we skip the “already exists” message which is
+  // not an actual error when we’re hot-reloading
+  if (!firebase.app.length) {
+    console.error('Firebase initialization error raised', err.stack)
+  }
 }
+
+// firebase.initializeApp(firebaseConfig)
+// if ( === 0) {
+
+// }
+
+
 import * as Google from 'expo-google-app-auth'
-// import * as Google from 'expo-google-app-auth';
+
 
 import { RESTORE_TOKEN, SIGN_OUT, SIGN_IN, GOOGLE_AUTH } from "../asyncStorage/actionsList";
 import store_redux_thunk from "../asyncStorage/store"
+
+import mediaStore from '../MediaStore/mediaStore'
+import getMedia from '../servises/mediaDownloader';
 
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
@@ -29,6 +45,27 @@ const Onboard_screen1 = (props) => {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
 
+  const [image0, setImage] = useState(' ');
+
+  // setImage(getMedia('img/vector1.png'))
+
+  var defaultString = '.root/in-app-media/';
+  // console.log(defaultString + mediaLocation);
+  var url = firebase.storage().ref(defaultString + 'img/vector1.png').getDownloadURL()
+    .then(url => {
+      mediaStore.dispatch({
+        type: 'addMedia',
+        metadata: {
+          name: 'img/vector1.png',
+          url
+        }
+      })
+      setImage(url)
+      // return url
+    })
+    .catch(function (error) {
+      // Handle any errors
+    });
 
   const isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
@@ -45,6 +82,7 @@ const Onboard_screen1 = (props) => {
   }
 
   const onSignIn = (googleUser) => {
+
     //console.log('Google Auth Response', googleUser);
     // We need to register an Observer on Firebase Auth to make sure auth is initialized.
     var unsubscribe = firebase.auth().onAuthStateChanged(function (firebaseUser) {
@@ -73,34 +111,9 @@ const Onboard_screen1 = (props) => {
       } else {
         console.log('User already signed-in Firebase.');
       }
+
     });
   }
-
-  //   const signInWithGoogleAsync = async () => {
-  //     console.log("came here");
-  //   try {
-  //     const result = await Google.logInAsync({
-  //       behavior:'web',
-  //       androidClientId: '614477296361-jn1pgrno24lun4d2sjvet3n572tj976u.apps.googleusercontent.com',
-  //       // iosClientId: YOUR_CLIENT_ID_HERE,
-  //       scopes: ['profile', 'email'],
-  //     });
-
-  //     if (result.type === 'success') {
-  //       console.log("success");
-  //       onSignIn(result);
-  //        //store.dispatch((dispatch) => {
-  //               //  dispatch({type:SIGN_IN,token:result.accessToken})
-  // //})
-  //       return result.accessToken;
-  //     } else {
-  //       return { cancelled: true };
-  //     }
-  //   } catch (e) {
-  //     return { error: true };
-  //   }
-  // }
-
 
   const signIn = async () => {
     try {
@@ -119,14 +132,20 @@ const Onboard_screen1 = (props) => {
       console.log("error is here", e)
     }
   }
-
   return (
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
         <Image
-          source={require("./img/vector1.png")}
+          source={{
+            uri: mediaStore.getState()['img/vector1.png'] === undefined ? image0 : mediaStore.getState()['img/vector1.png']
+
+          }}
           resizeMode={"contain"}
-          style={{ bottom: "10%" }}
+          style={{
+            width: "50%",
+            height: "100%",
+            bottom: "10%"
+          }}
         />
       </View>
       <View style={styles.container2}>
@@ -201,6 +220,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "column",
     justifyContent: "flex-start",
+    alignItems: "flex-start"
     // backgroundColor: '#C68F8F'
   },
   container2: {

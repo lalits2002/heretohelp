@@ -102,7 +102,7 @@ const ProfileScreen = (props) => {
     if (authType === GOOGLE_AUTH) {
       user = user.user;
       setImgLink(user.photoURL);
-      console.log(imgLink);
+      // console.log(imgLink);
     }
     if (user != null) {
       let n = user.displayName;
@@ -131,7 +131,7 @@ const ProfileScreen = (props) => {
           dispatch({
             type: SIGN_OUT
           })
-          console.log(getState());
+          // console.log(getState());
         })
       })
       .catch((error) => {
