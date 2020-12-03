@@ -15,10 +15,37 @@ import firebase from "firebase";
 
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
+import mediaStore from '../MediaStore/mediaStore'
 
 const Onboard_screen3 = (props) => {
   const [password, setPass] = useState("");
   const [vPassword, setvPass] = useState("");
+
+
+  // hooks for media
+  const [image0, setImage] = useState(' ');
+
+  // setImage(getMedia('img/vector1.png'))
+
+  var defaultString = '.root/in-app-media/';
+  // console.log(defaultString + mediaLocation);
+  var url = firebase.storage().ref(defaultString + 'vector1.png').getDownloadURL()
+    .then(url => {
+      mediaStore.dispatch({
+        type: 'addMedia',
+        metadata: {
+          name: 'vector1.png',
+          url
+        }
+      })
+      setImage(url)
+      // return url
+    })
+    .catch(function (error) {
+      // Handle any errors
+    });
+
+
   const email = props.route.params.email;
 
   const fullName = props.route.params.fName + " " + props.route.params.lName;
@@ -79,19 +106,22 @@ const Onboard_screen3 = (props) => {
 
         console.error("you got ", error);
       });
-
-
-
-
   };
 
   return (
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
         <Image
-          source={require("./img/vector1.png")}
-          resizeMode={"contain"}
-          style={{ bottom: "10%" }}
+          source={{
+            width: "60%",
+            height: "100%",
+            uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
+
+          }}
+          resizeMode={"stretch"}
+          style={{
+
+          }}
         />
       </View>
       <View style={styles.container2}>

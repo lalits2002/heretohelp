@@ -45,18 +45,19 @@ const Onboard_screen1 = (props) => {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
 
+  // hooks for media
   const [image0, setImage] = useState(' ');
 
   // setImage(getMedia('img/vector1.png'))
 
   var defaultString = '.root/in-app-media/';
   // console.log(defaultString + mediaLocation);
-  var url = firebase.storage().ref(defaultString + 'img/vector1.png').getDownloadURL()
+  var url = firebase.storage().ref(defaultString + 'vector1.png').getDownloadURL()
     .then(url => {
       mediaStore.dispatch({
         type: 'addMedia',
         metadata: {
-          name: 'img/vector1.png',
+          name: 'vector1.png',
           url
         }
       })
@@ -137,7 +138,7 @@ const Onboard_screen1 = (props) => {
       <View style={styles.container1}>
         <Image
           source={{
-            uri: mediaStore.getState()['img/vector1.png'] === undefined ? image0 : mediaStore.getState()['img/vector1.png']
+            uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
 
           }}
           resizeMode={"contain"}

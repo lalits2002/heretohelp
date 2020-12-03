@@ -7,10 +7,13 @@ import {
   TextInput,
   SafeAreaView,
 } from "react-native";
+import firebase from "firebase";
 
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 import { Value } from "react-native-reanimated";
+import mediaStore from '../MediaStore/mediaStore'
+
 
 const Onboard_screen2 = (props) => {
   // const [btnText, setBtn] = useState("Next");
@@ -30,18 +33,30 @@ const Onboard_screen2 = (props) => {
   // });
   const [message, setMess] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPass] = useState("");
-  const [fromState, dispatchFormState] = useReducer({
-    inputValues: {
-      email: "",
-      password: "",
-    },
-    inputValidity: {
-      email: false,
-      password: false,
-    },
-    formIsValid: false,
-  });
+
+  // hooks for media
+  const [image0, setImage] = useState(' ');
+
+  // setImage(getMedia('img/vector2.png'))
+
+  var defaultString = '.root/in-app-media/';
+  // console.log(defaultString + mediaLocation);
+  var url = firebase.storage().ref(defaultString + 'vector2.png').getDownloadURL()
+    .then(url => {
+      mediaStore.dispatch({
+        type: 'addMedia',
+        metadata: {
+          name: 'vector2.png',
+          url
+        }
+      })
+      setImage(url)
+      // return url
+    })
+    .catch(function (error) {
+      // Handle any errors
+    });
+
 
   const submitHandler = () => {
     props.navigation.navigate("OB3", { ...props.route.params, email });
@@ -72,9 +87,16 @@ const Onboard_screen2 = (props) => {
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container1}>
         <Image
-          source={require("./img/vector2.png")}
-          resizeMode={"contain"}
-          // style={{bottom: '10%'}}
+          source={{
+            width: "60%",
+            height: "100%",
+            uri: mediaStore.getState()['vector2.png'] === undefined ? image0 : mediaStore.getState()['vector2.png']
+
+          }}
+          resizeMode={"stretch"}
+          style={{
+            bottom: "10%"
+          }}
         />
       </View>
       <View style={styles.container2}>
