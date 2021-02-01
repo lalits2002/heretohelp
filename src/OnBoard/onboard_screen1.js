@@ -7,6 +7,7 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 
 import { firebaseConfig } from "../component/authentication/credencials";
@@ -40,6 +41,9 @@ import getMedia from '../servises/mediaDownloader';
 
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
+import InputField from '../component/InputField/InputField';
+import AppText from '../component/AppText/AppText';
+import styles from './OnboardStyles';
 
 const Onboard_screen1 = (props) => {
   const [fName, setFName] = useState("");
@@ -52,21 +56,21 @@ const Onboard_screen1 = (props) => {
 
   var defaultString = '.root/in-app-media/';
   // console.log(defaultString + mediaLocation);
-  var url = firebase.storage().ref(defaultString + 'vector1.png').getDownloadURL()
-    .then(url => {
-      mediaStore.dispatch({
-        type: 'addMedia',
-        metadata: {
-          name: 'vector1.png',
-          url
-        }
-      })
-      setImage(url)
-      // return url
-    })
-    .catch(function (error) {
-      // Handle any errors
-    });
+  // var url = firebase.storage().ref(defaultString + 'vector1.png').getDownloadURL()
+  //   .then(url => {
+  //     mediaStore.dispatch({
+  //       type: 'addMedia',
+  //       metadata: {
+  //         name: 'vector1.png',
+  //         url
+  //       }
+  //     })
+  //     setImage(url)
+  //     // return url
+  //   })
+  //   .catch(function (error) {
+  //     // Handle any errors
+  //   });
 
   const isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
@@ -135,156 +139,87 @@ const Onboard_screen1 = (props) => {
   }
   return (
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
-      <View style={styles.container1}>
-        <Image
-          source={{
-            uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
+      <View style={styles.container}>
 
-          }}
-          resizeMode={"contain"}
-          style={{
-            width: "50%",
-            height: "100%",
-            bottom: "10%"
-          }}
-        />
-      </View>
-      <View style={styles.container2}>
-        <Text style={styles.head}>Let's get Started!</Text>
-      </View>
-
-      <View style={styles.container3}>
-        <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
-          <Text style={styles.head2}> First Name </Text>
-          <TextInput
-            style={styles.input}
-            value={fName}
-            onChangeText={(txt) => {
-              setFName(txt);
+        <View style={styles.logo}>
+          <Image
+            // source={{
+            //   uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
+            // }}
+            source={require('./img/vector1.png')}
+            style={{
+              width: '89px',
+              height: '89px',
+              resizeMode: 'contain',
             }}
-            placeholder={"  Your name Here"}
           />
         </View>
-
-        <View style={{ paddingVertical: "3%" }}>
-          <Text style={styles.head2}> Last Name </Text>
-          <TextInput
-            style={styles.input}
-            value={lName}
-            onChangeText={(txt) => {
-              setLName(txt);
-            }}
-            placeholder={"  Your surname Here"}
-          />
+        <View style={styles.title}>
+          <AppText style={styles.head}>Let's get started!</AppText>
         </View>
-      </View>
 
-      <View
-        style={styles.container4}
-      >
-        <Dark_Button
-          onPress={signIn}
+        <View style={styles.field_group}>
+          <InputField
+            label={"First Name"}
+            secureTextEntry={false}
+            placeholder={"Your name here"}
+            placeholderTextColor={ Colors.secondary2 }
+            onChangeText={ setFName }
+          >
+          </InputField>
+        </View>
+
+        <View style={styles.field_group}>
+          <InputField
+            label={"Last Name"}
+            secureTextEntry={false}
+            placeholder={"Your surname here"}
+            placeholderTextColor={ Colors.secondary2 }
+            onChangeText={ setLName }
+          >
+          </InputField>
+        </View>
+
+        <View style={styles.divider_container}>
+          <View style={styles.divider}></View>
+          <View style={{ width: '20%' }}><Text style={{ fontFamily: 'Avenir', fontSize: 13, color: '#C8C8C8', alignSelf: 'center', }}>OR</Text></View>
+          <View style={styles.divider}></View>
+        </View>
+
+        <View
+          style={styles.oauth_group}
         >
-          GOOGLE
-        </Dark_Button>
-      </View>
-      <View
-        style={styles.container4}
-      >
-        <Dark_Button
-          onPress={() => props.navigation.navigate("OB2", { fName, lName })}
-        >
-          Next
-        </Dark_Button>
-      </View>
-      <View style={styles.container5}>
-        <View style={styles.line}></View>
-        <View style={styles.line2}></View>
-        <View style={styles.line2}></View>
+          <Dark_Button
+            onPress={signIn}
+          >
+            GOOGLE
+          </Dark_Button>
+        </View>
+
+        <View style={styles.navigation}>
+          <View
+            style={styles.navigation_control}
+          >
+            <View style={{ width: '30%', alignSelf: 'flex-end', }}>
+              <Dark_Button
+                onPress={() => props.navigation.navigate("OB2", { fName, lName })}
+              >
+                Next
+              </Dark_Button>
+            </View>
+
+          </View>
+          <View style={styles.progress_bar_container}>
+            <View style={styles.progress_bar_filled}></View>
+            <View style={styles.progress_bar}></View>
+            <View style={styles.progress_bar}></View>
+            <View style={styles.progress_bar}></View>
+          </View>
+        </View>
+
       </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    height: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-    // backgroundColor: '#99927d',
-  },
-  container1: {
-    flex: 3,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start"
-    // backgroundColor: '#C68F8F'
-  },
-  container2: {
-    flex: 1.1,
-    width: "100%",
-    paddingHorizontal: "4%",
-    flexDirection: "column",
-    justifyContent: "center",
-    // backgroundColor: '#8FB6C6'
-  },
-  container3: {
-    flex: 3,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    paddingHorizontal: "4%",
-    // backgroundColor: '#F692A6'
-  },
-  container4: {
-    flex: 1.05,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    paddingLeft: "58%",
-    paddingHorizontal: "3%",
-    // backgroundColor: '#B58FC6'
-  },
-  container5: {
-    flex: 0.5,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    // backgroundColor: '#1D9F71'
-  },
-  head: {
-    fontSize: 42,
-    fontWeight: "bold",
-    color: Colors.primary1,
-  },
-  head2: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: Colors.secondary2,
-  },
-  line: {
-    height: 3,
-    width: 100,
-    borderRadius: 20,
-    backgroundColor: Colors.primary1,
-  },
-  line2: {
-    height: 3,
-    width: 100,
-    borderRadius: 20,
-    backgroundColor: Colors.disabledbutton,
-  },
-  input: {
-    fontSize: 20,
-    color: Colors.secondary3,
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
-  },
-});
 
 export default Onboard_screen1;
