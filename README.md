@@ -54,6 +54,7 @@ yarn start
 ## Authors
 
 - **Mayank Kumar** 
+- **Apoorva Verma** 
 - **Wycliff Kasirye** 
 - **Manasi Thaker** 
 - **Or Samuel** 
