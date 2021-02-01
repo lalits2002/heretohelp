@@ -13,24 +13,43 @@ const OnboardStyles = StyleSheet.create({
     backgroundColor: Colors.secondary_light,
   },
   container: {
+    flex: 1,
     marginHorizontal: 16,
     height: windowHeight,
   }, 
+  header: {
+    flex: 3.5,
+  },
+  content: {
+    flex: 5,
+    alignItems:'center',
+  },
+  navigation: {
+    flex: 1.5,
+  },
+  
   logo: {
+    flex: 3,
     paddingTop: '8%',
     paddingBottom: '4%',
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
+    flex: 1,
+    width: '100%',
     paddingVertical: '2%',
   },
   field_group: {
-    paddingVertical: '2%',
+    width: '100%',
+    height: 55,
+    marginVertical: 16,
   },
   divider_container: {
-    paddingVertical: '2%',
+    height: 55,
+    width: '100%',
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
   divider: {
@@ -40,30 +59,23 @@ const OnboardStyles = StyleSheet.create({
     backgroundColor: '#C8C8C8',
   }, 
   oauth_group: {
-    paddingVertical: '2%',
-  },
-  navigation: {
-    position: 'absolute',
+    height: 46,
     width: '100%',
-    bottom: 24,
   },
   navigation_control: {
+    flex: 3,
     marginBottom: 52,
   },
   progress_bar_container: {
+    flex: 1,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
   },
   head: {
     fontSize: 40,
-    fontWeight: '900',
+    fontFamily: 'Lato-Black',
     color: Colors.primary1,
-  },
-  head2: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: Colors.secondary2,
   },
   progress_bar_filled: {
     height: 3,
@@ -76,12 +88,6 @@ const OnboardStyles = StyleSheet.create({
     width: '22%',
     borderRadius: 20,
     backgroundColor: Colors.progress_bar,
-  },
-  input: {
-    fontSize: 20,
-    color: Colors.secondary3,
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
   },
 });
 

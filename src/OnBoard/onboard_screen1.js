@@ -141,59 +141,63 @@ const Onboard_screen1 = (props) => {
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container}>
 
-        <View style={styles.logo}>
-          <Image
-            // source={{
-            //   uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
-            // }}
-            source={require('./img/vector1.png')}
-            style={{
-              width: '89px',
-              height: '89px',
-              resizeMode: 'contain',
-            }}
-          />
-        </View>
-        <View style={styles.title}>
-          <AppText style={styles.head}>Let's get started!</AppText>
+        <View style={styles.header}>
+          <View style={styles.logo}>
+            <Image
+              // source={{
+              //   uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
+              // }}
+              source={require('./img/vector1.png')}
+              style={{
+                width: 89,
+                height: 89,
+                resizeMode: 'contain',
+              }}
+            />
+          </View>
+          <View style={styles.title}>
+            <AppText style={styles.head}>Let's get started!</AppText>
+          </View>
         </View>
 
-        <View style={styles.field_group}>
-          <InputField
-            label={"First Name"}
-            secureTextEntry={false}
-            placeholder={"Your name here"}
-            placeholderTextColor={ Colors.secondary2 }
-            onChangeText={ setFName }
+        <View style={styles.content}>
+          <View style={styles.field_group}>
+            <InputField
+              label={"First Name"}
+              secureTextEntry={false}
+              placeholder={"Your name here"}
+              placeholderTextColor={ Colors.secondary2 }
+              onChangeText={ setFName }
+            >
+            </InputField>
+          </View>
+
+          <View style={styles.field_group}>
+            <InputField
+              label={"Last Name"}
+              secureTextEntry={false}
+              placeholder={"Your surname here"}
+              placeholderTextColor={ Colors.secondary2 }
+              onChangeText={ setLName }
+            >
+            </InputField>
+          </View>
+
+          <View style={styles.divider_container}>
+            <View style={styles.divider}></View>
+            <View style={{ width: '20%' }}><Text style={{ fontFamily: 'Lato-Regular', fontSize: 13, color: '#C8C8C8', alignSelf: 'center', }}>OR</Text></View>
+            <View style={styles.divider}></View>
+          </View>
+
+          <View
+            style={styles.oauth_group}
           >
-          </InputField>
-        </View>
-
-        <View style={styles.field_group}>
-          <InputField
-            label={"Last Name"}
-            secureTextEntry={false}
-            placeholder={"Your surname here"}
-            placeholderTextColor={ Colors.secondary2 }
-            onChangeText={ setLName }
-          >
-          </InputField>
-        </View>
-
-        <View style={styles.divider_container}>
-          <View style={styles.divider}></View>
-          <View style={{ width: '20%' }}><Text style={{ fontFamily: 'Avenir', fontSize: 13, color: '#C8C8C8', alignSelf: 'center', }}>OR</Text></View>
-          <View style={styles.divider}></View>
-        </View>
-
-        <View
-          style={styles.oauth_group}
-        >
-          <Dark_Button
-            onPress={signIn}
-          >
-            GOOGLE
-          </Dark_Button>
+            <Dark_Button
+              onPress={signIn}
+            >
+              GOOGLE
+            </Dark_Button>
+          </View>
         </View>
 
         <View style={styles.navigation}>

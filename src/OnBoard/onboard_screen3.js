@@ -115,41 +115,45 @@ const Onboard_screen3 = (props) => {
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container}>
 
-        <View style={styles.logo}>
-          <Image
-            source={require('./img/vector2.png')}
-            style={{
-              width: '89px',
-              height: '89px',
-              resizeMode: 'contain',
-            }}
-          />
+        <View style={styles.header}>
+          <View style={styles.logo}>
+            <Image
+              source={require('./img/vector2.png')}
+              style={{
+                width: 89,
+                height: 89,
+                resizeMode: 'contain',
+              }}
+            />
+          </View>
+
+          <View style={styles.title}>
+            <AppText style={styles.head}>One last thing!</AppText>
+          </View>
         </View>
 
-        <View style={styles.title}>
-          <AppText style={styles.head}>One last thing!</AppText>
-        </View>
+        <View style={styles.content}>
+          <View style={styles.field_group}>
+            <InputField
+              label={'Enter your Password'}
+              secureTextEntry={true}
+              placeholder={'Enter here'}
+              placeholderTextColor={ Colors.secondary2 }
+              onChangeText={ setPass }
+            >
+            </InputField>
+          </View>
 
-        <View style={styles.field_group}>
-          <InputField
-            label={'Enter your Password'}
-            secureTextEntry={true}
-            placeholder={'Enter here'}
-            placeholderTextColor={ Colors.secondary2 }
-            onChangeText={ setPass }
-          >
-          </InputField>
-        </View>
-
-        <View style={styles.field_group}>
-          <InputField
-            label={'Verify Password'}
-            secureTextEntry={true}
-            placeholder={'Enter here'}
-            placeholderTextColor={ Colors.secondary2 }
-            onChangeText={ setvPass }
-          >
-          </InputField>
+          <View style={styles.field_group}>
+            <InputField
+              label={'Verify Password'}
+              secureTextEntry={true}
+              placeholder={'Enter here'}
+              placeholderTextColor={ Colors.secondary2 }
+              onChangeText={ setvPass }
+            >
+            </InputField>
+          </View>
         </View>
 
         <View style={styles.navigation}>

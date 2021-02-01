@@ -9,14 +9,14 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 16,
-    fontWeight: '800', // ExtraBold
+    fontFamily: 'Lato-Bold',
     color: Colors.secondary2,
     lineHeight: 24,
   },
 
   input: {
     fontSize: 18,
-    fontWeight: 'normal',
+    fontFamily: 'Lato-Regular',
     borderBottomColor: Colors.secondary2,
     borderBottomWidth: 1,
     color: Colors.secondary2,

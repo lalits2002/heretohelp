@@ -90,32 +90,37 @@ const Onboard_screen2 = (props) => {
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container}>
 
-        <View style={styles.logo}>
-          <Image
-            source={require('./img/vector2.png')}
-            style={{
-              width: '89px',
-              height: '89px',
-              resizeMode: 'contain',
-            }}
-          />
+        <View style={styles.header}>
+          <View style={styles.logo}>
+            <Image
+              source={require('./img/vector2.png')}
+              style={{
+                width: 89,
+                height: 89,
+                resizeMode: 'contain',
+              }}
+            />
+          </View>
+
+          <View style={styles.title}>
+            <AppText style={styles.head}>Almost There! {message}</AppText>
+          </View>
         </View>
 
-        <View style={styles.title}>
-          <AppText style={styles.head}>Almost There! {message}</AppText>
+        <View style={styles.content}>
+          <View style={styles.field_group}>
+            <InputField
+              label={'Enter your email'}
+              secureTextEntry={false}
+              placeholder={'Enter here'}
+              placeholderTextColor={ Colors.secondary2 }
+              onChangeText={ setEmail }
+              keyboardType={'email-address'}
+            >
+            </InputField>
+          </View>
         </View>
-
-        <View style={styles.field_group}>
-          <InputField
-            label={'Enter your email'}
-            secureTextEntry={false}
-            placeholder={'Enter here'}
-            placeholderTextColor={ Colors.secondary2 }
-            onChangeText={ setEmail }
-            keyboardType={'email-address'}
-          >
-          </InputField>
-        </View>
+        
         {/* <View style={styles.container3}> */}
         {/* <View style={{ paddingVertical: "4%", paddingTop: "5%" }}>
             <Text style={styles.head2}> Enter your Password</Text>
