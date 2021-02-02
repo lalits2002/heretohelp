@@ -4,6 +4,7 @@ export default{
   primary3: '#596188',
   primary4: '#D5DBF5',
   secondary1: '#14161B',
+  secondary_light: '#FDFDFD',
   secondary2: '#3A3C42',
   secondary3: '#64666D',
   secondary4: '#4F4F4F',
@@ -13,5 +14,9 @@ export default{
   button: '#000000',
   large: '#FFFFFF',
   disabledbutton: '#BDBDBD',
-  textbutton: '#2D375B'
+  textbutton: '#2D375B',
+
+  // progress bar
+  progress_bar: '#CED3EE',
+  progress_bar_filled: '#596188',
 }
