@@ -147,7 +147,7 @@ const Onboard_screen1 = (props) => {
               // source={{
               //   uri: mediaStore.getState()['vector1.png'] === undefined ? image0 : mediaStore.getState()['vector1.png']
               // }}
-              source={require('./img/vector1.png')}
+              source={require('../../assets/images/logo.png')}
               style={{
                 width: 89,
                 height: 89,
