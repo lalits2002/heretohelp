@@ -93,7 +93,7 @@ const Onboard_screen2 = (props) => {
         <View style={styles.header}>
           <View style={styles.logo}>
             <Image
-              source={require('./img/vector2.png')}
+              source={require('../../assets/images/logo.png')}
               style={{
                 width: 89,
                 height: 89,

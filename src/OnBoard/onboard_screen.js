@@ -7,7 +7,7 @@ const Onboard_screen = (props) => {
     <View style={styles.screen}>
       <View style={styles.container1}>
         <Image
-          source={require("../OnBoard/img/onb.png")}
+          source={require("../../assets/images/logo.png")}
           resizeMode="contain"
           style={{
             width: "100%",
