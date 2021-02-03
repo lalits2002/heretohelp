@@ -116,6 +116,7 @@ const Onboard_screen2 = (props) => {
               placeholderTextColor={ Colors.secondary2 }
               onChangeText={ setEmail }
               keyboardType={'email-address'}
+              autoCapitalize={'none'}
             >
             </InputField>
           </View>
