@@ -19,4 +19,7 @@ export default{
   // progress bar
   progress_bar: '#CED3EE',
   progress_bar_filled: '#596188',
+
+  // error
+  error: '#FF3333',
 }

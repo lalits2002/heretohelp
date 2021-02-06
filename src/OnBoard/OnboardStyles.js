@@ -22,7 +22,6 @@ const OnboardStyles = StyleSheet.create({
   },
   content: {
     flex: 5,
-    alignItems:'center',
   },
   navigation: {
     flex: 1.5,

@@ -19,10 +19,12 @@ import mediaStore from '../MediaStore/mediaStore'
 import styles from './OnboardStyles';
 import InputField from "../component/InputField/InputField";
 import AppText from "../component/AppText/AppText";
+import ErrMsg from "../component/ErrMsg/ErrMsg";
 
 const Onboard_screen3 = (props) => {
   const [password, setPass] = useState("");
   const [vPassword, setvPass] = useState("");
+  const [error, setError] = useState('');
 
 
   // hooks for media
@@ -53,8 +55,39 @@ const Onboard_screen3 = (props) => {
 
   const fullName = props.route.params.fName + " " + props.route.params.lName;
 
+  const SPECIAL_CHARACTERS = /[`~!@#$%^&*()_+\-=\\,./<>?|[\]{};':"]/;
+  const PASSWORD_MIN_LENGTH = 8;
+
   //logic for passwords to be same in both fields
-  const checkSame = () => (password === vPassword ? true : false);
+  const checkSame = () => (password === vPassword);
+  const isValidPassword = () => {
+    if (!( 
+          password.length >= PASSWORD_MIN_LENGTH &&
+          password.match(/[a-z]/) && 
+          password.match(/[A-Z]/) && 
+          password.match(/[0-9]/) &&
+          password.match(SPECIAL_CHARACTERS) 
+        )) 
+    {
+      setError( 
+                'password must contain the following:\n' +
+                ` - at least ${PASSWORD_MIN_LENGTH} characters\n` +
+                ' - a lower-case letter\n' +
+                ' - an upper-case letter\n' +
+                ' - a digit; ie.(0-9)\n' + 
+                ' - a special character; ie.(!, @, #, etc)'
+              )
+      return false
+    }
+
+    if ( !checkSame() ) {
+      setError('Passwords do not match. Please try again.')
+      return false
+    }
+      
+    setError('');
+    return true
+  }
   const getValidation = () => {
     if (vPassword !== "") {
       return checkSame() ? "green" : "red";
@@ -64,13 +97,13 @@ const Onboard_screen3 = (props) => {
 
   // authentication
   const submitHandler = () => {
-    if (!checkSame()) {
+    if (!isValidPassword()) {
       return;
     }
 
-    store_redux_thunk.dispatch((dispatch) => {
-      dispatch({ type: 'showload' })
-    })
+    // store_redux_thunk.dispatch((dispatch) => {
+    //   dispatch({ type: 'showload' })
+    // })
 
 
     firebase
@@ -99,15 +132,20 @@ const Onboard_screen3 = (props) => {
           });
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-in-use") {
-          console.log("That email address is already in use!");
-        }
 
-        if (error.code === "auth/invalid-email") {
-          console.log("That email address is invalid!");
-        }
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            console.log("That email address is already in use!");
+            props.navigation.pop();
+            break;
+          case 'auth/invalid-email':
+            console.log("That email address is invalid!");
+            props.navigation.pop();
+            break;
+          default:
+            console.error("you got ", error);
+        } 
 
-        console.error("you got ", error);
       });
   };
 
@@ -133,6 +171,7 @@ const Onboard_screen3 = (props) => {
         </View>
 
         <View style={styles.content}>
+          <ErrMsg>{error}</ErrMsg>
           <View style={styles.field_group}>
             <InputField
               label={'Enter your Password'}
