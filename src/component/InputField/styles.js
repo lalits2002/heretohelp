@@ -3,10 +3,6 @@ import Colors from '../../Items/Colors';
 
 const styles = StyleSheet.create({
 
-  container: {
-    flex: 1,
-  },
-
   label: {
     fontSize: 16,
     fontFamily: 'Lato-Bold',
@@ -28,6 +24,26 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderLeftWidth: 0,
   },
+
+  additionalInfo: {
+    fontSize: 14,
+  },
+
+  success: {
+    color: Colors.success,
+  },
+
+  successBG: {
+    backgroundColor: Colors.success,
+  },
+
+  error: {
+    color: Colors.error,
+  },
+
+  info: {
+    color: Colors.info,
+  }
 
 })
 

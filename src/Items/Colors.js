@@ -20,6 +20,8 @@ export default{
   progress_bar: '#CED3EE',
   progress_bar_filled: '#596188',
 
-  // error
-  error: '#FF3333',
+  error: '#EB5A5A',
+  success: '#718D55',
+  info: '#828282',
+
 }

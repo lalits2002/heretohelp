@@ -19,7 +19,6 @@ import mediaStore from '../MediaStore/mediaStore'
 import styles from './OnboardStyles';
 import InputField from "../component/InputField/InputField";
 import AppText from "../component/AppText/AppText";
-import ErrMsg from "../component/ErrMsg/ErrMsg";
 
 const Onboard_screen3 = (props) => {
   const [password, setPass] = useState("");
@@ -171,7 +170,6 @@ const Onboard_screen3 = (props) => {
         </View>
 
         <View style={styles.content}>
-          <ErrMsg>{error}</ErrMsg>
           <View style={styles.field_group}>
             <InputField
               label={'Enter your Password'}
@@ -179,6 +177,7 @@ const Onboard_screen3 = (props) => {
               placeholder={'Enter here'}
               placeholderTextColor={ Colors.secondary2 }
               onChangeText={ setPass }
+              error={error}
             >
             </InputField>
           </View>
