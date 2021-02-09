@@ -215,7 +215,7 @@ function HomeScreen() {
     return <AppLoading />;
   }
 
-  if (!currentState.isSignout) {
+  if (currentState.isSignout) {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
