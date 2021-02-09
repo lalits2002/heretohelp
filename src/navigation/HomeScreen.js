@@ -215,7 +215,7 @@ function HomeScreen() {
     return <AppLoading />;
   }
 
-  if (currentState.isSignout) {
+  if (!currentState.isSignout) {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
@@ -234,9 +234,7 @@ function HomeScreen() {
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
           {/* <ScreenConstant.Screen name="OB" component={Onboard_screen} /> */}
-          <ScreenConstant.Screen name="Home" component={Loadscreen} />
-          <ScreenConstant.Screen name="vol" component={MyTabs} />
-          <ScreenConstant.Screen name="Victim" component={MyTabs} />
+          <ScreenConstant.Screen name="Main" component={MyTabs} />
 
           <ScreenConstant.Screen
             name="social_screen"
