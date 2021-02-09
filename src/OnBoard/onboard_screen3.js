@@ -49,9 +49,9 @@ const Onboard_screen3 = (props) => {
   //   });
 
 
-  const email = props.route.params.email;
+  // const email = props.route.params.email;
 
-  const fullName = props.route.params.fName + " " + props.route.params.lName;
+  // const fullName = props.route.params.fName + " " + props.route.params.lName;
 
   //logic for passwords to be same in both fields
   const checkSame = () => (password === vPassword ? true : false);
@@ -62,53 +62,8 @@ const Onboard_screen3 = (props) => {
     return "black";
   };
 
-  // authentication
   const submitHandler = () => {
-    if (!checkSame()) {
-      return;
-    }
-
-    store_redux_thunk.dispatch((dispatch) => {
-      dispatch({ type: 'showload' })
-    })
-
-
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log("User account created & signed in!");
-        setPass("");
-        setvPass("");
-
-        var user = firebase.auth().currentUser;
-
-        user
-          .updateProfile({
-            displayName: fullName,
-          })
-          .then(function () {
-            console.log(firebase.auth().currentUser);
-            // updating the redux store_redux_thunk now
-            store_redux_thunk.dispatch((dispatch) => {
-              dispatch({ type: SIGN_IN, token: user, authType: EMAIL_PASSWORD_AUTH })
-            })
-          })
-          .catch(function (error) {
-            console.log("inside updation ", error);
-          });
-      })
-      .catch((error) => {
-        if (error.code === "auth/email-already-in-use") {
-          console.log("That email address is already in use!");
-        }
-
-        if (error.code === "auth/invalid-email") {
-          console.log("That email address is invalid!");
-        }
-
-        console.error("you got ", error);
-      });
+    props.navigation.navigate("OB4", { ...props.route.params, password });
   };
 
   return (
