@@ -23,6 +23,7 @@ import AppText from "../component/AppText/AppText";
 const Onboard_screen3 = (props) => {
   const [password, setPass] = useState("");
   const [vPassword, setvPass] = useState("");
+  const [error, setError] = useState('');
 
 
   // hooks for media
@@ -53,8 +54,39 @@ const Onboard_screen3 = (props) => {
 
   // const fullName = props.route.params.fName + " " + props.route.params.lName;
 
+  const SPECIAL_CHARACTERS = /[`~!@#$%^&*()_+\-=\\,./<>?|[\]{};':"]/;
+  const PASSWORD_MIN_LENGTH = 8;
+
   //logic for passwords to be same in both fields
-  const checkSame = () => (password === vPassword ? true : false);
+  const checkSame = () => (password === vPassword);
+  const isValidPassword = () => {
+    if (!( 
+          password.length >= PASSWORD_MIN_LENGTH &&
+          password.match(/[a-z]/) && 
+          password.match(/[A-Z]/) && 
+          password.match(/[0-9]/) &&
+          password.match(SPECIAL_CHARACTERS) 
+        )) 
+    {
+      setError( 
+                'password must contain the following:\n' +
+                ` - at least ${PASSWORD_MIN_LENGTH} characters\n` +
+                ' - a lower-case letter\n' +
+                ' - an upper-case letter\n' +
+                ' - a digit; ie.(0-9)\n' + 
+                ' - a special character; ie.(!, @, #, etc)'
+              )
+      return false
+    }
+
+    if ( !checkSame() ) {
+      setError('Passwords do not match. Please try again.')
+      return false
+    }
+      
+    setError('');
+    return true
+  }
   const getValidation = () => {
     if (vPassword !== "") {
       return checkSame() ? "green" : "red";
@@ -63,6 +95,10 @@ const Onboard_screen3 = (props) => {
   };
 
   const submitHandler = () => {
+    if (!isValidPassword()) {
+      return;
+    }
+
     props.navigation.navigate("OB4", { ...props.route.params, password });
   };
 
@@ -95,6 +131,7 @@ const Onboard_screen3 = (props) => {
               placeholder={'Enter here'}
               placeholderTextColor={ Colors.secondary2 }
               onChangeText={ setPass }
+              error={error}
             >
             </InputField>
           </View>

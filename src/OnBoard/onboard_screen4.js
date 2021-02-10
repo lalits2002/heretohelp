@@ -120,7 +120,7 @@ const Onboard_screen4 = (props) => {
             <View style={styles.progress_bar_filled}></View>
             <View style={styles.progress_bar_filled}></View>
             <View style={styles.progress_bar_filled}></View>
-            <View style={styles.progress_bar}></View>
+            <View style={styles.progress_bar_filled}></View>
           </View>
         </View>
       </View>

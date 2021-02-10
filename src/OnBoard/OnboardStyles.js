@@ -17,12 +17,14 @@ const OnboardStyles = StyleSheet.create({
     marginHorizontal: 16,
     height: windowHeight,
   }, 
+  kb_container: {
+    flex: 1,
+  },
   header: {
     flex: 3.5,
   },
   content: {
     flex: 5,
-    alignItems:'center',
   },
   navigation: {
     flex: 1.5,
@@ -30,8 +32,8 @@ const OnboardStyles = StyleSheet.create({
   
   logo: {
     flex: 3,
-    paddingTop: '8%',
-    paddingBottom: '4%',
+    marginTop: '8%',
+    marginBottom: '4%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -42,12 +44,12 @@ const OnboardStyles = StyleSheet.create({
   },
   field_group: {
     width: '100%',
-    height: 55,
-    marginVertical: 16,
+    marginTop: 16,
   },
   divider_container: {
-    height: 55,
+    height: 13,
     width: '100%',
+    marginVertical: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
