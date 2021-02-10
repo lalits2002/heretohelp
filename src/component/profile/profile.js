@@ -1,24 +1,19 @@
+import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import firebase from "firebase";
 import React, { useEffect, useState } from "react";
-import { Avatar, Accessory } from "react-native-elements";
 import {
+  ScrollView,
   StyleSheet,
-  View,
   Text,
   TouchableOpacity,
-  TextInput,
-  SafeAreaView,
-  ScrollView,
+  View,
 } from "react-native";
-
-import { RESTORE_TOKEN, SIGN_OUT, SIGN_IN, GOOGLE_AUTH, EMAIL_PASSWORD_AUTH } from "../../asyncStorage/actionsList";
-import store_redux_thunk from "../../asyncStorage/store"
-
-import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
-
+import { Accessory, Avatar } from "react-native-elements";
+import { GOOGLE_AUTH, SIGN_OUT } from "../../asyncStorage/actionsList";
+import store_redux_thunk from "../../asyncStorage/store";
 import Colors from "../../Items/Colors";
-import firebase from "firebase";
-// import { useState } from 'react';
+
 const db = firebase.firestore();
 
 const Box = (props) => {
@@ -51,8 +46,18 @@ const Box = (props) => {
 };
 
 const ProfileScreen = (props) => {
-
   const [tasksRequested, setNoTasks] = useState(0);
+  const [fullName, setName] = useState("");
+  const [fName, setfName] = useState("");
+  const [lName, setlName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [imgLink, setImgLink] = useState(AvatarPlaceholder);
+
+  const navigation = useNavigation();
+  const AvatarPlaceholder =
+    "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg";
   // make user uid as key
   var user = store_redux_thunk.getState().userToken;
   // if a google user then target changes
@@ -65,74 +70,56 @@ const ProfileScreen = (props) => {
     var docRef = db
       .collection("queries")
       .doc(uid)
-      .collection('service-requests')
+      .collection("service-requests")
       .get()
       .then(function (querySnapshot) {
-        var count = 0
+        var count = 0;
         querySnapshot.forEach(function (doc) {
-          // doc.data() is never undefined for query doc snapshots
-          //console.log(doc.id, " => ", doc.data());
           count++;
         });
-        setNoTasks(count)
-      }).catch(function (error) {
+        setNoTasks(count);
+      })
+      .catch(function (error) {
         console.log("Error getting document:", error);
       });
-  })
 
-
-
-  const navigation = useNavigation();
-  const AvatarPlaceholder = "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"
-
-  const [fullName, setName] = useState("");
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
-  const [email, setEmail] = useState("");
-  const [imgLink, setImgLink] = useState(AvatarPlaceholder);
-
-
-  // getting data from user token stored in store_redux_thunk
-  useEffect(() => {
-    const state = store_redux_thunk.getState();
-    const authType = state.authType;
-
-    var user = state.userToken;
-    // in case of google sign in , the user data is in user.user nested object
-    if (authType === GOOGLE_AUTH) {
-      user = user.user;
-      setImgLink(user.photoURL);
-      // console.log(imgLink);
-    }
-    if (user != null) {
-      let n = user.displayName;
-      setName(n);
-      setEmail(user.email);
-      var nameSplit = n.split(" ");
-      setfName(nameSplit[0]);
-      setlName(nameSplit[1]);
-    }
-  })
-
+    db.collection("users")
+      .doc(uid)
+      .get()
+      .then(function (doc) {
+        if (doc.exists) {
+          let n = doc.data().fullName;
+          setName(n);
+          setEmail(doc.data().email);
+          var nameSplit = n.split(" ");
+          setfName(nameSplit[0]);
+          setlName(nameSplit[1]);
+          setAddress(doc.data().address);
+          setPhone(doc.data().phone);
+        } else {
+          console.log("No such document!");
+        }
+      })
+      .catch(function (error) {
+        console.log("Error getting document:", error);
+      });
+  });
 
   const signout = () => {
-
     store_redux_thunk.dispatch((dispatch) => {
-      dispatch({ type: 'showload' })
-    })
+      dispatch({ type: "showload" });
+    });
     firebase
       .auth()
       .signOut()
       .then(() => {
         console.log("logged out");
         store_redux_thunk.dispatch((dispatch, getState) => {
-
-
           dispatch({
-            type: SIGN_OUT
-          })
+            type: SIGN_OUT,
+          });
           // console.log(getState());
-        })
+        });
       })
       .catch((error) => {
         console.log("signout error ", error);
@@ -143,18 +130,17 @@ const ProfileScreen = (props) => {
     var user = firebase.auth().currentUser;
 
     store_redux_thunk.dispatch((dispatch) => {
-      dispatch({ type: 'showload' })
-    })
+      dispatch({ type: "showload" });
+    });
     user
       .delete()
       .then(function () {
         console.log("account deleted");
-        store_redux_thunk.dispatch(dispatch => {
+        store_redux_thunk.dispatch((dispatch) => {
           dispatch({
             type: SIGN_OUT,
-
-          })
-        })
+          });
+        });
       })
       .catch(function (error) {
         console.log("account delete error ", error);
@@ -178,8 +164,7 @@ const ProfileScreen = (props) => {
             size={140}
             rounded
             source={{
-              uri: imgLink
-
+              uri: imgLink,
             }}
           >
             <Accessory />
@@ -208,8 +193,8 @@ const ProfileScreen = (props) => {
             <Feather name="chevron-right" size={22} color={Colors.secondary3} />
           }
         />
-        <Box lable1="Address" lable2="1499 BIlabong St. 54/A" />
-        <Box lable1="Phone" lable2="604-555-5555" />
+        <Box lable1="Address" lable2={address} />
+        <Box lable1="Phone" lable2={phone} />
         <Box lable1="Criminal record check" />
         <View style={styles.spacing}></View>
         <Box
@@ -297,13 +282,6 @@ const styles = StyleSheet.create({
     paddingBottom: "7%",
     paddingTop: "4%",
   },
-  // // box2: {
-  // //     // flex: 3,
-  // //     flexDirection: "column",
-  // //     width: "100%",
-
-  // },
-
   top1: {
     alignSelf: "center",
     fontSize: 15,
@@ -313,24 +291,20 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 15,
     color: Colors.primary2,
-    // paddingBottom: "1%",
   },
   top3: {
     alignSelf: "center",
     fontSize: 15,
     color: Colors.primary2,
     paddingRight: "1%",
-    // paddingTop: "0.2%",
   },
   block1: {
-    // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     borderTopWidth: 2,
     borderBottomWidth: 2,
   },
   block2: {
-    // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
   },
