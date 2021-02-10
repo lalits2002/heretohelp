@@ -63,27 +63,6 @@ const Onboard_screen2 = (props) => {
 
   const submitHandler = () => {
     props.navigation.navigate("OB3", { ...props.route.params, email });
-    //   {
-    //   firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(email, password)
-    //     .then(() => {
-    //       console.log("User account created & signed in!");
-    //       setEmail("");
-    //       setPass("");
-    //     })
-    //     .catch((error) => {
-    //       if (error.code === "auth/email-already-in-use") {
-    //         console.log("That email address is already in use!");
-    //       }
-
-    //       if (error.code === "auth/invalid-email") {
-    //         console.log("That email address is invalid!");
-    //       }
-
-    //       console.error("you got ", error);
-    //     });
-    // }
   };
 
   return (
@@ -116,6 +95,7 @@ const Onboard_screen2 = (props) => {
               placeholderTextColor={ Colors.secondary2 }
               onChangeText={ setEmail }
               keyboardType={'email-address'}
+              autoCapitalize={'none'}
             >
             </InputField>
           </View>

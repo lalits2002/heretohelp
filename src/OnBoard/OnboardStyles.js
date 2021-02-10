@@ -44,11 +44,12 @@ const OnboardStyles = StyleSheet.create({
   },
   field_group: {
     width: '100%',
-    marginTop: 8,
+    marginTop: 16,
   },
   divider_container: {
-    height: 55,
+    height: 13,
     width: '100%',
+    marginVertical: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

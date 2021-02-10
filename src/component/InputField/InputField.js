@@ -35,6 +35,7 @@ const InputField = (props) => {
         onBlur={ (e) => { setIsFocused(false) } }
         spellCheck={ props.spellCheck || false }
         keyboardType={ props.keyboardType || 'default' }
+        autoCapitalize={ props.autoCapitalize || 'sentences' }
       />
       <AppText style={[ styles.additionalInfo, 
                         props.error && styles.error || 

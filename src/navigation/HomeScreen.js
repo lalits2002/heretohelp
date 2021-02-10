@@ -17,6 +17,7 @@ import Onboard_screen from "../OnBoard/onboard_screen";
 import Onboard_screen1 from "../OnBoard/onboard_screen1";
 import Onboard_screen2 from "../OnBoard/onboard_screen2";
 import Onboard_screen3 from "../OnBoard/onboard_screen3";
+import Onboard_screen4 from "../OnBoard/onboard_screen4";
 
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
@@ -222,6 +223,7 @@ function HomeScreen() {
           <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
           <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
           <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
+          <ScreenConstant.Screen name="OB4" component={Onboard_screen4} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
     )
