@@ -16,6 +16,8 @@ import mediaStore from '../MediaStore/mediaStore';
 import styles from './OnboardStyles';
 import InputField from "../component/InputField/InputField";
 import AppText from '../component/AppText/AppText';
+import { _setPlaceHolderColor } from "./methods";
+import useValidation from "../utils/customHooks/validation";
 
 
 const Onboard_screen2 = (props) => {
@@ -36,6 +38,7 @@ const Onboard_screen2 = (props) => {
   // });
   const [message, setMess] = useState("");
   const [email, setEmail] = useState("");
+  const [errorField, errorFieldMessage, isValid] = useValidation({email})
 
   // hooks for media
   const [image0, setImage] = useState(' ');
@@ -60,8 +63,8 @@ const Onboard_screen2 = (props) => {
   //     // Handle any errors
   //   });
 
-
   const submitHandler = () => {
+    if(!isValid()){ return false }
     props.navigation.navigate("OB3", { ...props.route.params, email });
   };
 
@@ -92,10 +95,11 @@ const Onboard_screen2 = (props) => {
               label={'Enter your email'}
               secureTextEntry={false}
               placeholder={'Enter here'}
-              placeholderTextColor={ Colors.secondary2 }
+              placeholderTextColor={ _setPlaceHolderColor("email", errorField) }
               onChangeText={ setEmail }
               keyboardType={'email-address'}
               autoCapitalize={'none'}
+              error={errorField === "email" && errorFieldMessage}
             >
             </InputField>
           </View>

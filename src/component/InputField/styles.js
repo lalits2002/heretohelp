@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
   },
 
+  inputError: {
+    borderBottomColor: Colors.error,
+  },
+
   additionalInfo: {
     fontSize: 14,
   },

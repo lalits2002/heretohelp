@@ -19,11 +19,13 @@ import mediaStore from '../MediaStore/mediaStore'
 import styles from './OnboardStyles';
 import InputField from "../component/InputField/InputField";
 import AppText from "../component/AppText/AppText";
+import { _setPlaceHolderColor } from "./methods";
+import useValidation from "../utils/customHooks/validation";
 
 const Onboard_screen3 = (props) => {
   const [password, setPass] = useState("");
   const [vPassword, setvPass] = useState("");
-  const [error, setError] = useState('');
+  const [errorField, errorFieldMessage, isValid] = useValidation({ password, vPassword })
 
 
   // hooks for media
@@ -54,51 +56,9 @@ const Onboard_screen3 = (props) => {
 
   // const fullName = props.route.params.fName + " " + props.route.params.lName;
 
-  const SPECIAL_CHARACTERS = /[`~!@#$%^&*()_+\-=\\,./<>?|[\]{};':"]/;
-  const PASSWORD_MIN_LENGTH = 8;
-
-  //logic for passwords to be same in both fields
-  const checkSame = () => (password === vPassword);
-  const isValidPassword = () => {
-    if (!( 
-          password.length >= PASSWORD_MIN_LENGTH &&
-          password.match(/[a-z]/) && 
-          password.match(/[A-Z]/) && 
-          password.match(/[0-9]/) &&
-          password.match(SPECIAL_CHARACTERS) 
-        )) 
-    {
-      setError( 
-                'password must contain the following:\n' +
-                ` - at least ${PASSWORD_MIN_LENGTH} characters\n` +
-                ' - a lower-case letter\n' +
-                ' - an upper-case letter\n' +
-                ' - a digit; ie.(0-9)\n' + 
-                ' - a special character; ie.(!, @, #, etc)'
-              )
-      return false
-    }
-
-    if ( !checkSame() ) {
-      setError('Passwords do not match. Please try again.')
-      return false
-    }
-      
-    setError('');
-    return true
-  }
-  const getValidation = () => {
-    if (vPassword !== "") {
-      return checkSame() ? "green" : "red";
-    }
-    return "black";
-  };
 
   const submitHandler = () => {
-    if (!isValidPassword()) {
-      return;
-    }
-
+    if (!isValid()) { return false }
     props.navigation.navigate("OB4", { ...props.route.params, password });
   };
 
@@ -129,9 +89,9 @@ const Onboard_screen3 = (props) => {
               label={'Enter your Password'}
               secureTextEntry={true}
               placeholder={'Enter here'}
-              placeholderTextColor={ Colors.secondary2 }
+              placeholderTextColor={ _setPlaceHolderColor("password", errorField) }
               onChangeText={ setPass }
-              error={error}
+              error={errorField === "password" && errorFieldMessage}
             >
             </InputField>
           </View>
@@ -141,8 +101,9 @@ const Onboard_screen3 = (props) => {
               label={'Verify Password'}
               secureTextEntry={true}
               placeholder={'Enter here'}
-              placeholderTextColor={ Colors.secondary2 }
+              placeholderTextColor={ _setPlaceHolderColor("vPassword", errorField) }
               onChangeText={ setvPass }
+              error={errorField === "vPassword" && errorFieldMessage}
             >
             </InputField>
           </View>
