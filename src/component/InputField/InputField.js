@@ -21,7 +21,7 @@ const InputField = (props) => {
       <TextInput
         style={[ styles.input, 
                  isFocused && styles.input_onFocus,
-                 props.error && styles.error ||
+                 props.error && styles.inputError ||
                  props.success && styles.successBG ]}
         secureTextEntry={ props.secureTextEntry }
         placeholder={ props.placeholder }

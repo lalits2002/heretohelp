@@ -44,10 +44,13 @@ import Colors from "../Items/Colors";
 import InputField from '../component/InputField/InputField';
 import AppText from '../component/AppText/AppText';
 import styles from './OnboardStyles';
+import { _setPlaceHolderColor } from './methods';
+import useValidation from "../utils/customHooks/validation";
 
 const Onboard_screen1 = (props) => {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
+  const [errorField, errorFieldMessage, isValid] = useValidation({fName, lName})
 
   // hooks for media
   const [image0, setImage] = useState(' ');
@@ -137,6 +140,12 @@ const Onboard_screen1 = (props) => {
       console.log("error is here", e)
     }
   }
+
+  const segueToNextScreen = () => {    
+    if(!isValid()){ return false }
+    props.navigation.navigate("OB2", { fName, lName })
+  }
+
   return (
     <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={styles.container}>
@@ -166,8 +175,9 @@ const Onboard_screen1 = (props) => {
               label={"First Name"}
               secureTextEntry={false}
               placeholder={"Your name here"}
-              placeholderTextColor={ Colors.secondary2 }
+              placeholderTextColor={ _setPlaceHolderColor("fName", errorField) }
               onChangeText={ setFName }
+              error={errorField === "fName" && errorFieldMessage}
             >
             </InputField>
           </View>
@@ -177,8 +187,9 @@ const Onboard_screen1 = (props) => {
               label={"Last Name"}
               secureTextEntry={false}
               placeholder={"Your surname here"}
-              placeholderTextColor={ Colors.secondary2 }
+              placeholderTextColor={ _setPlaceHolderColor("lName", errorField) }
               onChangeText={ setLName }
+              error={errorField === "lName" && errorFieldMessage}
             >
             </InputField>
           </View>
@@ -205,9 +216,7 @@ const Onboard_screen1 = (props) => {
             style={styles.navigation_control}
           >
             <View style={{ width: '30%', alignSelf: 'flex-end', }}>
-              <Dark_Button
-                onPress={() => props.navigation.navigate("OB2", { fName, lName })}
-              >
+              <Dark_Button onPress={segueToNextScreen}>
                 Next
               </Dark_Button>
             </View>
