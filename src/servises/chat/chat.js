@@ -1,7 +1,7 @@
 // @refresh reset
 import React, { useState, useEffect, useCallback } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat'
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { StyleSheet, View, Text, TextInput, Button, YellowBox } from 'react-native';
 import * as firebase from 'firebase'
 import 'firebase/firestore'
