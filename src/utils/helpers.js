@@ -6,7 +6,7 @@ import {
 
 const funcDefault = (value) => {}
 
-const fieldsNotEmpty = (fields, errorFieldCallback=funcDefault) => {
+export const fieldsNotEmpty = (fields, errorFieldCallback=funcDefault) => {
     for (const key in fields) {
         if (fields[key].length === 0) {
             errorFieldCallback(key)
