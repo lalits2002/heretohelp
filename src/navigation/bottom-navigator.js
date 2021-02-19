@@ -12,6 +12,7 @@ import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 import Chat_Screen from "../servises/chat/chat";
 import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
+import Request_Screen from "../servises/request-screen/request-screen";
 
 import ProfileScreen from "../component/profile/profile";
 import FeedbackScreen from "../component/profile/submit";
@@ -21,7 +22,8 @@ import PrivacyScreen from "../component/profile/privacy";
 
 import Home1 from "../component/icons-components/home";
 import Chat1 from "../component/icons-components/chat";
-import Map1 from "../component/icons-components/map";
+import Browse1 from "../component/icons-components/browse";
+import Request1 from "../component/icons-components/request";
 import User1 from "../component/icons-components/user";
 
 
@@ -59,7 +61,8 @@ export default function MyTabs() {
       barStyle = {{ paddingVertical : '4%', backgroundColor: '#E5E5E5' 
       }}>
       <Tab.Screen options={{tabBarIcon: () => {return <Home1/>} }} name="Home" component={Volunteer} />
-      <Tab.Screen options={{tabBarIcon:  () => {return <Map1/>} }}  name="browse" component={Browsing_Screen} />
+      <Tab.Screen options={{tabBarIcon:  () => {return <Browse1/>} }}  name="Browse" component={Browsing_Screen} />
+      <Tab.Screen options={{tabBarIcon:  () => {return <Request1/>} }}  name="Request" component={Request_Screen} />
       <Tab.Screen options={{tabBarIcon:  () => {return <Chat1/>}, tabBarBadge:'2'}} name="Settings" component={Chat_Screen} />
       <Tab.Screen options={{tabBarIcon:  () => {return <User1/>} }} name="profile" component={Profile_component} />
     </Tab.Navigator>
