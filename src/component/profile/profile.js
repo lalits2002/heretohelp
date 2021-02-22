@@ -13,6 +13,7 @@ import { Accessory, Avatar } from "react-native-elements";
 import { GOOGLE_AUTH, SIGN_OUT } from "../../asyncStorage/actionsList";
 import store_redux_thunk from "../../asyncStorage/store";
 import Colors from "../../Items/Colors";
+import fb from '../../config/firebase';
 
 const db = firebase.firestore();
 
@@ -61,10 +62,10 @@ const ProfileScreen = (props) => {
   // make user uid as key
   var user = store_redux_thunk.getState().userToken;
   // if a google user then target changes
-  if (store_redux_thunk.getState().authType === GOOGLE_AUTH) {
-    user = user.user;
-  }
-  const uid = user.uid;
+  // if (store_redux_thunk.getState().authType === GOOGLE_AUTH) {
+  //   user = user.user;
+  // }
+  const uid = fb.auth().currentUser.uid;
 
   useEffect(() => {
     var docRef = db

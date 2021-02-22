@@ -10,26 +10,6 @@ import {
   Dimensions,
 } from "react-native";
 
-import { firebaseConfig } from "../component/authentication/credencials";
-
-import firebase from "firebase";
-
-try {
-  firebase.initializeApp(firebaseConfig)
-} catch (err) {
-  // we skip the “already exists” message which is
-  // not an actual error when we’re hot-reloading
-  if (!firebase.app.length) {
-    console.error('Firebase initialization error raised', err.stack)
-  }
-}
-
-// firebase.initializeApp(firebaseConfig)
-// if ( === 0) {
-
-// }
-
-
 import * as Google from 'expo-google-app-auth'
 
 
@@ -43,7 +23,7 @@ import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 import InputField from '../component/InputField/InputField';
 import AppText from '../component/AppText/AppText';
-import styles from './OnboardStyles';
+import styles from './SignupStyles';
 import { _setPlaceHolderColor } from './methods';
 import useValidation from "../utils/customHooks/validation";
 
@@ -143,7 +123,7 @@ const Onboard_screen1 = (props) => {
 
   const segueToNextScreen = () => {    
     if(!isValid()){ return false }
-    props.navigation.navigate("OB2", { fName, lName })
+    props.navigation.navigate("SignUp_2", { fName, lName })
   }
 
   return (

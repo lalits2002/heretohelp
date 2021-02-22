@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppLoading } from "expo";
 
 
@@ -13,11 +13,14 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
-import Onboard_screen from "../OnBoard/onboard_screen";
-import Onboard_screen1 from "../OnBoard/onboard_screen1";
-import Onboard_screen2 from "../OnBoard/onboard_screen2";
-import Onboard_screen3 from "../OnBoard/onboard_screen3";
-import Onboard_screen4 from "../OnBoard/onboard_screen4";
+import Onboard_screen_1 from "../OnBoard/Onboard_1";
+import Onboard_screen_2 from '../OnBoard/Onboard_2';
+import Onboard_screen_3 from '../OnBoard/Onboard_3';
+
+import SignUp_Screen_1 from "../OnBoard/onboard_screen1";
+import SignUp_Screen_2 from "../OnBoard/onboard_screen2";
+import SignUp_Screen_3 from "../OnBoard/onboard_screen3";
+import SignUp_Screen_4 from "../OnBoard/onboard_screen4";
 
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
@@ -56,6 +59,7 @@ import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const ScreenConstant = createStackNavigator();
 
@@ -201,7 +205,8 @@ function TransportScreen() {
 function HomeScreen() {
 
   const [refresh, refresher] = useState(0)
-
+  // const [isNew, setIsNew] = useState(false)
+  // const [isLoading, setIsLoading] = useState(true)
 
   const currentState = store.getState();
 
@@ -210,20 +215,44 @@ function HomeScreen() {
     refresher(refresh + 1);
   })
 
-
   if (currentState.isLoading) {
-
     return <AppLoading />;
   }
 
-  if (currentState.isSignout) {
+  if (currentState.isNewUser && currentState.isSignedOut) {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="OB1" component={Onboard_screen1} />
-          <ScreenConstant.Screen name="OB2" component={Onboard_screen2} />
-          <ScreenConstant.Screen name="OB3" component={Onboard_screen3} />
-          <ScreenConstant.Screen name="OB4" component={Onboard_screen4} />
+          <ScreenConstant.Screen name="Onboarding_1" component={Onboard_screen_1} />
+          <ScreenConstant.Screen name="Onboarding_2" component={Onboard_screen_2} />
+          <ScreenConstant.Screen name="Onboarding_3" component={Onboard_screen_3} />
+        </ScreenConstant.Navigator>
+      </NavigationContainer>
+    )
+  }
+
+  if (!currentState.hasAccount && currentState.isSignedOut) {
+    return (
+      <NavigationContainer>
+        <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+          <ScreenConstant.Screen name="SignUp_1" component={SignUp_Screen_1} />
+          <ScreenConstant.Screen name="SignUp_2" component={SignUp_Screen_2} />
+          <ScreenConstant.Screen name="SignUp_3" component={SignUp_Screen_3} />
+          <ScreenConstant.Screen name="SignUp_4" component={SignUp_Screen_4} />
+        </ScreenConstant.Navigator>
+      </NavigationContainer>
+    )
+  }
+
+  if (currentState.isSignedOut) {
+    // Should be Sign In screens
+    return (
+      <NavigationContainer>
+        <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+          <ScreenConstant.Screen name="SignUp_1" component={SignUp_Screen_1} />
+          <ScreenConstant.Screen name="SignUp_2" component={SignUp_Screen_2} />
+          <ScreenConstant.Screen name="SignUp_3" component={SignUp_Screen_3} />
+          <ScreenConstant.Screen name="SignUp_4" component={SignUp_Screen_4} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
     )
