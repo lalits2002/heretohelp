@@ -7,7 +7,6 @@ import { AppLoading } from "expo";
 import fb from './src/config/firebase';
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import HomeScreen from "./src/navigation/HomeScreen";
-import Onboard_screen1 from "./src/SignUp/Signup_1";
 
 import store from './src/asyncStorage/store'
 import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT, EMAIL_PASSWORD_AUTH, ONBOARD, HOME } from "./src/asyncStorage/actionsList";
