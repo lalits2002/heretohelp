@@ -8,4 +8,3 @@ else
   fb = firebase.app();
 
 export default fb;
-

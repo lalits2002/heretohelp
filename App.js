@@ -1,7 +1,7 @@
 
 
 
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { AppLoading } from "expo";
 import fb from './src/config/firebase';
@@ -21,37 +21,37 @@ export default function App() {
     'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf')
   });
 
+  const dispatchInitialState = () => {
+    AsyncStorage.getItem('initial_start')
+      .then(value => {
+        if (value === null) {
+          AsyncStorage.setItem('initial_start', 'true')
+            .catch(e => {
+              console.log(e)
+            })
+          
+          store.dispatch({ type: ONBOARD })
+        } else {
+          if (value === 'true') 
+            store.dispatch({ type: ONBOARD })
+          else 
+            fb.auth().onAuthStateChanged((user) => {
+              if (user == null)
+                store.dispatch({ type: SIGN_IN })
+              else 
+                store.dispatch({ type: HOME, authType: EMAIL_PASSWORD_AUTH })
+            });
+        }
+      }).catch(e => {
+        console.log(e)
+      })
+  }
+
+  useEffect(dispatchInitialState, [])
+
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-
-  AsyncStorage.getItem('initial_start')
-  .then(value => {
-    if (value === null) {
-      AsyncStorage.setItem('initial_start', 'true')
-        .catch(e => {
-          console.log(e)
-        })
-      
-      store.dispatch({ type: ONBOARD })
-    } else {
-      if (value === 'true') 
-        store.dispatch({ type: ONBOARD })
-      else 
-        fb.auth().onAuthStateChanged((user) => {
-          if (user == null) {
-            store.dispatch({ type: SIGN_IN })
-          }
-          else {
-            store.dispatch((dispatch) => {
-              dispatch({ type: HOME, authType: EMAIL_PASSWORD_AUTH })
-            })
-          }
-        });
-    }
-  }).catch(e => {
-    console.log(e)
-  })
 
   return <HomeScreen />;
 }

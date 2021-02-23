@@ -59,7 +59,6 @@ import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
-import AsyncStorage from "@react-native-community/async-storage";
 
 const ScreenConstant = createStackNavigator();
 
@@ -205,8 +204,6 @@ function TransportScreen() {
 function HomeScreen() {
 
   const [refresh, refresher] = useState(0)
-  // const [isNew, setIsNew] = useState(false)
-  // const [isLoading, setIsLoading] = useState(true)
 
   const currentState = store.getState();
 
