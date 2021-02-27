@@ -1,23 +1,18 @@
 
 
 
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { AppLoading } from "expo";
+import fb from './src/config/firebase';
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import HomeScreen from "./src/navigation/HomeScreen";
-import Onboard_screen1 from "./src/OnBoard/onboard_screen1";
 
-// const fontWeight = ['Black', 'BlackItalic', 'Bold', 'BoldItalic', 'Italic', 'LightItalic', 'Regular', 'Thin', 'ThinItalic']
-// const fontName = ['Lato']
-// const fontPath = './assets/fonts/'
-// const fonts = {}
+import store from './src/asyncStorage/store'
+import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT, EMAIL_PASSWORD_AUTH, ONBOARD, HOME } from "./src/asyncStorage/actionsList";
+import MyTabs from "./src/navigation/bottom-navigator";
 
-// fontName.forEach(name => {
-//   fontWeight.forEach(weight => {
-//     fonts[name + '-' + weight] = require('' + fontPath + name + '-' + weight + '.ttf')
-//   })
-// })
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,16 +21,37 @@ export default function App() {
     'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf')
   });
 
+  const dispatchInitialState = () => {
+    AsyncStorage.getItem('initial_start')
+      .then(value => {
+        if (value === null) {
+          AsyncStorage.setItem('initial_start', 'true')
+            .catch(e => {
+              console.log(e)
+            })
+          
+          store.dispatch({ type: ONBOARD })
+        } else {
+          if (value === 'true') 
+            store.dispatch({ type: ONBOARD })
+          else 
+            fb.auth().onAuthStateChanged((user) => {
+              if (user == null)
+                store.dispatch({ type: SIGN_IN })
+              else 
+                store.dispatch({ type: HOME, authType: EMAIL_PASSWORD_AUTH })
+            });
+        }
+      }).catch(e => {
+        console.log(e)
+      })
+  }
+
+  useEffect(dispatchInitialState, [])
+
   if (!fontsLoaded) {
     return <AppLoading />;
   }
 
-
   return <HomeScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

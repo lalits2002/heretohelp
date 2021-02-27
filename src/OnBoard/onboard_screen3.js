@@ -16,7 +16,7 @@ import firebase from "firebase";
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 import mediaStore from '../MediaStore/mediaStore'
-import styles from './OnboardStyles';
+import styles from './SignupStyles';
 import InputField from "../component/InputField/InputField";
 import AppText from "../component/AppText/AppText";
 import { _setPlaceHolderColor } from "./methods";
@@ -59,7 +59,7 @@ const Onboard_screen3 = (props) => {
 
   const submitHandler = () => {
     if (!isValid()) { return false }
-    props.navigation.navigate("OB4", { ...props.route.params, password });
+    props.navigation.navigate("SignUp_4", { ...props.route.params, password });
   };
 
   return (

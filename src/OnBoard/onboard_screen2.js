@@ -13,7 +13,7 @@ import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
 import { Value } from "react-native-reanimated";
 import mediaStore from '../MediaStore/mediaStore';
-import styles from './OnboardStyles';
+import styles from './SignupStyles';
 import InputField from "../component/InputField/InputField";
 import AppText from '../component/AppText/AppText';
 import { _setPlaceHolderColor } from "./methods";
@@ -65,7 +65,7 @@ const Onboard_screen2 = (props) => {
 
   const submitHandler = () => {
     if(!isValid()){ return false }
-    props.navigation.navigate("OB3", { ...props.route.params, email });
+    props.navigation.navigate("SignUp_3", { ...props.route.params, email });
   };
 
   return (

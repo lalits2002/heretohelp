@@ -1,13 +1,13 @@
 import firebase from "firebase";
 import React, { useState } from "react";
 import { Image, SafeAreaView, View } from "react-native";
-import { EMAIL_PASSWORD_AUTH, SIGN_IN } from "../asyncStorage/actionsList";
+import { EMAIL_PASSWORD_AUTH, SIGN_IN, HOME } from "../asyncStorage/actionsList";
 import store_redux_thunk from "../asyncStorage/store";
 import AppText from "../component/AppText/AppText";
 import InputField from "../component/InputField/InputField";
 import Dark_Button from "../Items/Buttons/dark-bt";
 import Colors from "../Items/Colors";
-import styles from "./OnboardStyles";
+import styles from "./SignupStyles";
 
 import { _setPlaceHolderColor } from "./methods";
 import useValidation from "../utils/customHooks/validation";
@@ -58,7 +58,7 @@ const Onboard_screen4 = (props) => {
             //success callback
             store_redux_thunk.dispatch((dispatch) => {
               dispatch({
-                type: SIGN_IN,
+                type: HOME,
                 token: user,
                 authType: EMAIL_PASSWORD_AUTH,
               });
