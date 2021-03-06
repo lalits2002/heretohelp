@@ -24,4 +24,6 @@ export default{
   success: '#718D55',
   info: '#828282',
 
+  inactive: '#9D9FA8',
+
 }
