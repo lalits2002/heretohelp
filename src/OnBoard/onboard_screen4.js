@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Image, SafeAreaView, View } from "react-native";
 import { EMAIL_PASSWORD_AUTH, SIGN_IN, HOME } from "../asyncStorage/actionsList";
 import store_redux_thunk from "../asyncStorage/store";
@@ -11,6 +11,7 @@ import styles from "./SignupStyles";
 
 import { _setPlaceHolderColor } from "./methods";
 import useValidation from "../utils/customHooks/validation";
+
 
 const Onboard_screen4 = (props) => {
   const [address, setAddress] = useState("");
