@@ -95,7 +95,7 @@ export default function MyTabs(props) {
         inactiveTintColor: Colors.inactive,
         style: {
           backgroundColor: '#FFFFFE',
-          height: 80,
+          height: Platform.OS === "ios" ? 100 : 70,
           bottom: 12,
         }
       }}
@@ -254,8 +254,8 @@ export default function MyTabs(props) {
 
 const styles = StyleSheet.create({
   image: {
-    width: Platform.os === 'ios' ? 30 : 24,
-    height: Platform.os === 'ios' ? 30 : 24,
+    width: Platform.OS === 'ios' ? 30 : 24,
+    height: Platform.OS === 'ios' ? 30 : 24,
     resizeMode: 'contain',  
   }
 })
