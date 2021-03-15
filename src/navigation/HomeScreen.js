@@ -56,6 +56,10 @@ import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
 
+import { LOGIN_SCREEN, SIGNUP_SCREEN1, SIGNUP_SCREEN2, SIGNUP_SCREEN3, SIGNUP_SCREEN4 } from './screenNames'
+import Login from "../component/Login";
+import { getData } from "../utils/state/preferences";
+
 const ScreenConstant = createStackNavigator();
 
 function SocialScreen() {
@@ -220,10 +224,10 @@ function HomeScreen() {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="SignUp_1" component={SignUp_Screen_1} />
-          <ScreenConstant.Screen name="SignUp_2" component={SignUp_Screen_2} />
-          <ScreenConstant.Screen name="SignUp_3" component={SignUp_Screen_3} />
-          <ScreenConstant.Screen name="SignUp_4" component={SignUp_Screen_4} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN1} component={SignUp_Screen_1} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN2} component={SignUp_Screen_2} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN3} component={SignUp_Screen_3} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN4} component={SignUp_Screen_4} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
     )
@@ -234,10 +238,7 @@ function HomeScreen() {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="SignUp_1" component={SignUp_Screen_1} />
-          <ScreenConstant.Screen name="SignUp_2" component={SignUp_Screen_2} />
-          <ScreenConstant.Screen name="SignUp_3" component={SignUp_Screen_3} />
-          <ScreenConstant.Screen name="SignUp_4" component={SignUp_Screen_4} />
+          <ScreenConstant.Screen name={LOGIN_SCREEN} component={Login} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
     )

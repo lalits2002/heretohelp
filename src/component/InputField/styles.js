@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     color: Colors.secondary2,
     lineHeight: 28,
+    paddingBottom: 5
   },
 
   input_onFocus: {
