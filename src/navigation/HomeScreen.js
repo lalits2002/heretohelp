@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { AppLoading } from "expo";
 
-
-
 import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
 import store from "../asyncStorage/store"
 
@@ -13,9 +11,7 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
-import Onboard_screen_1 from "../OnBoard/Onboard_1";
-import Onboard_screen_2 from '../OnBoard/Onboard_2';
-import Onboard_screen_3 from '../OnBoard/Onboard_3';
+import Onboard from "../OnBoard/Onboard";
 
 import SignUp_Screen_1 from "../OnBoard/onboard_screen1";
 import SignUp_Screen_2 from "../OnBoard/onboard_screen2";
@@ -221,15 +217,7 @@ function HomeScreen() {
   }
 
   if (currentState.isNewUser && currentState.isSignedOut) {
-    return (
-      <NavigationContainer>
-        <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="Onboarding_1" component={Onboard_screen_1} />
-          <ScreenConstant.Screen name="Onboarding_2" component={Onboard_screen_2} />
-          <ScreenConstant.Screen name="Onboarding_3" component={Onboard_screen_3} />
-        </ScreenConstant.Navigator>
-      </NavigationContainer>
-    )
+    return <Onboard />;
   }
 
   if (!currentState.hasAccount && currentState.isSignedOut) {
