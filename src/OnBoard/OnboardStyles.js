@@ -1,8 +1,10 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import Colors from '../Items/Colors';
+import { HORIZONTAL_MARGIN } from './constants';
 
 const dimensions = Dimensions.get('window');
 const windowHeight = dimensions.height;
+const windowWidth = dimensions.width;
 
 const OnboardStyles = StyleSheet.create({
   screen: {
@@ -14,10 +16,21 @@ const OnboardStyles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginHorizontal: 16,
+    width: windowWidth,
     height: windowHeight,
   }, 
+  content_container: {
+    flex: 7,
+    width: '100%',
+    flexDirection: 'row',
+    overflow: 'hidden',
+  },
+  page: {
+    marginHorizontal: HORIZONTAL_MARGIN,
+    width: windowWidth - 2 * HORIZONTAL_MARGIN,
+  },
   top_navigation: {
+    marginHorizontal: HORIZONTAL_MARGIN,
     flex: 1.5,
     justifyContent: 'center',
     alignItems: 'flex-end',
@@ -30,6 +43,7 @@ const OnboardStyles = StyleSheet.create({
     width: '75%',
   },
   navigation: {
+    marginHorizontal: HORIZONTAL_MARGIN,
     flex: 1.5,
     alignItems: 'flex-end',
   },

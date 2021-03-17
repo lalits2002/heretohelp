@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AppLoading } from "expo";
-
-
 
 import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
 import store from "../asyncStorage/store"
@@ -13,9 +11,7 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
-import Onboard_screen_1 from "../OnBoard/Onboard_1";
-import Onboard_screen_2 from '../OnBoard/Onboard_2';
-import Onboard_screen_3 from '../OnBoard/Onboard_3';
+import Onboard from "../OnBoard/Onboard";
 
 import SignUp_Screen_1 from "../OnBoard/onboard_screen1";
 import SignUp_Screen_2 from "../OnBoard/onboard_screen2";
@@ -59,6 +55,10 @@ import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
+
+import { LOGIN_SCREEN, SIGNUP_SCREEN1, SIGNUP_SCREEN2, SIGNUP_SCREEN3, SIGNUP_SCREEN4 } from './screenNames'
+import Login from "../component/Login";
+import { getData } from "../utils/state/preferences";
 
 const ScreenConstant = createStackNavigator();
 
@@ -217,25 +217,17 @@ function HomeScreen() {
   }
 
   if (currentState.isNewUser && currentState.isSignedOut) {
-    return (
-      <NavigationContainer>
-        <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="Onboarding_1" component={Onboard_screen_1} />
-          <ScreenConstant.Screen name="Onboarding_2" component={Onboard_screen_2} />
-          <ScreenConstant.Screen name="Onboarding_3" component={Onboard_screen_3} />
-        </ScreenConstant.Navigator>
-      </NavigationContainer>
-    )
+    return <Onboard />;
   }
 
   if (!currentState.hasAccount && currentState.isSignedOut) {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="SignUp_1" component={SignUp_Screen_1} />
-          <ScreenConstant.Screen name="SignUp_2" component={SignUp_Screen_2} />
-          <ScreenConstant.Screen name="SignUp_3" component={SignUp_Screen_3} />
-          <ScreenConstant.Screen name="SignUp_4" component={SignUp_Screen_4} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN1} component={SignUp_Screen_1} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN2} component={SignUp_Screen_2} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN3} component={SignUp_Screen_3} />
+          <ScreenConstant.Screen name={SIGNUP_SCREEN4} component={SignUp_Screen_4} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
     )
@@ -246,10 +238,7 @@ function HomeScreen() {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name="SignUp_1" component={SignUp_Screen_1} />
-          <ScreenConstant.Screen name="SignUp_2" component={SignUp_Screen_2} />
-          <ScreenConstant.Screen name="SignUp_3" component={SignUp_Screen_3} />
-          <ScreenConstant.Screen name="SignUp_4" component={SignUp_Screen_4} />
+          <ScreenConstant.Screen name={LOGIN_SCREEN} component={Login} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
     )
