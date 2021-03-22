@@ -6,13 +6,27 @@ import { Feather } from '@expo/vector-icons';
 import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Picker from './transport-picker';
+import WheelPicker from '../WheelPicker/WheelPicker'
+
+const data = [
+  { label: 'Destination' },
+  { label: 'Event' },
+  { label: 'Doctors appointment' },
+  { label: 'Function' },
+  { label: 'Shopping' },
+  { label: 'Professional ride' },
+  { label: 'Emergency' },
+  { label: 'Test' },
+];
+
+const INITIAL_INDEX = 3
 
 const Transport_screen = props => {
   const navigation = useNavigation();
 
   const [Transporttype, SetType] = useState();
   const selectHandler = (item) => {SetType(item)};
-
+  const [selected, setSelected] = useState(data[INITIAL_INDEX].label);
 
   return (
     <View style={{ ...styles.screen, ...props.style}}>
@@ -47,8 +61,21 @@ const Transport_screen = props => {
 
     </View>
     <View style={styles.container5}>
-    <Picker selectType={selectHandler}/>
-
+    {/* <Picker selectType={selectHandler}/> */}
+    <WheelPicker 
+      containerStyle={{
+        width: '100%',
+        height: 288,
+        alignSelf: 'center',
+      }}
+      itemStyle={{
+        height: 32,
+        padding: 4,
+      }}
+      data={data}
+      setSelected={setSelected}
+      initialIndex={INITIAL_INDEX}
+    />
 
     </View>
 
@@ -56,7 +83,7 @@ const Transport_screen = props => {
       <Dark_Button onPress={() => props.navigation.navigate('transport_screen2',
       {
         ...props.route.params,
-        Transporttype,
+        selected,
       }
         )}>
         <Text>Request for Socialise</Text>
@@ -119,10 +146,11 @@ const styles = StyleSheet.create({
 
     },
     container5:{
-        flex: 2,
+        flex: 4,
         flexDirection: 'column',
         justifyContent: 'center',
         width: '100%',
+        // backgroundColor: 'red',
         //  backgroundColor: '#b5ad98',
 
 
