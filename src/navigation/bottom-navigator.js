@@ -12,7 +12,7 @@ import Victim from '../component/Help-need';
 import Chat_Screen from '../servises/chat/chat';
 import Browsing_Screen from '../servises/browsing-requests/browsing-screen';
 import Request_Screen from '../servises/request-screen/request-screen';
-
+import ChatIcon from '../component/svg_components';
 import ProfileScreen from '../component/profile/profile';
 import FeedbackScreen from '../component/profile/submit';
 import SubmitScreen from '../component/profile/settings';
@@ -217,10 +217,13 @@ export default function MyTabs(props) {
         options={{
           tabBarIcon: ({ focused, color, size }) => { 
             return (
-              <Image
-                source={focused ? require('../Items/Icons/chat_active.png') : require('../Items/Icons/chat_inactive.png')}
-                style={styles.image}
-              />
+             <View>
+               <View>
+                 <ChatIcon
+                 width="30"
+                 />
+               </View>
+             </View>
             )
           },
           tabBarLabel: tabBarLabelOpts('Chat'),
