@@ -6,13 +6,29 @@ import Dark_Button from "../../Items/Buttons/dark-bt";
 import Top_container from "./Transport_head";
 import Colors from "../../Items/Colors";
 import formatDate from "../formatDate";
+import WheelPicker from "../WheelPicker/WheelPicker";
+
+const hours = [];
+const mins = [];
+
+for (let i = 1; i <= 12; i++) {
+  hours.push({ label: i < 10 ? '0' + i : i, value: i });
+}
+
+for (let i = 0; i < 60; i++) {
+  mins.push({ label: i < 10 ? '0' + i : i, value: i });
+}
+
+const NOW = new Date();
+const INIT_HOURS = NOW.getHours();
+const INIT_MINS = NOW.getMinutes();
+const INIT_MERIDIAN = NOW.getHours() >= 12 ? "PM" : "AM";
 
 const Transport_screen3 = (props) => {
-  console.log(props);
 
-  const [Hour, setHour] = useState(0);
-  const [Minute, setMinute] = useState(0);
-  const [Meridian, setMeridian] = useState(0);
+  const [hour, setHour] = useState(INIT_HOURS % 12);
+  const [minute, setMinute] = useState(INIT_MINS);
+  const [meridian, setMeridian] = useState(INIT_MERIDIAN);
 
   const hourHandler = (Hour) => {
     setHour(Hour);
@@ -39,10 +55,64 @@ const Transport_screen3 = (props) => {
       </View>
 
       <View style={styles.mid_box}>
-        <TimePicker
+        {/* <TimePicker
           getMin={minHandler}
           getHour={hourHandler}
           getMeridian={AmPmHandler}
+        /> */}
+        <WheelPicker 
+          containerStyle={{
+            width: '30%',
+            height: 306,
+          }}
+          itemStyle={{
+            height: 34,
+            padding: 4,
+          }}
+          textStyle={{
+            fontSize: 23,
+            textAlign: 'right',
+          }}
+          data={hours}
+          setSelected={setHour}
+          initialIndex={(INIT_HOURS-1)}
+          wrap={true}
+        />
+        <WheelPicker 
+          containerStyle={{
+            width: '30%',
+            height: 306,
+          }}
+          itemStyle={{
+            height: 34,
+            padding: 4,
+          }}
+          textStyle={{
+            fontSize: 23,
+            textAlign: 'center',
+          }}
+          data={mins}
+          setSelected={setMinute}
+          initialIndex={INIT_MINS}
+          wrap={true}
+        />
+        <WheelPicker 
+          containerStyle={{
+            width: '30%',
+            height: 306,
+          }}
+          itemStyle={{
+            height: 34,
+            padding: 4,
+          }}
+          textStyle={{
+            fontSize: 23,
+            textAlign: 'left',
+          }}
+          data={[{label: 'AM'}, {label: 'PM'}]}
+          setSelected={setMeridian}
+          initialIndex={INIT_MERIDIAN == "AM" ? 0 : 1}
+          wrap={false}
         />
       </View>
       <View style={styles.bottom_box}>
@@ -50,7 +120,7 @@ const Transport_screen3 = (props) => {
           onPress={() =>
             props.navigation.navigate("Transport_screen4", {
               ...props.route.params,
-              time: { Hour, Minute, Meridian },
+              time: { hour, minute, meridian },
             })
           }
         >
@@ -83,7 +153,7 @@ const styles = StyleSheet.create({
   mid_box: {
     flex: 5,
     width: "100%",
-    flexDirection: "column",
+    flexDirection: "row",
     justifyContent: "center",
     alignSelf: "center",
     // backgroundColor: "#6dc2ed",

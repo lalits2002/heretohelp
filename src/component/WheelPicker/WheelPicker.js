@@ -3,42 +3,82 @@ import React, { useRef, useState } from "react";
 import { View, Animated, Platform, Easing } from "react-native";
 import AppText from '../AppText/AppText';
 import Colors from '../../Items/Colors';
+import styles from './WheelPickerStyles';
+import PropTypes from 'prop-types';
 
 const WheelPicker = (props) => {
 
-  // ----- WheelPicker Props -----
-  // data: [ { label: __, }, ... ]
-  // containerStyle: {
-  //   width: 
-  //   height: 
-  // }
-  // itemStyle: {
-  //   height: 
-  // }
-  // setSelected: function
-  // initialIndex: number
-  // ------------------------------
+  const generateWrapData = (data) => {
+    let genData = [];
+    for (let i = 0; i < 3; i++) {
+      data.forEach(entry => {
+        genData.push(entry);
+      })
+    }
+    return genData;
+  }
 
-  const OFFSET = parseInt(props.containerStyle.height / props.itemStyle.height * 0.5);
+  const CONTAINER_HEIGHT = props.containerStyle.height;
+  const ITEM_HEIGHT = props.itemStyle.height;
+  const DATA_HEIGHT = props.data.length * ITEM_HEIGHT;
+
+  const OFFSET = parseInt(CONTAINER_HEIGHT / ITEM_HEIGHT * 0.5);
+
+  const INITIAL_INDEX = props.wrap
+    ? props.data.length + (props.initialIndex || 0)
+    : props.initialIndex || 0;
+
+  const DATA = props.wrap
+    ? generateWrapData(props.data)
+    : props.data;
+
   const VELOCITY_MULTIPLIER = 0.1;
-  const INITIAL_INDEX = props.initialIndex || 0;
-
-  const [snapY, setSnapY] = useState((-INITIAL_INDEX + OFFSET) * props.itemStyle.height);
+  
+  const [snapY, setSnapY] = useState((-INITIAL_INDEX + OFFSET) * ITEM_HEIGHT);
   const [indexSelected, setIndexSelected] = useState(INITIAL_INDEX);
 
-  const spinAnim = useRef(new Animated.Value((-INITIAL_INDEX + OFFSET) * props.itemStyle.height)).current;
+  const spinAnim = useRef(new Animated.Value((-INITIAL_INDEX + OFFSET) * ITEM_HEIGHT)).current;
 
   const wheelPerspective = [];
   const interpolatedWheelPerspective = [];
-  props.data.forEach(() => {
+  DATA.forEach(() => {
     wheelPerspective.push( useRef(new Animated.Value((0))).current );
     interpolatedWheelPerspective.push(null);
   });
+
+  const calculateFontSize = (fontSize, diff) => {
+    return fontSize - (1 + Math.abs(diff)) * Math.abs(diff) > 0 
+      ? fontSize - (1 + Math.abs(diff)) * Math.abs(diff) 
+      : 0
+  }
+
+  const determineColor = (isSelected) => {
+    if (isSelected)
+      if (props.textStyle && props.textStyle.activeColor)
+        return props.textStyle.activeColor
+
+      else
+        return Colors.primary1  
+
+    else
+      if (props.textStyle && props.textStyle.inactiveColor)
+        return props.textStyle.inactiveColor
+
+      else
+        return Colors.inactive_picker
+  }
   
   const setRotation = (currentIndex) => {
     let rotation;
-    for (let i = 0; i < wheelPerspective.length; i++) {
-      rotation = Math.sqrt(Math.abs(currentIndex - i)) * 90 / ( OFFSET + 1 );
+    let min = currentIndex - OFFSET - 2 < 0
+      ? 0
+      : currentIndex - OFFSET - 2
+    let max = currentIndex + OFFSET + 2 > DATA.length
+      ? DATA.length
+      : currentIndex + OFFSET + 2
+
+    for (let i = min; i < max; i++) {
+      rotation = Math.sqrt(Math.abs((currentIndex - i) % props.data.length)) * 90 / ( OFFSET + 1 );
       Animated.spring(wheelPerspective[i], {
         toValue: currentIndex - i + OFFSET < 0 ? -rotation : rotation,
         useNativeDriver: Platform.OS !== 'web' ? true : false,
@@ -50,96 +90,104 @@ const WheelPicker = (props) => {
     }
   } 
   setRotation(indexSelected);
+ 
+  const adjustWrapPosition = (position) => {
+    let adjustedPosition = position;
+    while (adjustedPosition > -DATA_HEIGHT + OFFSET * ITEM_HEIGHT) {
+      adjustedPosition -= DATA_HEIGHT;
+    }
+
+    while (adjustedPosition <= -2 * DATA_HEIGHT + OFFSET * ITEM_HEIGHT) {
+      adjustedPosition += DATA_HEIGHT;
+    }
+    
+    return adjustedPosition;
+  }
 
   const snapToNearestItem = (evt) => {
     let dy = evt.nativeEvent.translationY + evt.nativeEvent.velocityY * VELOCITY_MULTIPLIER;
-    let lowerIndex = parseInt((snapY + dy) / props.itemStyle.height);
+    let lowerIndex = parseInt((snapY + dy) / ITEM_HEIGHT);
     let upperIndex = snapY + dy < 0 ? lowerIndex-1 : lowerIndex+1;
     let newPosition;
 
     if (lowerIndex - OFFSET >= 0)
-      newPosition = OFFSET * props.itemStyle.height;
+      newPosition = OFFSET * ITEM_HEIGHT;
 
-    else if (lowerIndex - OFFSET <= -props.data.length+1) 
-      newPosition = (-props.data.length+1 + OFFSET) * props.itemStyle.height;
+    else if (lowerIndex - OFFSET <= -DATA.length+1) 
+      newPosition = (-DATA.length+1 + OFFSET) * ITEM_HEIGHT;
 
-    else if (Math.abs(snapY + dy - lowerIndex * props.itemStyle.height) < Math.abs(snapY + dy - upperIndex * props.itemStyle.height)) 
-      newPosition = lowerIndex * props.itemStyle.height;
+    else if (Math.abs(snapY + dy - lowerIndex * ITEM_HEIGHT) < Math.abs(snapY + dy - upperIndex * ITEM_HEIGHT)) 
+      newPosition = lowerIndex * ITEM_HEIGHT;
 
     else
-      newPosition = upperIndex * props.itemStyle.height
+      newPosition = upperIndex * ITEM_HEIGHT
 
-    setSnapY(newPosition);
+    
+    if (props.wrap) {
+      let wrapPosition = adjustWrapPosition(newPosition);
+      setSnapY(wrapPosition)
 
-    if (Math.abs(evt.nativeEvent.velocityY) > 300) 
-      Animated.timing(spinAnim, {
-        duration: parseInt(Math.abs(evt.nativeEvent.velocityY)),
-        easing: Easing.out(Easing.ease),
-        toValue: (newPosition),
-        useNativeDriver: Platform.OS !== 'web' ? true : false,
-      }).start();
-    else 
+      let currentIndex = parseInt(wrapPosition / ITEM_HEIGHT) - OFFSET;
+      setIndexSelected(-currentIndex);
+  
+      if (-currentIndex >= 0 && -currentIndex < DATA.length)
+        props.setSelected(DATA[-currentIndex].value);
+
+      Animated.parallel([
+        Animated.spring(spinAnim, {
+          toValue: (newPosition),
+          useNativeDriver: Platform.OS !== 'web' ? true : false,
+        }),
+        Animated.timing(spinAnim, {
+          duration: 0,
+          toValue: (wrapPosition),
+          useNativeDriver: Platform.OS !== 'web' ? true : false,
+        }),
+      ]).start();
+
+    } else {
+      setSnapY(newPosition)
+      
+      let currentIndex = parseInt(newPosition / ITEM_HEIGHT) - OFFSET;
+      setIndexSelected(-currentIndex);
+  
+      if (-currentIndex >= 0 && -currentIndex < DATA.length)
+        props.setSelected(DATA[-currentIndex].value);
+
       Animated.spring(spinAnim, {
         toValue: (newPosition),
         useNativeDriver: Platform.OS !== 'web' ? true : false,
       }).start();
+    } 
     
-  }
-
-  const snapCurrentSelection = (evt) => {
-    let dy = evt.nativeEvent.translationY + evt.nativeEvent.velocityY * VELOCITY_MULTIPLIER;
-    let lowerIndex = parseInt((snapY + dy) / props.itemStyle.height);
-    let upperIndex = snapY + dy < 0 ? lowerIndex-1 : lowerIndex+1;
-    let currentIndex;
-
-    if (lowerIndex - OFFSET >= 0) 
-      currentIndex = 0;
-  
-    else if (lowerIndex - OFFSET <= -props.data.length+1) 
-      currentIndex = -props.data.length+1;
-
-    else if (Math.abs(snapY + dy - lowerIndex * props.itemStyle.height) < Math.abs(snapY + dy - upperIndex * props.itemStyle.height))
-      currentIndex = lowerIndex - OFFSET;
-
-    else
-      currentIndex = upperIndex - OFFSET;
-
-    if (currentIndex !== indexSelected)
-      setIndexSelected(-currentIndex);
-  
-    if (-currentIndex >= 0 && -currentIndex < props.data.length)
-      props.setSelected(props.data[-currentIndex].label);
-
   }
 
   const scrollAnimStateChange = (evt) => {
     if (evt.nativeEvent.state === State.END) {
       snapToNearestItem(evt);
-      snapCurrentSelection(evt);
     }
   }
 
   const setCurrentSelection = (evt) => {
     let dy = evt.nativeEvent.translationY;
-    let lowerIndex = parseInt((snapY + dy) / props.itemStyle.height);
+    let lowerIndex = parseInt((snapY + dy) / ITEM_HEIGHT);
     let upperIndex = snapY + dy < 0 ? lowerIndex-1 : lowerIndex+1;
     let currentIndex;
 
     if (lowerIndex - OFFSET >= 0) 
       currentIndex = 0;
   
-    else if (lowerIndex - OFFSET <= -props.data.length+1) 
-      currentIndex = -props.data.length+1;
+    else if (lowerIndex - OFFSET <= -DATA.length+1) 
+      currentIndex = -DATA.length+1;
 
-    else if (Math.abs(snapY + dy - lowerIndex * props.itemStyle.height) < Math.abs(snapY + dy - upperIndex * props.itemStyle.height))
+    else if (Math.abs(snapY + dy - lowerIndex * ITEM_HEIGHT) < Math.abs(snapY + dy - upperIndex * ITEM_HEIGHT))
       currentIndex = lowerIndex - OFFSET;
 
     else
       currentIndex = upperIndex - OFFSET;
     
     if (currentIndex !== indexSelected)
-      setIndexSelected(-currentIndex);
-
+        setIndexSelected(-currentIndex);
   }
 
   const scrollAnim = (evt) => {
@@ -164,53 +212,87 @@ const WheelPicker = (props) => {
           overflow: 'hidden',
         }
       ]}>
-        <Animated.View style={{
-          transform: [{ translateY: spinAnim }],
+        <Animated.View style={{ 
+          transform: [{ translateY: spinAnim }], 
         }}>
-          { props.data.map((item, index) => {
+          {
+            DATA.map((item, index) => {
               let isSelected = false;
               let diff = Math.abs(indexSelected - index);
-              item.key = index;
 
               if (diff === 0)
                 isSelected = true;
 
+              if (index < indexSelected - OFFSET - 2 || index >= indexSelected + OFFSET + 2)
+                return (
+                  <Animated.View 
+                    style={props.itemStyle}
+                    key={index}
+                  >
+                  </Animated.View>
+                )
+
               return (
                 <Animated.View 
-                  style={[ props.itemStyle, 
-                  {
-                    transform: [{ rotateX: interpolatedWheelPerspective[index] }],
-                    opacity: isSelected ? 1 : 1 - 0.2 * Math.abs(diff),
-                  } 
-                ]}>
+                  style={[ 
+                    props.itemStyle, 
+                    {
+                      transform: [{ rotateX: interpolatedWheelPerspective[index] }],
+                      opacity: isSelected ? 1 : 1 - 0.2 * Math.abs(diff),
+                    },
+                  ]}
+                  key={index}
+                >
                   <AppText
-                    style={{
-                      color: isSelected? Colors.primary1 : Colors.inactive_picker,
-                      fontSize: 23 - (1 + Math.abs(diff)) * Math.abs(diff) > 0 ? 23 - (1 + Math.abs(diff)) * Math.abs(diff) : 0,
-                      textAlign: 'center',
-                    }}
+                    style={[
+                      props.textStyle,
+                      {
+                        color: determineColor(isSelected),
+                        fontSize: props.textStyle
+                          ? props.textStyle.fontSize
+                            ? calculateFontSize(props.textStyle.fontSize, diff)
+                            : calculateFontSize(23, diff)
+                          : calculateFontSize(23, diff),
+                      }
+                    ]}
                   >{ item.label }</AppText>
                 </Animated.View>
               )
-          }) }
-        
+            }) 
+          }
         </Animated.View>
-        <View
-          style={{
-            position: 'absolute',
-            top: OFFSET * props.itemStyle.height,
-            width: '100%',
-            height: props.itemStyle.height,
-            borderTopWidth: 1,
-            borderBottomWidth: 1,
-            borderColor: Colors.picker_border,
-          }}
-        >
-        </View>
+        <View style={ styles.selectionFrame(OFFSET, ITEM_HEIGHT) } />
       </View>
     </PanGestureHandler>
   )
 
+}
+
+WheelPicker.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+      value: PropTypes.any
+    })
+  ),
+
+  containerStyle: PropTypes.shape({
+    height: PropTypes.number.isRequired
+  }).isRequired,
+
+  itemStyle: PropTypes.shape({
+    height: PropTypes.number.isRequired
+  }).isRequired,
+
+  textStyle: PropTypes.shape({
+    activeColor: PropTypes.string,
+    inactiveColor: PropTypes.string,
+    fontSize: PropTypes.number
+  }),
+
+  setSelected: PropTypes.func,
+  initialIndex: PropTypes.number,
+  wrap: PropTypes.bool
 }
 
 export default WheelPicker;

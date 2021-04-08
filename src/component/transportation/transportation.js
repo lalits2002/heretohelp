@@ -9,14 +9,14 @@ import Picker from './transport-picker';
 import WheelPicker from '../WheelPicker/WheelPicker'
 
 const data = [
-  { label: 'Destination' },
-  { label: 'Event' },
-  { label: 'Doctors appointment' },
-  { label: 'Function' },
-  { label: 'Shopping' },
-  { label: 'Professional ride' },
-  { label: 'Emergency' },
-  { label: 'Test' },
+  { label: 'Destination', value: 'Destination' },
+  { label: 'Event', value: 'Event' },
+  { label: 'Doctors appointment', value: 'Doctors appointment' },
+  { label: 'Function', value: 'Function' },
+  { label: 'Shopping', value: 'Shopping' },
+  { label: 'Professional ride', value: 'Professional ride' },
+  { label: 'Emergency', value: 'Emergency' },
+  { label: 'Test', value: 'Test' },
 ];
 
 const INITIAL_INDEX = 3
@@ -62,20 +62,24 @@ const Transport_screen = props => {
     </View>
     <View style={styles.container5}>
     {/* <Picker selectType={selectHandler}/> */}
-    <WheelPicker 
-      containerStyle={{
-        width: '100%',
-        height: 288,
-        alignSelf: 'center',
-      }}
-      itemStyle={{
-        height: 32,
-        padding: 4,
-      }}
-      data={data}
-      setSelected={setSelected}
-      initialIndex={INITIAL_INDEX}
-    />
+      <WheelPicker 
+        containerStyle={{
+          width: '100%',
+          height: 306,
+          alignSelf: 'center',
+        }}
+        itemStyle={{
+          height: 34,
+          padding: 4,
+        }}
+        textStyle={{
+          fontSize: 23,
+          textAlign: 'center',
+        }}
+        data={data}
+        setSelected={setSelected}
+        initialIndex={INITIAL_INDEX}
+      />
 
     </View>
 
