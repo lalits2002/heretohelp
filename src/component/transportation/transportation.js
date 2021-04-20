@@ -6,13 +6,27 @@ import { Feather } from '@expo/vector-icons';
 import Colors from '../../Items/Colors';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Picker from './transport-picker';
+import WheelPicker from '../WheelPicker/WheelPicker'
+
+const data = [
+  { label: 'Destination', value: 'Destination' },
+  { label: 'Event', value: 'Event' },
+  { label: 'Doctors appointment', value: 'Doctors appointment' },
+  { label: 'Function', value: 'Function' },
+  { label: 'Shopping', value: 'Shopping' },
+  { label: 'Professional ride', value: 'Professional ride' },
+  { label: 'Emergency', value: 'Emergency' },
+  { label: 'Test', value: 'Test' },
+];
+
+const INITIAL_INDEX = 3
 
 const Transport_screen = props => {
   const navigation = useNavigation();
 
   const [Transporttype, SetType] = useState();
   const selectHandler = (item) => {SetType(item)};
-
+  const [selected, setSelected] = useState(data[INITIAL_INDEX].label);
 
   return (
     <View style={{ ...styles.screen, ...props.style}}>
@@ -47,8 +61,25 @@ const Transport_screen = props => {
 
     </View>
     <View style={styles.container5}>
-    <Picker selectType={selectHandler}/>
-
+    {/* <Picker selectType={selectHandler}/> */}
+      <WheelPicker 
+        containerStyle={{
+          width: '100%',
+          height: 306,
+          alignSelf: 'center',
+        }}
+        itemStyle={{
+          height: 34,
+          padding: 4,
+        }}
+        textStyle={{
+          fontSize: 23,
+          textAlign: 'center',
+        }}
+        data={data}
+        setSelected={setSelected}
+        initialIndex={INITIAL_INDEX}
+      />
 
     </View>
 
@@ -56,7 +87,7 @@ const Transport_screen = props => {
       <Dark_Button onPress={() => props.navigation.navigate('transport_screen2',
       {
         ...props.route.params,
-        Transporttype,
+        selected,
       }
         )}>
         <Text>Request for Socialise</Text>
@@ -119,10 +150,11 @@ const styles = StyleSheet.create({
 
     },
     container5:{
-        flex: 2,
+        flex: 4,
         flexDirection: 'column',
         justifyContent: 'center',
         width: '100%',
+        // backgroundColor: 'red',
         //  backgroundColor: '#b5ad98',
 
 

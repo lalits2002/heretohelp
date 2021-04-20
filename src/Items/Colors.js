@@ -25,5 +25,8 @@ export default{
   info: '#828282',
 
   inactive: '#9D9FA8',
+  
+  inactive_picker: '#9A99A2',
+  picker_border: '#E6E4EA',
 
 }
