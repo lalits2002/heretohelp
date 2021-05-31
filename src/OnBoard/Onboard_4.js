@@ -6,11 +6,8 @@ import Styles from "./OnboardStyles";
 
 import Colors from "../Items/Colors";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
 
-const Onboard_Create_Profile = (props) => {
-  const navigation = useNavigation();
-
+const Onboard_Login = (props) => {
   return (
     <ScrollView>
       <View style={styles.screen}>
@@ -18,21 +15,25 @@ const Onboard_Create_Profile = (props) => {
           <Text>Insert navigational slider here</Text>
         </View>
         <View style={styles.title}>
-          <AppText style={Styles.head}>Create your{"\n"}profile</AppText>
+          <AppText style={Styles.head}>Create your{"\n"}login</AppText>
         </View>
 
         <View style={styles.container2}>
-          <TextInput style={styles.input} placeholder="First Name" />
+          <TextInput style={styles.input} placeholder="Email Address" />
         </View>
 
         <View style={styles.container3}>
-          <TextInput style={styles.input} placeholder="Last Name" />
+          <TextInput
+            secureTextEntry={true}
+            style={styles.input}
+            placeholder="Password"
+          />
         </View>
 
         <View style={styles.container4}>
           <Dark_Button
             onPress={() =>
-              navigation.navigate("OnboardingScreen_4", {
+              props.navigation.navigate("OnboardingScreen_5", {
                 ...props.route.params,
               })
             }
@@ -83,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Onboard_Create_Profile;
+export default Onboard_Login;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AppLoading } from "expo";
 
 import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
-import store from "../asyncStorage/store"
+import store from "../asyncStorage/store";
 
 import { NavigationContainer } from "@react-navigation/native";
 import {
@@ -13,16 +13,23 @@ import {
 
 import Onboard from "../OnBoard/Onboard";
 
-import SignUp_Screen_1 from "../OnBoard/onboard_screen1";
-import SignUp_Screen_2 from "../OnBoard/onboard_screen2";
-import SignUp_Screen_3 from "../OnBoard/onboard_screen3";
-import SignUp_Screen_4 from "../OnBoard/onboard_screen4";
+// import SignUp_Screen_1 from "../OnBoard/onboard_screen1";
+// import SignUp_Screen_2 from "../OnBoard/onboard_screen2";
+// import SignUp_Screen_3 from "../OnBoard/onboard_screen3";
+// import SignUp_Screen_4 from "../OnBoard/onboard_screen4";
+
+//import Onboard_screen from "../OnBoard/Onboard_1";
+import Onboard_Create_Profile from "../OnBoard/Onboard_2";
+import Onboard_Login from "../OnBoard/Onboard_4";
+import Onboard_Add_Profile_Pic from "../OnBoard/Onboard_5";
+import Onboard_Enter_Number from "../OnBoard/Onboard_6";
+import Onboard_Verify_Number from "../OnBoard/Onboard_7";
+import SignUp_complete from "../OnBoard/SignUp_complete";
 
 import Loadscreen from "../component/Load";
 import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 import MyTabs from "./bottom-navigator";
-
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
@@ -56,7 +63,13 @@ import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
 
-import { LOGIN_SCREEN, SIGNUP_SCREEN1, SIGNUP_SCREEN2, SIGNUP_SCREEN3, SIGNUP_SCREEN4 } from './screenNames'
+import {
+  LOGIN_SCREEN,
+  SIGNUP_SCREEN1,
+  SIGNUP_SCREEN2,
+  SIGNUP_SCREEN3,
+  SIGNUP_SCREEN4,
+} from "./screenNames";
 import Login from "../component/Login";
 import { getData } from "../utils/state/preferences";
 
@@ -202,15 +215,14 @@ function TransportScreen() {
 }
 
 function HomeScreen() {
-
-  const [refresh, refresher] = useState(0)
+  const [refresh, refresher] = useState(0);
 
   const currentState = store.getState();
 
   store.subscribe(() => {
     console.log(currentState);
     refresher(refresh + 1);
-  })
+  });
 
   if (currentState.isLoading) {
     return <AppLoading />;
@@ -224,13 +236,33 @@ function HomeScreen() {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
-          <ScreenConstant.Screen name={SIGNUP_SCREEN1} component={SignUp_Screen_1} />
-          <ScreenConstant.Screen name={SIGNUP_SCREEN2} component={SignUp_Screen_2} />
-          <ScreenConstant.Screen name={SIGNUP_SCREEN3} component={SignUp_Screen_3} />
-          <ScreenConstant.Screen name={SIGNUP_SCREEN4} component={SignUp_Screen_4} />
+          <ScreenConstant.Screen
+            name={"OnboardingScreen_2"}
+            component={Onboard_Create_Profile}
+          />
+          <ScreenConstant.Screen
+            name={"OnboardingScreen_4"}
+            component={Onboard_Login}
+          />
+          <ScreenConstant.Screen
+            name={"OnboardingScreen_5"}
+            component={Onboard_Add_Profile_Pic}
+          />
+          <ScreenConstant.Screen
+            name={"OnboardingScreen_6"}
+            component={Onboard_Enter_Number}
+          />
+          <ScreenConstant.Screen
+            name={"OnboardingScreen_7"}
+            component={Onboard_Verify_Number}
+          />
+          <ScreenConstant.Screen
+            name={"SignUp_Complete"}
+            component={SignUp_complete}
+          />
         </ScreenConstant.Navigator>
       </NavigationContainer>
-    )
+    );
   }
 
   if (currentState.isSignedOut) {
@@ -241,13 +273,12 @@ function HomeScreen() {
           <ScreenConstant.Screen name={LOGIN_SCREEN} component={Login} />
         </ScreenConstant.Navigator>
       </NavigationContainer>
-    )
+    );
   }
 
   // if signed in
   else {
     return (
-
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
           {/* <ScreenConstant.Screen name="OB" component={Onboard_screen} /> */}
@@ -292,9 +323,6 @@ function HomeScreen() {
       </NavigationContainer>
     );
   }
-
-
-
 }
 
 export default HomeScreen;
