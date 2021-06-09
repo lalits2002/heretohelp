@@ -6,17 +6,17 @@ import Styles from "./OnboardStyles";
 
 import Colors from "../Items/Colors";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
 
 const Onboard_Create_Profile = (props) => {
-  const navigation = useNavigation();
-
   return (
     <ScrollView>
+      <View style={styles.status_bar}>
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+      </View>
       <View style={styles.screen}>
-        <View style={styles.container1}>
-          <Text>Insert navigational slider here</Text>
-        </View>
         <View style={styles.title}>
           <AppText style={Styles.head}>Create your{"\n"}profile</AppText>
         </View>
@@ -32,7 +32,7 @@ const Onboard_Create_Profile = (props) => {
         <View style={styles.container4}>
           <Dark_Button
             onPress={() =>
-              navigation.navigate("OnboardingScreen_4", {
+              props.navigation.navigate("OnboardingScreen_4", {
                 ...props.route.params,
               })
             }
@@ -51,8 +51,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignContent: "center",
-    paddingTop: "10%",
     padding: "7%",
+  },
+  status_bar: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    paddingTop: "10%",
+  },
+  bar: {
+    width: 75,
+    height: 3,
+    backgroundColor: "#2D375B",
+    marginTop: 30,
   },
   container1: {
     paddingVertical: "5%",

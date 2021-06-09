@@ -11,10 +11,13 @@ import { ScrollView } from "react-native-gesture-handler";
 const Onboard_Add_Profile_Pic = (props) => {
   return (
     <ScrollView>
+      <View style={styles.status_bar}>
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+      </View>
       <View style={styles.screen}>
-        <View style={styles.container1}>
-          <Text>Insert navigational slider here</Text>
-        </View>
         <View style={styles.button}>
           <Grey_Button
             onPress={() =>
@@ -60,8 +63,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignContent: "center",
-    paddingTop: "10%",
     padding: "7%",
+  },
+  status_bar: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    paddingTop: "10%",
+  },
+  bar: {
+    width: 75,
+    height: 3,
+    backgroundColor: "#2D375B",
+    marginTop: 30,
   },
   container1: {
     paddingVertical: "5%",

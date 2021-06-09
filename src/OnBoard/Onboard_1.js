@@ -12,8 +12,16 @@ import {
 } from "react-native";
 import Swiper from "react-native-swiper";
 import AppText from "../component/AppText/AppText";
+import { useNavigation } from "@react-navigation/native";
 
-const Onboard_screen = () => {
+const Onboard_screen = (props) => {
+  const navigation = useNavigation();
+
+  const nav = () => {
+    navigation.navigate("OnboardingScreen_2", {
+      ...props.route.params,
+    });
+  };
   return (
     <View style={Styles.screen}>
       <ImageBackground
@@ -106,12 +114,7 @@ const Onboard_screen = () => {
           />
           <Text style={Styles.buttonText1}>Continue with Facebook</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={Styles.buttonType3}
-          onPress={() => {
-            console.log("You tapped the button!");
-          }}
-        >
+        <TouchableOpacity style={Styles.buttonType3} onPress={nav}>
           <Image
             style={Styles.buttonIcon}
             source={require("./img/emailIcon.png")}

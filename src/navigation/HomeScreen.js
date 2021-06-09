@@ -18,7 +18,7 @@ import Onboard from "../OnBoard/Onboard";
 // import SignUp_Screen_3 from "../OnBoard/onboard_screen3";
 // import SignUp_Screen_4 from "../OnBoard/onboard_screen4";
 
-//import Onboard_screen from "../OnBoard/Onboard_1";
+import Onboard_screen from "../OnBoard/Onboard_1";
 import Onboard_Create_Profile from "../OnBoard/Onboard_2";
 import Onboard_Login from "../OnBoard/Onboard_4";
 import Onboard_Add_Profile_Pic from "../OnBoard/Onboard_5";
@@ -236,6 +236,10 @@ function HomeScreen() {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
+          <ScreenConstant.Screen
+            name={"Onboard_screen"}
+            component={Onboard_screen}
+          />
           <ScreenConstant.Screen
             name={"OnboardingScreen_2"}
             component={Onboard_Create_Profile}

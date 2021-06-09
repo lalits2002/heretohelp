@@ -18,11 +18,22 @@ import { ScrollView } from "react-native-gesture-handler";
 const Onboard_Verify_Number = (props) => {
   return (
     <ScrollView>
+      <View style={styles.status_bar}>
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+        <View style={styles.bar} />
+      </View>
       <View style={styles.screen}>
-        <View style={styles.container1}>
+        {/* <View style={styles.container1}>
           <Text>Insert navigational slider here</Text>
-        </View>
-        <TouchableOpacity activeOpacity={0.72} onPress={props.onPress}>
+        </View> */}
+        <TouchableOpacity
+          activeOpacity={0.72}
+          onPress={() => {
+            props.navigation.goBack();
+          }}
+        >
           <Image source={require("./img/backArrow.png")} />
         </TouchableOpacity>
         <View style={styles.title}>
@@ -78,13 +89,22 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignContent: "center",
-    paddingTop: "10%",
     padding: "7%",
   },
-  container1: {
-    paddingVertical: "5%",
-    backgroundColor: "lightblue",
+  status_bar: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    paddingTop: "10%",
   },
+  bar: {
+    width: 75,
+    height: 3,
+    backgroundColor: "#2D375B",
+    marginTop: 30,
+  },
+  container1: {},
   container2: {
     paddingVertical: "5%",
   },

@@ -17,7 +17,7 @@ import {
 import MyTabs from "./src/navigation/bottom-navigator";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Onboard_Create_Profile from "./src/OnBoard/Onboard_2";
+
 import HomeScreen from "./src/navigation/HomeScreen";
 
 export default function App() {
