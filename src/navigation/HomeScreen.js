@@ -270,7 +270,6 @@ function HomeScreen() {
   }
 
   if (currentState.isSignedOut) {
-    // Should be Sign In screens
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>

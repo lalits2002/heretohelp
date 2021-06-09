@@ -3,22 +3,14 @@ import { StyleSheet, View } from "react-native";
 import { AppLoading } from "expo";
 import fb from "./src/config/firebase";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
-// import HomeScreen from "./src/navigation/HomeScreen";
+import HomeScreen from "./src/navigation/HomeScreen";
 
-import store from "./src/asyncStorage/store";
-import {
-  RESTORE_TOKEN,
-  SIGN_IN,
-  SIGN_OUT,
-  EMAIL_PASSWORD_AUTH,
-  ONBOARD,
-  HOME,
-} from "./src/asyncStorage/actionsList";
+import store from './src/asyncStorage/store'
+import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT, EMAIL_PASSWORD_AUTH, ONBOARD, HOME, SIGN_UP } from "./src/asyncStorage/actionsList";
 import MyTabs from "./src/navigation/bottom-navigator";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
-import HomeScreen from "./src/navigation/HomeScreen";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { handleAuthStateChange } from "./src/utils/authenticationHandler";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -37,13 +29,12 @@ export default function App() {
 
           store.dispatch({ type: ONBOARD });
         } else {
-          if (value === "true") store.dispatch({ type: ONBOARD });
+          if (value === 'true') 
+            store.dispatch({ type: ONBOARD })
           else
-            fb.auth().onAuthStateChanged((user) => {
-              if (user == null) store.dispatch({ type: SIGN_IN });
-              else
-                store.dispatch({ type: HOME, authType: EMAIL_PASSWORD_AUTH });
-            });
+            store.dispatch({ type: SIGN_IN })
+
+          fb.auth().onAuthStateChanged(user => handleAuthStateChange(user))
         }
       })
       .catch((e) => {
@@ -51,7 +42,11 @@ export default function App() {
       });
   };
 
-  useEffect(dispatchInitialState, []);
+  const signout = () => {
+    fb.auth().signOut()
+  }
+
+  useEffect(dispatchInitialState, [])
 
   if (!fontsLoaded) {
     return <AppLoading />;

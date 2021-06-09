@@ -1,23 +1,18 @@
 import { State, PanGestureHandler } from "react-native-gesture-handler";
 import React, { useRef, useState } from "react";
-import {
-  View,
-  SafeAreaView,
-  Animated,
-  Dimensions,
-  Platform,
-} from "react-native";
-import { Button } from "react-native-elements";
-import styles from "./OnboardStyles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import store from "../asyncStorage/store";
-import { SIGN_UP } from "../asyncStorage/actionsList";
-import Dark_Button from "../Items/Buttons/dark-bt";
-import Onboard_1 from "./Onboard_1";
-import Onboard_2 from "./Onboard_2";
-import Onboard_3 from "./Onboard_3";
+import { View, SafeAreaView, Animated, Dimensions, Platform } from "react-native";
+import { Button } from 'react-native-elements';
+import styles from './OnboardStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import store from '../asyncStorage/store';
+import { SIGN_UP } from '../asyncStorage/actionsList';
+import Dark_Button from '../Items/Buttons/dark-bt';
+import Onboard_1 from './Onboard_1';
+import Onboard_2 from './Onboard_2';
+import Onboard_3 from './Onboard_3';
+import { signInWithFacebook } from '../utils/authMethods';
 
-const dimensions = Dimensions.get("window");
+const dimensions = Dimensions.get('window');
 const windowWidth = dimensions.width;
 const THRESHOLD = 0.25 * windowWidth;
 const NUM_OF_PAGES = 3;
