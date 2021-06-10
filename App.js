@@ -42,10 +42,6 @@ export default function App() {
       });
   };
 
-  const signout = () => {
-    fb.auth().signOut()
-  }
-
   useEffect(dispatchInitialState, [])
 
   if (!fontsLoaded) {

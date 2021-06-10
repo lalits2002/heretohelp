@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AppLoading } from "expo";
 
-import { RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
+import { ONBOARD, RESTORE_TOKEN, SIGN_IN, SIGN_OUT } from "../asyncStorage/actionsList";
 import store from "../asyncStorage/store";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -218,6 +218,7 @@ function HomeScreen() {
   const [refresh, refresher] = useState(0);
 
   const currentState = store.getState();
+  console.log(currentState);
 
   store.subscribe(() => {
     console.log(currentState);
@@ -228,11 +229,7 @@ function HomeScreen() {
     return <AppLoading />;
   }
 
-  if (currentState.isNewUser && currentState.isSignedOut) {
-    return <Onboard />;
-  }
-
-  if (!currentState.hasAccount && currentState.isSignedOut) {
+  if (currentState.type === ONBOARD) {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
@@ -269,7 +266,7 @@ function HomeScreen() {
     );
   }
 
-  if (currentState.isSignedOut) {
+  if (currentState.type === SIGN_IN) {
     return (
       <NavigationContainer>
         <ScreenConstant.Navigator screenOptions={{ headerShown: false }}>
