@@ -13,7 +13,7 @@ import { useKeyboard } from "react-native-keyboard-height";
 
 import Colors from "../../Items/Colors";
 import Dark_Button from "../../Items/Buttons/dark-bt";
-import Top_container from "./Transport_head";
+import Top_container from "./rides-head";
 
 const screenHeight = Dimensions.get("window").height;
 
