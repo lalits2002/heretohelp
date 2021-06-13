@@ -1618,11 +1618,6 @@
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^11.3.3":
-  version "11.3.3"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-11.3.3.tgz#ed106e86b2237015c2bd6f0eb20de2e88aa0df33"
-  integrity sha512-7tKYMdipsOLCQg0GgJhhOUHr76Bllk1mx9m1Pc2IgZj2QEkRNC60AzL9X56StQXAsHuTyNP6sVnOa8vAnO5Egw==
-
 "@react-navigation/bottom-tabs@^5.11.8":
   version "5.11.8"
   resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-5.11.8.tgz#0af8d5859b1ad781bdd86e8236ceaed60dc355fe"
@@ -5498,11 +5493,6 @@ react-native-elements@^2.3.2:
     react-native-ratings "^7.2.0"
     react-native-status-bar-height "^2.5.0"
 
-react-native-fbsdk-next@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-fbsdk-next/-/react-native-fbsdk-next-4.1.0.tgz#99ec5b0a637e0302504599a619ab8e30b0bf9d59"
-  integrity sha512-MWb74tcBWzLtmggSRwxP91YSwoAI806VKdNjYvyqeungH2XaGdgwKNJCDFftRlFydJrIoYJ+eY27UKomHlw/LQ==
-
 react-native-gesture-handler@^1.10.2:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
@@ -6617,9 +6607,9 @@ urix@^0.1.0:
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
 url-parse@^1.4.4:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
+  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
