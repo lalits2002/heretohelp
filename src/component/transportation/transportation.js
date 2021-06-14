@@ -5,7 +5,7 @@ import { Feather } from "@expo/vector-icons";
 
 import Colors from "../../Items/Colors";
 import Dark_Button from "../../Items/Buttons/dark-bt";
-import Picker from "./rides-picker";
+import Picker from "./transport-picker";
 import WheelPicker from "../WheelPicker/WheelPicker";
 
 const data = [
