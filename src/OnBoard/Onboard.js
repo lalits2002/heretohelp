@@ -124,7 +124,7 @@ const Onboard_screen = (props) => {
 
           <View style={[styles.content_container]}>
             <Animated.View style={[styles.page, panStyle(0)]}>
-              <Onboard_1 />a
+              <Onboard_1 />
             </Animated.View>
 
             <Animated.View style={[styles.page, panStyle(1)]}>
