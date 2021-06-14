@@ -9,7 +9,6 @@ import {
 
 import MyTabs from "./bottom-navigator";
 
-
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
 import Social_Screen1A from "../component/socialise/socialise-screen1A";
