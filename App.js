@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
-import { AppLoading } from "expo";
+import AppLoading from "expo-app-loading";
 import fb from "./src/config/firebase";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import HomeScreen from "./src/navigation/HomeScreen";

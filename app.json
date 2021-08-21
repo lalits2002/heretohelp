@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MyHelp",
-    "slug": "MyHelp",
+    "name": "my-project",
+    "slug": "my-project",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,11 +19,14 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "android": {
-      "package": "community.here2help.app"
     }
   }
 }

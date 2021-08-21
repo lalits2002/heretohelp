@@ -230,7 +230,7 @@ const ProfileScreen = (props) => {
             navigation.navigate("feedback");
           }}
         />
-        <Box lable1="Delete Account" onPress={deleteAccount} />
+        {/* <Box lable1="Delete Account" onPress={deleteAccount} /> */}
         <Box lable1="Log out from Account" onPress={signout} />
         <View style={styles.spacing}></View>
       </ScrollView>
